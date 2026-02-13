@@ -2,12 +2,24 @@
 
 :root {
   color-scheme: light;
+  --background: hsl(0 0% 100%);
+  --foreground: hsl(100 30% 33%);
+  --primary: hsl(100 45% 74%);
+  --primary-foreground: hsl(100 30% 25%);
+  --secondary: hsl(100 20% 96%);
+  --muted: hsl(100 15% 95%);
+  --muted-foreground: hsl(100 20% 50%);
+  --accent: hsl(100 35% 90%);
+  --destructive: hsl(350 89% 60%);
+  --border: hsl(100 15% 90%);
+  --dashboard: #a8cf8c;
+  --dashboard-foreground: #486e3c;
 }
 
 body {
   margin: 0;
-  background: #f8fafc;
-  color: #0f172a;
+  background: var(--background);
+  color: var(--foreground);
 }
 
 a {

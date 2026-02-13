@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 
@@ -16,6 +16,10 @@ export const metadata: Metadata = {
     locale: "fr_FR",
     siteName: "Gramme",
   },
+};
+
+export const viewport: Viewport = {
+  themeColor: "#a8cf8c",
 };
 
 export default function RootLayout({

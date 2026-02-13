@@ -16,11 +16,11 @@ export function Hero() {
         transition={{ duration: 0.6 }}
         className="space-y-6"
       >
-        <Badge className="bg-pink-100 text-pink-700 border-pink-200">ERP nouvelle génération pour artisans exigeants</Badge>
-        <h1 className="text-4xl font-extrabold tracking-tight text-slate-900 sm:text-5xl">
+        <Badge className="bg-[var(--accent)] text-[var(--dashboard-foreground)]">ERP nouvelle génération pour artisans exigeants</Badge>
+        <h1 className="text-4xl font-extrabold tracking-tight text-[var(--foreground)] sm:text-5xl">
           Arrêtez de subir vos coûts. Reprenez le contrôle de votre marge.
         </h1>
-        <p className="text-lg leading-relaxed text-slate-500">
+        <p className="text-lg leading-relaxed text-[var(--muted-foreground)]">
           Gramme transforme vos factures en décisions rentables. Automatisez la gestion de vos matières premières,
           éliminez les erreurs de calculs et retrouvez le temps de créer.
         </p>
@@ -54,19 +54,19 @@ function HeroMockup() {
     <motion.div
       animate={{ y: [0, -8, 0] }}
       transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-      className="rounded-2xl border border-slate-200 bg-gradient-to-br from-white to-slate-100 p-5 shadow-sm"
+      className="rounded-2xl border border-[var(--border)] bg-gradient-to-br from-white to-[var(--secondary)] p-5 shadow-sm"
     >
       <div className="grid gap-4 sm:grid-cols-[1.4fr_1fr]">
         <Card className="p-4">
-          <p className="text-sm font-semibold text-slate-800">Tableau de marge hebdo</p>
-          <div className="mt-4 h-36 rounded-xl bg-gradient-to-br from-slate-100 to-slate-200" />
+          <p className="text-sm font-semibold text-[var(--foreground)]">Tableau de marge hebdo</p>
+          <div className="mt-4 h-36 rounded-xl bg-gradient-to-br from-[var(--muted)] to-[var(--accent)]" />
         </Card>
         <Card className="p-4">
-          <p className="text-sm font-semibold text-slate-800">Alertes mercuriales</p>
-          <ul className="mt-4 space-y-2 text-xs text-slate-500">
-            <li className="rounded-lg bg-slate-100 p-2">Beurre +18%</li>
-            <li className="rounded-lg bg-slate-100 p-2">Farine T55 +6%</li>
-            <li className="rounded-lg bg-[#D4AF37]/15 p-2 text-[#9a7e22]">Ajuster prix conseillé</li>
+          <p className="text-sm font-semibold text-[var(--foreground)]">Alertes mercuriales</p>
+          <ul className="mt-4 space-y-2 text-xs text-[var(--muted-foreground)]">
+            <li className="rounded-lg bg-[var(--muted)] p-2">Beurre +18%</li>
+            <li className="rounded-lg bg-[var(--muted)] p-2">Farine T55 +6%</li>
+            <li className="rounded-lg bg-[var(--dashboard)]/40 p-2 text-[var(--dashboard-foreground)]">Ajuster prix conseillé</li>
           </ul>
         </Card>
       </div>

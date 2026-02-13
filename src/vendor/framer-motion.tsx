@@ -11,8 +11,12 @@ type MotionLikeProps = {
   variants?: Variants;
 };
 
-function makeMotion<K extends keyof JSX.IntrinsicElements>(tag: K) {
-  const MotionComponent = React.forwardRef<HTMLElement, JSX.IntrinsicElements[K] & MotionLikeProps>((props, ref) => {
+type IntrinsicTag = keyof React.JSX.IntrinsicElements;
+
+function makeMotion<K extends IntrinsicTag>(tag: K) {
+  type Props = React.JSX.IntrinsicElements[K] & MotionLikeProps;
+
+  const MotionComponent = React.forwardRef<HTMLElement, Props>((props, ref) => {
     const cleanProps = { ...props } as Record<string, unknown>;
     delete cleanProps.initial;
     delete cleanProps.animate;
@@ -32,6 +36,6 @@ function makeMotion<K extends keyof JSX.IntrinsicElements>(tag: K) {
 export const motion = new Proxy(
   {},
   {
-    get: (_, tag: string) => makeMotion(tag as keyof JSX.IntrinsicElements),
+    get: (_, tag: string) => makeMotion(tag as IntrinsicTag),
   }
-) as Record<keyof JSX.IntrinsicElements, ReturnType<typeof makeMotion>>;
+) as Record<IntrinsicTag, ReturnType<typeof makeMotion>>;
