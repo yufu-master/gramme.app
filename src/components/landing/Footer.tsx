@@ -1,9 +1,14 @@
+import { BrandIcon, BrandWordmark } from "@/components/landing/Brand";
 import { Button } from "@/components/ui/button";
 
 export function Footer() {
   return (
     <footer className="mx-auto w-full max-w-6xl px-6 py-20">
       <div className="rounded-2xl bg-[var(--dashboard-foreground)] p-10 text-white shadow-sm">
+        <div className="mb-4 flex items-center gap-3">
+          <BrandIcon className="rounded-md bg-white text-[var(--dashboard-foreground)]" />
+          <BrandWordmark className="text-white" />
+        </div>
         <h2 className="text-3xl font-bold">Vos marges ne s&apos;optimiseront pas toutes seules.</h2>
         <p className="mt-3 max-w-2xl text-white/80">Passez de l&apos;approximation à la décision pilotée par les données en moins d&apos;une semaine.</p>
         <div className="mt-8 flex flex-wrap gap-3">

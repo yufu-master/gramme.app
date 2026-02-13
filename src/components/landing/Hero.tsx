@@ -5,6 +5,7 @@ import { PlayCircle, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Card } from "@/components/ui/card";
+import { BrandIcon } from "@/components/landing/Brand";
 
 export function Hero() {
   return (
@@ -16,7 +17,10 @@ export function Hero() {
         transition={{ duration: 0.6 }}
         className="space-y-6"
       >
-        <Badge className="bg-[var(--accent)] text-[var(--dashboard-foreground)]">Le copilote rentabilité des boulangers & pâtissiers</Badge>
+        <div className="flex items-center gap-3">
+          <BrandIcon className="h-10 w-10 rounded-xl" />
+          <Badge className="bg-[var(--accent)] text-[var(--dashboard-foreground)]">Le copilote rentabilité des boulangers & pâtissiers</Badge>
+        </div>
         <h1 className="text-4xl font-extrabold tracking-tight text-[var(--foreground)] sm:text-5xl">
           Maîtrisez votre rentabilité au gramme près.
         </h1>
