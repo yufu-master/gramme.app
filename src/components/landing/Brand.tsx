@@ -1,16 +1,17 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
+
+const LOGO_PATH = "/logos/gramme-icon.svg";
 
 export function BrandIcon({ className }: { className?: string }) {
   return (
-    <span
-      aria-hidden="true"
-      className={cn(
-        "inline-flex h-9 w-9 items-center justify-center rounded-lg bg-[var(--dashboard)] text-sm font-extrabold text-[var(--dashboard-foreground)]",
-        className
-      )}
-    >
-      G
-    </span>
+    <Image
+      src={LOGO_PATH}
+      alt="Gramme"
+      width={36}
+      height={36}
+      className={cn("object-contain", className)}
+    />
   );
 }
 
