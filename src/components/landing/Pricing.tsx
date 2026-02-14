@@ -8,7 +8,7 @@ import { Card } from "@/components/ui/card";
 const plans = [
   {
     name: "Essentiel Atelier",
-    price: "149€",
+    price: "49€",
     period: "/mois",
     setup: "Mise en place: 490€",
     pitch: "Pour les artisans qui veulent sortir d'Excel sans complexité.",
@@ -17,7 +17,7 @@ const plans = [
   },
   {
     name: "Pro Laboratoire",
-    price: "299€",
+    price: "150€",
     period: "/mois",
     setup: "Mise en place: 990€",
     pitch: "Le meilleur levier ROI pour piloter recettes, sous-recettes et production.",
