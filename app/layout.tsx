@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "Gramme | Le Copilote de Rentabilité pour Boulangers & Pâtissiers",
   description:
     "Automatisez vos calculs de coûts, marges et mercuriales. L'ERP nouvelle génération pour l'artisanat français.",
+  icons: {
+    icon: "/logos/gramme-icon.svg",
+    shortcut: "/logos/gramme-icon.svg",
+    apple: "/logos/gramme-icon.svg",
+  },
   openGraph: {
     title: "Gramme | Le Copilote de Rentabilité pour Boulangers & Pâtissiers",
     description:

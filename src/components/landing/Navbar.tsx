@@ -1,13 +1,13 @@
-import { Button } from "@/components/ui/button";
 import { BrandIcon, BrandWordmark } from "@/components/landing/Brand";
+import { Button } from "@/components/ui/button";
 
 export function Navbar() {
   return (
     <header className="sticky top-0 z-50 border-b border-[var(--border)]/70 bg-white/80 backdrop-blur-xl">
       <nav className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4" aria-label="Navigation principale">
-        <a href="#hero" className="flex items-center gap-3" aria-label="Aller au début de la page">
-          <BrandIcon />
-          <BrandWordmark />
+        <a href="#hero" className="flex items-center gap-2" aria-label="Aller au début de la page">
+          <BrandIcon className="h-7 w-7 rounded-md text-[11px]" />
+          <BrandWordmark className="text-[11px] tracking-[0.12em]" />
         </a>
 
         <div className="hidden items-center gap-8 text-sm font-medium text-[var(--muted-foreground)] md:flex">
