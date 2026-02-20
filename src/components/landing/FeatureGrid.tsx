@@ -5,12 +5,12 @@ import { Calculator, Network, ScanLine } from "lucide-react";
 import { Card } from "@/components/ui/card";
 
 const features = [
-  ["Scanner Intelligent", "OCR via N8N pour extraire les prix des factures sans saisie manuelle.", ScanLine],
-  ["Mercuriale Dynamique", "Historique des prix sur 12 mois et alertes de variation.", Calculator],
-  ["Recettes Multi-niveaux", "Sous-recettes + pertes de cuisson calculées automatiquement.", Network],
-  ["Calculateur de Production", "Mise à l'échelle instantanée des besoins matières.", Calculator],
-  ["Analyse de Rentabilité", "Prix de vente conseillé selon marge cible.", Network],
-  ["Fiches Techniques", "Générez des fiches propres et actionnables en labo.", ScanLine],
+  ["Scanner de Factures", "Prenez une photo, l'application lit les prix et met à jour vos recettes.", ScanLine],
+  ["Suivi des Prix", "Soyez alerté quand un fournisseur augmente ses tarifs discrètement.", Calculator],
+  ["Recettes Intelligentes", "Gestion des pertes à la cuisson et des sous-recettes (crèmes, pâtes) automatique.", Network],
+  ["Calculateur de Production", "Adaptez les quantités de vos recettes en un clic selon vos besoins du jour.", Calculator],
+  ["Prix Conseillé", "L'application vous suggère le bon prix de vente pour garantir votre marge.", Network],
+  ["Fiches Labo & Allergènes", "Imprimez des fiches propres pour vos équipes et vos étiquettes magasin.", ScanLine],
 ] as const;
 
 export function FeatureGrid() {

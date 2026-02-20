@@ -4,15 +4,15 @@ import { Button } from "@/components/ui/button";
 export function Footer() {
   return (
     <footer className="mx-auto w-full max-w-6xl px-6 py-20">
-      <div className="rounded-2xl bg-[var(--dashboard-foreground)] p-10 text-white shadow-sm">
+      <div className="rounded-2xl bg-[#a8cf8c] p-10 text-white shadow-xl shadow-green-900/5">
         <div className="mb-4 flex items-center gap-3">
-          <BrandIcon className="rounded-md bg-white text-[var(--dashboard-foreground)]" />
+          <BrandIcon className="rounded-md bg-white text-[#a8cf8c]" />
           <BrandWordmark className="text-white" />
         </div>
         <h2 className="text-3xl font-bold">Vos marges ne s&apos;optimiseront pas toutes seules.</h2>
-        <p className="mt-3 max-w-2xl text-white/80">Passez de l&apos;approximation à la décision pilotée par les données en moins d&apos;une semaine.</p>
+        <p className="mt-3 max-w-2xl text-white/90">Passez de l&apos;approximation à la décision pilotée par les données en moins d&apos;une semaine.</p>
         <div className="mt-8 flex flex-wrap gap-3">
-          <Button className="bg-[var(--dashboard)] text-[var(--dashboard-foreground)] hover:brightness-95" size="lg" aria-label="Lancer mon essai gratuit maintenant">
+          <Button className="bg-white text-[#a8cf8c] hover:bg-white/90" size="lg" aria-label="Lancer mon essai gratuit maintenant">
             Essayer Gratuitement dès maintenant
           </Button>
           <a

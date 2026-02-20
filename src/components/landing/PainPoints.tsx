@@ -22,7 +22,7 @@ const points = [
 
 export function PainPoints() {
   return (
-    <section id="temoignages" className="mx-auto w-full max-w-6xl px-6 py-20">
+    <section className="mx-auto w-full max-w-6xl px-6 py-20">
       <h2 className="text-3xl font-bold text-[var(--foreground)]">Les douleurs qui freinent votre rentabilité.</h2>
       <motion.div className="mt-8 grid gap-5 md:grid-cols-3" variants={container} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.2 }}>
         {points.map((point) => (

@@ -4,46 +4,46 @@ import { motion } from "framer-motion";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { CheckCircle2 } from "lucide-react";
 
 const plans = [
   {
-    name: "Essentiel Atelier",
-    price: "149€",
+    name: "Essentiel",
+    price: "39€",
     period: "/mois",
-    setup: "Mise en place: 490€",
-    pitch: "Pour les artisans qui veulent sortir d'Excel sans complexité.",
-    items: ["1 site de production", "OCR factures (200/mois)", "Mercuriale + alertes", "Calcul coût de revient & marge"],
-    cta: "Lancer Essentiel",
+    setup: "Sans engagement",
+    pitch: "Pour sortir d'Excel et structurer vos recettes proprement.",
+    items: ["Fiches techniques illimitées", "Calcul automatique des coûts", "Gestion des allergènes", "Etiquettes magasin", "Support par chat"],
+    cta: "Commencer à 39€",
   },
   {
-    name: "Pro Laboratoire",
-    price: "299€",
+    name: "Pilotage & Rentabilité",
+    price: "89€",
     period: "/mois",
-    setup: "Mise en place: 990€",
-    pitch: "Le meilleur levier ROI pour piloter recettes, sous-recettes et production.",
-    items: ["2-5 postes utilisateurs", "OCR factures (illimité raisonnable)", "Sous-recettes en cascade", "Prix de vente conseillé selon marge cible", "Support prioritaire"],
-    cta: "Choisir Pro",
+    setup: "Rentabilisé dès le 1er mois",
+    pitch: "L'outil complet pour sécuriser vos marges face à l'inflation.",
+    items: ["Tout du plan Essentiel", "Scan de factures (Mise à jour auto des prix)", "Alertes hausse matières premières", "Commandes fournisseurs", "Inventaires", "Accès pour 3 employés"],
+    cta: "Essayer gratuitement",
     featured: true,
   },
   {
-    name: "Réseau Multi-sites",
+    name: "Réseau & Franchise",
     price: "Sur devis",
     period: "",
-    setup: "Mise en place: à partir de 1 990€",
-    pitch: "Pour les groupes artisanaux qui veulent standardiser la rentabilité.",
-    items: ["Multi-sites & gouvernance", "Onboarding équipes + process", "Connecteurs sur mesure", "CSM dédié + SLA"],
-    cta: "Parler à un expert",
+    setup: "Accompagnement dédié",
+    pitch: "Pour standardiser la production sur plusieurs boutiques.",
+    items: ["Pilotage multi-boutiques", "Centralisation des achats", "API & Intégrations caisse", "Formation des équipes", "Chef de projet dédié"],
+    cta: "Contacter l'équipe",
   },
 ];
 
 export function Pricing() {
   return (
-    <section id="tarifs" className="mx-auto w-full max-w-6xl px-6 py-20">
+    <section id="tarifs" className="mx-auto w-full max-w-7xl px-6 py-24">
       <div className="mx-auto max-w-3xl text-center">
-        <h2 className="text-3xl font-bold text-[var(--foreground)]">Des tarifs pensés pour être rentables dès le 1er mois.</h2>
+        <h2 className="text-3xl font-bold text-[var(--foreground)]">Un investissement minime pour une rentabilité assurée.</h2>
         <p className="mt-4 text-[var(--muted-foreground)]">
-          Notre stratégie est simple: un abonnement aligné sur votre maturité, avec des frais de mise en place pour
-          garantir une base de données propre, des recettes fiables et un ROI rapide.
+          Arrêtez de perdre de l'argent sur vos marges. Nos tarifs sont simples, sans frais cachés et sans engagement.
         </p>
       </div>
 
@@ -56,22 +56,25 @@ export function Pricing() {
             viewport={{ once: true, amount: 0.2 }}
             transition={{ duration: 0.5 }}
           >
-            <Card className={`h-full p-6 ${plan.featured ? "border-[var(--dashboard-foreground)] shadow-md" : ""}`}>
-              {plan.featured ? <Badge className="mb-4 bg-[var(--dashboard)] text-[var(--dashboard-foreground)]">Le plus choisi</Badge> : null}
+            <Card className={`flex h-full flex-col p-8 ${plan.featured ? "relative border-[#a8cf8c] shadow-2xl shadow-green-900/5 scale-105 z-10 bg-white" : "border-[var(--border)] bg-gray-50/50"}`}>
+              {plan.featured ? <Badge className="absolute -top-3 left-1/2 -translate-x-1/2 bg-[#a8cf8c] text-white px-4 py-1 text-sm hover:bg-[#96be7d]">Le plus vendu</Badge> : null}
               <h3 className="text-xl font-semibold text-[var(--foreground)]">{plan.name}</h3>
-              <p className="mt-2 text-[var(--muted-foreground)]">{plan.pitch}</p>
-              <p className="mt-6 text-3xl font-extrabold text-[var(--foreground)]">
+              <p className="mt-2 text-sm text-[var(--muted-foreground)] h-10">{plan.pitch}</p>
+              <p className="mt-6 text-4xl font-extrabold text-[var(--foreground)]">
                 {plan.price}
                 <span className="text-base font-medium text-[var(--muted-foreground)]">{plan.period}</span>
               </p>
-              <p className="mt-1 text-sm text-[var(--dashboard-foreground)]">{plan.setup}</p>
-              <ul className="mt-5 space-y-2 text-sm text-[var(--muted-foreground)]">
+              <p className="mt-1 text-xs font-medium text-[#a8cf8c]">{plan.setup}</p>
+              <ul className="mt-8 space-y-4 text-sm text-[var(--muted-foreground)] flex-1">
                 {plan.items.map((item) => (
-                  <li key={item}>• {item}</li>
+                  <li key={item} className="flex items-start gap-2">
+                    <CheckCircle2 className="h-4 w-4 text-[#a8cf8c] shrink-0 mt-0.5" />
+                    <span>{item}</span>
+                  </li>
                 ))}
               </ul>
               <Button
-                className={`mt-6 w-full ${plan.featured ? "bg-[var(--dashboard)] text-[var(--dashboard-foreground)]" : ""}`}
+                className={`mt-8 w-full h-12 text-base ${plan.featured ? "bg-[#a8cf8c] text-white hover:bg-[#96be7d] shadow-lg shadow-green-900/10" : "bg-white border border-[var(--border)] text-[var(--foreground)] hover:bg-gray-50"}`}
                 aria-label={`Choisir l'offre ${plan.name}`}
               >
                 {plan.cta}
