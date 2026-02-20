@@ -48,7 +48,7 @@ export function Testimonials() {
   return (
     <section id="temoignages" className="mx-auto w-full max-w-7xl px-6 py-24 bg-[#a8cf8c]/5">
       <div className="mx-auto max-w-3xl text-center mb-16">
-        <Badge variant="outline" className="mb-4 border-[var(--primary)] text-[var(--primary)]">Ils nous font confiance</Badge>
+        <Badge className="mb-4 border border-[var(--primary)] text-[var(--primary)]">Ils nous font confiance</Badge>
         <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
           Approuvé par plus de 500 artisans
         </h2>

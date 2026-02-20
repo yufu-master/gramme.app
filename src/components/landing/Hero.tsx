@@ -22,7 +22,7 @@ export function Hero() {
         className="space-y-8"
       >
         <div className="flex items-center gap-3">
-          <Badge variant="outline" className="border-[#a8cf8c] bg-[#a8cf8c]/10 px-3 py-1 text-sm text-gray-900">
+          <Badge className="border border-[#a8cf8c] bg-[#a8cf8c]/10 px-3 py-1 text-sm text-gray-900">
             ✨ Nouveau : Vos factures lues automatiquement
           </Badge>
         </div>

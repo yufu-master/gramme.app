@@ -9,7 +9,7 @@ export function FeaturesBento() {
   return (
     <section id="fonctionnalites" className="mx-auto w-full max-w-7xl px-6 py-24">
       <div className="mb-16 max-w-3xl">
-        <Badge variant="outline" className="mb-4 border-[#a8cf8c] text-[#a8cf8c]">Pensé par un Chef</Badge>
+        <Badge className="mb-4 border border-[#a8cf8c] text-[#a8cf8c]">Pensé par un Chef</Badge>
         <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
           Des outils de précision,<br className="hidden lg:block" /> conçus pour le fournil.
         </h2>
