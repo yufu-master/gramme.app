@@ -22,7 +22,7 @@ export function Navbar() {
 
         <div className="hidden items-center gap-8 text-sm font-medium text-[var(--muted-foreground)] md:flex">
           <a href="#fonctionnalites" onClick={(e) => scrollToSection(e, "fonctionnalites")} className="hover:text-[var(--foreground)]" aria-label="Voir les fonctionnalités">Fonctionnalités</a>
-          <a href="#temoignages" onClick={(e) => scrollToSection(e, "temoignages")} className="hover:text-[var(--foreground)]" aria-label="Voir les avis clients">Témoignages</a>
+          <a href="#temoignages" onClick={(e) => scrollToSection(e, "temoignages")} className="hover:text-[var(--foreground)]" aria-label="Voir les avis clients">Avis Clients</a>
           <a href="#tarifs" onClick={(e) => scrollToSection(e, "tarifs")} className="hover:text-[var(--foreground)]" aria-label="Voir les tarifs">Tarifs</a>
         </div>
 

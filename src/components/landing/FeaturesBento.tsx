@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Network, ScanLine, ChefHat, Camera } from "lucide-react";
+import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -22,19 +23,42 @@ export function FeaturesBento() {
             text="Une recette griffonnée sur un carnet ? Une facture fournisseur ? Prenez une photo. Notre IA identifie les ingrédients, les quantités et les prix pour créer votre fiche technique propre et chiffrée en quelques secondes." 
             icon={<Camera className="h-6 w-6 text-white" />} 
             iconBg="bg-[#a8cf8c]"
-            visual={<div className="mt-8 flex h-64 w-full items-center justify-center rounded-2xl border border-gray-100 bg-gray-50 shadow-inner"><span className="text-sm font-medium text-gray-400">Visualisation de l'IA en action</span></div>}
+            visual={
+              <div className="relative mt-8 h-64 w-full overflow-hidden rounded-2xl border border-gray-100 bg-gray-50 shadow-inner">
+                {/* REMPLACEZ CE BLOC PAR VOTRE IMAGE */}
+                <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-400">
+                   <ScanLine className="mb-2 h-10 w-10 opacity-20" />
+                   <span className="text-xs font-medium uppercase tracking-wider opacity-60">Capture d'écran App</span>
+                </div>
+                {/* <Image src="/votre-image-scan.png" alt="Scan App" fill className="object-cover" /> */}
+              </div>
+            }
         />
         
         <FeatureCard 
             title="Mise à jour en cascade" 
             text="Changez le prix de la farine une seule fois. Il se met à jour instantanément dans vos 40 recettes de pains et viennoiseries." 
             icon={<Network className="h-6 w-6 text-[#a8cf8c]" />} 
+            visual={
+              <div className="mt-6 h-32 w-full rounded-xl border border-dashed border-gray-200 bg-gray-50/50 p-4">
+                 <div className="flex h-full items-center justify-center text-xs text-gray-400">
+                    Graphique de dépendance
+                 </div>
+              </div>
+            }
         />
         
         <FeatureCard 
             title="Fiches Production" 
             text="Imprimez des fiches claires pour vos équipes : poids pesés, allergènes, et progression. Plus d'erreurs au labo." 
             icon={<ChefHat className="h-6 w-6 text-[#a8cf8c]" />} 
+            visual={
+              <div className="mt-6 h-32 w-full rounded-xl border border-dashed border-gray-200 bg-gray-50/50 p-4">
+                 <div className="flex h-full items-center justify-center text-xs text-gray-400">
+                    Aperçu fiche PDF
+                 </div>
+              </div>
+            }
         />
       </div>
     </section>

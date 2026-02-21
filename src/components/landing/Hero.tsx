@@ -95,10 +95,10 @@ function HeroMockup() {
         
         {/* Placeholder for App Screenshot - Replace src with your actual image */}
         <div className="relative aspect-[16/10] w-full bg-[var(--muted)]/30">
-           <div className="absolute inset-0 flex flex-col items-center justify-center text-[var(--muted-foreground)]">
+           <div className="absolute inset-0 flex flex-col items-center justify-center bg-gray-50 text-[var(--muted-foreground)]">
               <BrandIcon className="mb-4 h-16 w-16 opacity-50" />
               <p className="text-sm font-medium">Interface Gramme App</p>
-              <p className="text-xs opacity-70">Insérez votre capture d'écran ici</p>
+              <p className="text-xs opacity-50">1200 x 800 px recommandé</p>
            </div>
            {/* Uncomment below when you have the image */}
            {/* <Image src="/app-screenshot.png" alt="Gramme Dashboard" fill className="object-cover" /> */}

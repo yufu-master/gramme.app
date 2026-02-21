@@ -46,7 +46,7 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section id="temoignages" className="mx-auto w-full max-w-7xl px-6 py-24 bg-[#a8cf8c]/5">
+    <section id="temoignages" className="mx-auto w-full max-w-7xl px-6 py-24 bg-gray-50/50">
       <div className="mx-auto max-w-3xl text-center mb-16">
         <Badge className="mb-4 border border-[var(--primary)] text-[var(--primary)]">Ils nous font confiance</Badge>
         <h2 className="text-3xl font-bold tracking-tight text-[var(--foreground)] sm:text-4xl">
@@ -65,7 +65,7 @@ export function Testimonials() {
 
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {testimonials.map((t, i) => (
-          <motion.div key={i} initial={{ y: 20, opacity: 0 }} animate={{ y: 0, opacity: 1 }} transition={{ delay: i * 0.1, duration: 0.5 }}>
+          <motion.div key={i} initial={{ opacity: 0, y: 20 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true, margin: "-50px" }} transition={{ delay: i * 0.1, duration: 0.4 }}>
             <Card className="h-full p-6 border-[var(--border)] bg-white shadow-sm hover:shadow-md transition-shadow">
               <div className="flex text-[#a8cf8c] mb-3"><Star size={16} fill="currentColor" /><Star size={16} fill="currentColor" /><Star size={16} fill="currentColor" /><Star size={16} fill="currentColor" /><Star size={16} fill={t.rating === 5 ? "currentColor" : "none"} /></div>
               <p className="text-[var(--foreground)] mb-4 leading-relaxed">&quot;{t.text}&quot;</p>
