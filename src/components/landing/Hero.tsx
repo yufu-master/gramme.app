@@ -33,8 +33,9 @@ export function Hero() {
               className="absolute -bottom-2 left-0 w-full"
               viewBox="0 0 100 10"
               initial={{ pathLength: 0, opacity: 0 }}
-              animate={{ pathLength: 1, opacity: 1 }}
-              transition={{ duration: 0.8, delay: 0.5, ease: "easeOut" }}
+              whileInView={{ pathLength: 1, opacity: 1 }}
+              viewport={{ once: false }}
+              transition={{ duration: 0.8, delay: 0.2, ease: "easeOut" }}
             >
               <path d="M2 5 Q 50 10 98 5" stroke="currentColor" strokeWidth="4" fill="none" strokeLinecap="round" />
             </motion.svg>

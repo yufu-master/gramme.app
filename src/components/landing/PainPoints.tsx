@@ -16,7 +16,7 @@ const item: Variants = {
 
 const points = [
   { title: "L'Hémorragie", text: "Prix achat volatiles vs prix vente fixes.", solution: "Solution : Mercuriale Auto.", icon: AlertTriangle },
-  { title: "La Saisie", text: "50 factures le dimanche soir.", solution: "Solution : OCR N8N.", icon: Clock },
+  { title: "La Saisie", text: "50 factures le dimanche soir.", solution: "Solution : Lecture Automatique.", icon: Clock },
   { title: "L'Incertitude", text: "Erreur de conversion = perte sèche.", solution: "Solution : Calculs natifs (pertes, unités).", icon: Calculator },
 ];
 
