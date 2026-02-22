@@ -48,7 +48,7 @@ const plans = [
     cadence: "/mois",
     audience: "Pour les artisans qui veulent aller à l’essentiel.",
     cta: "Commencer",
-    items: ["50 recettes", "Scan de 30 factures/mois", "Suivi marge en temps réel", "Mise en route clé en main : 300€"],
+    items: ["50 recettes", "Scan de 30 factures/mois", "Suivi marge en temps réel", "Frais de mise en service : 300€"],
   },
   {
     name: "Pro",
@@ -57,7 +57,7 @@ const plans = [
     audience: "Pour les équipes qui pilotent production + achats.",
     cta: "Choisir Pro",
     highlight: true,
-    items: ["Recettes illimitées", "Scan de 150 factures/mois", "Stocks, fournisseurs et alertes avancées", "Support prioritaire", "Mise en route clé en main : 500€"],
+    items: ["Recettes illimitées", "Scan de 150 factures/mois", "Stocks, fournisseurs et alertes avancées", "Support prioritaire", "Frais de mise en service : 500€"],
   },
   {
     name: "Enterprise",
@@ -65,7 +65,7 @@ const plans = [
     cadence: "",
     audience: "Pour les structures multi-sites et besoins spécifiques.",
     cta: "Parler à un expert",
-    items: ["Multi-sites", "Déploiement accompagné", "Intégrations avancées", "SLA & gouvernance dédiée", "Mise en route clé en main : Sur devis"],
+    items: ["Multi-sites", "Déploiement accompagné", "Intégrations avancées", "SLA & gouvernance dédiée", "Frais de mise en service : Sur devis"],
   },
 ];
 
