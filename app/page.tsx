@@ -44,20 +44,20 @@ const featureColumns = [
 const plans = [
   {
     name: "Starter",
-    price: "79€",
+    price: "39€",
     cadence: "/mois",
     audience: "Pour les artisans qui veulent aller à l’essentiel.",
     cta: "Commencer",
-    items: ["50 recettes", "Scan de 30 factures/mois", "Suivi marge en temps réel"],
+    items: ["50 recettes", "Scan de 30 factures/mois", "Suivi marge en temps réel", "Mise en route clé en main : 300€"],
   },
   {
     name: "Pro",
-    price: "149€",
+    price: "79€",
     cadence: "/mois",
     audience: "Pour les équipes qui pilotent production + achats.",
     cta: "Choisir Pro",
     highlight: true,
-    items: ["Recettes illimitées", "Scan de 150 factures/mois", "Stocks, fournisseurs et alertes avancées", "Support prioritaire"],
+    items: ["Recettes illimitées", "Scan de 150 factures/mois", "Stocks, fournisseurs et alertes avancées", "Support prioritaire", "Mise en route clé en main : 500€"],
   },
   {
     name: "Enterprise",
@@ -65,7 +65,7 @@ const plans = [
     cadence: "",
     audience: "Pour les structures multi-sites et besoins spécifiques.",
     cta: "Parler à un expert",
-    items: ["Multi-sites", "Déploiement accompagné", "Intégrations avancées", "SLA & gouvernance dédiée"],
+    items: ["Multi-sites", "Déploiement accompagné", "Intégrations avancées", "SLA & gouvernance dédiée", "Mise en route clé en main : Sur devis"],
   },
 ];
 
@@ -103,6 +103,7 @@ export default function Home() {
             <a href="#produit">Produit</a>
             <a href="#fonctionnalites">Fonctionnalités</a>
             <a href="#tarifs">Tarifs</a>
+            <Link href="/comment-ca-marche">Comment ça marche</Link>
             <Link href="/demo">Contact</Link>
           </div>
           <a href="#demo" className="rounded-xl bg-[#a8cf8c] px-4 py-3 text-sm font-semibold text-[#264021] shadow-[0_8px_25px_rgba(120,170,95,0.35)]">Demander une démo</a>
@@ -192,7 +193,7 @@ export default function Home() {
         </section>
 
         <section id="tarifs" className="mx-auto w-full max-w-6xl px-5 pb-16">
-          <h2 className="text-3xl font-bold md:text-4xl">Tarifs clairs, impact immédiat.</h2>
+          <h2 className="text-3xl font-bold md:text-4xl">Les tarifs</h2>
           <p className="mt-2 max-w-2xl text-[var(--muted-foreground)]">La formule Pro est conçue pour la majorité des boulangeries ambitieuses.</p>
           <div className="mt-8 grid gap-5 lg:grid-cols-3">
             {plans.map((plan) => (
