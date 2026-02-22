@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { Network, ScanLine, ChefHat, Camera } from "lucide-react";
-import Image from "next/image";
 import { Card } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 
@@ -28,7 +27,7 @@ export function FeaturesBento() {
                 {/* REMPLACEZ CE BLOC PAR VOTRE IMAGE */}
                 <div className="absolute inset-0 flex flex-col items-center justify-center text-gray-400">
                    <ScanLine className="mb-2 h-10 w-10 opacity-20" />
-                   <span className="text-xs font-medium uppercase tracking-wider opacity-60">Capture d'écran App</span>
+                   <span className="text-xs font-medium uppercase tracking-wider opacity-60">Capture d&apos;écran App</span>
                 </div>
                 {/* <Image src="/votre-image-scan.png" alt="Scan App" fill className="object-cover" /> */}
               </div>
