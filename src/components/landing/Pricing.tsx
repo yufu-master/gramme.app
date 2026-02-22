@@ -33,7 +33,7 @@ const plans = [
     setup: "Accompagnement dédié",
     pitch: "Pour standardiser la production sur plusieurs boutiques.",
     items: ["Pilotage multi-boutiques", "Centralisation des achats", "API & Intégrations caisse", "Formation des équipes", "Chef de projet dédié"],
-    cta: "Contacter l'équipe",
+    cta: "Contacter l&apos;équipe",
   },
 ];
 
@@ -43,7 +43,7 @@ export function Pricing() {
       <div className="mx-auto max-w-3xl text-center">
         <h2 className="text-3xl font-bold text-[var(--foreground)]">Un investissement minime pour une rentabilité assurée.</h2>
         <p className="mt-4 text-[var(--muted-foreground)]">
-          Arrêtez de perdre de l'argent sur vos marges. Nos tarifs sont simples, sans frais cachés et sans engagement.
+          Arrêtez de perdre de l&apos;argent sur vos marges. Nos tarifs sont simples, sans frais cachés et sans engagement.
         </p>
       </div>
 

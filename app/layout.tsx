@@ -1,40 +1,43 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"], display: "swap" });
 
 export const metadata: Metadata = {
-  title: "Gramme | Le Copilote de Rentabilité pour Boulangers & Pâtissiers",
+  metadataBase: new URL("https://gramme.app"),
+  title: "Logiciel gestion boulangerie | Gramme",
   description:
-    "Automatisez vos calculs de coûts, marges et mercuriales. L'ERP nouvelle génération pour l'artisanat français.",
+    "Gramme aide les boulangers-pâtissiers à piloter recettes, coûts matière, production, stock et marges en temps réel.",
+  keywords: [
+    "logiciel gestion boulangerie",
+    "calcul coût recette pâtisserie",
+    "logiciel pâtissier artisan",
+  ],
+  openGraph: {
+    title: "Gramme | Pilotez votre boulangerie au gramme près",
+    description:
+      "Centralisez recettes, factures fournisseurs, stock et production pour sécuriser votre rentabilité.",
+    url: "https://gramme.app",
+    siteName: "Gramme",
+    locale: "fr_FR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Gramme | Logiciel gestion boulangerie",
+    description:
+      "Recettes, factures, stock et marges réunis dans un outil simple pour boulangers-pâtissiers.",
+  },
   icons: {
     icon: "/logos/gramme-icon.svg",
-    shortcut: "/logos/gramme-icon.svg",
-    apple: "/logos/gramme-icon.svg",
-  },
-  openGraph: {
-    title: "Gramme | Le Copilote de Rentabilité pour Boulangers & Pâtissiers",
-    description:
-      "Automatisez vos calculs de coûts, marges et mercuriales. L'ERP nouvelle génération pour l'artisanat français.",
-    type: "website",
-    locale: "fr_FR",
-    siteName: "Gramme",
   },
 };
 
-export const viewport: Viewport = {
-  themeColor: "#a8cf8c",
-};
+export const viewport: Viewport = { themeColor: "#a8cf8c" };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="fr">
-      <body className={`${inter.className} antialiased`}>{children}</body>
+      <body className="antialiased">{children}</body>
     </html>
   );
 }

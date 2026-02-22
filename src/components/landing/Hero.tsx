@@ -2,10 +2,8 @@
 
 import { motion } from "framer-motion";
 import { PlayCircle, TrendingUp, CheckCircle2 } from "lucide-react";
-import Image from "next/image";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
-import { Card } from "@/components/ui/card";
 import { BrandIcon } from "@/components/landing/Brand";
 
 export function Hero() {
