@@ -12,7 +12,7 @@ const featureColumns = [
   {
     title: "Recettes intelligentes",
     icon: BookIcon,
-    bullets: ["Catalogue recettes clair", "Coût matière & marge", "Pertes cuisson et poids net", "Impression fiche technique"],
+    bullets: ["Catalogue recettes clair", "Saisie automatique des recettes simplifiées et optimisées (gain de temps énorme)", "Coût matière & marge", "Pertes cuisson et poids net", "Impression fiche technique"],
   },
   {
     title: "Production maîtrisée",
@@ -22,7 +22,7 @@ const featureColumns = [
   {
     title: "Achats & mercuriale",
     icon: ScanIcon,
-    bullets: ["Scan facture image/PDF", "Historique prix matière", "Recettes impactées par les hausses", "Détail factures et lignes produits"],
+    bullets: ["Scan facture image/PDF", "Suivi réel de l’évolution des prix des matières premières", "Suivi réel de l’évolution des prix des recettes", "Recettes impactées par les hausses", "Détail factures et lignes produits"],
   },
   {
     title: "Stock opérationnel",
@@ -123,10 +123,9 @@ export default function Home() {
               au <span className="relative inline-block px-1 text-[#a8cf8c]">Gramme<span aria-hidden className="absolute -bottom-3 left-0 w-full"><svg viewBox="0 0 520 34" className="h-4 w-full" preserveAspectRatio="none"><path d="M8 18C90 27 173 30 260 30C347 30 430 27 512 18" fill="none" stroke="#a8cf8c" strokeWidth="14" strokeLinecap="round" /></svg></span></span> près.
             </h1>
             <p className="mt-5 max-w-2xl text-lg text-[var(--muted-foreground)]">
-              Inspiré des standards produit les plus exigeants, Gramme structure vos recettes, vos achats et votre production dans une expérience claire et sans compromis.
+              Gramme est une application dédiée aux petites entreprises : vous accédez à une gestion optimisée, concrète et accessible, sans complexité inutile.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#demo" className="rounded-xl bg-[#264021] px-5 py-3 font-semibold text-white">Réserver une démo</a>
               <a href="#tarifs" className="rounded-xl border border-[var(--border)] bg-white px-5 py-3 font-semibold text-[#264021]">Voir les offres</a>
             </div>
           </div>
@@ -136,8 +135,8 @@ export default function Home() {
               {[
                 "Marge matière en direct",
                 "Production synchronisée au stock",
+                "Saisie des recettes simplifiées et optimisées",
                 "Factures converties en décisions",
-                "Pilotage multi-équipes",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--secondary)] p-3 text-sm font-medium text-[#355329]">
                   <CheckIcon className="size-4 text-[#6e9f55]" />
@@ -162,8 +161,8 @@ export default function Home() {
         </section>
 
         <section id="produit" className="mx-auto w-full max-w-6xl px-5 py-16">
-          <h2 className="text-3xl font-bold md:text-4xl">Une plateforme pensée comme un produit efficace, rapide et fiable.</h2>
-          <p className="mt-4 max-w-3xl text-[var(--muted-foreground)]">Chaque interaction a été simplifiée pour réduire le bruit opérationnel. Vous gardez votre direction artistique et votre identité, tout en gagnant une présentation plus premium et crédible.</p>
+          <h2 className="text-3xl font-bold md:text-4xl">Une application pensée pour les petites entreprises, efficace, rapide et fiable.</h2>
+          <p className="mt-4 max-w-3xl text-[var(--muted-foreground)]">Chaque interaction est conçue pour offrir une gestion optimisée mais accessible : moins de friction, plus de visibilité, et des décisions simples à prendre au quotidien.</p>
         </section>
 
         <section id="fonctionnalites" className="mx-auto w-full max-w-6xl px-5 pb-16">
