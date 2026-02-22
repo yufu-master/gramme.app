@@ -93,13 +93,13 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#f6fbf2,_#ffffff_45%)] text-[var(--foreground)]">
-      <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-white/85 backdrop-blur-xl">
-        <nav className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-4">
+      <header className="fixed inset-x-0 top-0 z-50 border-b border-[var(--border)] bg-white/90 backdrop-blur-xl">
+        <nav className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-3">
           <Link href="/" className="flex items-center gap-2 text-lg font-black tracking-wide">
             <Image src="/logos/gramme-icon.svg" alt="Logo Gramme" width={28} height={28} />
             <span>GRAMME</span>
           </Link>
-          <div className="hidden items-center gap-6 text-sm text-[var(--muted-foreground)] md:flex">
+          <div className="hidden items-center gap-6 text-sm text-[var(--muted-foreground)] lg:flex">
             <a href="#produit">Produit</a>
             <a href="#fonctionnalites">Fonctionnalités</a>
             <a href="#tarifs">Tarifs</a>
@@ -107,10 +107,17 @@ export default function Home() {
             <Link href="/demo">Contact</Link>
           </div>
           <a href="#demo" className="rounded-xl bg-[#a8cf8c] px-4 py-3 text-sm font-semibold text-[#264021] shadow-[0_8px_25px_rgba(120,170,95,0.35)]">Demander une démo</a>
+          <div className="flex w-full items-center gap-4 overflow-x-auto text-sm text-[var(--muted-foreground)] lg:hidden">
+            <a href="#produit" className="whitespace-nowrap">Produit</a>
+            <a href="#fonctionnalites" className="whitespace-nowrap">Fonctionnalités</a>
+            <a href="#tarifs" className="whitespace-nowrap">Tarifs</a>
+            <Link href="/mentions-legales" className="whitespace-nowrap">Mentions légales</Link>
+            <Link href="/cgv" className="whitespace-nowrap">CGV</Link>
+          </div>
         </nav>
       </header>
 
-      <main>
+      <main className="pt-28 sm:pt-24 lg:pt-20">
         <section className="mx-auto grid w-full max-w-6xl gap-10 px-5 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
           <div>
             <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#a8cf8c]/40 bg-[#a8cf8c]/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#264021]">
@@ -235,6 +242,16 @@ export default function Home() {
           </div>
         </section>
       </main>
+
+      <footer className="border-t border-[var(--border)] bg-white/80">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-5 py-8 text-sm text-[var(--muted-foreground)] sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-wrap items-center gap-5">
+            <Link href="/mentions-legales" className="hover:text-[var(--foreground)]">Mentions légales</Link>
+            <Link href="/cgv" className="hover:text-[var(--foreground)]">CGV</Link>
+          </div>
+          <p>© {new Date().getFullYear()} Gramme</p>
+        </div>
+      </footer>
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
     </div>
