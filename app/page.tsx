@@ -161,7 +161,7 @@ export default function Home() {
         </section>
 
         <section id="produit" className="mx-auto w-full max-w-6xl px-5 py-16">
-          <h2 className="text-3xl font-bold md:text-4xl">Une plateforme pensée comme un produit de luxe : nette, rapide, fiable.</h2>
+          <h2 className="text-3xl font-bold md:text-4xl">Une plateforme pensée comme un produit efficace, rapide et fiable.</h2>
           <p className="mt-4 max-w-3xl text-[var(--muted-foreground)]">Chaque interaction a été simplifiée pour réduire le bruit opérationnel. Vous gardez votre direction artistique et votre identité, tout en gagnant une présentation plus premium et crédible.</p>
         </section>
 
