@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-white font-sans selection:bg-[#a8cf8c]/30">
       <Navbar />
-      <main className="flex flex-col gap-12 md:gap-20">
+      <main className="flex flex-col gap-12 pt-24 md:gap-20 md:pt-28">
         <Hero />
         <TrustBand />
         <PainPoints />

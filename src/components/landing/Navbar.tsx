@@ -13,7 +13,7 @@ export function Navbar() {
   };
 
   return (
-    <header className="sticky top-0 z-50 border-b border-[var(--border)]/70 bg-white/80 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-[var(--border)]/70 bg-white/90 backdrop-blur-xl">
       <nav className="mx-auto flex w-full max-w-6xl items-center justify-between px-6 py-4" aria-label="Navigation principale">
         <a href="#hero" onClick={(e) => scrollToSection(e, "hero")} className="flex items-center gap-2" aria-label="Aller au début de la page">
           <BrandIcon className="h-7 w-7 rounded-md text-[11px]" />
@@ -28,7 +28,7 @@ export function Navbar() {
 
         <div className="flex items-center gap-3">
           <Button variant="ghost" size="sm" className="text-muted-foreground hover:text-foreground" aria-label="Se connecter à Gramme">Connexion</Button>
-          <Button className="bg-[#a8cf8c] text-white hover:bg-[#96be7d] shadow-sm" aria-label="Essayer Gramme gratuitement">Essayer Gratuitement</Button>
+          <Button className="bg-[#a8cf8c] text-white hover:bg-[#96be7d] shadow-sm" aria-label="Essayer Gramme gratuitement">CTA · Essayer Gratuitement</Button>
         </div>
       </nav>
     </header>
