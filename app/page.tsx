@@ -140,10 +140,10 @@ export default function Home() {
             <p className="text-sm font-semibold uppercase tracking-wider text-[#6e9f55]">Vue stratégique</p>
             <div className="mt-5 space-y-3">
               {[
-                "Marge matière en direct",
-                "Production synchronisée au stock",
                 "Saisie des recettes simplifiées et optimisées",
+                "Production synchronisée au stock",
                 "Factures converties en décisions",
+                "Marge matière en direct",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--secondary)] p-3 text-sm font-medium text-[#355329]">
                   <CheckIcon className="size-4 text-[#6e9f55]" />
@@ -168,8 +168,8 @@ export default function Home() {
         </section>
 
         <section id="produit" className="mx-auto w-full max-w-6xl px-5 py-16">
-          <h2 className="text-3xl font-bold md:text-4xl">Une application pensée pour les petites entreprises, efficace, rapide et fiable.</h2>
-          <p className="mt-4 max-w-3xl text-[var(--muted-foreground)]">Chaque interaction est conçue pour offrir une gestion optimisée mais accessible : moins de friction, plus de visibilité, et des décisions simples à prendre au quotidien.</p>
+          <h2 className="text-3xl font-bold md:text-4xl">Une application pensée pour les petites entreprises: efficace, rapide et fiable.</h2>
+          <p className="mt-4 max-w-3xl text-[var(--muted-foreground)]">Chaque outil est pensé pour vous simplifier la vie : moins de prise de tête, une vue claire sur vos chiffres, et des décisions faciles à prendre au quotidien.</p>
         </section>
 
         <section id="fonctionnalites" className="mx-auto w-full max-w-6xl px-5 pb-16">
