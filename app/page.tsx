@@ -10,19 +10,19 @@ const trustItems = [
 
 const featureColumns = [
   {
-    title: "Recettes intelligentes",
+    title: "Fiches techniques intelligentes",
     icon: BookIcon,
-    bullets: ["Catalogue recettes clair", "Saisie automatique des recettes simplifiées et optimisées (gain de temps énorme)", "Coût matière & marge", "Pertes cuisson et poids net", "Impression fiche technique"],
+    bullets: ["Saisie automatique des fiches techniques", "Répertoire de recettes clair", "Gestion des pertes", "Coût matière et marges", "Impression de fiches techniques"],
   },
   {
     title: "Production maîtrisée",
     icon: LayersIcon,
-    bullets: ["Sélection des recettes du jour", "Liste de pesée globale / par recette", "Coût batch estimé", "Mise à jour stock automatique"],
+    bullets: ["Planning de production jour par jour", "Liste des matières premières / recettes", "Coût de production", "Mise à jour du stock automatique"],
   },
   {
     title: "Achats & mercuriale",
     icon: ScanIcon,
-    bullets: ["Scan facture image/PDF", "Suivi réel de l’évolution des prix des matières premières", "Suivi réel de l’évolution des prix des recettes", "Recettes impactées par les hausses", "Détail factures et lignes produits"],
+    bullets: ["Scan automatique des factures", "Suivi réel de l'évolution des prix des matières premières", "Recettes importées en temps réel par l'évolution des prix", "Historique et détail des factures"],
   },
   {
     title: "Stock opérationnel",
@@ -47,7 +47,7 @@ const plans = [
     price: "39€",
     cadence: "/mois",
     audience: "Pour les artisans qui veulent aller à l’essentiel.",
-    cta: "Commencer",
+    cta: "commencer",
     items: ["50 recettes", "Scan de 30 factures/mois", "Suivi marge en temps réel", "Frais de mise en service : 300€"],
   },
   {
@@ -55,7 +55,7 @@ const plans = [
     price: "79€",
     cadence: "/mois",
     audience: "Pour les équipes qui pilotent production + achats.",
-    cta: "Choisir Pro",
+    cta: "commencer",
     highlight: true,
     items: ["Recettes illimitées", "Scan de 150 factures/mois", "Stocks, fournisseurs et alertes avancées", "Support prioritaire", "Frais de mise en service : 500€"],
   },
@@ -141,9 +141,9 @@ export default function Home() {
             <div className="mt-5 space-y-3">
               {[
                 "Saisie des recettes simplifiées et optimisées",
-                "Production synchronisée au stock",
-                "Factures converties en décisions",
-                "Marge matière en direct",
+                "Production simplifiée et synchronisée au stock",
+                "Factures intelligentes",
+                "Mise à jour des marges au quotidien",
               ].map((item) => (
                 <div key={item} className="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--secondary)] p-3 text-sm font-medium text-[#355329]">
                   <CheckIcon className="size-4 text-[#6e9f55]" />
@@ -237,8 +237,8 @@ export default function Home() {
         <section id="demo" className="mx-auto w-full max-w-6xl px-5 pb-16">
           <div className="rounded-3xl bg-[#264021] p-8 text-white">
             <h2 className="text-3xl font-bold">Passez d’un pilotage artisanal à une performance maîtrisée.</h2>
-            <p className="mt-3 max-w-3xl text-white/85">En 15 minutes, découvrez comment Gramme transforme vos données terrain en décisions rentables.</p>
-            <Link href="/demo" className="mt-6 inline-flex rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]">Planifier une démo</Link>
+            <p className="mt-3 max-w-3xl text-white/85">Découvrez comment Gramme transforme vos données en décisions rentables.</p>
+            <Link href="/demo" className="mt-6 inline-flex rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]">Demander une démonstration</Link>
           </div>
         </section>
       </main>
