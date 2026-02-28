@@ -100,7 +100,6 @@ export default function Home() {
             <span>GRAMME</span>
           </Link>
           <div className="hidden items-center gap-6 text-sm text-[var(--muted-foreground)] lg:flex">
-            <a href="#produit">Produit</a>
             <a href="#fonctionnalites">Fonctionnalités</a>
             <a href="#tarifs">Tarifs</a>
             <Link href="/comment-ca-marche">Comment ça marche</Link>
@@ -108,7 +107,6 @@ export default function Home() {
           </div>
           <a href="#demo" className="rounded-xl bg-[#a8cf8c] px-4 py-3 text-sm font-semibold text-[#264021] shadow-[0_8px_25px_rgba(120,170,95,0.35)]">Demander une démo</a>
           <div className="flex w-full items-center gap-4 overflow-x-auto text-sm text-[var(--muted-foreground)] lg:hidden">
-            <a href="#produit" className="whitespace-nowrap">Produit</a>
             <a href="#fonctionnalites" className="whitespace-nowrap">Fonctionnalités</a>
             <a href="#tarifs" className="whitespace-nowrap">Tarifs</a>
             <Link href="/mentions-legales" className="whitespace-nowrap">Mentions légales</Link>
