@@ -101,23 +101,22 @@ export default function Page() {
     <div className="bg-[#FAFAF8] text-[#264021]">
       <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-white/95 backdrop-blur-xl">
         <nav className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-3">
-          <Link href="/" className="flex items-center gap-2 text-lg font-black tracking-wide">
-            <Image src="/logos/gramme-icon.svg" alt="Logo Gramme" width={28} height={28} />
+          <Link href="/" className="flex items-center gap-2 text-xl font-black tracking-wide">
+            <Image src="/logos/gramme-icon.svg" alt="Logo Gramme" width={31} height={31} />
             <span>GRAMME</span>
           </Link>
           <div className="hidden items-center gap-6 text-sm text-[var(--muted-foreground)] lg:flex">
             <Link href="/fonctionnalites">Fonctionnalités</Link>
             <Link href="/tarifs">Tarifs</Link>
-            <Link href="/a-propos-de-gramme">À propos de Gramme</Link>
             <Link href="/comment-ca-marche" className="font-semibold text-[#355329]">Comment ça marche</Link>
+            <Link href="/a-propos-de-gramme">À propos de Gramme</Link>
             <Link href="/demo">Contact</Link>
           </div>
-          <Link href="/demo" className="rounded-xl bg-[#a8cf8c] px-4 py-3 text-sm font-semibold text-[#264021]">Demander une démo</Link>
           <div className="flex w-full items-center gap-4 overflow-x-auto text-sm text-[var(--muted-foreground)] lg:hidden">
             <Link href="/fonctionnalites" className="whitespace-nowrap">Fonctionnalités</Link>
             <Link href="/tarifs" className="whitespace-nowrap">Tarifs</Link>
-            <Link href="/a-propos-de-gramme" className="whitespace-nowrap">À propos de Gramme</Link>
             <Link href="/comment-ca-marche" className="whitespace-nowrap font-semibold text-[#355329]">Comment ça marche</Link>
+            <Link href="/a-propos-de-gramme" className="whitespace-nowrap">À propos de Gramme</Link>
             <Link href="/demo" className="whitespace-nowrap">Contact</Link>
           </div>
         </nav>

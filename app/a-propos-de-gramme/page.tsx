@@ -35,8 +35,8 @@ export default function AProposDeGrammePage() {
     <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#f6fbf2,_#ffffff_50%)] text-[var(--foreground)]">
       <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-white/90 backdrop-blur-xl">
         <nav className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-3">
-          <Link href="/" className="flex items-center gap-2 text-lg font-black tracking-wide">
-            <Image src="/logos/gramme-icon.svg" alt="Logo Gramme" width={28} height={28} />
+          <Link href="/" className="flex items-center gap-2 text-xl font-black tracking-wide">
+            <Image src="/logos/gramme-icon.svg" alt="Logo Gramme" width={31} height={31} />
             <span>GRAMME</span>
           </Link>
           <div className="flex items-center gap-4 text-sm text-[var(--muted-foreground)]">
