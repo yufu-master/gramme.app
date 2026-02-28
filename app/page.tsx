@@ -94,12 +94,12 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#f6fbf2,_#ffffff_45%)] text-[var(--foreground)]">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-[var(--border)] bg-white/90 backdrop-blur-xl">
-        <nav className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-3">
-          <Link href="/" className="flex items-center gap-2 text-xl font-black tracking-wide">
-            <Image src="/logos/gramme-icon.svg" alt="Logo Gramme" width={31} height={31} />
+        <nav className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-3 lg:relative">
+          <Link href="/" className="flex items-center gap-2 text-[1.44rem] font-black tracking-wide">
+            <Image src="/logos/gramme-icon.svg" alt="Logo Gramme" width={36} height={36} />
             <span>GRAMME</span>
           </Link>
-          <div className="hidden items-center gap-6 text-sm text-[var(--muted-foreground)] lg:flex">
+          <div className="hidden items-center gap-6 text-sm text-[var(--muted-foreground)] lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:flex">
             <a href="#fonctionnalites">Fonctionnalités</a>
             <a href="#tarifs">Tarifs</a>
             <Link href="/comment-ca-marche">Comment ça marche</Link>

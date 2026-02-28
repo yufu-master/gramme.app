@@ -100,12 +100,12 @@ export default function Page() {
   return (
     <div className="bg-[#FAFAF8] text-[#264021]">
       <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-white/95 backdrop-blur-xl">
-        <nav className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-3">
-          <Link href="/" className="flex items-center gap-2 text-xl font-black tracking-wide">
-            <Image src="/logos/gramme-icon.svg" alt="Logo Gramme" width={31} height={31} />
+        <nav className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-3 lg:relative">
+          <Link href="/" className="flex items-center gap-2 text-[1.44rem] font-black tracking-wide">
+            <Image src="/logos/gramme-icon.svg" alt="Logo Gramme" width={36} height={36} />
             <span>GRAMME</span>
           </Link>
-          <div className="hidden items-center gap-6 text-sm text-[var(--muted-foreground)] lg:flex">
+          <div className="hidden items-center gap-6 text-sm text-[var(--muted-foreground)] lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:flex">
             <Link href="/fonctionnalites">Fonctionnalités</Link>
             <Link href="/tarifs">Tarifs</Link>
             <Link href="/comment-ca-marche" className="font-semibold text-[#355329]">Comment ça marche</Link>
