@@ -12,27 +12,27 @@ const featureColumns = [
   {
     title: "Fiches techniques intelligentes",
     icon: BookIcon,
-    bullets: ["Saisie automatique des fiches techniques", "Répertoire de recettes clair", "Gestion des pertes", "Coût matière et marges", "Impression de fiches techniques"],
+    bullets: ["Saisie automatique des fiches techniques", "Répertoire de recettes clair", "Gestion des pertes", "Coûts matières et marges", "Impression de fiches techniques"],
   },
   {
     title: "Production maîtrisée",
     icon: LayersIcon,
-    bullets: ["Planning de production jour par jour", "Liste des matières premières / recettes", "Coût de production", "Mise à jour du stock automatique"],
+    bullets: ["Planning de production jour par jour", "Liste des matières premières et recettes utilisées", "Coût de production", "Mise à jour du stock automatique"],
   },
   {
     title: "Achats & mercuriale",
     icon: ScanIcon,
-    bullets: ["Scan automatique des factures", "Suivi réel de l'évolution des prix des matières premières", "Recettes importées en temps réel par l'évolution des prix", "Historique et détail des factures"],
+    bullets: ["Scan automatique des factures", "Suivi réel de l'évolution des prix des matières premières", "Recettes impactées en temps réel par l'évolution des prix", "Historique et détail des factures"],
   },
   {
     title: "Stock opérationnel",
     icon: BoxIcon,
-    bullets: ["Recherche, filtres, catégories", "Édition rapide prix / stock / fournisseur", "Valeur du stock en un coup d’œil"],
+    bullets: ["Recherche, filtres et catégories", "Édition rapide des prix, de stock et des fournisseurs", "Valeur du stock en un coup d’œil"],
   },
   {
     title: "Fournisseurs centralisés",
     icon: UsersIcon,
-    bullets: ["Carnet fournisseurs", "Coordonnées, actions appel/mail", "Produits liés et volume d’achat estimé"],
+    bullets: ["Carnet fournisseurs", "Coordonnées, contact par e-mail ou appel", "Produits affiliés et volume d’achat estimé"],
   },
   {
     title: "Décisions plus rapides",
@@ -47,7 +47,7 @@ const plans = [
     price: "39€",
     cadence: "/mois",
     audience: "Pour les artisans qui veulent aller à l’essentiel.",
-    cta: "commencer",
+    cta: "Commencer",
     items: ["50 recettes", "Scan de 30 factures/mois", "Suivi marge en temps réel", "Frais de mise en service : 300€"],
   },
   {
@@ -55,7 +55,7 @@ const plans = [
     price: "79€",
     cadence: "/mois",
     audience: "Pour les équipes qui pilotent production + achats.",
-    cta: "commencer",
+    cta: "Commencer",
     highlight: true,
     items: ["Recettes illimitées", "Scan de 150 factures/mois", "Stocks, fournisseurs et alertes avancées", "Support prioritaire", "Frais de mise en service : 500€"],
   },
@@ -167,7 +167,7 @@ export default function Home() {
 
         <section id="produit" className="mx-auto w-full max-w-6xl px-5 py-16">
           <h2 className="text-3xl font-bold md:text-4xl">Une application pensée pour les petites entreprises: efficace, rapide et fiable.</h2>
-          <p className="mt-4 max-w-3xl text-[var(--muted-foreground)]">Chaque outil est pensé pour vous simplifier la vie : moins de prise de tête, une vue claire sur vos chiffres, et des décisions faciles à prendre au quotidien.</p>
+          <p className="mt-4 max-w-3xl text-[var(--muted-foreground)]">Chaque outil est pensé pour vous simplifier la vie : plus de problèmes gestion, une vue claire sur vos chiffres, et des décisions faciles à prendre au quotidien.</p>
         </section>
 
         <section id="fonctionnalites" className="mx-auto w-full max-w-6xl px-5 pb-16">
@@ -198,8 +198,7 @@ export default function Home() {
 
         <section id="tarifs" className="mx-auto w-full max-w-6xl px-5 pb-16">
           <h2 className="text-3xl font-bold md:text-4xl">Les tarifs</h2>
-          <p className="mt-2 max-w-2xl text-[var(--muted-foreground)]">La formule Pro est conçue pour la majorité des boulangeries ambitieuses.</p>
-          <div className="mt-8 grid gap-5 lg:grid-cols-3">
+                    <div className="mt-8 grid gap-5 lg:grid-cols-3">
             {plans.map((plan) => (
               <article
                 key={plan.name}
@@ -234,7 +233,7 @@ export default function Home() {
 
         <section id="demo" className="mx-auto w-full max-w-6xl px-5 pb-16">
           <div className="rounded-3xl bg-[#264021] p-8 text-white">
-            <h2 className="text-3xl font-bold">Passez d’un pilotage artisanal à une performance maîtrisée.</h2>
+            <h2 className="text-3xl font-bold">Passez d’une méthode  artisanale à une gestion performante et maîtrisée.</h2>
             <p className="mt-3 max-w-3xl text-white/85">Découvrez comment Gramme transforme vos données en décisions rentables.</p>
             <Link href="/demo" className="mt-6 inline-flex rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]">Demander une démonstration</Link>
           </div>
