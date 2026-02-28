@@ -108,6 +108,7 @@ export default function Page() {
           <div className="hidden items-center gap-6 text-sm text-[var(--muted-foreground)] lg:flex">
             <Link href="/fonctionnalites">Fonctionnalités</Link>
             <Link href="/tarifs">Tarifs</Link>
+            <Link href="/a-propos-de-gramme">À propos de Gramme</Link>
             <Link href="/comment-ca-marche" className="font-semibold text-[#355329]">Comment ça marche</Link>
             <Link href="/demo">Contact</Link>
           </div>
@@ -115,6 +116,7 @@ export default function Page() {
           <div className="flex w-full items-center gap-4 overflow-x-auto text-sm text-[var(--muted-foreground)] lg:hidden">
             <Link href="/fonctionnalites" className="whitespace-nowrap">Fonctionnalités</Link>
             <Link href="/tarifs" className="whitespace-nowrap">Tarifs</Link>
+            <Link href="/a-propos-de-gramme" className="whitespace-nowrap">À propos de Gramme</Link>
             <Link href="/comment-ca-marche" className="whitespace-nowrap font-semibold text-[#355329]">Comment ça marche</Link>
             <Link href="/demo" className="whitespace-nowrap">Contact</Link>
           </div>

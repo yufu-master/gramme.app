@@ -102,6 +102,7 @@ export default function Home() {
           <div className="hidden items-center gap-6 text-sm text-[var(--muted-foreground)] lg:flex">
             <a href="#fonctionnalites">Fonctionnalités</a>
             <a href="#tarifs">Tarifs</a>
+            <Link href="/a-propos-de-gramme">À propos de Gramme</Link>
             <Link href="/comment-ca-marche">Comment ça marche</Link>
             <Link href="/demo">Contact</Link>
           </div>
@@ -109,8 +110,9 @@ export default function Home() {
           <div className="flex w-full items-center gap-4 overflow-x-auto text-sm text-[var(--muted-foreground)] lg:hidden">
             <a href="#fonctionnalites" className="whitespace-nowrap">Fonctionnalités</a>
             <a href="#tarifs" className="whitespace-nowrap">Tarifs</a>
-            <Link href="/mentions-legales" className="whitespace-nowrap">Mentions légales</Link>
-            <Link href="/cgv" className="whitespace-nowrap">CGV</Link>
+            <Link href="/a-propos-de-gramme" className="whitespace-nowrap">À propos de Gramme</Link>
+            <Link href="/comment-ca-marche" className="whitespace-nowrap">Comment ça marche</Link>
+            <Link href="/demo" className="whitespace-nowrap">Contact</Link>
           </div>
         </nav>
       </header>
