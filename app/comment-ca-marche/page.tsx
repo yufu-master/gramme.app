@@ -32,8 +32,8 @@ const steps = [
   },
   {
     id: "02",
-    stat: "+3 h gagnées par semaine",
-    title: "Photographiez vos recettes, l'IA fait le reste",
+    stat: "plusieurs heures gagnées par semaine",
+    title: "Photographiez vos recettes, Gramme fait le reste",
     description:
       "Vous prenez une photo de votre cahier de recettes ou de vos fiches papier du labo. Gramme lit automatiquement les ingrédients, les quantités et les informations utiles, puis crée une fiche technique digitale complète. Le coût matière et la marge sont calculés sans saisie manuelle, même avec des notes manuscrites. En quelques secondes, vos recettes deviennent exploitables pour piloter votre rentabilité.",
     bullets: [
@@ -41,14 +41,14 @@ const steps = [
       "Calcul automatique du coût matière et de la marge par recette",
       "Fini la ressaisie manuelle, même avec des notes manuscrites",
     ],
-    visual: "Visuel en split-screen : photo d&apos;une fiche papier à gauche, fiche technique Gramme générée à droite.",
+    visual: "Visuel en split-screen : photo d'une fiche papier à gauche, fiche technique Gramme générée à droite.",
   },
   {
     id: "03",
     stat: "1 facture = toutes vos recettes à jour",
     title: "Scannez vos factures, les prix se mettent à jour partout",
     description:
-      "Vous photographiez ou importez vos factures fournisseurs. Gramme récupère automatiquement chaque ligne utile, met à jour votre mercuriale et compare les variations de prix. Dès qu&apos;une matière première évolue, toutes les recettes concernées sont recalculées instantanément. Vous évitez les mauvaises surprises et gardez des marges fiables au quotidien.",
+      "Vous photographiez ou importez vos factures fournisseurs. Gramme récupère automatiquement chaque ligne utile, met à jour votre mercuriale et compare les variations de prix. Dès qu'une matière première évolue, toutes les recettes concernées sont recalculées instantanément. Vous évitez les mauvaises surprises et gardez des marges fiables au quotidien.",
     bullets: [
       "Scan intelligent, plus besoin de ressaisir chaque ligne",
       "Détection automatique des variations de prix fournisseurs",
@@ -61,7 +61,7 @@ const steps = [
     stat: "Vos marges, en temps réel",
     title: "Pilotez votre rentabilité et agissez au bon moment",
     description:
-      "Vous consultez votre tableau de bord, puis vous agissez avec des informations claires : ajuster un prix, changer un fournisseur ou corriger une recette. Gramme surveille les marges en continu et vous alerte dès qu&apos;une recette passe sous votre seuil. Vous ne subissez plus la baisse de rentabilité en fin de mois. Vous anticipez, au bon moment, avec des décisions concrètes.",
+      "Vous consultez votre tableau de bord, puis vous agissez avec des informations claires : ajuster un prix, changer un fournisseur ou corriger une recette. Gramme surveille les marges en continu et vous alerte dès qu'une recette passe sous votre seuil. Vous ne subissez plus la baisse de rentabilité en fin de mois. Vous anticipez, au bon moment, avec des décisions concrètes.",
     bullets: [
       "Alertes automatiques sur les recettes en danger",
       "Vision claire de vos marges nettes, produit par produit",
@@ -86,7 +86,7 @@ const objections = [
   },
   {
     q: "Ça coûte combien ?",
-    a: "Vous démarrez avec un essai gratuit sans engagement. Les gains de temps et les marges protégées compensent rapidement l'investissement.",
+    a: "Vous démarrez avec un essai gratuit sans engagement. Une équipe est à votre écoute pour vous permettre de choisir l'offre qui vous correspond vraiment.",
   },
   {
     q: "Excel me suffit",
@@ -94,7 +94,7 @@ const objections = [
   },
 ];
 
-const impactStats = ["+3 h gagnées par semaine en moyenne", "Des centaines de recettes numérisées", "Des factures scannées chaque jour automatiquement"];
+const impactStats = ["plusieurs heures gagnées par semaine", "Des centaines de recettes numérisées", "Des factures scannées chaque jour automatiquement"];
 
 export default function Page() {
   return (
@@ -126,7 +126,7 @@ export default function Page() {
           <p className="rounded-full bg-[#e8f2df] px-4 py-2 text-sm font-semibold text-[#355329]">logiciel gestion boulangerie simple</p>
           <h1 className="mt-6 text-4xl font-bold leading-tight md:text-6xl">De vos recettes papier à vos marges en temps réel, en 4 étapes</h1>
           <p className="mt-5 max-w-3xl text-lg text-[#4d6952]">
-            Vous n&apos;avez rien à ressaisir manuellement : vous prenez une photo, Gramme fait le reste. Aucun niveau technique requis, seulement votre savoir-faire métier.
+            Vous n{"'"}avez rien à ressaisir manuellement : vous prenez une photo, Gramme fait le reste. Aucun niveau technique requis, seulement votre savoir-faire métier.
           </p>
           <Link href="/demo" className="mt-8 rounded-xl bg-[#4A7C59] px-6 py-3 text-base font-semibold text-white">Essayer Gramme gratuitement</Link>
           <div className="mt-10 w-full rounded-3xl border border-[#d8e6cf] bg-white p-6 text-left shadow-sm">
@@ -169,27 +169,27 @@ export default function Page() {
         <section className="mx-auto w-full max-w-6xl px-5 pb-20">
           <h2 className="text-3xl font-bold">Avant / Après Gramme</h2>
           <p className="mt-3 max-w-3xl text-[#4d6952]">
-            Votre organisation actuelle a tenu pendant des années. Mais avec les prix matières qui bougent vite, un pilotage précis devient essentiel pour protéger la rentabilité.
+            Votre organisation actuelle a tenu pendant des années. Mais avec les prix matières qui bougent vite, une gestion précise devient essentielle pour protéger la rentabilité.
           </p>
           <div className="mt-8 grid gap-5 md:grid-cols-2">
             <div className="rounded-2xl border border-[#f0d7d7] bg-[#fff9f9] p-6">
-              <h3 className="text-xl font-bold text-[#8a4c4c]">😩 Sans Gramme</h3>
-              <ul className="mt-4 space-y-2 text-[#6b5656]">
+              <h3 className="text-xl font-bold text-[#8a4c4c]">Sans Gramme</h3>
+              <ul className="mt-4 list-disc space-y-2 pl-5 text-[#6b5656]">
                 <li>Recettes dans un cahier papier ou un tableur Excel</li>
                 <li>Saisie manuelle de chaque ingrédient et de chaque prix</li>
                 <li>Factures empilées, variations fournisseurs peu visibles</li>
-                <li>Marges calculées au feeling ou une fois par an</li>
+                <li>Pas ou peu de précision sur les marges calculées</li>
                 <li>Pertes découvertes trop tard, au bilan</li>
               </ul>
             </div>
             <div className="rounded-2xl border border-[#d8e6cf] bg-[#f6fbf2] p-6">
-              <h3 className="text-xl font-bold text-[#355329]">😎 Avec Gramme</h3>
-              <ul className="mt-4 space-y-2 text-[#355329]">
+              <h3 className="text-xl font-bold text-[#355329]">Avec Gramme</h3>
+              <ul className="mt-4 list-disc space-y-2 pl-5 text-[#355329]">
                 <li>Fiches techniques digitales auto-générées</li>
                 <li>Une photo suffit : Gramme met les données à jour</li>
-                <li>Scan facture fournisseur boulangerie et mercuriale toujours à jour</li>
-                <li>Gestion rentabilité pâtisserie facile, recette par recette</li>
-                <li>Alertes proactives dès qu&apos;une marge se dégrade</li>
+                <li>Scan factures fournisseurs et mercuriale toujours à jour</li>
+                <li>Gestion de la rentabilité facile, recette par recette</li>
+                <li>Alertes proactives dès qu{"'"}une marge se dégrade</li>
               </ul>
             </div>
           </div>
@@ -208,7 +208,7 @@ export default function Page() {
         </section>
 
         <section className="mx-auto w-full max-w-6xl px-5 pb-20">
-          <h2 className="text-3xl font-bold">Preuves d&apos;impact</h2>
+          <h2 className="text-3xl font-bold">Preuves d{"'"}impact</h2>
           <div className="mt-6 grid gap-4 md:grid-cols-3">
             {impactStats.map((stat) => (
               <div key={stat} className="rounded-2xl border border-[#d8e6cf] bg-white p-5 text-center text-lg font-semibold text-[#355329]">
