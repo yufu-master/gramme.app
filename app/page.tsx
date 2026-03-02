@@ -106,13 +106,18 @@ export default function Home() {
             <Link href="/a-propos-de-gramme">À propos de Gramme</Link>
             <Link href="/demo">Contact</Link>
           </div>
-          <div className="flex w-full items-center gap-4 overflow-x-auto text-sm text-[var(--muted-foreground)] lg:hidden">
-            <a href="#fonctionnalites" className="whitespace-nowrap">Fonctionnalités</a>
-            <a href="#tarifs" className="whitespace-nowrap">Tarifs</a>
-            <Link href="/comment-ca-marche" className="whitespace-nowrap">Comment ça marche</Link>
-            <Link href="/a-propos-de-gramme" className="whitespace-nowrap">À propos de Gramme</Link>
-            <Link href="/demo" className="whitespace-nowrap">Contact</Link>
-          </div>
+          <details className="relative ml-auto lg:hidden">
+            <summary className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-[#d8e6cf] bg-white text-xl font-semibold text-[#355329] marker:content-none">
+              ...
+            </summary>
+            <div className="absolute right-0 mt-2 w-64 space-y-1 rounded-2xl border border-[#d8e6cf] bg-white p-3 shadow-lg">
+              <a href="#fonctionnalites" className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">Fonctionnalités</a>
+              <a href="#tarifs" className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">Tarifs</a>
+              <Link href="/comment-ca-marche" className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">Comment ça marche</Link>
+              <Link href="/a-propos-de-gramme" className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">À propos de Gramme</Link>
+              <Link href="/demo" className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">Contact</Link>
+            </div>
+          </details>
         </nav>
       </header>
 
@@ -247,7 +252,18 @@ export default function Home() {
             <Link href="/mentions-legales" className="hover:text-[var(--foreground)]">Mentions légales</Link>
             <Link href="/cgv" className="hover:text-[var(--foreground)]">CGV</Link>
           </div>
-          <p>© {new Date().getFullYear()} Gramme</p>
+          <div className="flex items-center gap-3">
+            <a
+              href="https://get.gramme.app"
+              target="_blank"
+              rel="noreferrer"
+              className="inline-flex items-center gap-2 rounded-xl border border-[#d8e6cf] bg-[#f6fbf2] px-3 py-2 font-semibold text-[#355329]"
+            >
+              <Image src="/logos/gramme-icon.svg" alt="Logo Gramme" width={20} height={20} />
+              <span>Gramme.app</span>
+            </a>
+            <p>© {new Date().getFullYear()} Gramme</p>
+          </div>
         </div>
       </footer>
 

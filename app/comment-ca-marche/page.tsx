@@ -112,13 +112,18 @@ export default function Page() {
             <Link href="/a-propos-de-gramme">À propos de Gramme</Link>
             <Link href="/demo">Contact</Link>
           </div>
-          <div className="flex w-full items-center gap-4 overflow-x-auto text-sm text-[var(--muted-foreground)] lg:hidden">
-            <Link href="/fonctionnalites" className="whitespace-nowrap">Fonctionnalités</Link>
-            <Link href="/tarifs" className="whitespace-nowrap">Tarifs</Link>
-            <Link href="/comment-ca-marche" className="whitespace-nowrap font-semibold text-[#355329]">Comment ça marche</Link>
-            <Link href="/a-propos-de-gramme" className="whitespace-nowrap">À propos de Gramme</Link>
-            <Link href="/demo" className="whitespace-nowrap">Contact</Link>
-          </div>
+          <details className="relative ml-auto lg:hidden">
+            <summary className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-[#d8e6cf] bg-white text-xl font-semibold text-[#355329] marker:content-none">
+              ...
+            </summary>
+            <div className="absolute right-0 mt-2 w-64 space-y-1 rounded-2xl border border-[#d8e6cf] bg-white p-3 shadow-lg">
+              <Link href="/fonctionnalites" className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">Fonctionnalités</Link>
+              <Link href="/tarifs" className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">Tarifs</Link>
+              <Link href="/comment-ca-marche" className="block rounded-lg bg-[#f6fbf2] px-3 py-2 text-sm font-semibold text-[#355329]">Comment ça marche</Link>
+              <Link href="/a-propos-de-gramme" className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">À propos de Gramme</Link>
+              <Link href="/demo" className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">Contact</Link>
+            </div>
+          </details>
         </nav>
       </header>
 
@@ -129,7 +134,14 @@ export default function Page() {
           <p className="mt-5 max-w-3xl text-lg text-[#4d6952]">
             Vous n{"'"}avez rien à ressaisir manuellement : vous prenez une photo, Gramme fait le reste. Aucun niveau technique requis, seulement votre savoir-faire métier.
           </p>
-          <Link href="/demo" className="mt-8 rounded-xl bg-[#4A7C59] px-6 py-3 text-base font-semibold text-white">Essayer Gramme gratuitement</Link>
+          <a
+            href="https://get.gramme.app"
+            target="_blank"
+            rel="noreferrer"
+            className="mt-8 rounded-xl bg-[#4A7C59] px-6 py-3 text-base font-semibold text-white"
+          >
+            Essayer Gramme gratuitement
+          </a>
           <div className="mt-10 w-full rounded-3xl border border-[#d8e6cf] bg-white p-6 text-left shadow-sm">
             <p className="text-sm font-semibold uppercase tracking-wide text-[#4A7C59]">Parcours visuel recommandé</p>
             <p className="mt-3 text-[#4d6952]">
@@ -228,6 +240,24 @@ export default function Page() {
           </div>
         </section>
       </main>
+
+      <footer className="border-t border-[#d8e6cf] bg-white/80">
+        <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-5 py-8 text-sm text-[#4d6952] sm:flex-row sm:items-center sm:justify-between">
+          <div className="flex flex-wrap items-center gap-5">
+            <Link href="/mentions-legales" className="hover:text-[#264021]">Mentions légales</Link>
+            <Link href="/cgv" className="hover:text-[#264021]">CGV</Link>
+          </div>
+          <a
+            href="https://get.gramme.app"
+            target="_blank"
+            rel="noreferrer"
+            className="inline-flex items-center gap-2 rounded-xl border border-[#d8e6cf] bg-[#f6fbf2] px-3 py-2 font-semibold text-[#355329]"
+          >
+            <Image src="/logos/gramme-icon.svg" alt="Logo Gramme" width={20} height={20} />
+            <span>Gramme.app</span>
+          </a>
+        </div>
+      </footer>
     </div>
   );
 }
