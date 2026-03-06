@@ -1,3 +1,5 @@
+"use client";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -85,6 +87,12 @@ const faqItems = [
 ];
 
 export default function Home() {
+  const scrollToSection = (sectionId: string) => {
+    const section = document.getElementById(sectionId);
+    if (!section) return;
+    section.scrollIntoView({ behavior: "smooth", block: "start" });
+  };
+
   const faqSchema = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -100,22 +108,22 @@ export default function Home() {
             <span>GRAMME</span>
           </Link>
           <div className="hidden items-center gap-6 text-sm text-[var(--muted-foreground)] lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:flex">
-            <a href="#fonctionnalites">Fonctionnalités</a>
-            <a href="#tarifs">Tarifs</a>
+            <button type="button" onClick={() => scrollToSection("fonctionnalites")}>Fonctionnalités</button>
+            <button type="button" onClick={() => scrollToSection("tarifs")}>Tarifs</button>
             <Link href="/comment-ca-marche">Comment ça marche</Link>
             <Link href="/a-propos-de-gramme">À propos de Gramme</Link>
-            <Link href="/demo">Contact</Link>
+            <Link href="/contact">Contact</Link>
           </div>
           <details className="relative ml-auto lg:hidden">
             <summary className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-[#d8e6cf] bg-white text-xl font-semibold text-[#355329] marker:content-none">
               ...
             </summary>
             <div className="absolute right-0 mt-2 w-64 space-y-1 rounded-2xl border border-[#d8e6cf] bg-white p-3 shadow-lg">
-              <a href="#fonctionnalites" className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">Fonctionnalités</a>
-              <a href="#tarifs" className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">Tarifs</a>
+              <button type="button" onClick={() => scrollToSection("fonctionnalites")} className="block w-full rounded-lg px-3 py-2 text-left text-sm text-[#355329] hover:bg-[#f6fbf2]">Fonctionnalités</button>
+              <button type="button" onClick={() => scrollToSection("tarifs")} className="block w-full rounded-lg px-3 py-2 text-left text-sm text-[#355329] hover:bg-[#f6fbf2]">Tarifs</button>
               <Link href="/comment-ca-marche" className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">Comment ça marche</Link>
               <Link href="/a-propos-de-gramme" className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">À propos de Gramme</Link>
-              <Link href="/demo" className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">Contact</Link>
+              <Link href="/contact" className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">Contact</Link>
             </div>
           </details>
         </nav>
@@ -137,7 +145,7 @@ export default function Home() {
               Gramme est une application dédiée aux petites entreprises : vous accédez à une gestion optimisée, concrète et accessible, sans complexité inutile.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <a href="#tarifs" className="rounded-xl border border-[var(--border)] bg-white px-5 py-3 font-semibold text-[#264021]">Voir les offres</a>
+              <button type="button" onClick={() => scrollToSection("tarifs")} className="rounded-xl border border-[var(--border)] bg-white px-5 py-3 font-semibold text-[#264021]">Voir les offres</button>
             </div>
           </div>
           <div className="rounded-3xl border border-[#cce0bc] bg-white p-6 shadow-[0_15px_60px_rgba(58,92,39,0.12)]">
@@ -224,14 +232,15 @@ export default function Home() {
                     </li>
                   ))}
                 </ul>
-                <a
-                  href="#demo"
+                <button
+                  type="button"
+                  onClick={() => scrollToSection("demo")}
                   className={`mt-6 inline-flex w-full items-center justify-center rounded-xl px-4 py-2.5 font-semibold ${
                     plan.highlight ? "bg-[#a8cf8c] text-[#264021]" : "bg-[#264021] text-white"
                   }`}
                 >
                   {plan.cta}
-                </a>
+                </button>
               </article>
             ))}
           </div>
@@ -241,7 +250,7 @@ export default function Home() {
           <div className="rounded-3xl bg-[#264021] p-8 text-white">
             <h2 className="text-3xl font-bold">Passez d’une méthode  artisanale à une gestion performante et maîtrisée.</h2>
             <p className="mt-3 max-w-3xl text-white/85">Découvrez comment Gramme transforme vos données en décisions rentables.</p>
-            <Link href="/demo" className="mt-6 inline-flex rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]">Demander une démonstration</Link>
+            <Link href="/contact" className="mt-6 inline-flex rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]">Demander une démonstration</Link>
           </div>
         </section>
       </main>
