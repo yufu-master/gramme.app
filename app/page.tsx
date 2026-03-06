@@ -2,6 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 const trustItems = [
   { label: "Recettes & fiches techniques", icon: ShieldIcon },
@@ -87,6 +88,8 @@ const faqItems = [
 ];
 
 export default function Home() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (!section) return;
@@ -114,18 +117,28 @@ export default function Home() {
             <Link href="/a-propos-de-gramme">À propos de Gramme</Link>
             <Link href="/contact">Contact</Link>
           </div>
-          <details className="relative ml-auto lg:hidden">
-            <summary className="flex h-11 w-11 cursor-pointer list-none items-center justify-center rounded-full border border-[#d8e6cf] bg-white text-xl font-semibold text-[#355329] marker:content-none">
-              ...
-            </summary>
-            <div className="absolute right-0 mt-2 w-64 space-y-1 rounded-2xl border border-[#d8e6cf] bg-white p-3 shadow-lg">
-              <button type="button" onClick={() => scrollToSection("fonctionnalites")} className="block w-full rounded-lg px-3 py-2 text-left text-sm text-[#355329] hover:bg-[#f6fbf2]">Fonctionnalités</button>
-              <button type="button" onClick={() => scrollToSection("tarifs")} className="block w-full rounded-lg px-3 py-2 text-left text-sm text-[#355329] hover:bg-[#f6fbf2]">Tarifs</button>
-              <Link href="/comment-ca-marche" className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">Comment ça marche</Link>
-              <Link href="/a-propos-de-gramme" className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">À propos de Gramme</Link>
-              <Link href="/contact" className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">Contact</Link>
+          <button
+            type="button"
+            onClick={() => setIsMobileMenuOpen((value) => !value)}
+            className="ml-auto inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#d8e6cf] bg-white text-[#355329] lg:hidden"
+            aria-label="Ouvrir le menu"
+            aria-expanded={isMobileMenuOpen}
+          >
+            <span className="flex flex-col gap-1.5">
+              <span className="h-0.5 w-5 rounded-full bg-current" />
+              <span className="h-0.5 w-5 rounded-full bg-current" />
+              <span className="h-0.5 w-5 rounded-full bg-current" />
+            </span>
+          </button>
+          {isMobileMenuOpen && (
+            <div className="absolute inset-x-5 top-[74px] rounded-2xl border border-[#d8e6cf] bg-white p-3 shadow-lg lg:hidden">
+              <button type="button" onClick={() => { scrollToSection("fonctionnalites"); setIsMobileMenuOpen(false); }} className="block w-full rounded-lg px-3 py-2 text-left text-sm text-[#355329] hover:bg-[#f6fbf2]">Fonctionnalités</button>
+              <button type="button" onClick={() => { scrollToSection("tarifs"); setIsMobileMenuOpen(false); }} className="block w-full rounded-lg px-3 py-2 text-left text-sm text-[#355329] hover:bg-[#f6fbf2]">Tarifs</button>
+              <Link href="/comment-ca-marche" onClick={() => setIsMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">Comment ça marche</Link>
+              <Link href="/a-propos-de-gramme" onClick={() => setIsMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">À propos de Gramme</Link>
+              <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">Contact</Link>
             </div>
-          </details>
+          )}
         </nav>
       </header>
 
