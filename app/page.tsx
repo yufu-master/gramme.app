@@ -15,31 +15,37 @@ const featureColumns = [
   {
     title: "Fiches techniques intelligentes",
     icon: BookIcon,
+    image: "/images/feature-recette-detail.png",
     bullets: ["Saisie automatique des fiches techniques", "Répertoire de recettes clair", "Gestion des pertes", "Coûts matières et marges", "Impression de fiches techniques"],
   },
   {
     title: "Production maîtrisée",
     icon: LayersIcon,
+    image: "/images/feature-production.png",
     bullets: ["Planning de production jour par jour", "Liste des matières premières et recettes utilisées", "Coût de production", "Mise à jour du stock automatique"],
   },
   {
     title: "Achats & mercuriale",
     icon: ScanIcon,
+    image: "/images/feature-mercuriale.png",
     bullets: ["Scan automatique des factures", "Suivi réel de l'évolution des prix des matières premières", "Recettes impactées en temps réel par l'évolution des prix", "Historique et détail des factures"],
   },
   {
     title: "Stock opérationnel",
     icon: BoxIcon,
+    image: "/images/feature-stock.png",
     bullets: ["Recherche, filtres et catégories", "Édition rapide des prix, de stock et des fournisseurs", "Valeur du stock en un coup d’œil"],
   },
   {
     title: "Fournisseurs centralisés",
     icon: UsersIcon,
+    image: "/images/feature-fournisseurs-list.png",
     bullets: ["Carnet fournisseurs", "Coordonnées, contact par e-mail ou appel", "Produits affiliés et volume d’achat estimé"],
   },
   {
     title: "Décisions plus rapides",
     icon: SparkIcon,
+    image: "/images/feature-prix.png",
     bullets: ["Alertes sur vos recettes sensibles", "Vision claire des marges nettes", "Priorisation des actions rentables"],
   },
 ];
@@ -143,7 +149,7 @@ export default function Home() {
       </header>
 
       <main className="pt-28 sm:pt-24 lg:pt-20">
-        <section className="mx-auto grid w-full max-w-6xl gap-10 px-5 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+        <section className="mx-auto grid w-full max-w-6xl gap-10 px-5 py-16 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
           <div>
             <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#a8cf8c]/40 bg-[#a8cf8c]/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#264021]">
               <SparkIcon className="size-4" />
@@ -160,21 +166,31 @@ export default function Home() {
             <div className="mt-8 flex flex-wrap gap-3">
               <button type="button" onClick={() => scrollToSection("tarifs")} className="rounded-xl border border-[var(--border)] bg-white px-5 py-3 font-semibold text-[#264021]">Voir les offres</button>
             </div>
-          </div>
-          <div className="rounded-3xl border border-[#cce0bc] bg-white p-6 shadow-[0_15px_60px_rgba(58,92,39,0.12)]">
-            <p className="text-sm font-semibold uppercase tracking-wider text-[#6e9f55]">Vue stratégique</p>
-            <div className="mt-5 space-y-3">
+            <div className="mt-8 space-y-3">
+              <p className="text-sm font-semibold uppercase tracking-wider text-[#6e9f55]">Vue stratégique</p>
               {[
                 "Saisie des recettes simplifiées et optimisées",
                 "Production simplifiée et synchronisée au stock",
                 "Factures intelligentes",
                 "Mise à jour des marges au quotidien",
               ].map((item) => (
-                <div key={item} className="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--secondary)] p-3 text-sm font-medium text-[#355329]">
-                  <CheckIcon className="size-4 text-[#6e9f55]" />
+                <div key={item} className="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-white/80 p-3 text-sm font-medium text-[#355329]">
+                  <CheckIcon className="size-4 shrink-0 text-[#6e9f55]" />
                   {item}
                 </div>
               ))}
+            </div>
+          </div>
+          <div className="relative mx-auto w-full max-w-md lg:max-w-none">
+            <div className="overflow-hidden rounded-[2rem] shadow-[0_20px_60px_rgba(58,92,39,0.18)] ring-1 ring-black/5">
+              <Image
+                src="/images/mockup-phone.png"
+                alt="Application Gramme sur smartphone"
+                width={800}
+                height={900}
+                className="h-auto w-full"
+                priority
+              />
             </div>
           </div>
         </section>
@@ -193,39 +209,74 @@ export default function Home() {
         </section>
 
         <section id="produit" className="mx-auto w-full max-w-6xl px-5 py-16">
-          <h2 className="text-3xl font-bold md:text-4xl">Une application pensée pour les petites entreprises: efficace, rapide et fiable.</h2>
-          <p className="mt-4 max-w-3xl text-[var(--muted-foreground)]">Chaque outil est pensé pour vous simplifier la vie : plus de problèmes gestion, une vue claire sur vos chiffres, et des décisions faciles à prendre au quotidien.</p>
+          <div className="grid items-center gap-10 lg:grid-cols-2">
+            <div>
+              <h2 className="text-3xl font-bold md:text-4xl">Une application pensée pour les petites entreprises: efficace, rapide et fiable.</h2>
+              <p className="mt-4 max-w-3xl text-[var(--muted-foreground)]">Chaque outil est pensé pour vous simplifier la vie : plus de problèmes gestion, une vue claire sur vos chiffres, et des décisions faciles à prendre au quotidien.</p>
+            </div>
+            <div className="overflow-hidden rounded-3xl shadow-[0_15px_50px_rgba(58,92,39,0.12)] ring-1 ring-black/5">
+              <Image
+                src="/images/multi-device.png"
+                alt="Gramme sur ordinateur, tablette et smartphone"
+                width={1200}
+                height={800}
+                className="h-auto w-full"
+              />
+            </div>
+          </div>
         </section>
 
         <section id="fonctionnalites" className="mx-auto w-full max-w-6xl px-5 pb-16">
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
             {featureColumns.map((feature) => {
               const Icon = feature.icon;
               return (
-                <article key={feature.title} className="rounded-2xl border border-[var(--border)] bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-                  <h3 className="flex items-center gap-2 text-xl font-bold">
-                    <span className="inline-flex size-8 items-center justify-center rounded-lg bg-[#a8cf8c]/20 text-[#355329]">
-                      <Icon className="size-4" />
-                    </span>
-                    {feature.title}
-                  </h3>
-                  <ul className="mt-4 space-y-2 text-sm text-[var(--muted-foreground)]">
-                    {feature.bullets.map((bullet) => (
-                      <li key={bullet} className="flex items-start gap-2">
-                        <CheckIcon className="mt-0.5 size-4 shrink-0 text-[#6e9f55]" />
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
+                <article key={feature.title} className="overflow-hidden rounded-2xl border border-[var(--border)] bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
+                  <div className="relative h-44 overflow-hidden bg-[#f6fbf2]">
+                    <Image
+                      src={feature.image}
+                      alt={feature.title}
+                      fill
+                      className="object-cover object-top"
+                    />
+                  </div>
+                  <div className="p-5">
+                    <h3 className="flex items-center gap-2 text-xl font-bold">
+                      <span className="inline-flex size-8 items-center justify-center rounded-lg bg-[#a8cf8c]/20 text-[#355329]">
+                        <Icon className="size-4" />
+                      </span>
+                      {feature.title}
+                    </h3>
+                    <ul className="mt-4 space-y-2 text-sm text-[var(--muted-foreground)]">
+                      {feature.bullets.map((bullet) => (
+                        <li key={bullet} className="flex items-start gap-2">
+                          <CheckIcon className="mt-0.5 size-4 shrink-0 text-[#6e9f55]" />
+                          {bullet}
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
                 </article>
               );
             })}
           </div>
         </section>
 
+        <section className="mx-auto w-full max-w-6xl px-5 pb-16">
+          <div className="overflow-hidden rounded-3xl shadow-[0_15px_50px_rgba(58,92,39,0.12)] ring-1 ring-black/5">
+            <Image
+              src="/images/feature-scan-ia.png"
+              alt="Scan IA des recettes et factures dans Gramme"
+              width={1200}
+              height={800}
+              className="h-auto w-full"
+            />
+          </div>
+        </section>
+
         <section id="tarifs" className="mx-auto w-full max-w-6xl px-5 pb-16">
           <h2 className="text-3xl font-bold md:text-4xl">Les tarifs</h2>
-                    <div className="mt-8 grid gap-5 lg:grid-cols-3">
+          <div className="mt-8 grid gap-5 lg:grid-cols-3">
             {plans.map((plan) => (
               <article
                 key={plan.name}
@@ -260,10 +311,20 @@ export default function Home() {
         </section>
 
         <section id="demo" className="mx-auto w-full max-w-6xl px-5 pb-16">
-          <div className="rounded-3xl bg-[#264021] p-8 text-white">
-            <h2 className="text-3xl font-bold">Passez d’une méthode  artisanale à une gestion performante et maîtrisée.</h2>
-            <p className="mt-3 max-w-3xl text-white/85">Découvrez comment Gramme transforme vos données en décisions rentables.</p>
-            <Link href="/contact" className="mt-6 inline-flex rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]">Demander une démonstration</Link>
+          <div className="relative overflow-hidden rounded-3xl">
+            <Image
+              src="/images/hero-affiche.jpg"
+              alt=""
+              fill
+              className="object-cover"
+              aria-hidden
+            />
+            <div className="absolute inset-0 bg-[#264021]/88" />
+            <div className="relative p-8 text-white md:p-10">
+              <h2 className="text-3xl font-bold">Passez d’une méthode  artisanale à une gestion performante et maîtrisée.</h2>
+              <p className="mt-3 max-w-3xl text-white/85">Découvrez comment Gramme transforme vos données en décisions rentables.</p>
+              <Link href="/contact" className="mt-6 inline-flex rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]">Demander une démonstration</Link>
+            </div>
           </div>
         </section>
       </main>
@@ -284,16 +345,7 @@ export default function Home() {
               <Image src="/logos/gramme-icon.svg" alt="Logo Gramme" width={20} height={20} />
               <span>Gramme.app</span>
             </a>
-            <p className="flex items-center gap-2">
-              © {new Date().getFullYear()} Gramme
-              <Link
-                href="/v2"
-                className="text-[11px] opacity-35 transition-opacity hover:text-[var(--foreground)] hover:opacity-60"
-                aria-label="Aperçu de la version 2 du site"
-              >
-                v2
-              </Link>
-            </p>
+            <p>© {new Date().getFullYear()} Gramme</p>
           </div>
         </div>
       </footer>

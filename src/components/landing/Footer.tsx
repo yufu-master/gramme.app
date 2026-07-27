@@ -69,16 +69,7 @@ export function Footer() {
           <Link href="/confidentialite" aria-label="Consulter la politique de confidentialité" className="hover:text-[var(--foreground)]">Confidentialité</Link>
           <Link href="/cgv" aria-label="Consulter les conditions générales" className="hover:text-[var(--foreground)]">CGV</Link>
         </div>
-        <p className="flex items-center gap-2">
-          © Copyright 2026 Gramme
-          <Link
-            href="/v2"
-            className="text-[11px] opacity-35 transition-opacity hover:text-[var(--foreground)] hover:opacity-60"
-            aria-label="Aperçu de la version 2 du site"
-          >
-            v2
-          </Link>
-        </p>
+        <p>© Copyright 2026 Gramme</p>
       </div>
     </footer>
   );
