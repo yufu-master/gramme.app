@@ -14,6 +14,9 @@
   --border: hsl(100 15% 90%);
   --dashboard: #a8cf8c;
   --dashboard-foreground: #486e3c;
+  --brand: #a8cf8c;
+  --brand-dark: #486e3c;
+  --brand-light: #d5e8d4;
 }
 
 body {

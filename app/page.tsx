@@ -284,7 +284,16 @@ export default function Home() {
               <Image src="/logos/gramme-icon.svg" alt="Logo Gramme" width={20} height={20} />
               <span>Gramme.app</span>
             </a>
-            <p>© {new Date().getFullYear()} Gramme</p>
+            <p className="flex items-center gap-2">
+              © {new Date().getFullYear()} Gramme
+              <Link
+                href="/v2"
+                className="text-[11px] opacity-35 transition-opacity hover:text-[var(--foreground)] hover:opacity-60"
+                aria-label="Aperçu de la version 2 du site"
+              >
+                v2
+              </Link>
+            </p>
           </div>
         </div>
       </footer>

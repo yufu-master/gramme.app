@@ -137,3 +137,81 @@ export const Sparkles = createIcon(
     <path d="m12 3-1.912 5.813a2 2 0 0 1-1.275 1.275L3 12l5.813 1.912a2 2 0 0 1 1.275 1.275L12 21l1.912-5.813a2 2 0 0 1 1.275-1.275L21 12l-5.813-1.912a2 2 0 0 1-1.275-1.275L12 3Z" />
   </>
 );
+export const ArrowRight = createIcon(
+  <>
+    <line x1="5" y1="12" x2="19" y2="12" />
+    <polyline points="12 5 19 12 12 19" />
+  </>
+);
+export const ArrowLeft = createIcon(
+  <>
+    <line x1="19" y1="12" x2="5" y2="12" />
+    <polyline points="12 19 5 12 12 5" />
+  </>
+);
+export const ChevronDown = createIcon(<polyline points="6 9 12 15 18 9" />);
+export const Cpu = createIcon(
+  <>
+    <rect x="4" y="4" width="16" height="16" rx="2" />
+    <rect x="9" y="9" width="6" height="6" />
+    <line x1="9" y1="1" x2="9" y2="4" />
+    <line x1="15" y1="1" x2="15" y2="4" />
+    <line x1="9" y1="20" x2="9" y2="23" />
+    <line x1="15" y1="20" x2="15" y2="23" />
+    <line x1="20" y1="9" x2="23" y2="9" />
+    <line x1="20" y1="14" x2="23" y2="14" />
+    <line x1="1" y1="9" x2="4" y2="9" />
+    <line x1="1" y1="14" x2="4" y2="14" />
+  </>
+);
+export const Monitor = createIcon(
+  <>
+    <rect x="2" y="3" width="20" height="14" rx="2" />
+    <line x1="8" y1="21" x2="16" y2="21" />
+    <line x1="12" y1="17" x2="12" y2="21" />
+  </>
+);
+export const Smartphone = createIcon(
+  <>
+    <rect x="5" y="2" width="14" height="20" rx="2" />
+    <line x1="12" y1="18" x2="12.01" y2="18" />
+  </>
+);
+export const Tablet = createIcon(
+  <>
+    <rect x="4" y="2" width="16" height="20" rx="2" />
+    <line x1="12" y1="18" x2="12.01" y2="18" />
+  </>
+);
+export const Wifi = createIcon(
+  <>
+    <path d="M5 12.55a11 11 0 0 1 14.08 0" />
+    <path d="M1.42 9a16 16 0 0 1 21.16 0" />
+    <path d="M8.53 16.11a6 6 0 0 1 6.95 0" />
+    <line x1="12" y1="20" x2="12.01" y2="20" />
+  </>
+);
+export const Keyboard = createIcon(
+  <>
+    <rect x="2" y="6" width="20" height="12" rx="2" />
+    <line x1="6" y1="10" x2="6.01" y2="10" />
+    <line x1="10" y1="10" x2="10.01" y2="10" />
+    <line x1="14" y1="10" x2="14.01" y2="10" />
+    <line x1="18" y1="10" x2="18.01" y2="10" />
+    <line x1="8" y1="14" x2="16" y2="14" />
+  </>
+);
+export const Layers = createIcon(
+  <>
+    <polygon points="12 2 2 7 12 12 22 7 12 2" />
+    <polyline points="2 17 12 22 22 17" />
+    <polyline points="2 12 12 17 22 12" />
+  </>
+);
+export const FlaskConical = createIcon(
+  <>
+    <path d="M10 2v7.527a2 2 0 0 1-.211.896L4.72 20.55a1 1 0 0 0 .9 1.45h12.76a1 1 0 0 0 .9-1.45l-5.069-10.127A2 2 0 0 1 14 9.527V2" />
+    <path d="M8.5 2h7" />
+    <path d="M7 16h10" />
+  </>
+);
