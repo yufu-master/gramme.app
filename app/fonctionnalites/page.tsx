@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { ComingSoonPage } from "@/components/ComingSoonPage";
 
 export const metadata: Metadata = {
-  title: "Gramme | Fonctionnalités",
+  robots: { index: false, follow: true },
+  title: "Fonctionnalités",
   description: "Page en cours de création.",
 };
 

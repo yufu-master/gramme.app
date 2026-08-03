@@ -1,0 +1,38 @@
+# Gramme
+
+> Application de gestion dédiée aux artisans boulangers, pâtissiers et chocolatiers. Gramme aide à piloter recettes, coûts matière, production, stock, mercuriale fournisseurs et marges en temps réel.
+
+## Pages principales
+
+- [Accueil](https://gramme.app/): présentation du produit, fonctionnalités, tarifs et FAQ
+- [À propos de Gramme](https://gramme.app/a-propos-de-gramme): histoire, vision et accompagnement des artisans
+- [Contact](https://gramme.app/contact): demande de démonstration et échange avec l'équipe
+
+## Produit
+
+Gramme centralise six modules interconnectés pour les petites structures artisanales :
+
+- Fiches techniques intelligentes (coûts, pertes, impression atelier)
+- Production maîtrisée (planning, matières, stock synchronisé)
+- Achats et mercuriale (scan de factures, suivi des prix)
+- Stock opérationnel (filtres, valeur du stock, édition rapide)
+- Fournisseurs centralisés (carnet, contact, volumes d'achat)
+- Décisions plus rapides (alertes marges, priorisation des actions)
+
+## Tarifs
+
+Offres présentes sur la page d'accueil :
+
+- Starter : 39€/mois
+- Pro : 79€/mois
+- Enterprise : sur devis
+
+## Contact
+
+- Site : https://gramme.app
+- Application : https://get.gramme.app
+- Email : contact@gramme.app
+
+## Notes
+
+- Langue du site : français (`fr-FR`).

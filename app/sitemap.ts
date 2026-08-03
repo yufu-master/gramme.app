@@ -2,11 +2,11 @@ import type { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const base = "https://gramme.app";
+  const lastModified = new Date();
 
-  return ["", "/fonctionnalites", "/comment-ca-marche", "/tarifs", "/demo", "/ressources"].map((path) => ({
-    url: `${base}${path}`,
-    lastModified: new Date(),
-    changeFrequency: "weekly",
-    priority: path === "" ? 1 : 0.7,
-  }));
+  return [
+    { url: `${base}/`, lastModified, changeFrequency: "weekly", priority: 1 },
+    { url: `${base}/a-propos-de-gramme`, lastModified, changeFrequency: "monthly", priority: 0.8 },
+    { url: `${base}/contact`, lastModified, changeFrequency: "monthly", priority: 0.7 },
+  ];
 }
