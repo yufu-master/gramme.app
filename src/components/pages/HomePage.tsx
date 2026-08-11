@@ -2,8 +2,8 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
-import { faqItems } from "@/lib/seo";
+import { useEffect } from "react";
+import { FaqAccordion } from "@/components/landing/FaqAccordion";
 
 const trustItems = [
   { label: "Recettes & fiches techniques", icon: ShieldIcon },
@@ -74,93 +74,84 @@ const plans = [
 ];
 
 export default function HomePage() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (!section) return;
     section.scrollIntoView({ behavior: "smooth", block: "start" });
   };
 
-  return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#f6fbf2,_#ffffff_45%)] text-[var(--foreground)]">
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-[var(--border)] bg-white/90 backdrop-blur-xl">
-        <nav className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-3 lg:relative">
-          <Link href="/" className="flex items-center gap-2 text-[1.44rem] font-black tracking-wide">
-            <Image src="/logos/gramme-icon.svg" alt="Logo Gramme" width={36} height={35} className="h-auto" />
-            <span>GRAMME</span>
-          </Link>
-          <div className="hidden items-center gap-6 text-sm text-[var(--muted-foreground)] lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:flex">
-            <button type="button" onClick={() => scrollToSection("fonctionnalites")}>Fonctionnalités</button>
-            <button type="button" onClick={() => scrollToSection("tarifs")}>Tarifs</button>
-            <Link href="/comment-ca-marche">Comment ça marche</Link>
-            <Link href="/a-propos-de-gramme">À propos de Gramme</Link>
-            <Link href="/contact">Contact</Link>
-          </div>
-          <button
-            type="button"
-            onClick={() => setIsMobileMenuOpen((value) => !value)}
-            className="ml-auto inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#d8e6cf] bg-white text-[#355329] lg:hidden"
-            aria-label="Ouvrir le menu"
-            aria-expanded={isMobileMenuOpen}
-          >
-            <span className="flex flex-col gap-1.5">
-              <span className="h-0.5 w-5 rounded-full bg-current" />
-              <span className="h-0.5 w-5 rounded-full bg-current" />
-              <span className="h-0.5 w-5 rounded-full bg-current" />
-            </span>
-          </button>
-          {isMobileMenuOpen && (
-            <div className="absolute inset-x-5 top-[74px] rounded-2xl border border-[#d8e6cf] bg-white p-3 shadow-lg lg:hidden">
-              <button type="button" onClick={() => { scrollToSection("fonctionnalites"); setIsMobileMenuOpen(false); }} className="block w-full rounded-lg px-3 py-2 text-left text-sm text-[#355329] hover:bg-[#f6fbf2]">Fonctionnalités</button>
-              <button type="button" onClick={() => { scrollToSection("tarifs"); setIsMobileMenuOpen(false); }} className="block w-full rounded-lg px-3 py-2 text-left text-sm text-[#355329] hover:bg-[#f6fbf2]">Tarifs</button>
-              <Link href="/comment-ca-marche" onClick={() => setIsMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">Comment ça marche</Link>
-              <Link href="/a-propos-de-gramme" onClick={() => setIsMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">À propos de Gramme</Link>
-              <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">Contact</Link>
-            </div>
-          )}
-        </nav>
-      </header>
+  useEffect(() => {
+    const hash = window.location.hash.replace("#", "");
+    if (!hash) return;
+    const timer = window.setTimeout(() => scrollToSection(hash), 80);
+    return () => window.clearTimeout(timer);
+  }, []);
 
-      <main className="pt-28 sm:pt-24 lg:pt-20">
-        <section className="mx-auto grid w-full max-w-6xl gap-10 px-5 py-16 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
-          <div>
-            <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#a8cf8c]/40 bg-[#a8cf8c]/15 px-4 py-1.5 text-xs font-semibold uppercase tracking-[0.12em] text-[#264021]">
+  return (
+    <>
+      <main>
+        <section
+          className="relative isolate flex min-h-[100svh] w-full items-end overflow-hidden bg-[#1a2e14] sm:items-center"
+          aria-label="Présentation Gramme"
+        >
+          <Image
+            src="/images/hero-lifestyle.jpg"
+            alt="Logiciel gestion boulangerie Gramme sur smartphone — recettes, stock et mercuriale"
+            fill
+            priority
+            sizes="100vw"
+            className="object-cover object-[72%_center] sm:object-[65%_center] lg:object-center"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-gradient-to-r from-[#1a2e14]/92 via-[#1a2e14]/72 to-[#1a2e14]/25 sm:via-[#1a2e14]/55 sm:to-transparent"
+          />
+          <div
+            aria-hidden
+            className="absolute inset-0 bg-gradient-to-t from-[#1a2e14]/80 via-transparent to-[#1a2e14]/35 sm:from-[#1a2e14]/40 sm:to-transparent"
+          />
+          <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-16 pt-28 sm:px-5 sm:pb-20 sm:pt-32 lg:pt-28">
+            <p className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#cfe8bf]">
               <SparkIcon className="size-4" />
-              Logiciel de pilotage premium
+              Gramme — logiciel boulangerie &amp; pâtisserie
             </p>
-            <h1 className="text-4xl font-black leading-tight md:text-6xl">
+            <h1 className="max-w-xl text-[2.35rem] font-black leading-[1.08] text-white sm:text-5xl md:text-6xl lg:text-7xl">
               Pilotez votre marge
               <br />
-              au <span className="relative inline-block px-1 text-[#a8cf8c]">Gramme<span aria-hidden className="absolute -bottom-3 left-0 w-full"><svg viewBox="0 0 520 34" className="h-4 w-full" preserveAspectRatio="none"><path d="M8 18C90 27 173 30 260 30C347 30 430 27 512 18" fill="none" stroke="#a8cf8c" strokeWidth="14" strokeLinecap="round" /></svg></span></span> près.
+              au{" "}
+              <span className="relative inline-block px-1 text-[#a8cf8c]">
+                Gramme
+                <span aria-hidden className="absolute -bottom-2 left-0 w-full sm:-bottom-3">
+                  <svg viewBox="0 0 520 34" className="h-3 w-full sm:h-4" preserveAspectRatio="none">
+                    <path d="M8 18C90 27 173 30 260 30C347 30 430 27 512 18" fill="none" stroke="#a8cf8c" strokeWidth="14" strokeLinecap="round" />
+                  </svg>
+                </span>
+              </span>{" "}
+              près.
             </h1>
-            <p className="mt-5 max-w-2xl text-lg text-[var(--muted-foreground)]">
-              Gramme est une application dédiée aux petites entreprises : vous accédez à une gestion optimisée, concrète et accessible, sans complexité inutile.
+            <p className="mt-5 max-w-md text-base text-white/85 sm:text-lg">
+              Le logiciel de gestion pour boulangers-pâtissiers : fiches techniques, coûts matière, stock, production et marges en temps réel.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
-              <button type="button" onClick={() => scrollToSection("tarifs")} className="rounded-xl border border-[var(--border)] bg-white px-5 py-3 font-semibold text-[#264021]">Voir les offres</button>
-            </div>
-          </div>
-          <div className="rounded-3xl border border-[#cce0bc] bg-white p-6 shadow-[0_15px_60px_rgba(58,92,39,0.12)]">
-            <p className="text-sm font-semibold uppercase tracking-wider text-[#6e9f55]">Vue stratégique</p>
-            <div className="mt-5 space-y-3">
-              {[
-                "Saisie des recettes simplifiées et optimisées",
-                "Production simplifiée et synchronisée au stock",
-                "Factures intelligentes",
-                "Mise à jour des marges au quotidien",
-              ].map((item) => (
-                <div key={item} className="flex items-center gap-3 rounded-xl border border-[var(--border)] bg-[var(--secondary)] p-3 text-sm font-medium text-[#355329]">
-                  <CheckIcon className="size-4 text-[#6e9f55]" />
-                  {item}
-                </div>
-              ))}
+              <button
+                type="button"
+                onClick={() => scrollToSection("tarifs")}
+                className="rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021] transition hover:bg-[#b8d99c]"
+              >
+                Voir les offres
+              </button>
+              <Link
+                href="/contact"
+                className="rounded-xl border border-white/35 bg-white/10 px-5 py-3 font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
+              >
+                Demander une démo
+              </Link>
             </div>
           </div>
         </section>
 
         <section className="border-y border-[var(--border)] bg-white/70">
-          <div className="mx-auto grid w-full max-w-6xl gap-3 px-5 py-5 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="mx-auto grid w-full max-w-6xl gap-3 px-4 py-5 sm:grid-cols-2 sm:px-5 lg:grid-cols-4">
             {trustItems.map(({ label, icon: Icon }) => (
               <p key={label} className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--muted-foreground)]">
                 <span className="inline-flex size-7 items-center justify-center rounded-full bg-[#a8cf8c]/20 text-[#355329]">
@@ -172,12 +163,31 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="produit" className="mx-auto w-full max-w-6xl px-5 py-16">
-          <h2 className="text-3xl font-bold md:text-4xl">Une application pensée pour les petites entreprises: efficace, rapide et fiable.</h2>
-          <p className="mt-4 max-w-3xl text-[var(--muted-foreground)]">Chaque outil est pensé pour vous simplifier la vie : plus de problèmes gestion, une vue claire sur vos chiffres, et des décisions faciles à prendre au quotidien.</p>
+        <section id="produit" className="mx-auto grid w-full max-w-6xl items-center gap-8 px-4 py-14 sm:gap-10 sm:px-5 sm:py-16 lg:grid-cols-2 lg:gap-12 lg:py-20">
+          <div className="order-2 lg:order-1">
+            <h2 className="text-3xl font-bold md:text-4xl">Conçu pour le laboratoire, pensé pour le terrain.</h2>
+            <p className="mt-4 max-w-xl text-[var(--muted-foreground)]">
+              Gramme vous accompagne au quotidien : recettes, production, stock et marges, directement depuis l&apos;atelier.
+            </p>
+          </div>
+          <div className="relative order-1 mx-auto aspect-[4/3] w-full max-w-md overflow-hidden sm:max-w-lg lg:order-2 lg:mx-0 lg:max-w-none lg:aspect-[5/4]">
+            <Image
+              src="/images/boulangere_gramme_use.png"
+              alt="Boulangère utilisant le logiciel Gramme sur tablette dans son laboratoire"
+              fill
+              sizes="(max-width: 640px) 90vw, (max-width: 1024px) 512px, 480px"
+              className="object-cover object-[center_25%]"
+            />
+          </div>
         </section>
 
-        <section id="fonctionnalites" className="mx-auto w-full max-w-6xl px-5 pb-16">
+        <section id="fonctionnalites" className="mx-auto w-full max-w-6xl px-4 pb-14 sm:px-5 sm:pb-16">
+          <div className="mb-8 max-w-3xl sm:mb-10">
+            <h2 className="text-3xl font-bold md:text-4xl">Les fonctionnalités qui font gagner du temps et de la marge.</h2>
+            <p className="mt-4 text-[var(--muted-foreground)]">
+              Logiciel de gestion boulangerie complet : fiches techniques, mercuriale, stock, production et alertes marges — sans complexité inutile.
+            </p>
+          </div>
           <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
             {featureColumns.map((feature) => {
               const Icon = feature.icon;
@@ -203,7 +213,27 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="tarifs" className="mx-auto w-full max-w-6xl px-5 pb-16">
+        <section className="bg-[#0c0c0c] py-14 sm:py-16 lg:py-24" aria-labelledby="multidevice-title">
+          <div className="mx-auto w-full max-w-6xl px-4 sm:px-5">
+            <div className="mx-auto max-w-2xl text-center">
+              <h2 id="multidevice-title" className="text-3xl font-bold text-white md:text-4xl">Sur ordinateur, tablette ou téléphone.</h2>
+              <p className="mt-4 text-white/70">
+                Pilotez votre boulangerie partout : mercuriale, stock et recettes synchronisés sur tous vos écrans.
+              </p>
+            </div>
+            <div className="relative mx-auto mt-10 aspect-[16/10] w-full max-w-5xl sm:mt-14 sm:aspect-[16/9]">
+              <Image
+                src="/images/multi-device.png"
+                alt="Logiciel Gramme multi-appareils — mercuriale desktop, stock tablette et menu mobile"
+                fill
+                sizes="(max-width: 1024px) 100vw, 1024px"
+                className="object-contain object-center"
+              />
+            </div>
+          </div>
+        </section>
+
+        <section id="tarifs" className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-5 sm:py-16">
           <h2 className="text-3xl font-bold md:text-4xl">Les tarifs</h2>
                     <div className="mt-8 grid gap-5 lg:grid-cols-3">
             {plans.map((plan) => (
@@ -239,48 +269,23 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="demo" className="mx-auto w-full max-w-6xl px-5 pb-16">
-          <div className="rounded-3xl bg-[#264021] p-8 text-white">
+        <section id="demo" className="mx-auto w-full max-w-6xl px-4 pb-14 sm:px-5 sm:pb-16">
+          <div className="rounded-3xl bg-[#264021] p-6 text-white sm:p-8">
             <h2 className="text-3xl font-bold">Passez d’une méthode  artisanale à une gestion performante et maîtrisée.</h2>
             <p className="mt-3 max-w-3xl text-white/85">Découvrez comment Gramme transforme vos données en décisions rentables.</p>
             <Link href="/contact" className="mt-6 inline-flex rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]">Demander une démonstration</Link>
           </div>
         </section>
 
-        <section id="faq" className="mx-auto w-full max-w-6xl px-5 pb-16">
-          <h2 className="text-3xl font-bold md:text-4xl">Questions fréquentes</h2>
-          <div className="mt-8 space-y-4">
-            {faqItems.map((item) => (
-              <article key={item.q} className="rounded-2xl border border-[var(--border)] bg-white p-5 shadow-sm">
-                <h3 className="text-lg font-bold text-[#264021]">{item.q}</h3>
-                <p className="mt-2 text-[var(--muted-foreground)]">{item.a}</p>
-              </article>
-            ))}
-          </div>
+        <section id="faq" className="mx-auto w-full max-w-6xl px-4 pb-16 sm:px-5" aria-labelledby="faq-title">
+          <h2 id="faq-title" className="text-3xl font-bold md:text-4xl">Questions fréquentes</h2>
+          <p className="mt-3 max-w-3xl text-[var(--muted-foreground)]">
+            Tout savoir sur le logiciel de gestion Gramme pour boulangeries et pâtisseries.
+          </p>
+          <FaqAccordion />
         </section>
       </main>
-
-      <footer className="border-t border-[var(--border)] bg-white/80">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-5 py-8 text-sm text-[var(--muted-foreground)] sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-wrap items-center gap-5">
-            <Link href="/mentions-legales" className="hover:text-[var(--foreground)]">Mentions légales</Link>
-            <Link href="/cgv" className="hover:text-[var(--foreground)]">CGV</Link>
-          </div>
-          <div className="flex items-center gap-3">
-            <a
-              href="https://get.gramme.app"
-              target="_blank"
-              rel="noreferrer"
-              className="inline-flex items-center gap-2 rounded-xl border border-[#d8e6cf] bg-[#f6fbf2] px-3 py-2 font-semibold text-[#355329]"
-            >
-              <Image src="/logos/gramme-icon.svg" alt="Logo Gramme" width={20} height={20} className="h-auto" />
-              <span>Gramme.app</span>
-            </a>
-            <p>© {new Date().getFullYear()} Gramme</p>
-          </div>
-        </div>
-      </footer>
-    </div>
+    </>
   );
 }
 

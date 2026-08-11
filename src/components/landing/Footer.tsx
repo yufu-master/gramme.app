@@ -19,15 +19,12 @@ export function Footer() {
             <Button className="bg-white text-[#a8cf8c] hover:bg-white/90" size="lg" aria-label="Lancer mon essai gratuit maintenant">
               Essayer Gratuitement dès maintenant
             </Button>
-            <a
-              href="https://gramme-ia.vercel.app"
-              target="_blank"
-              rel="noreferrer"
+            <Link
+              href="/contact"
               className="inline-flex h-14 items-center rounded-xl border border-white/30 px-6 text-sm font-medium"
-              aria-label="Ouvrir l'application Gramme"
             >
-              Accéder à l&apos;application
-            </a>
+              Demander une démo
+            </Link>
           </div>
         </div>
 

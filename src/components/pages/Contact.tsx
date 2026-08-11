@@ -1,10 +1,9 @@
 "use client";
 
-import Image from "next/image";
-import Link from "next/link";
 import { FormEvent, useState } from "react";
 
 type SubjectOption = "Demande de démo" | "Question sur les tarifs" | "Support technique" | "Autre";
+type StructureStatus = "en_cours_de_creation" | "cree" | "plusieurs_structures";
 
 type ToastState = {
   type: "success" | "error";
@@ -13,12 +12,20 @@ type ToastState = {
 
 const SUBJECTS: SubjectOption[] = ["Demande de démo", "Question sur les tarifs", "Support technique", "Autre"];
 
+const STRUCTURE_STATUSES: { value: StructureStatus; label: string }[] = [
+  { value: "en_cours_de_creation", label: "En cours de création" },
+  { value: "cree", label: "Créée" },
+  { value: "plusieurs_structures", label: "Plusieurs structures" },
+];
+
 export default function ContactPageContent() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
   const [subject, setSubject] = useState<SubjectOption>("Demande de démo");
+  const [structureName, setStructureName] = useState("");
+  const [structureStatus, setStructureStatus] = useState<StructureStatus | "">("");
   const [message, setMessage] = useState("");
+  const [honeypot, setHoneypot] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [toast, setToast] = useState<ToastState>(null);
 
@@ -26,108 +33,105 @@ export default function ContactPageContent() {
     setFullName("");
     setEmail("");
     setSubject("Demande de démo");
+    setStructureName("");
+    setStructureStatus("");
     setMessage("");
+    setHoneypot("");
   };
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    setIsSubmitting(true);
-    setToast(null);
-
-    const response = await fetch("https://api.web3forms.com/submit", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        access_key: "58063a70-50a7-4690-a9aa-b2505452a448",
-        name: fullName.trim(),
-        email: email.trim(),
-        subject,
-        message: message.trim(),
-      }),
-    });
-
-    setIsSubmitting(false);
-
-    if (!response.ok) {
-      setToast({ type: "error", message: "Une erreur est survenue. Merci de réessayer." });
+    if (!structureStatus) {
+      setToast({ type: "error", message: "Merci d’indiquer où en est votre structure." });
       return;
     }
 
-    resetForm();
-    setToast({ type: "success", message: "✅ Votre message a bien été envoyé !" });
+    setIsSubmitting(true);
+    setToast(null);
+
+    try {
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          fullName: fullName.trim(),
+          email: email.trim(),
+          subject,
+          structureName: structureName.trim(),
+          structureStatus,
+          message: message.trim(),
+          website: honeypot,
+        }),
+      });
+
+      const data = (await response.json().catch(() => ({}))) as { error?: string };
+
+      if (!response.ok) {
+        setToast({
+          type: "error",
+          message: data.error || "Une erreur est survenue. Merci de réessayer.",
+        });
+        return;
+      }
+
+      resetForm();
+      setToast({
+        type: "success",
+        message: "Votre demande de contact a bien été envoyée. Nous revenons vers vous au plus vite.",
+      });
+    } catch {
+      setToast({ type: "error", message: "Une erreur est survenue. Merci de réessayer." });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#f6fbf2,_#ffffff_45%)] text-[var(--foreground)]">
-      <header className="fixed inset-x-0 top-0 z-50 border-b border-[var(--border)] bg-white/90 backdrop-blur-xl">
-        <nav className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-3 lg:relative">
-          <Link href="/" className="flex items-center gap-2 text-[1.44rem] font-black tracking-wide">
-            <Image src="/logos/gramme-icon.svg" alt="Logo Gramme" width={36} height={35} className="h-auto" />
-            <span>GRAMME</span>
-          </Link>
-          <div className="hidden items-center gap-6 text-sm text-[var(--muted-foreground)] lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:flex">
-            <Link href="/">Fonctionnalités</Link>
-            <Link href="/">Tarifs</Link>
-            <Link href="/comment-ca-marche">Comment ça marche</Link>
-            <Link href="/a-propos-de-gramme">À propos de Gramme</Link>
-            <Link href="/contact" className="font-semibold text-[#355329]">Contact</Link>
-          </div>
-          <button
-            type="button"
-            onClick={() => setIsMobileMenuOpen((value) => !value)}
-            className="ml-auto inline-flex h-11 w-11 items-center justify-center rounded-full border border-[#d8e6cf] bg-white text-[#355329] lg:hidden"
-            aria-label="Ouvrir le menu"
-            aria-expanded={isMobileMenuOpen}
-          >
-            <span className="flex flex-col gap-1.5">
-              <span className="h-0.5 w-5 rounded-full bg-current" />
-              <span className="h-0.5 w-5 rounded-full bg-current" />
-              <span className="h-0.5 w-5 rounded-full bg-current" />
-            </span>
-          </button>
-          {isMobileMenuOpen && (
-            <div className="absolute inset-x-5 top-[74px] rounded-2xl border border-[#d8e6cf] bg-white p-3 shadow-lg lg:hidden">
-              <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">Fonctionnalités</Link>
-              <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">Tarifs</Link>
-              <Link href="/comment-ca-marche" onClick={() => setIsMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">Comment ça marche</Link>
-              <Link href="/a-propos-de-gramme" onClick={() => setIsMobileMenuOpen(false)} className="block rounded-lg px-3 py-2 text-sm text-[#355329] hover:bg-[#f6fbf2]">À propos de Gramme</Link>
-              <Link href="/contact" onClick={() => setIsMobileMenuOpen(false)} className="block rounded-lg bg-[#f6fbf2] px-3 py-2 text-sm font-semibold text-[#355329]">Contact</Link>
-            </div>
-          )}
-        </nav>
-      </header>
-
-      <main className="mx-auto w-full max-w-6xl px-5 pb-16 pt-28 sm:pt-24 lg:pt-20">
+    <>
+      <main className="mx-auto w-full max-w-6xl flex-1 px-4 pb-16 pt-10 sm:px-5 sm:pt-14">
         <section className="overflow-hidden rounded-3xl border border-[#dcead2] bg-white shadow-[0_20px_70px_rgba(58,92,39,0.08)]">
           <div className="grid md:grid-cols-2">
-            <div className="bg-[#264021] p-10 text-white md:p-12">
+            <div className="bg-[#264021] p-8 text-white sm:p-10 md:p-12">
               <p className="inline-flex rounded-full border border-white/30 bg-white/10 px-4 py-1 text-xs font-semibold uppercase tracking-[0.14em]">Contact</p>
               <h1 className="mt-5 text-3xl font-black md:text-4xl">Contactez l&apos;équipe GRAMME</h1>
-              <p className="mt-5 text-white/85">Notre équipe est là pour vous accompagner dans la digitalisation de votre laboratoire.</p>
-              <p className="mt-5 text-white/85">Nous répondons rapidement aux artisans boulangers-pâtissiers pour vous aider à démarrer sereinement.</p>
-              <div className="mt-8 rounded-2xl border border-white/25 bg-white/10 p-4 text-sm md:text-base">
-                <p className="font-semibold">Email direct</p>
-                <p className="mt-1">gramme.app@outlook.fr</p>
+              <p className="mt-5 text-white/85">
+                Demandez une démonstration du logiciel de gestion boulangerie &amp; pâtisserie Gramme, ou posez vos questions sur les tarifs et le déploiement.
+              </p>
+              <p className="mt-5 text-white/85">
+                Nous répondons rapidement aux artisans boulangers-pâtissiers pour vous aider à démarrer sereinement.
+              </p>
+              <div className="mt-8 space-y-3 text-sm md:text-base">
+                <div className="rounded-2xl border border-white/25 bg-white/10 p-4">
+                  <p className="font-semibold">Email</p>
+                  <a href="mailto:bonjour@gramme.app" className="mt-1 inline-block underline-offset-2 hover:underline">
+                    bonjour@gramme.app
+                  </a>
+                </div>
+                <div className="rounded-2xl border border-white/25 bg-white/10 p-4">
+                  <p className="font-semibold">Support</p>
+                  <a href="mailto:support@gramme.app" className="mt-1 inline-block underline-offset-2 hover:underline">
+                    support@gramme.app
+                  </a>
+                </div>
               </div>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-5 p-8 md:p-12">
+            <form onSubmit={handleSubmit} className="space-y-5 p-6 sm:p-8 md:p-12" aria-label="Formulaire de contact Gramme">
               <label className="block">
-                <span className="mb-2 block text-sm font-semibold text-[#355329]">Nom complet</span>
+                <span className="mb-2 block text-sm font-semibold text-[#355329]">Nom complet *</span>
                 <input
                   required
                   value={fullName}
                   onChange={(event) => setFullName(event.target.value)}
                   className="w-full rounded-xl border border-[#d8e6cf] bg-white px-4 py-3 text-sm outline-none ring-[#a8cf8c] transition focus:ring-2"
                   placeholder="Votre nom"
+                  autoComplete="name"
                 />
               </label>
 
               <label className="block">
-                <span className="mb-2 block text-sm font-semibold text-[#355329]">Email de contact</span>
+                <span className="mb-2 block text-sm font-semibold text-[#355329]">Email de contact *</span>
                 <input
                   required
                   type="email"
@@ -135,12 +139,14 @@ export default function ContactPageContent() {
                   onChange={(event) => setEmail(event.target.value)}
                   className="w-full rounded-xl border border-[#d8e6cf] bg-white px-4 py-3 text-sm outline-none ring-[#a8cf8c] transition focus:ring-2"
                   placeholder="vous@boulangerie.fr"
+                  autoComplete="email"
                 />
               </label>
 
               <label className="block">
-                <span className="mb-2 block text-sm font-semibold text-[#355329]">Sujet de la demande</span>
+                <span className="mb-2 block text-sm font-semibold text-[#355329]">Sujet de la demande *</span>
                 <select
+                  required
                   value={subject}
                   onChange={(event) => setSubject(event.target.value as SubjectOption)}
                   className="w-full rounded-xl border border-[#d8e6cf] bg-white px-4 py-3 text-sm outline-none ring-[#a8cf8c] transition focus:ring-2"
@@ -152,16 +158,66 @@ export default function ContactPageContent() {
               </label>
 
               <label className="block">
-                <span className="mb-2 block text-sm font-semibold text-[#355329]">Message</span>
-                <textarea
+                <span className="mb-2 block text-sm font-semibold text-[#355329]">Nom de la structure *</span>
+                <input
                   required
-                  rows={6}
+                  value={structureName}
+                  onChange={(event) => setStructureName(event.target.value)}
+                  className="w-full rounded-xl border border-[#d8e6cf] bg-white px-4 py-3 text-sm outline-none ring-[#a8cf8c] transition focus:ring-2"
+                  placeholder="Ex. Boulangerie Dupont"
+                  autoComplete="organization"
+                />
+              </label>
+
+              <fieldset>
+                <legend className="mb-2 block text-sm font-semibold text-[#355329]">Où en est la structure ? *</legend>
+                <div className="grid gap-2 sm:grid-cols-1">
+                  {STRUCTURE_STATUSES.map((item) => (
+                    <label
+                      key={item.value}
+                      className={`flex cursor-pointer items-center gap-3 rounded-xl border px-4 py-3 text-sm transition ${
+                        structureStatus === item.value
+                          ? "border-[#7ca764] bg-[#f6fbf2] font-semibold text-[#355329]"
+                          : "border-[#d8e6cf] text-[#4d6952] hover:bg-[#f6fbf2]/60"
+                      }`}
+                    >
+                      <input
+                        type="radio"
+                        name="structureStatus"
+                        required
+                        value={item.value}
+                        checked={structureStatus === item.value}
+                        onChange={() => setStructureStatus(item.value)}
+                        className="accent-[#355329]"
+                      />
+                      {item.label}
+                    </label>
+                  ))}
+                </div>
+              </fieldset>
+
+              <label className="block">
+                <span className="mb-2 block text-sm font-semibold text-[#355329]">Message <span className="font-normal text-[var(--muted-foreground)]">(optionnel)</span></span>
+                <textarea
+                  rows={5}
                   value={message}
                   onChange={(event) => setMessage(event.target.value)}
                   className="w-full rounded-xl border border-[#d8e6cf] bg-white px-4 py-3 text-sm outline-none ring-[#a8cf8c] transition focus:ring-2"
                   placeholder="Décrivez votre besoin…"
                 />
               </label>
+
+              {/* Honeypot anti-spam — caché */}
+              <input
+                type="text"
+                name="website"
+                value={honeypot}
+                onChange={(event) => setHoneypot(event.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden
+                className="absolute -left-[9999px] h-0 w-0 opacity-0"
+              />
 
               <button
                 type="submit"
@@ -175,24 +231,16 @@ export default function ContactPageContent() {
         </section>
       </main>
 
-      <footer className="border-t border-[var(--border)] bg-white/80">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-5 py-8 text-sm text-[var(--muted-foreground)] sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-wrap items-center gap-5">
-            <Link href="/mentions-legales" className="hover:text-[var(--foreground)]">Mentions légales</Link>
-            <Link href="/cgv" className="hover:text-[var(--foreground)]">CGV</Link>
-          </div>
-          <div className="flex items-center gap-3">
-            <Image src="/logos/gramme-icon.svg" alt="Logo Gramme" width={20} height={20} className="h-auto" />
-            <p>© {new Date().getFullYear()} Gramme</p>
-          </div>
-        </div>
-      </footer>
-
       {toast && (
-        <div className={`fixed bottom-5 right-5 max-w-sm rounded-xl px-4 py-3 text-sm font-medium shadow-lg ${toast.type === "success" ? "bg-[#264021] text-white" : "bg-[#7a2323] text-white"}`}>
+        <div
+          role="status"
+          className={`fixed bottom-5 right-5 z-50 max-w-sm rounded-xl px-4 py-3 text-sm font-medium shadow-lg ${
+            toast.type === "success" ? "bg-[#264021] text-white" : "bg-[#7a2323] text-white"
+          }`}
+        >
           {toast.message}
         </div>
       )}
-    </div>
+    </>
   );
 }

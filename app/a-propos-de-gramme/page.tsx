@@ -1,19 +1,35 @@
 import type { Metadata } from "next";
 import Image from "next/image";
-import Link from "next/link";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { breadcrumbSchema, webPageSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "À propos",
+  title: "À propos — Chef pâtissier & logiciel boulangerie",
   description:
-    "Gramme est né du terrain : un outil conçu avec un chef pâtissier pour organiser vos recettes, suivre vos coûts matière et protéger vos marges au quotidien.",
+    "Découvrez Gramme, logiciel de gestion pour boulangeries et pâtisseries, co-fondé par Jeremy, chef pâtissier. Une vision terrain pour recettes, coûts matière et marges.",
+  keywords: [
+    "à propos Gramme",
+    "chef pâtissier logiciel",
+    "logiciel boulangerie artisan",
+    "co-fondateur Gramme",
+    "outil gestion pâtisserie",
+  ],
   alternates: {
     canonical: "https://gramme.app/a-propos-de-gramme",
   },
   openGraph: {
-    title: "À propos de Gramme",
+    title: "À propos de Gramme | Logiciel gestion boulangerie",
     description:
-      "Découvrez l'histoire de Gramme et notre vision pour accompagner les artisans boulangers et pâtissiers.",
+      "Né du terrain avec un chef pâtissier : Gramme accompagne les artisans pour organiser recettes, coûts et marges.",
     url: "https://gramme.app/a-propos-de-gramme",
+    images: [
+      {
+        url: "/images/jeremy-chef-rd.jpg",
+        width: 800,
+        height: 1000,
+        alt: "Jeremy, Chef pâtissier & Co-fondateur de Gramme",
+      },
+    ],
   },
 };
 
@@ -21,7 +37,7 @@ const sections = [
   {
     title: "Gramme — Né du terrain, conçu pour vous.",
     content:
-      "Gramme est né de la rencontre entre un chef pâtissier, profondément ancré dans les réalités du métier, et un développeur passionné par l'innovation. Ensemble, nous avons conçu un outil qui répond concrètement aux contraintes que vous vivez au quotidien : la gestion des recettes, le suivi des coûts et la protection de vos marges. Une application pensée par des gens du terrain, pour des artisans exigeants.",
+      "Gramme est né de la rencontre entre Jeremy, Chef pâtissier & Co-fondateur, profondément ancré dans les réalités du métier, et un développeur passionné par l'innovation. Ensemble, ils ont conçu un outil qui répond concrètement aux contraintes du quotidien : la gestion des recettes, le suivi des coûts et la protection des marges. Une application pensée par des gens du terrain, pour des artisans exigeants.",
   },
   {
     title: "Vos recettes, enfin organisées.",
@@ -42,55 +58,76 @@ const sections = [
 
 export default function AProposDeGrammePage() {
   return (
-    <div className="min-h-screen bg-[radial-gradient(circle_at_top,_#f6fbf2,_#ffffff_50%)] text-[var(--foreground)]">
-      <header className="sticky top-0 z-50 border-b border-[var(--border)] bg-white/90 backdrop-blur-xl">
-        <nav className="mx-auto flex w-full max-w-6xl flex-wrap items-center justify-between gap-3 px-5 py-3 lg:relative">
-          <Link href="/" className="flex items-center gap-2 text-[1.44rem] font-black tracking-wide">
-            <Image src="/logos/gramme-icon.svg" alt="Logo Gramme" width={36} height={35} className="h-auto" />
-            <span>GRAMME</span>
-          </Link>
-          <div className="hidden items-center gap-6 text-sm text-[var(--muted-foreground)] lg:absolute lg:left-1/2 lg:-translate-x-1/2 lg:flex">
-            <Link href="/">Fonctionnalités</Link>
-            <Link href="/">Tarifs</Link>
-            <Link href="/comment-ca-marche">Comment ça marche</Link>
-            <Link href="/a-propos-de-gramme" className="font-semibold text-[#355329]">À propos de Gramme</Link>
-            <Link href="/contact">Contact</Link>
-          </div>
-        </nav>
-      </header>
+    <>
+      <JsonLd
+        data={[
+          webPageSchema({
+            title: "À propos de Gramme",
+            description:
+              "Histoire et vision de Gramme, logiciel de gestion pour boulangeries et pâtisseries co-fondé par un chef pâtissier.",
+            path: "/a-propos-de-gramme",
+            type: "AboutPage",
+          }),
+          breadcrumbSchema([
+            { name: "Accueil", path: "/" },
+            { name: "À propos de Gramme", path: "/a-propos-de-gramme" },
+          ]),
+        ]}
+      />
 
-      <main className="mx-auto w-full max-w-5xl px-5 pb-20 pt-14 md:pt-20">
-        <section className="rounded-3xl border border-[#dcead2] bg-white/90 p-8 shadow-[0_20px_70px_rgba(58,92,39,0.08)] md:p-12">
+      <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-20 pt-10 sm:px-5 sm:pt-14">
+        <section className="rounded-3xl border border-[#dcead2] bg-white/90 p-6 shadow-[0_20px_70px_rgba(58,92,39,0.08)] sm:p-8 md:p-12">
           <p className="mb-4 inline-flex rounded-full border border-[#a8cf8c]/60 bg-[#a8cf8c]/20 px-4 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#3e6134]">
             Notre vision
           </p>
           <h1 className="text-3xl font-black leading-tight text-[#27421f] md:text-5xl">À propos de Gramme</h1>
           <p className="mt-5 max-w-3xl text-base text-[#4d6952] md:text-lg">
-            Un outil pensé pour simplifier votre quotidien, fiabiliser vos chiffres et vous permettre de vous concentrer sur l&apos;essentiel : votre savoir-faire.
+            Un logiciel de gestion boulangerie &amp; pâtisserie pensé pour simplifier votre quotidien, fiabiliser vos chiffres et vous concentrer sur l&apos;essentiel : votre savoir-faire.
           </p>
+        </section>
+
+        <section className="mt-10 overflow-hidden rounded-3xl border border-[#dcead2] bg-white shadow-sm md:mt-14" aria-labelledby="jeremy-title">
+          <div className="grid items-stretch md:grid-cols-[0.9fr_1.1fr]">
+            <div className="relative min-h-[280px] sm:min-h-[320px] md:min-h-full">
+              <Image
+                src="/images/jeremy-chef-rd.jpg"
+                alt="Jeremy, Chef pâtissier et Co-fondateur de Gramme"
+                fill
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="object-cover object-[center_20%]"
+                priority
+              />
+            </div>
+            <div className="flex flex-col justify-center p-6 sm:p-7 md:p-10 lg:p-12">
+              <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6e9f55]">L&apos;équipe</p>
+              <h2 id="jeremy-title" className="mt-3 text-2xl font-bold text-[#2f4f26] md:text-3xl">Jeremy</h2>
+              <p className="mt-2 text-sm font-semibold text-[#355329]">
+                Chef pâtissier &amp; Co-fondateur de Gramme
+              </p>
+              <p className="mt-5 leading-relaxed text-[#4d6952] md:text-lg">
+                Issu du terrain et formé aux exigences des grandes structures, Jeremy dirige la R&amp;D d&apos;une grande
+                entreprise du secteur. Chaque jour, il confronte innovation, coûts matière et réalités de production.
+                C&apos;est cette expérience — entre laboratoire d&apos;excellence et contraintes économiques — qui a
+                inspiré Gramme : un outil simple, précis, pensé pour les artisans qui veulent protéger leurs marges
+                sans sacrifier leur savoir-faire.
+              </p>
+              <p className="mt-4 leading-relaxed text-[#4d6952] md:text-lg">
+                Avec Gramme, il transpose les méthodes de recherche et de développement des grandes structures
+                aux boulangeries et pâtisseries indépendantes : recettes structurées, prix à jour, décisions rapides — au gramme près.
+              </p>
+            </div>
+          </div>
         </section>
 
         <section className="mt-10 grid gap-6 md:mt-14">
           {sections.map((section) => (
-            <article key={section.title} className="rounded-3xl border border-[#dcead2] bg-white p-7 shadow-sm md:p-9">
+            <article key={section.title} className="rounded-3xl border border-[#dcead2] bg-white p-6 shadow-sm sm:p-7 md:p-9">
               <h2 className="text-2xl font-bold text-[#2f4f26]">{section.title}</h2>
               <p className="mt-4 leading-relaxed text-[#4d6952] md:text-lg">{section.content}</p>
             </article>
           ))}
         </section>
       </main>
-
-      <footer className="border-t border-[var(--border)] bg-white/80">
-        <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-5 py-8 text-sm text-[var(--muted-foreground)] sm:flex-row sm:items-center sm:justify-between">
-          <div className="flex flex-wrap items-center gap-5">
-            <Link href="/mentions-legales" className="hover:text-[var(--foreground)]">Mentions légales</Link>
-            <Link href="/cgv" className="hover:text-[var(--foreground)]">CGV</Link>
-          </div>
-          <div className="flex items-center gap-3">
-            <p>© {new Date().getFullYear()} Gramme</p>
-          </div>
-        </div>
-      </footer>
-    </div>
+    </>
   );
 }
