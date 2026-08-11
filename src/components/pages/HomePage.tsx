@@ -4,6 +4,10 @@ import Image from "next/image";
 import Link from "next/link";
 import { useEffect } from "react";
 import { FaqAccordion } from "@/components/landing/FaqAccordion";
+import { IntegrationLogo } from "@/components/integrations/IntegrationCard";
+import { HOME_INTEGRATION_PREVIEWS, INTEGRATIONS } from "@/lib/integrations";
+import { formatEuro, pricingPlans } from "@/lib/pricing";
+import { trackEvent } from "@/lib/analytics";
 
 const trustItems = [
   { label: "Recettes & fiches techniques", icon: ShieldIcon },
@@ -45,33 +49,7 @@ const featureColumns = [
   },
 ];
 
-const plans = [
-  {
-    name: "Starter",
-    price: "39€",
-    cadence: "/mois",
-    audience: "Pour les artisans qui veulent aller à l’essentiel.",
-    cta: "Commencer",
-    items: ["50 recettes", "Scan de 30 factures/mois", "Suivi marge en temps réel", "Frais de mise en service : 300€"],
-  },
-  {
-    name: "Pro",
-    price: "79€",
-    cadence: "/mois",
-    audience: "Pour les équipes qui pilotent production + achats.",
-    cta: "Commencer",
-    highlight: true,
-    items: ["Recettes illimitées", "Scan de 150 factures/mois", "Stocks, fournisseurs et alertes avancées", "Support prioritaire", "Frais de mise en service : 500€"],
-  },
-  {
-    name: "Enterprise",
-    price: "Sur devis",
-    cadence: "",
-    audience: "Pour les structures multi-sites et besoins spécifiques.",
-    cta: "Parler à un expert",
-    items: ["Multi-sites", "Déploiement accompagné", "Intégrations avancées", "SLA & gouvernance dédiée", "Frais de mise en service : Sur devis"],
-  },
-];
+const plans = pricingPlans;
 
 export default function HomePage() {
   const scrollToSection = (sectionId: string) => {
@@ -100,22 +78,22 @@ export default function HomePage() {
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[72%_center] sm:object-[65%_center] lg:object-center"
+            className="object-cover object-[85%_center] sm:object-[80%_center] lg:object-[75%_center] xl:object-[70%_center]"
           />
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-r from-[#1a2e14]/92 via-[#1a2e14]/72 to-[#1a2e14]/25 sm:via-[#1a2e14]/55 sm:to-transparent"
+            className="absolute inset-0 bg-gradient-to-r from-[#1a2e14] via-[#1a2e14]/88 to-transparent sm:via-[#1a2e14]/75 lg:w-[58%] lg:via-[#1a2e14]/80"
           />
           <div
             aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-[#1a2e14]/80 via-transparent to-[#1a2e14]/35 sm:from-[#1a2e14]/40 sm:to-transparent"
+            className="absolute inset-0 bg-gradient-to-t from-[#1a2e14]/75 via-transparent to-[#1a2e14]/25 sm:from-transparent sm:to-[#1a2e14]/20"
           />
-          <div className="relative z-10 mx-auto w-full max-w-6xl px-4 pb-16 pt-28 sm:px-5 sm:pb-20 sm:pt-32 lg:pt-28">
+          <div className="relative z-10 w-full max-w-[34rem] self-end px-4 pb-16 pt-28 sm:self-center sm:px-6 sm:pb-20 sm:pt-32 md:max-w-[36rem] md:px-8 lg:max-w-[38rem] lg:px-10 xl:px-14">
             <p className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#cfe8bf]">
               <SparkIcon className="size-4" />
               Gramme — logiciel boulangerie &amp; pâtisserie
             </p>
-            <h1 className="max-w-xl text-[2.35rem] font-black leading-[1.08] text-white sm:text-5xl md:text-6xl lg:text-7xl">
+            <h1 className="text-[2.35rem] font-black leading-[1.08] text-white sm:text-5xl md:text-6xl">
               Pilotez votre marge
               <br />
               au{" "}
@@ -142,6 +120,7 @@ export default function HomePage() {
               </button>
               <Link
                 href="/contact"
+                onClick={() => trackEvent("cta_demo_click", { source: "hero" })}
                 className="rounded-xl border border-white/35 bg-white/10 px-5 py-3 font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
               >
                 Demander une démo
@@ -168,6 +147,21 @@ export default function HomePage() {
             <h2 className="text-3xl font-bold md:text-4xl">Conçu pour le laboratoire, pensé pour le terrain.</h2>
             <p className="mt-4 max-w-xl text-[var(--muted-foreground)]">
               Gramme vous accompagne au quotidien : recettes, production, stock et marges, directement depuis l&apos;atelier.
+            </p>
+            <p className="mt-5 max-w-xl text-sm leading-relaxed text-[var(--muted-foreground)]">
+              Découvrez{" "}
+              <Link href="/comment-ca-marche" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
+                comment marche le logiciel
+              </Link>
+              , l&apos;histoire de{" "}
+              <Link href="/a-propos-de-gramme" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
+                Gramme et de son co-fondateur chef pâtissier
+              </Link>
+              , ou{" "}
+              <Link href="/contact" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
+                contactez l&apos;équipe pour une démonstration
+              </Link>
+              .
             </p>
           </div>
           <div className="relative order-1 mx-auto aspect-[4/3] w-full max-w-md overflow-hidden sm:max-w-lg lg:order-2 lg:mx-0 lg:max-w-none lg:aspect-[5/4]">
@@ -213,11 +207,11 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section className="bg-[#0c0c0c] py-14 sm:py-16 lg:py-24" aria-labelledby="multidevice-title">
+        <section className="bg-[#264021] py-14 sm:py-16 lg:py-24" aria-labelledby="multidevice-title">
           <div className="mx-auto w-full max-w-6xl px-4 sm:px-5">
             <div className="mx-auto max-w-2xl text-center">
               <h2 id="multidevice-title" className="text-3xl font-bold text-white md:text-4xl">Sur ordinateur, tablette ou téléphone.</h2>
-              <p className="mt-4 text-white/70">
+              <p className="mt-4 text-white/75">
                 Pilotez votre boulangerie partout : mercuriale, stock et recettes synchronisés sur tous vos écrans.
               </p>
             </div>
@@ -233,37 +227,99 @@ export default function HomePage() {
           </div>
         </section>
 
+        <section id="confidentialite" className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-5 sm:py-16" aria-labelledby="confidentialite-title">
+          <div className="max-w-3xl">
+            <h2 id="confidentialite-title" className="text-3xl font-bold md:text-4xl">
+              Vos recettes ne quittent pas votre atelier.
+            </h2>
+            <p className="mt-4 text-[var(--muted-foreground)]">
+              Fiches techniques, factures fournisseurs, prix d&apos;achat et marges restent votre propriété.
+              Aucune revente, aucun partage avec d&apos;autres établissements, accès limité au support — dans un cadre RGPD.
+            </p>
+          </div>
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { title: "Propriété exclusive", text: "Vos données métier vous appartiennent." },
+              { title: "Pas de revente", text: "Aucune monétisation auprès de tiers." },
+              { title: "Cloisonnement", text: "Chaque structure est isolée des autres." },
+              { title: "Cadre RGPD", text: "Hébergement Europe, accès contrôlés." },
+            ].map((item) => (
+              <li key={item.title} className="rounded-2xl border border-[#dcead2] bg-white p-5">
+                <p className="font-bold text-[#355329]">{item.title}</p>
+                <p className="mt-2 text-sm text-[var(--muted-foreground)]">{item.text}</p>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 text-sm text-[var(--muted-foreground)]">
+            En détail :{" "}
+            <Link href="/securite" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
+              sécurité &amp; confidentialité
+            </Link>
+            {" · "}
+            <Link href="/politique-de-confidentialite" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
+              politique de confidentialité
+            </Link>
+            .
+          </p>
+        </section>
+
         <section id="tarifs" className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-5 sm:py-16">
-          <h2 className="text-3xl font-bold md:text-4xl">Les tarifs</h2>
-                    <div className="mt-8 grid gap-5 lg:grid-cols-3">
+          <div className="flex flex-wrap items-end justify-between gap-4">
+            <div>
+              <h2 className="text-3xl font-bold md:text-4xl">Les tarifs</h2>
+              <p className="mt-3 max-w-xl text-[var(--muted-foreground)]">
+                Sans engagement en mensuel. Annuel avec 2 mois offerts. Installation accompagnée une seule fois.
+              </p>
+            </div>
+            <Link href="/tarifs" className="text-sm font-semibold text-[#355329] underline-offset-2 hover:underline">
+              Voir le détail des offres
+            </Link>
+          </div>
+          <div className="mt-8 grid gap-5 lg:grid-cols-2">
             {plans.map((plan) => (
               <article
-                key={plan.name}
-                className={`rounded-3xl border p-6 ${plan.highlight ? "relative border-[#7ca764] bg-[#264021] text-white shadow-[0_20px_60px_rgba(34,60,23,0.35)]" : "border-[var(--border)] bg-white"}`}
+                key={plan.id}
+                className={`rounded-3xl border p-6 ${
+                  plan.highlight
+                    ? "relative border-[#7ca764] bg-[#264021] text-white shadow-[0_20px_60px_rgba(34,60,23,0.35)]"
+                    : "border-[var(--border)] bg-white"
+                }`}
               >
                 {plan.highlight && (
-                  <p className="absolute -top-3 left-6 rounded-full bg-[#a8cf8c] px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#264021]">Le plus choisi</p>
+                  <p className="absolute -top-3 left-6 rounded-full bg-[#a8cf8c] px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#264021]">
+                    Le plus choisi
+                  </p>
                 )}
-                <p className={`text-sm font-semibold uppercase tracking-wide ${plan.highlight ? "text-[#d7efca]" : "text-[#355329]"}`}>{plan.name}</p>
-                <p className="mt-4 text-4xl font-black">{plan.price}<span className={`ml-1 text-base font-semibold ${plan.highlight ? "text-white/80" : "text-[var(--muted-foreground)]"}`}>{plan.cadence}</span></p>
-                <p className={`mt-3 text-sm ${plan.highlight ? "text-white/85" : "text-[var(--muted-foreground)]"}`}>{plan.audience}</p>
+                <p className={`text-sm font-semibold uppercase tracking-wide ${plan.highlight ? "text-[#d7efca]" : "text-[#355329]"}`}>
+                  {plan.name}
+                </p>
+                <p className="mt-4 tabular-nums text-4xl font-black">
+                  {formatEuro(plan.yearlyPrice)}
+                  <span className={`ml-1 text-base font-semibold ${plan.highlight ? "text-white/80" : "text-[var(--muted-foreground)]"}`}>
+                    HT / an
+                  </span>
+                </p>
+                <p className={`mt-2 text-sm tabular-nums ${plan.highlight ? "text-white/85" : "text-[var(--muted-foreground)]"}`}>
+                  soit {formatEuro(plan.yearlyMonthlyEquivalent, 2)} HT / mois · ou {formatEuro(plan.monthlyPrice)} HT / mois sans engagement
+                </p>
+                <p className={`mt-3 text-sm ${plan.highlight ? "text-white/85" : "text-[var(--muted-foreground)]"}`}>{plan.tagline}</p>
                 <ul className="mt-5 space-y-2 text-sm">
-                  {plan.items.map((item) => (
+                  {plan.features.map((item) => (
                     <li key={item} className={`flex items-start gap-2 ${plan.highlight ? "text-white/95" : "text-[var(--muted-foreground)]"}`}>
                       <CheckIcon className={`mt-0.5 size-4 shrink-0 ${plan.highlight ? "text-[#a8cf8c]" : "text-[#6e9f55]"}`} />
                       {item}
                     </li>
                   ))}
                 </ul>
-                <button
-                  type="button"
-                  onClick={() => scrollToSection("demo")}
+                <Link
+                  href="/tarifs"
+                  onClick={() => trackEvent("cta_demo_click", { source: `home_tarif_${plan.id}` })}
                   className={`mt-6 inline-flex w-full items-center justify-center rounded-xl px-4 py-2.5 font-semibold ${
                     plan.highlight ? "bg-[#a8cf8c] text-[#264021]" : "bg-[#264021] text-white"
                   }`}
                 >
-                  {plan.cta}
-                </button>
+                  Voir l&apos;offre {plan.name}
+                </Link>
               </article>
             ))}
           </div>
@@ -273,8 +329,50 @@ export default function HomePage() {
           <div className="rounded-3xl bg-[#264021] p-6 text-white sm:p-8">
             <h2 className="text-3xl font-bold">Passez d’une méthode  artisanale à une gestion performante et maîtrisée.</h2>
             <p className="mt-3 max-w-3xl text-white/85">Découvrez comment Gramme transforme vos données en décisions rentables.</p>
-            <Link href="/contact" className="mt-6 inline-flex rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]">Demander une démonstration</Link>
+            <Link
+              href="/contact"
+              onClick={() => trackEvent("cta_demo_click", { source: "home_cta" })}
+              className="mt-6 inline-flex rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]"
+            >
+              Demander une démonstration
+            </Link>
           </div>
+        </section>
+
+        <section id="integrations" className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-5 sm:py-16" aria-labelledby="integrations-title">
+          <div className="max-w-3xl">
+            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6e9f55]">À venir</p>
+            <h2 id="integrations-title" className="mt-3 text-3xl font-bold md:text-4xl">
+              Intégrations caisse &amp; compta
+            </h2>
+            <p className="mt-4 text-[var(--muted-foreground)]">
+              Popina, Pennylane, Zettle et d&apos;autres outils du métier : votez pour prioriser les prochaines connexions Gramme.
+            </p>
+          </div>
+          <ul className="mt-8 flex flex-wrap gap-3">
+            {HOME_INTEGRATION_PREVIEWS.map((id) => {
+              const integration = INTEGRATIONS.find((item) => item.id === id);
+              if (!integration) return null;
+              return (
+                <li
+                  key={integration.id}
+                  className="inline-flex items-center gap-2 rounded-2xl border border-[#dcead2] bg-white px-4 py-3 text-sm font-semibold text-[#355329]"
+                >
+                  <IntegrationLogo integration={integration} size={32} />
+                  {integration.name}
+                  <span className="rounded-full bg-[#a8cf8c]/30 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#355329]">
+                    Bientôt
+                  </span>
+                </li>
+              );
+            })}
+          </ul>
+          <Link
+            href="/integrations"
+            className="mt-6 inline-flex rounded-xl border border-[#d8e6cf] bg-white px-5 py-3 text-sm font-semibold text-[#355329] transition hover:bg-[#f6fbf2]"
+          >
+            Voir toutes les intégrations et voter
+          </Link>
         </section>
 
         <section id="faq" className="mx-auto w-full max-w-6xl px-4 pb-16 sm:px-5" aria-labelledby="faq-title">
@@ -283,6 +381,60 @@ export default function HomePage() {
             Tout savoir sur le logiciel de gestion Gramme pour boulangeries et pâtisseries.
           </p>
           <FaqAccordion />
+        </section>
+
+        <section className="mx-auto w-full max-w-6xl px-4 pb-20 sm:px-5" aria-label="Liens utiles">
+          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#6e9f55]">Continuer sur Gramme</p>
+          <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+            <li>
+              <Link
+                href="/comment-ca-marche"
+                className="block rounded-2xl border border-[#dcead2] bg-white px-4 py-3 text-sm font-semibold text-[#355329] transition hover:bg-[#f6fbf2]"
+              >
+                Comment marche le logiciel
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/guides"
+                className="block rounded-2xl border border-[#dcead2] bg-white px-4 py-3 text-sm font-semibold text-[#355329] transition hover:bg-[#f6fbf2]"
+              >
+                Guides fiches techniques &amp; coûts
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/a-propos-de-gramme"
+                className="block rounded-2xl border border-[#dcead2] bg-white px-4 py-3 text-sm font-semibold text-[#355329] transition hover:bg-[#f6fbf2]"
+              >
+                À propos de Gramme
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/securite"
+                className="block rounded-2xl border border-[#dcead2] bg-white px-4 py-3 text-sm font-semibold text-[#355329] transition hover:bg-[#f6fbf2]"
+              >
+                Sécurité &amp; confidentialité
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/integrations"
+                className="block rounded-2xl border border-[#dcead2] bg-white px-4 py-3 text-sm font-semibold text-[#355329] transition hover:bg-[#f6fbf2]"
+              >
+                Intégrations à venir
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/contact"
+                className="block rounded-2xl border border-[#dcead2] bg-white px-4 py-3 text-sm font-semibold text-[#355329] transition hover:bg-[#f6fbf2]"
+              >
+                Demander une démonstration
+              </Link>
+            </li>
+          </ul>
         </section>
       </main>
     </>

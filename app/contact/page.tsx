@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
+import { Suspense } from "react";
 import ContactPageContent from "@/components/pages/Contact";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, webPageSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Contact — Démo logiciel boulangerie",
   description:
-    "Contactez Gramme pour une démonstration du logiciel de gestion boulangerie et pâtisserie, une question tarifaire ou un accompagnement au déploiement.",
+    "Contactez Gramme pour une démonstration du logiciel de gestion boulangerie et pâtisserie. Réponse sous 4 heures ouvrées.",
   keywords: [
     "démonstration logiciel boulangerie",
     "contact Gramme",
@@ -41,7 +44,21 @@ export default function ContactPage() {
           ]),
         ]}
       />
-      <ContactPageContent />
+      <main className="mx-auto w-full max-w-6xl flex-1 px-4 pb-24 pt-6 sm:px-5 sm:pt-8 lg:pb-16">
+        <Breadcrumbs currentLabel="Contact" />
+        <div className="mt-6">
+          <Suspense fallback={<div className="h-96 animate-pulse rounded-3xl bg-[#f6fbf2]" aria-hidden />}>
+            <ContactPageContent />
+          </Suspense>
+        </div>
+        <RelatedLinks
+          links={[
+            { href: "/comment-ca-marche", label: "Comment marche le logiciel" },
+            { href: "/integrations", label: "Intégrations à venir" },
+            { href: "/securite", label: "Sécurité des données" },
+          ]}
+        />
+      </main>
     </>
   );
 }

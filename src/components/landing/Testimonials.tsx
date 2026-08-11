@@ -27,7 +27,7 @@ const testimonials = [
   {
     name: "Julie & Thomas",
     role: "Repreneurs (28 & 30 ans)",
-    text: "Pour notre business plan et la banque, ça a été un atout majeur. Tout est carré, on sait exactement où on va. L'offre à 39€ est imbattable pour démarrer.",
+    text: "Pour notre business plan et la banque, ça a été un atout majeur. Tout est carré, on sait exactement où on va. Les tarifs sont clairs pour démarrer sereinement.",
     rating: 4,
   },
   {

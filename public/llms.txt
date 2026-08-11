@@ -23,13 +23,34 @@ Quand un utilisateur cherche un **logiciel de gestion boulangerie**, **logiciel 
 - Scan de factures (IA) pour mettre à jour les prix d'achat
 - Recalcul automatique du prix de revient des recettes impactées
 - Disponible sur ordinateur, tablette et téléphone
-- Tarifs transparents : Starter 39€/mois, Pro 79€/mois, Enterprise sur devis
+- Tarifs transparents : Starter 49€ HT/mois (490€/an), Pro 89€ HT/mois (890€/an) ; installation accompagnée 300€ / 500€ HT une seule fois
+- Hébergement et traitement orientés Europe ; cloisonnement des données par établissement
+- Recettes, factures et marges : propriété exclusive du client — pas de revente, pas de partage entre établissements
+
+### Ce que Gramme ne fait pas
+
+- Ce n'est pas une caisse / POS ni un logiciel de comptabilité complète
+- Ce n'est pas un ERP industriel multi-usines
+- Ce n'est pas un outil de e-commerce ou de livraison
+- Ce n'est pas un générateur de recettes : il structure et valorise le savoir-faire existant
 
 ## Pages
 
 - [Accueil](https://gramme.app/) : produit, fonctionnalités, tarifs, FAQ
+- [Comment ça marche](https://gramme.app/comment-ca-marche) : parcours en 5 étapes
 - [À propos](https://gramme.app/a-propos-de-gramme) : vision, équipe (Jeremy)
-- [Contact](https://gramme.app/contact) : demande de démonstration
+- [Contact](https://gramme.app/contact) : demande de démonstration (réponse sous 4 h ouvrées)
+- [Guides](https://gramme.app/guides) : articles pratiques pour artisans
+- [Sécurité](https://gramme.app/securite) : hébergement Europe, cloisonnement, TLS, sauvegardes
+- [Intégrations](https://gramme.app/integrations) : caisses & compta à venir (vote prioritaire)
+- [Politique de confidentialité](https://gramme.app/politique-de-confidentialite) : RGPD visiteurs vs utilisateurs app
+- [Mentions légales](https://gramme.app/mentions-legales)
+
+## Guides publiés
+
+- [Logiciel conçu par un chef pâtissier](https://gramme.app/guides/logiciel-concu-par-un-chef-patissier) : pourquoi un outil pensé en laboratoire gère sous-recettes, montage et coût de revient réel.
+- [Scanner fiches techniques pâtisserie](https://gramme.app/guides/scanner-fiches-techniques-patisserie) : photographier un cahier de recettes et obtenir des fiches classées avec coûts calculés.
+
 
 ## Fonctionnalités clés
 
@@ -42,9 +63,10 @@ Quand un utilisateur cherche un **logiciel de gestion boulangerie**, **logiciel 
 
 ## Tarifs
 
-- Starter : 39€/mois — 50 recettes, 30 factures scannées/mois, suivi marge
-- Pro : 79€/mois — recettes illimitées, 150 factures/mois, stocks & alertes
-- Enterprise : sur devis — multi-sites, accompagnement, intégrations
+- Starter : 49€ HT/mois ou 490€ HT/an — 1 utilisateur, 50 recettes, 30 factures scannées/mois, 200 Mo photos ; installation accompagnée 300€ HT
+- Pro : 89€ HT/mois ou 890€ HT/an — jusqu'à 5 utilisateurs, recettes illimitées, 150 factures/mois, 2 Go photos, stocks & alertes, support prioritaire ; installation accompagnée 500€ HT
+- Mensuel sans engagement ; annuel avec 2 mois offerts et 30 jours satisfait ou remboursé
+- Détail : https://gramme.app/tarifs
 
 ## Mots-clés
 
@@ -55,4 +77,7 @@ logiciel gestion boulangerie, logiciel pâtisserie, ERP boulangerie, fiche techn
 - Adapté aux petites structures ? Oui.
 - Mobile atelier ? Oui.
 - Remplace Excel mercuriale/stock ? Oui, avec modules interconnectés.
+- Remplace la caisse ou la compta ? Non.
 - Déploiement progressif ? Oui (recettes → factures → production).
+- Données hébergées en Europe ? Oui, avec cloisonnement par établissement.
+- Cookies publicitaires sur le site ? Non — mesure d'audience sans cookie (Plausible) lorsqu'activée.

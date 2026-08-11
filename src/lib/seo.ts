@@ -64,7 +64,11 @@ export const faqItems = [
   },
   {
     q: "Combien coûte le logiciel Gramme pour une boulangerie ?",
-    a: "L'offre Starter est à 39€/mois, l'offre Pro à 79€/mois. Une offre Enterprise est disponible sur devis pour les structures multi-sites.",
+    a: "L'offre Starter est à 49 € HT/mois (ou 490 € HT/an), l'offre Pro à 89 € HT/mois (ou 890 € HT/an). L'installation accompagnée est facturée une seule fois (300 € HT en Starter, 500 € HT en Pro), payable en trois fois sans supplément.",
+  },
+  {
+    q: "Mes recettes et factures sont-elles confidentielles ?",
+    a: "Oui. Vos recettes, factures, prix fournisseurs et marges restent votre propriété exclusive. Gramme ne les revend pas, ne les partage pas avec d'autres établissements et n'y accède que pour le support ou la mise en service. Les données sont cloisonnées par structure, avec un hébergement orienté Europe et un cadre RGPD.",
   },
 ] as const;
 
@@ -87,6 +91,10 @@ export const siteGraph = {
       email: SITE_EMAIL,
       foundingDate: "2025",
       sameAs: ["https://www.instagram.com/gramme.app/"],
+      areaServed: {
+        "@type": "Country",
+        name: "France",
+      },
       contactPoint: {
         "@type": "ContactPoint",
         contactType: "customer support",
@@ -142,29 +150,58 @@ export const siteGraph = {
       offers: [
         {
           "@type": "Offer",
-          name: "Starter",
-          price: "39",
+          name: "Starter mensuel",
+          price: "49",
           priceCurrency: "EUR",
           availability: "https://schema.org/InStock",
-          description: "50 recettes, scan de 30 factures/mois, suivi marge en temps réel",
+          description: "Sans engagement, 49 € HT / mois",
         },
         {
           "@type": "Offer",
-          name: "Pro",
-          price: "79",
+          name: "Starter annuel",
+          price: "490",
           priceCurrency: "EUR",
           availability: "https://schema.org/InStock",
-          description: "Recettes illimitées, scan de 150 factures/mois, stocks et alertes avancées",
+          description: "490 € HT / an, soit 40,83 € HT / mois",
         },
         {
           "@type": "Offer",
-          name: "Enterprise",
+          name: "Pro mensuel",
+          price: "89",
           priceCurrency: "EUR",
           availability: "https://schema.org/InStock",
-          description: "Multi-sites, déploiement accompagné, intégrations avancées",
+          description: "Sans engagement, 89 € HT / mois",
+        },
+        {
+          "@type": "Offer",
+          name: "Pro annuel",
+          price: "890",
+          priceCurrency: "EUR",
+          availability: "https://schema.org/InStock",
+          description: "890 € HT / an, soit 74,17 € HT / mois",
+        },
+        {
+          "@type": "Offer",
+          name: "Installation accompagnée Starter",
+          price: "300",
+          priceCurrency: "EUR",
+          availability: "https://schema.org/InStock",
+          description: "Prestation unique, 300 € HT, payable en trois fois",
+        },
+        {
+          "@type": "Offer",
+          name: "Installation accompagnée Pro",
+          price: "500",
+          priceCurrency: "EUR",
+          availability: "https://schema.org/InStock",
+          description: "Prestation unique, 500 € HT, payable en trois fois",
         },
       ],
       publisher: { "@id": `${SITE_URL}/#organization` },
+      areaServed: {
+        "@type": "Country",
+        name: "France",
+      },
       audience: {
         "@type": "Audience",
         audienceType: "Artisans boulangers, pâtissiers et chocolatiers",

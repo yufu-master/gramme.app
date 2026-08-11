@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import Image from "next/image";
+import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
+import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, webPageSchema } from "@/lib/seo";
 
@@ -75,8 +77,9 @@ export default function AProposDeGrammePage() {
         ]}
       />
 
-      <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-20 pt-10 sm:px-5 sm:pt-14">
-        <section className="rounded-3xl border border-[#dcead2] bg-white/90 p-6 shadow-[0_20px_70px_rgba(58,92,39,0.08)] sm:p-8 md:p-12">
+      <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-20 pt-6 sm:px-5 sm:pt-8">
+        <Breadcrumbs currentLabel="À propos de Gramme" />
+        <section className="mt-6 rounded-3xl border border-[#dcead2] bg-white/90 p-6 shadow-[0_20px_70px_rgba(58,92,39,0.08)] sm:p-8 md:p-12">
           <p className="mb-4 inline-flex rounded-full border border-[#a8cf8c]/60 bg-[#a8cf8c]/20 px-4 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#3e6134]">
             Notre vision
           </p>
@@ -127,6 +130,13 @@ export default function AProposDeGrammePage() {
             </article>
           ))}
         </section>
+        <RelatedLinks
+          links={[
+            { href: "/comment-ca-marche", label: "Comment marche le logiciel" },
+            { href: "/securite", label: "Sécurité des données" },
+            { href: "/contact", label: "Demander une démonstration" },
+          ]}
+        />
       </main>
     </>
   );

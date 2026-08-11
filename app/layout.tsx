@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { SiteChrome } from "@/components/layout/SiteChrome";
+import { Analytics } from "@/components/seo/Analytics";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { primaryKeywords, siteGraph } from "@/lib/seo";
 import "./globals.css";
@@ -67,8 +68,12 @@ export const metadata: Metadata = {
     },
   },
   icons: {
-    icon: "/logos/gramme-icon.svg",
-    apple: "/logos/apple-touch-icon.png",
+    icon: [
+      { url: "/logos/favicon-96x96.png", sizes: "96x96", type: "image/png" },
+      { url: "/logos/gramme-icon.svg", type: "image/svg+xml" },
+    ],
+    shortcut: "/logos/favicon.ico",
+    apple: [{ url: "/logos/apple-touch-icon.png", sizes: "180x180", type: "image/png" }],
   },
   manifest: "/manifest.webmanifest",
   other: {
@@ -96,6 +101,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body className="antialiased">
         <JsonLd data={siteGraph} />
+        <Analytics />
         <SiteChrome>{children}</SiteChrome>
       </body>
     </html>

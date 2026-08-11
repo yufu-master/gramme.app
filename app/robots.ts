@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 
+/** Bots génératifs / crawlers IA — accès explicite aux pages d'identité produit. */
 const AI_BOTS = [
   "GPTBot",
   "ChatGPT-User",
@@ -24,7 +25,7 @@ export default function robots(): MetadataRoute.Robots {
       },
       ...AI_BOTS.map((userAgent) => ({
         userAgent,
-        allow: ["/", "/llms.txt", "/a-propos-de-gramme", "/contact"],
+        allow: ["/", "/llms.txt", "/a-propos-de-gramme", "/contact", "/comment-ca-marche", "/securite", "/guides"],
       })),
     ],
     sitemap: "https://gramme.app/sitemap.xml",

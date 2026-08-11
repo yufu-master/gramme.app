@@ -33,8 +33,9 @@ export default function CGV() {
               Les services sont facturés selon les tarifs en vigueur affichés sur le site. Les prix sont indiqués en euros et hors taxes (HT).
             </p>
             <ul className="mt-2 list-disc pl-5 space-y-1">
-              <li><strong>Offre Essentiel :</strong> 39€ HT / mois</li>
-              <li><strong>Offre Pilotage :</strong> 89€ HT / mois</li>
+              <li><strong>Offre Starter :</strong> 49€ HT / mois (ou 490€ HT / an)</li>
+              <li><strong>Offre Pro :</strong> 89€ HT / mois (ou 890€ HT / an)</li>
+              <li><strong>Installation accompagnée :</strong> 300€ HT (Starter) / 500€ HT (Pro), une seule fois</li>
             </ul>
             <p className="mt-2">
               Le paiement s&apos;effectue par prélèvement automatique via notre partenaire de paiement sécurisé (Stripe). L&apos;abonnement est mensuel et renouvelé tacitement.
