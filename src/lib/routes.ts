@@ -30,6 +30,14 @@ export const siteRoutes: SiteRoute[] = [
     breadcrumb: true,
   },
   {
+    path: "/logiciel-patisserie",
+    title: "Logiciel pâtisserie",
+    sitemap: true,
+    priority: 0.95,
+    changeFrequency: "monthly",
+    breadcrumb: true,
+  },
+  {
     path: "/tarifs",
     title: "Tarifs",
     sitemap: true,

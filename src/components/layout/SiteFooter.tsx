@@ -3,6 +3,7 @@ import Link from "next/link";
 
 const footerLinks = [
   { href: "/fonctionnalites", label: "Fonctionnalités" },
+  { href: "/logiciel-patisserie", label: "Logiciel pâtisserie" },
   { href: "/tarifs", label: "Tarifs" },
   { href: "/comment-ca-marche", label: "Comment ça marche" },
   { href: "/guides", label: "Guides" },

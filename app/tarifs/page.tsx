@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { PricingPageContent } from "@/components/pricing/PricingPageContent";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
@@ -7,14 +8,21 @@ import { formatEuro, pricingFaq, pricingPlans } from "@/lib/pricing";
 import { SITE_URL, breadcrumbSchema, webPageSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Tarifs logiciel boulangerie",
+  title: "Prix d'un logiciel de gestion boulangerie",
   description:
-    "Tarifs Gramme : Starter 49 € HT/mois ou 490 €/an, Pro 89 € HT/mois ou 890 €/an. Sans engagement en mensuel, installation accompagnée, données exportables.",
+    "Combien coûte un logiciel de gestion pour boulangerie ? Gramme : 49 € HT/mois (490 €/an) en Starter, 89 € HT/mois (890 €/an) en Pro, installation accompagnée en une fois. Sans engagement en mensuel.",
+  keywords: [
+    "logiciel gestion boulangerie prix",
+    "prix logiciel boulangerie",
+    "combien coûte un logiciel de boulangerie",
+    "tarif logiciel pâtisserie",
+    "abonnement logiciel boulangerie",
+  ],
   alternates: { canonical: "https://gramme.app/tarifs" },
   openGraph: {
-    title: "Tarifs Gramme | Logiciel boulangerie & pâtisserie",
+    title: "Prix d'un logiciel de gestion boulangerie | Gramme",
     description:
-      "Un prix clair, sans engagement, et vos données qui restent les vôtres. Starter et Pro, mensuel ou annuel.",
+      "Starter 49 € HT/mois, Pro 89 € HT/mois. Sans engagement en mensuel, deux mois offerts en annuel, installation accompagnée facturée une seule fois.",
     url: "https://gramme.app/tarifs",
   },
 };
@@ -111,15 +119,44 @@ export default function TarifsPage() {
         <header className="mt-8 max-w-3xl">
           <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6e9f55]">Tarifs</p>
           <h1 className="mt-3 text-3xl font-black leading-tight text-[#27421f] md:text-4xl">
-            Un prix clair, sans engagement, et vos données qui restent les vôtres.
+            Combien coûte un logiciel de gestion pour une boulangerie ?
           </h1>
+          <p className="mt-5 text-base leading-relaxed text-[#4d6952] md:text-lg">
+            Deux offres, {formatEuro(pricingPlans[0].monthlyPrice)} et {formatEuro(pricingPlans[1].monthlyPrice)} HT
+            par mois, sans engagement. En annuel, deux mois sont offerts. À cela s&apos;ajoute une installation
+            accompagnée, facturée une seule fois à la mise en service : nous reprenons vos recettes et vos factures
+            pour que le compte soit utilisable dès le premier jour. Pas de commission, pas de coût par utilisateur
+            caché, pas de frais de sortie.
+          </p>
         </header>
         <PricingPageContent />
+
+        <section className="mt-12 md:mt-16" aria-labelledby="budget-title">
+          <h2 id="budget-title" className="text-2xl font-bold text-[#27421f] md:text-3xl">
+            Ce que ce budget représente
+          </h2>
+          <p className="mt-4 max-w-3xl leading-relaxed text-[#4d6952]">
+            Un abonnement Starter revient à {formatEuro(pricingPlans[0].yearlyMonthlyEquivalent, 2)} hors taxes par
+            mois en annuel. À titre de repère, c&apos;est l&apos;ordre de grandeur de ce que coûte une hausse de
+            quelques centimes sur une matière première utilisée dans toute votre gamme, passée inaperçue pendant un
+            trimestre. C&apos;est précisément ce type d&apos;écart que l&apos;outil sert à détecter.{" "}
+            <Link href="/guides/calcul-cout-de-revient-boulangerie" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
+              Voir comment se calcule un coût de revient
+            </Link>
+            .
+          </p>
+          <p className="mt-4 max-w-3xl leading-relaxed text-[#4d6952]">
+            Les prix affichés sont hors taxes et la TVA est récupérable. L&apos;abonnement mensuel est résiliable à
+            tout moment ; l&apos;annuel bénéficie de trente jours satisfait ou remboursé. Dans tous les cas, vos
+            données restent exportables et sont conservées douze mois si vous partez.
+          </p>
+        </section>
+
         <RelatedLinks
           links={[
+            { href: "/fonctionnalites", label: "Ce que contient chaque offre" },
             { href: "/comment-ca-marche", label: "Comment marche le logiciel" },
             { href: "/contact", label: "Demander une démonstration" },
-            { href: "/securite", label: "Confidentialité des recettes" },
           ]}
         />
       </main>

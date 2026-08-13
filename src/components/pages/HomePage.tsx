@@ -234,6 +234,13 @@ export default function HomePage() {
               Sept modules reliés entre eux : fiches techniques, mercuriale, stock, production et alertes marges — sans
               complexité inutile. Dépliez pour l&apos;essentiel, ouvrez la page dédiée pour le détail.
             </p>
+            <p className="mt-3 text-sm text-[var(--muted-foreground)]">
+              Vous êtes pâtissier ?{" "}
+              <Link href="/logiciel-patisserie" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
+                Voir la page dédiée aux laboratoires de pâtisserie
+              </Link>{" "}
+              — sous-recettes en cascade, coût de revient à l&apos;entremets, pertes de parage.
+            </p>
           </div>
           <FeatureAccordion />
           <Link
@@ -437,8 +444,10 @@ export default function HomePage() {
           <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { href: "/fonctionnalites", label: "Toutes les fonctionnalités" },
+              { href: "/logiciel-patisserie", label: "Vous êtes pâtissier ?" },
+              { href: "/guides/calcul-cout-de-revient-boulangerie", label: "Calculer son coût de revient" },
+              { href: "/guides", label: "Tous les guides" },
               { href: "/comment-ca-marche", label: "Comment marche le logiciel" },
-              { href: "/guides", label: "Guides fiches techniques & coûts" },
               { href: "/a-propos-de-gramme", label: "À propos de Gramme" },
             ].map((link) => (
               <li key={link.href}>

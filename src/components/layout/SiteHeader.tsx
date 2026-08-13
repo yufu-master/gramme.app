@@ -13,13 +13,16 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
+  { label: "Pâtisserie", href: "/logiciel-patisserie" },
   { label: "Tarifs", href: "/tarifs" },
   { label: "Comment ça marche", href: "/comment-ca-marche" },
   { label: "Guides", href: "/guides" },
-  { label: "Intégrations", href: "/integrations" },
   { label: "À propos", href: "/a-propos-de-gramme" },
   { label: "Contact", href: "/contact" },
 ];
+
+/** Rubriques secondaires : pied de page et menu mobile uniquement. */
+const secondaryNavItems: NavItem[] = [{ label: "Intégrations", href: "/integrations" }];
 
 export function SiteHeader() {
   const pathname = usePathname();
@@ -151,7 +154,9 @@ export function SiteHeader() {
             <Link
               key={item.label}
               href={item.href}
-              className={`transition hover:text-[#355329] ${isActive(item.href) ? "font-semibold text-[#355329]" : ""}`}
+              className={`whitespace-nowrap transition hover:text-[#355329] ${
+                isActive(item.href) ? "font-semibold text-[#355329]" : ""
+              }`}
             >
               {item.label}
             </Link>
@@ -234,7 +239,7 @@ export function SiteHeader() {
               ))}
             </ul>
 
-            {navItems.map((item) => (
+            {[...navItems, ...secondaryNavItems].map((item) => (
               <Link
                 key={item.label}
                 href={item.href}
