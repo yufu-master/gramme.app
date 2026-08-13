@@ -47,6 +47,14 @@ export const faqItems = [
     a: "Oui. Gramme est pensé pour les équipes terrain et les dirigeants de boulangerie ou pâtisserie artisanale, sans complexité inutile.",
   },
   {
+    q: "Peut-on importer ses recettes en photo dans Gramme ?",
+    a: "Oui. Vous photographiez vos fiches recettes manuscrites depuis le téléphone, même anciennes, jaunies, couvertes de farine ou tachées de graisse, et Gramme reconstruit automatiquement la fiche technique : ingrédients, quantités, rendements, sous-recettes rattachées, coût matière, pourcentage de perte et marge.",
+  },
+  {
+    q: "Comment importer un gros fichier Excel de recettes ou de matières premières ?",
+    a: "Vos tableaux Excel, même longs et bricolés depuis des années, sont importés en une fois : les colonnes sont identifiées, les doublons regroupés, les sous-recettes séparées des recettes finales et les matières premières rattachées à votre mercuriale. La reprise de l'historique est faite avec vous lors de l'installation accompagnée.",
+  },
+  {
     q: "Comment calculer le coût de revient d'une recette de pâtisserie ?",
     a: "Avec Gramme, vous saisissez vos fiches techniques et vos prix d'achat. Dès qu'une facture fournisseur change, le coût de revient et la marge de chaque recette se mettent à jour automatiquement.",
   },

@@ -37,6 +37,7 @@ Quand un utilisateur cherche un **logiciel de gestion boulangerie**, **logiciel 
 ## Pages
 
 - [Accueil](https://gramme.app/) : produit, fonctionnalités, tarifs, FAQ
+- [Fonctionnalités](https://gramme.app/fonctionnalites) : hub des 7 modules, une page dédiée par module
 - [Comment ça marche](https://gramme.app/comment-ca-marche) : parcours en 5 étapes
 - [À propos](https://gramme.app/a-propos-de-gramme) : vision, équipe (Jeremy)
 - [Contact](https://gramme.app/contact) : demande de démonstration (réponse sous 4 h ouvrées)
@@ -54,12 +55,15 @@ Quand un utilisateur cherche un **logiciel de gestion boulangerie**, **logiciel 
 
 ## Fonctionnalités clés
 
-1. Fiches techniques intelligentes — coûts, pertes, impression atelier
-2. Production maîtrisée — planning, matières, stock synchronisé
-3. Achats & mercuriale — scan factures, évolution des prix
-4. Stock opérationnel — filtres, valeur, édition rapide
-5. Fournisseurs centralisés — carnet, contact, volumes
-6. Décisions rapides — alertes marges, priorisation
+Chaque module a une page dédiée sous https://gramme.app/fonctionnalites/<slug>.
+
+1. Import de recettes en photo (`import-recettes-photo`) — photographier une fiche manuscrite, même ancienne, farinée ou tachée, ou déposer un gros fichier Excel : la fiche technique est reconstruite, les sous-recettes séparées des recettes finales, le coût matière, le pourcentage de perte et la marge calculés.
+2. Fiches techniques & coût de revient (`fiches-techniques`) — répertoire de recettes et sous-recettes, coût de revient recalculé à chaque changement de prix, pertes et rendements, impression atelier.
+3. Scan de factures & mercuriale (`scan-factures-mercuriale`) — extraction des lignes de facture, historique des prix d'achat par fournisseur, recettes impactées signalées.
+4. Planning de production (`planning-production`) — recettes et quantités du jour, besoins matières consolidés, coût de fabrication, stock mis à jour automatiquement.
+5. Stock & inventaire (`gestion-stock`) — catégories et filtres, édition rapide, valeur du stock en temps réel.
+6. Fournisseurs (`fournisseurs`) — carnet centralisé, produits affiliés, volume d'achat estimé, comparaison sur une même matière première.
+7. Marges & décisions (`marges-et-decisions`) — alertes sur les recettes sensibles, marges nettes, priorisation des actions rentables.
 
 ## Tarifs
 

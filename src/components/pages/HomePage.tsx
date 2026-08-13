@@ -2,11 +2,13 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { FaqAccordion } from "@/components/landing/FaqAccordion";
+import { FeatureAccordion } from "@/components/features/FeatureAccordion";
 import { IntegrationLogo } from "@/components/integrations/IntegrationCard";
+import { BillingPeriodToggle } from "@/components/pricing/BillingPeriodToggle";
 import { HOME_INTEGRATION_PREVIEWS, INTEGRATIONS } from "@/lib/integrations";
-import { formatEuro, pricingPlans } from "@/lib/pricing";
+import { formatEuro, pricingPlans, type BillingPeriod } from "@/lib/pricing";
 import { trackEvent } from "@/lib/analytics";
 
 const trustItems = [
@@ -16,42 +18,30 @@ const trustItems = [
   { label: "Mobile & atelier-friendly", icon: MobileIcon },
 ];
 
-const featureColumns = [
+const importSteps = [
   {
-    title: "Fiches techniques intelligentes",
+    title: "Vous photographiez",
+    icon: CameraIcon,
+    text: "Une photo prise au labo, depuis le téléphone. Un PDF, un scan ou un fichier Excel font tout aussi bien l'affaire.",
+  },
+  {
+    title: "Gramme comprend",
+    icon: BrainIcon,
+    text: "Écriture manuscrite, abréviations de métier, colonnes en désordre, ratures : la lecture s'adapte à votre façon de noter, pas l'inverse.",
+  },
+  {
+    title: "La fiche est prête",
     icon: BookIcon,
-    bullets: ["Saisie automatique des fiches techniques", "Répertoire de recettes clair", "Gestion des pertes", "Coûts matières et marges", "Impression de fiches techniques"],
-  },
-  {
-    title: "Production maîtrisée",
-    icon: LayersIcon,
-    bullets: ["Planning de production jour par jour", "Liste des matières premières et recettes utilisées", "Coût de production", "Mise à jour du stock automatique"],
-  },
-  {
-    title: "Achats & mercuriale",
-    icon: ScanIcon,
-    bullets: ["Scan automatique des factures", "Suivi réel de l'évolution des prix des matières premières", "Recettes impactées en temps réel par l'évolution des prix", "Historique et détail des factures"],
-  },
-  {
-    title: "Stock opérationnel",
-    icon: BoxIcon,
-    bullets: ["Recherche, filtres et catégories", "Édition rapide des prix, de stock et des fournisseurs", "Valeur du stock en un coup d’œil"],
-  },
-  {
-    title: "Fournisseurs centralisés",
-    icon: UsersIcon,
-    bullets: ["Carnet fournisseurs", "Coordonnées, contact par e-mail ou appel", "Produits affiliés et volume d’achat estimé"],
-  },
-  {
-    title: "Décisions plus rapides",
-    icon: SparkIcon,
-    bullets: ["Alertes sur vos recettes sensibles", "Vision claire des marges nettes", "Priorisation des actions rentables"],
+    text: "Recette créée, sous-recettes rattachées, unités converties, coût de revient et marge à jour dès le premier prix fournisseur.",
   },
 ];
 
 const plans = pricingPlans;
 
 export default function HomePage() {
+  const [period, setPeriod] = useState<BillingPeriod>("yearly");
+  const isYearly = period === "yearly";
+
   const scrollToSection = (sectionId: string) => {
     const section = document.getElementById(sectionId);
     if (!section) return;
@@ -69,7 +59,7 @@ export default function HomePage() {
     <>
       <main>
         <section
-          className="relative isolate flex min-h-[100svh] w-full items-end overflow-hidden bg-[#1a2e14] sm:items-center"
+          className="relative isolate flex min-h-[34rem] w-full items-end overflow-hidden bg-[#1a2e14] sm:max-h-[44rem] sm:min-h-[78svh] sm:items-center"
           aria-label="Présentation Gramme"
         >
           <Image
@@ -88,7 +78,7 @@ export default function HomePage() {
             aria-hidden
             className="absolute inset-0 bg-gradient-to-t from-[#1a2e14]/75 via-transparent to-[#1a2e14]/25 sm:from-transparent sm:to-[#1a2e14]/20"
           />
-          <div className="relative z-10 w-full max-w-[34rem] self-end px-4 pb-16 pt-28 sm:self-center sm:px-6 sm:pb-20 sm:pt-32 md:max-w-[36rem] md:px-8 lg:max-w-[38rem] lg:px-10 xl:px-14">
+          <div className="relative z-10 w-full max-w-[34rem] self-end px-4 pb-12 pt-24 sm:self-center sm:px-6 sm:pb-14 sm:pt-24 md:max-w-[36rem] md:px-8 lg:max-w-[38rem] lg:px-10 xl:px-14">
             <p className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#cfe8bf]">
               <SparkIcon className="size-4" />
               Gramme — logiciel boulangerie &amp; pâtisserie
@@ -142,69 +132,116 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="produit" className="mx-auto grid w-full max-w-6xl items-center gap-8 px-4 py-14 sm:gap-10 sm:px-5 sm:py-16 lg:grid-cols-2 lg:gap-12 lg:py-20">
-          <div className="order-2 lg:order-1">
-            <h2 className="text-3xl font-bold md:text-4xl">Conçu pour le laboratoire, pensé pour le terrain.</h2>
-            <p className="mt-4 max-w-xl text-[var(--muted-foreground)]">
-              Gramme vous accompagne au quotidien : recettes, production, stock et marges, directement depuis l&apos;atelier.
-            </p>
-            <p className="mt-5 max-w-xl text-sm leading-relaxed text-[var(--muted-foreground)]">
-              Découvrez{" "}
-              <Link href="/comment-ca-marche" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
-                comment marche le logiciel
+        <section
+          id="import-recettes"
+          className="relative isolate overflow-hidden border-y border-[#dcead2] bg-gradient-to-b from-[#f7fbf3] via-white to-[#f7fbf3] py-16 sm:py-20 lg:py-24"
+          aria-labelledby="import-recettes-title"
+        >
+          <div aria-hidden className="pointer-events-none absolute -left-24 top-10 size-72 rounded-full bg-[#a8cf8c]/25 blur-3xl" />
+          <div aria-hidden className="pointer-events-none absolute -right-24 bottom-0 size-80 rounded-full bg-[#a8cf8c]/20 blur-3xl" />
+
+          <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-5">
+            <div className="max-w-3xl">
+              <p className="inline-flex items-center gap-2 rounded-full border border-[#cfe3bf] bg-white px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#355329]">
+                <CameraIcon className="size-4" />
+                Import intelligent
+              </p>
+              <h2 id="import-recettes-title" className="mt-5 text-[2rem] font-black leading-[1.08] tracking-tight text-[#1a2e14] sm:text-[2.75rem] lg:text-5xl">
+                Importez vos recettes
+                <br className="hidden sm:block" />{" "}
+                <span className="relative inline-block px-1 text-[#4a7a35]">
+                  d&apos;une simple photo
+                  <span aria-hidden className="absolute -bottom-1 left-0 w-full sm:-bottom-2">
+                    <svg viewBox="0 0 520 34" className="h-3 w-full sm:h-4" preserveAspectRatio="none">
+                      <path d="M8 18C90 27 173 30 260 30C347 30 430 27 512 18" fill="none" stroke="#a8cf8c" strokeWidth="14" strokeLinecap="round" />
+                    </svg>
+                  </span>
+                </span>
+                .
+              </h2>
+              <p className="mt-6 text-base leading-relaxed text-[var(--muted-foreground)] sm:text-lg">
+                Un cahier jauni, une fiche couverte de farine, une page tachée de graisse, ou l&apos;immense tableau Excel
+                bricolé depuis dix ans : vous photographiez, c&apos;est importé. Gramme reconstruit la fiche technique,
+                sépare les sous-recettes et calcule coût matière, pourcentage de perte et marge.
+              </p>
+            </div>
+
+            <div className="mt-12 grid items-center gap-8 lg:mt-14 lg:grid-cols-12 lg:gap-12">
+              <figure className="relative order-1 lg:col-span-7">
+                <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-[#dcead2] shadow-[0_24px_70px_rgba(34,60,23,0.22)]">
+                  <Image
+                    src="/images/import-recettes-photo.jpg"
+                    alt="Boulanger photographiant ses fiches recettes manuscrites pour les importer dans le logiciel Gramme"
+                    fill
+                    sizes="(max-width: 1024px) 92vw, 640px"
+                    className="object-cover object-center"
+                  />
+                  <div aria-hidden className="absolute inset-0 bg-gradient-to-t from-[#1a2e14]/45 via-transparent to-transparent" />
+                  <div className="absolute bottom-5 left-5 hidden max-w-xs rounded-2xl border border-white/60 bg-white/92 p-4 shadow-lg backdrop-blur-sm sm:block">
+                    <ImportResultCard />
+                  </div>
+                </div>
+                <div className="relative z-10 mx-3 -mt-6 rounded-2xl border border-[#dcead2] bg-white p-4 shadow-lg sm:hidden">
+                  <ImportResultCard />
+                </div>
+                <figcaption className="mt-3 text-xs text-[var(--muted-foreground)]">
+                  Manuscrit, abîmé, raturé : la photo suffit. Le classeur reste au labo, la fiche technique part dans Gramme.
+                </figcaption>
+              </figure>
+
+              <ol className="order-2 space-y-4 lg:col-span-5">
+                {importSteps.map((step, index) => {
+                  const Icon = step.icon;
+                  return (
+                    <li key={step.title} className="flex gap-4 rounded-2xl border border-[#dcead2] bg-white p-5 shadow-sm">
+                      <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#a8cf8c]/25 text-[#355329]">
+                        <Icon className="size-5" />
+                      </span>
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-[0.12em] text-[#6e9f55]">Étape {index + 1}</p>
+                        <h3 className="mt-1 text-lg font-bold text-[#1a2e14]">{step.title}</h3>
+                        <p className="mt-1.5 text-sm leading-relaxed text-[var(--muted-foreground)]">{step.text}</p>
+                      </div>
+                    </li>
+                  );
+                })}
+              </ol>
+            </div>
+
+            <div className="mt-10 flex flex-wrap items-center gap-3">
+              <Link
+                href="/fonctionnalites/import-recettes-photo"
+                onClick={() => trackEvent("feature_detail_click", { feature: "import-recettes-photo", source: "home_hero_import" })}
+                className="rounded-xl bg-[#264021] px-5 py-3 font-semibold text-white transition hover:bg-[#355329]"
+              >
+                Comment fonctionne l&apos;import
               </Link>
-              , l&apos;histoire de{" "}
-              <Link href="/a-propos-de-gramme" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
-                Gramme et de son co-fondateur chef pâtissier
+              <Link
+                href="/contact"
+                onClick={() => trackEvent("cta_demo_click", { source: "home_import_recettes" })}
+                className="rounded-xl border border-[#d8e6cf] bg-white px-5 py-3 font-semibold text-[#355329] transition hover:bg-[#f6fbf2]"
+              >
+                Faire importer mes recettes
               </Link>
-              , ou{" "}
-              <Link href="/contact" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
-                contactez l&apos;équipe pour une démonstration
-              </Link>
-              .
-            </p>
-          </div>
-          <div className="relative order-1 mx-auto aspect-[4/3] w-full max-w-md overflow-hidden sm:max-w-lg lg:order-2 lg:mx-0 lg:max-w-none lg:aspect-[5/4]">
-            <Image
-              src="/images/boulangere_gramme_use.png"
-              alt="Boulangère utilisant le logiciel Gramme sur tablette dans son laboratoire"
-              fill
-              sizes="(max-width: 640px) 90vw, (max-width: 1024px) 512px, 480px"
-              className="object-cover object-[center_25%]"
-            />
+            </div>
           </div>
         </section>
 
-        <section id="fonctionnalites" className="mx-auto w-full max-w-6xl px-4 pb-14 sm:px-5 sm:pb-16">
-          <div className="mb-8 max-w-3xl sm:mb-10">
+        <section id="fonctionnalites" className="mx-auto w-full max-w-4xl px-4 py-14 sm:px-5 sm:py-16">
+          <div className="max-w-3xl">
             <h2 className="text-3xl font-bold md:text-4xl">Les fonctionnalités qui font gagner du temps et de la marge.</h2>
             <p className="mt-4 text-[var(--muted-foreground)]">
-              Logiciel de gestion boulangerie complet : fiches techniques, mercuriale, stock, production et alertes marges — sans complexité inutile.
+              Sept modules reliés entre eux : fiches techniques, mercuriale, stock, production et alertes marges — sans
+              complexité inutile. Dépliez pour l&apos;essentiel, ouvrez la page dédiée pour le détail.
             </p>
           </div>
-          <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-            {featureColumns.map((feature) => {
-              const Icon = feature.icon;
-              return (
-                <article key={feature.title} className="rounded-2xl border border-[var(--border)] bg-white p-5 shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
-                  <h3 className="flex items-center gap-2 text-xl font-bold">
-                    <span className="inline-flex size-8 items-center justify-center rounded-lg bg-[#a8cf8c]/20 text-[#355329]">
-                      <Icon className="size-4" />
-                    </span>
-                    {feature.title}
-                  </h3>
-                  <ul className="mt-4 space-y-2 text-sm text-[var(--muted-foreground)]">
-                    {feature.bullets.map((bullet) => (
-                      <li key={bullet} className="flex items-start gap-2">
-                        <CheckIcon className="mt-0.5 size-4 shrink-0 text-[#6e9f55]" />
-                        {bullet}
-                      </li>
-                    ))}
-                  </ul>
-                </article>
-              );
-            })}
-          </div>
+          <FeatureAccordion />
+          <Link
+            href="/fonctionnalites"
+            className="mt-6 inline-flex rounded-xl border border-[#d8e6cf] bg-white px-5 py-3 text-sm font-semibold text-[#355329] transition hover:bg-[#f6fbf2]"
+          >
+            Voir toutes les fonctionnalités en détail
+          </Link>
         </section>
 
         <section className="bg-[#264021] py-14 sm:py-16 lg:py-24" aria-labelledby="multidevice-title">
@@ -275,6 +312,9 @@ export default function HomePage() {
               Voir le détail des offres
             </Link>
           </div>
+          <div className="mt-6 flex justify-center sm:mt-8">
+            <BillingPeriodToggle period={period} onChange={setPeriod} />
+          </div>
           <div className="mt-8 grid gap-5 lg:grid-cols-2">
             {plans.map((plan) => (
               <article
@@ -294,13 +334,22 @@ export default function HomePage() {
                   {plan.name}
                 </p>
                 <p className="mt-4 tabular-nums text-4xl font-black">
-                  {formatEuro(plan.yearlyPrice)}
+                  {formatEuro(isYearly ? plan.yearlyPrice : plan.monthlyPrice)}
                   <span className={`ml-1 text-base font-semibold ${plan.highlight ? "text-white/80" : "text-[var(--muted-foreground)]"}`}>
-                    HT / an
+                    {isYearly ? "HT / an" : "HT / mois"}
                   </span>
                 </p>
                 <p className={`mt-2 text-sm tabular-nums ${plan.highlight ? "text-white/85" : "text-[var(--muted-foreground)]"}`}>
-                  soit {formatEuro(plan.yearlyMonthlyEquivalent, 2)} HT / mois · ou {formatEuro(plan.monthlyPrice)} HT / mois sans engagement
+                  {isYearly ? (
+                    <>
+                      soit {formatEuro(plan.yearlyMonthlyEquivalent, 2)} HT / mois ·{" "}
+                      <span className={`font-semibold ${plan.highlight ? "text-[#a8cf8c]" : "text-[#355329]"}`}>
+                        économisez {formatEuro(plan.yearlySavings)}
+                      </span>
+                    </>
+                  ) : (
+                    <>Sans engagement, résiliable à tout moment</>
+                  )}
                 </p>
                 <p className={`mt-3 text-sm ${plan.highlight ? "text-white/85" : "text-[var(--muted-foreground)]"}`}>{plan.tagline}</p>
                 <ul className="mt-5 space-y-2 text-sm">
@@ -313,7 +362,7 @@ export default function HomePage() {
                 </ul>
                 <Link
                   href="/tarifs"
-                  onClick={() => trackEvent("cta_demo_click", { source: `home_tarif_${plan.id}` })}
+                  onClick={() => trackEvent("cta_demo_click", { source: `home_tarif_${plan.id}_${period}` })}
                   className={`mt-6 inline-flex w-full items-center justify-center rounded-xl px-4 py-2.5 font-semibold ${
                     plan.highlight ? "bg-[#a8cf8c] text-[#264021]" : "bg-[#264021] text-white"
                   }`}
@@ -385,58 +434,42 @@ export default function HomePage() {
 
         <section className="mx-auto w-full max-w-6xl px-4 pb-20 sm:px-5" aria-label="Liens utiles">
           <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#6e9f55]">Continuer sur Gramme</p>
-          <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
-            <li>
-              <Link
-                href="/comment-ca-marche"
-                className="block rounded-2xl border border-[#dcead2] bg-white px-4 py-3 text-sm font-semibold text-[#355329] transition hover:bg-[#f6fbf2]"
-              >
-                Comment marche le logiciel
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/guides"
-                className="block rounded-2xl border border-[#dcead2] bg-white px-4 py-3 text-sm font-semibold text-[#355329] transition hover:bg-[#f6fbf2]"
-              >
-                Guides fiches techniques &amp; coûts
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/a-propos-de-gramme"
-                className="block rounded-2xl border border-[#dcead2] bg-white px-4 py-3 text-sm font-semibold text-[#355329] transition hover:bg-[#f6fbf2]"
-              >
-                À propos de Gramme
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/securite"
-                className="block rounded-2xl border border-[#dcead2] bg-white px-4 py-3 text-sm font-semibold text-[#355329] transition hover:bg-[#f6fbf2]"
-              >
-                Sécurité &amp; confidentialité
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/integrations"
-                className="block rounded-2xl border border-[#dcead2] bg-white px-4 py-3 text-sm font-semibold text-[#355329] transition hover:bg-[#f6fbf2]"
-              >
-                Intégrations à venir
-              </Link>
-            </li>
-            <li>
-              <Link
-                href="/contact"
-                className="block rounded-2xl border border-[#dcead2] bg-white px-4 py-3 text-sm font-semibold text-[#355329] transition hover:bg-[#f6fbf2]"
-              >
-                Demander une démonstration
-              </Link>
-            </li>
+          <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              { href: "/fonctionnalites", label: "Toutes les fonctionnalités" },
+              { href: "/comment-ca-marche", label: "Comment marche le logiciel" },
+              { href: "/guides", label: "Guides fiches techniques & coûts" },
+              { href: "/a-propos-de-gramme", label: "À propos de Gramme" },
+            ].map((link) => (
+              <li key={link.href}>
+                <Link
+                  href={link.href}
+                  className="block rounded-2xl border border-[#dcead2] bg-white px-4 py-3 text-sm font-semibold text-[#355329] transition hover:bg-[#f6fbf2]"
+                >
+                  {link.label}
+                </Link>
+              </li>
+            ))}
           </ul>
         </section>
       </main>
+    </>
+  );
+}
+
+function ImportResultCard() {
+  return (
+    <>
+      <p className="flex items-center gap-2 text-[11px] font-bold uppercase tracking-[0.12em] text-[#6e9f55]">
+        <SparkIcon className="size-3.5" />
+        Fiche reconstituée
+      </p>
+      <p className="mt-1.5 text-sm font-bold text-[#1a2e14]">Croissant au beurre — 60 pièces</p>
+      <ul className="mt-2 flex flex-wrap gap-1.5 text-[11px] font-semibold">
+        <li className="rounded-full bg-[#a8cf8c]/30 px-2 py-0.5 text-[#355329]">Détrempe · sous-recette</li>
+        <li className="rounded-full bg-[#a8cf8c]/30 px-2 py-0.5 text-[#355329]">Tourage · 8 ingrédients</li>
+        <li className="rounded-full bg-[#264021] px-2 py-0.5 text-white">Perte 4 % · marge 71 %</li>
+      </ul>
     </>
   );
 }
@@ -464,12 +497,9 @@ function MobileIcon({ className }: IconProps) {
 function BookIcon({ className }: IconProps) {
   return <svg viewBox="0 0 20 20" fill="none" className={className}><path d="M4 3.5h9a3 3 0 0 1 3 3V16H7a3 3 0 0 0-3 3V3.5Z" stroke="currentColor" strokeWidth="1.5" /><path d="M7 16h9" stroke="currentColor" strokeWidth="1.5" /></svg>;
 }
-function LayersIcon({ className }: IconProps) {
-  return <svg viewBox="0 0 20 20" fill="none" className={className}><path d="m10 3 7 4-7 4-7-4 7-4ZM3 11l7 4 7-4M3 14.5l7 4 7-4" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" /></svg>;
+function CameraIcon({ className }: IconProps) {
+  return <svg viewBox="0 0 20 20" fill="none" className={className}><path d="M2.5 6.5h3l1.2-2h6.6l1.2 2h3v9h-15v-9Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" /><circle cx="10" cy="11" r="3" stroke="currentColor" strokeWidth="1.5" /></svg>;
 }
-function BoxIcon({ className }: IconProps) {
-  return <svg viewBox="0 0 20 20" fill="none" className={className}><path d="m10 2 7 4v8l-7 4-7-4V6l7-4Z" stroke="currentColor" strokeWidth="1.5" /><path d="m3 6 7 4 7-4M10 10v8" stroke="currentColor" strokeWidth="1.5" /></svg>;
-}
-function UsersIcon({ className }: IconProps) {
-  return <svg viewBox="0 0 20 20" fill="none" className={className}><circle cx="7" cy="8" r="2.5" stroke="currentColor" strokeWidth="1.5" /><circle cx="13.5" cy="7" r="2" stroke="currentColor" strokeWidth="1.5" /><path d="M2.5 16a4.5 4.5 0 0 1 9 0M10.5 16a3.5 3.5 0 0 1 7 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>;
+function BrainIcon({ className }: IconProps) {
+  return <svg viewBox="0 0 20 20" fill="none" className={className}><path d="M10 4.5v11M10 4.5a2 2 0 0 0-3.8-.9A2.2 2.2 0 0 0 4 6.8a2.2 2.2 0 0 0-.4 3.5A2.3 2.3 0 0 0 6 14.5a2 2 0 0 0 4 .6M10 4.5a2 2 0 0 1 3.8-.9A2.2 2.2 0 0 1 16 6.8a2.2 2.2 0 0 1 .4 3.5A2.3 2.3 0 0 1 14 14.5a2 2 0 0 1-4 .6" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round" /></svg>;
 }

@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { features, featurePath } from "@/content/features";
 import { publishedGuides } from "@/content/guides";
 import { SITE_URL } from "@/lib/seo";
 
@@ -148,6 +149,13 @@ export function sitemapEntries(baseUrl: string = SITE_URL): MetadataRoute.Sitema
       priority: r.priority ?? 0.5,
     }));
 
+  const featureEntries: MetadataRoute.Sitemap = features.map((feature) => ({
+    url: `${baseUrl}${featurePath(feature.slug)}`,
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
   const guideEntries: MetadataRoute.Sitemap = publishedGuides.map((guide) => ({
     url: `${baseUrl}/guides/${guide.slug}`,
     lastModified: new Date(guide.updatedAt),
@@ -155,5 +163,5 @@ export function sitemapEntries(baseUrl: string = SITE_URL): MetadataRoute.Sitema
     priority: 0.8,
   }));
 
-  return [...staticEntries, ...guideEntries];
+  return [...staticEntries, ...featureEntries, ...guideEntries];
 }

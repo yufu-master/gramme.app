@@ -8,12 +8,15 @@ export const metadata: Metadata = {
     absolute: "Logiciel gestion boulangerie & pâtisserie | Gramme",
   },
   description:
-    "Gramme, logiciel de gestion pour boulangeries et pâtisseries : fiches techniques, scan de factures, mercuriale, stock, production et marges en temps réel. Essayez le pilotage au gramme près.",
+    "Gramme, logiciel de gestion pour boulangeries et pâtisseries : importez vos recettes d'une simple photo, fiches techniques, scan de factures, mercuriale, stock, production et marges en temps réel.",
   keywords: [
     "logiciel gestion boulangerie",
     "logiciel pâtisserie",
     "ERP boulangerie",
     "fiche technique boulangerie",
+    "importer recettes photo",
+    "numériser fiches techniques",
+    "import Excel recettes",
     "calcul marge boulangerie",
     "mercuriale fournisseurs",
     "gestion stock pâtisserie",
