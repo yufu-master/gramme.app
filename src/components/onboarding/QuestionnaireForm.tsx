@@ -559,25 +559,26 @@ function FileField({
   setFichiers: React.Dispatch<React.SetStateAction<Fichier[]>>;
 }) {
   const [busy, setBusy] = useState(false);
+  const [progress, setProgress] = useState({ fait: 0, total: 0 });
+  const [echecs, setEchecs] = useState<string[]>([]);
   const [error, setError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
   const id = `f-${field.name}`;
 
-  const handleFiles = async (list: FileList | null) => {
-    if (!list?.length) return;
-    setError(null);
-    setBusy(true);
-    try {
-      for (const file of Array.from(list)) {
-        if (file.size > MAX_UPLOAD_BYTES) {
-          setError(`« ${file.name} » dépasse 25 Mo.`);
-          continue;
-        }
-        if (file.type && !ACCEPTED_MIME.includes(file.type)) {
-          setError(`« ${file.name} » : format non accepté (PDF, image, CSV ou tableur).`);
-          continue;
-        }
+  /**
+   * Transfert d'un fichier, avec une seconde tentative.
+   * Ne jette jamais : un fichier en échec ne doit pas emporter les autres —
+   * c'est ce qui faisait qu'une seule pièce par section arrivait.
+   */
+  const uploadUn = async (file: File): Promise<string | null> => {
+    if (file.size > MAX_UPLOAD_BYTES) return `${file.name} : dépasse 25 Mo`;
+    if (file.type && !ACCEPTED_MIME.includes(file.type)) {
+      return `${file.name} : format non accepté`;
+    }
 
+    for (let tentative = 1; tentative <= 2; tentative++) {
+      let prepId: string | null = null;
+      try {
         const prep = await api({
           action: "upload-url",
           token,
@@ -586,28 +587,74 @@ function FileField({
           mime: file.type,
           taille_octets: file.size,
         });
+        prepId = prep.id;
 
         const put = await fetch(prep.signedUrl, {
           method: "PUT",
           headers: { "Content-Type": file.type || "application/octet-stream" },
           body: file,
         });
-        if (!put.ok) {
-          await api({ action: "delete-file", token, fichier_id: prep.id }).catch(() => {});
-          throw new Error(`Le transfert de « ${file.name} » a échoué.`);
-        }
+        if (!put.ok) throw new Error(`HTTP ${put.status}`);
 
-        setFichiers((prev) => [
-          ...prev,
-          { id: prep.id, categorie: field.categorie, nom_fichier: file.name, taille_octets: file.size },
-        ]);
+        setFichiers((prev) =>
+          prev.some((f) => f.id === prep.id)
+            ? prev
+            : [
+                ...prev,
+                {
+                  id: prep.id,
+                  categorie: field.categorie,
+                  nom_fichier: file.name,
+                  taille_octets: file.size,
+                },
+              ],
+        );
+        return null;
+      } catch (e) {
+        // La ligne créée pour une tentative ratée ne doit pas rester orpheline.
+        if (prepId) await api({ action: "delete-file", token, fichier_id: prepId }).catch(() => {});
+        if (tentative === 2) {
+          const detail = e instanceof Error ? e.message : "erreur inconnue";
+          return `${file.name} : ${detail}`;
+        }
+        await new Promise((r) => setTimeout(r, 800));
       }
-    } catch (e) {
-      setError(e instanceof Error ? e.message : "Transfert impossible.");
-    } finally {
-      setBusy(false);
-      if (inputRef.current) inputRef.current.value = "";
     }
+    return `${file.name} : échec`;
+  };
+
+  const handleFiles = async (list: FileList | null) => {
+    const selection = Array.from(list ?? []);
+    if (!selection.length) return;
+
+    setError(null);
+    setEchecs([]);
+    setBusy(true);
+    setProgress({ fait: 0, total: selection.length });
+
+    // Trois transferts de front : assez pour ne pas subir une file d'attente
+    // sur vingt photos, assez peu pour ne pas saturer le réseau du laboratoire.
+    const CONCURRENCE = 3;
+    const rates: string[] = [];
+    let curseur = 0;
+
+    const worker = async () => {
+      while (curseur < selection.length) {
+        const file = selection[curseur++];
+        const echec = await uploadUn(file);
+        if (echec) rates.push(echec);
+        setProgress((p) => ({ ...p, fait: p.fait + 1 }));
+      }
+    };
+
+    await Promise.all(
+      Array.from({ length: Math.min(CONCURRENCE, selection.length) }, () => worker()),
+    );
+
+    setEchecs(rates);
+    setBusy(false);
+    setProgress({ fait: 0, total: 0 });
+    if (inputRef.current) inputRef.current.value = "";
   };
 
   const remove = async (fichierId: string) => {
@@ -639,10 +686,35 @@ function FileField({
       />
 
       {busy ? (
-        <p className="mt-2 text-sm text-[#6e9f55]" role="status">
-          Transfert en cours…
-        </p>
+        <div className="mt-3" role="status" aria-live="polite">
+          <p className="text-sm text-[#6e9f55]">
+            Transfert {progress.fait} / {progress.total}… laissez la page ouverte.
+          </p>
+          <div className="mt-1.5 h-1.5 w-full overflow-hidden rounded-full bg-[#dcead2]">
+            <div
+              className="h-full rounded-full bg-[#6e9f55] transition-all duration-300"
+              style={{ width: `${progress.total ? (progress.fait / progress.total) * 100 : 0}%` }}
+            />
+          </div>
+        </div>
       ) : null}
+
+      {echecs.length > 0 ? (
+        <div className="mt-3 rounded-xl border border-[#e6cfcf] bg-[#fdf6f6] px-3 py-2" role="alert">
+          <p className="text-sm font-semibold text-[#8a3b3b]">
+            {echecs.length} fichier{echecs.length > 1 ? "s" : ""} n&apos;
+            {echecs.length > 1 ? "ont" : "a"} pas pu être transféré
+            {echecs.length > 1 ? "s" : ""}. Les autres sont bien arrivés — vous pouvez les
+            resélectionner.
+          </p>
+          <ul className="mt-1.5 space-y-0.5 text-xs text-[#8a3b3b]">
+            {echecs.map((e) => (
+              <li key={e}>{e}</li>
+            ))}
+          </ul>
+        </div>
+      ) : null}
+
       {error ? (
         <p className="mt-2 text-sm font-semibold text-[#8a3b3b]" role="alert">
           {error}
