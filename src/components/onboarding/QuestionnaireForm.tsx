@@ -183,8 +183,9 @@ export function QuestionnaireForm({ token }: { token: string }) {
         <p className="mt-3 text-[#4d6952]">{fatal}</p>
         <p className="mt-4 text-sm text-[#4d6952]">
           Écrivez-nous à{" "}
-          <a href="mailto:jeremy@gramme.app" className="font-semibold text-[#355329] underline">
-            jeremy@gramme.app
+          {/* Lien cassé = problème technique : c'est le support qui traite. */}
+          <a href="mailto:support@gramme.app" className="font-semibold text-[#355329] underline">
+            support@gramme.app
           </a>{" "}
           et nous vous renverrons un lien valide.
         </p>
@@ -200,8 +201,8 @@ export function QuestionnaireForm({ token }: { token: string }) {
         <p className="mt-4 leading-relaxed text-[#4d6952]">
           Nous préparons votre compte avec ces éléments avant notre rendez-vous. Si un document manque ou
           si un chiffre a changé, écrivez-nous simplement à{" "}
-          <a href="mailto:jeremy@gramme.app" className="font-semibold text-[#355329] underline">
-            jeremy@gramme.app
+          <a href="mailto:bonjour@gramme.app" className="font-semibold text-[#355329] underline">
+            bonjour@gramme.app
           </a>
           .
         </p>

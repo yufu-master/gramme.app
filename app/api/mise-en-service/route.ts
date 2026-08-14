@@ -6,8 +6,19 @@ import { NextResponse } from "next/server";
  * Seules les actions publiques (token) sont relayées — jamais les actions admin.
  */
 
-const SUPABASE_URL = process.env.GRAMME_SUPABASE_URL || "https://febyaixvwfpyixkwuajw.supabase.co";
-const SUPABASE_ANON_KEY = process.env.GRAMME_SUPABASE_ANON_KEY;
+const SUPABASE_URL =
+  process.env.GRAMME_SUPABASE_URL ||
+  process.env.NEXT_PUBLIC_GRAMME_SUPABASE_URL ||
+  "https://febyaixvwfpyixkwuajw.supabase.co";
+
+// Même repli que app/api/contact/route.ts : la clé anon est publique par nature
+// (elle est déjà servie dans le bundle de l'app) et tout est verrouillé par RLS.
+// Sans ce repli, une variable oubliée sur le projet Vercel rendait inutilisable
+// un lien déjà envoyé à un client — c'est arrivé.
+const SUPABASE_ANON_KEY =
+  process.env.GRAMME_SUPABASE_ANON_KEY ||
+  process.env.NEXT_PUBLIC_GRAMME_SUPABASE_ANON_KEY ||
+  "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZlYnlhaXh2d2ZweWl4a3d1YWp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk4MDI0NDksImV4cCI6MjA4NTM3ODQ0OX0.r7OLBEVsdgMQgc0gRd9R5g4pLttsnpylwWvZCbPbiXc";
 
 const PUBLIC_ACTIONS = ["resolve", "save", "upload-url", "delete-file", "submit"] as const;
 type PublicAction = (typeof PUBLIC_ACTIONS)[number];

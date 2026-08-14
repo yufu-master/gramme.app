@@ -37,8 +37,8 @@ export default async function MiseEnServicePage({
         Vos recettes, factures et documents restent votre propriété exclusive. Ils ne servent qu&apos;à
         préparer votre compte, ne sont partagés avec aucun autre établissement et sont supprimables à
         tout moment sur simple demande. Une question ?{" "}
-        <a href="mailto:jeremy@gramme.app" className="font-semibold text-[#355329] underline">
-          jeremy@gramme.app
+        <a href="mailto:bonjour@gramme.app" className="font-semibold text-[#355329] underline">
+          bonjour@gramme.app
         </a>
       </p>
     </main>
