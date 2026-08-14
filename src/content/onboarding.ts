@@ -1,0 +1,260 @@
+/**
+ * Questionnaire de qualification (Phase 0 du playbook superviseur).
+ * Source unique : les clés `name` sont celles stockées dans
+ * onboarding_questionnaires.reponses et lues par l'edge function
+ * onboarding-questionnaire pour calculer le dimensionnement.
+ */
+
+export type Choice = { value: string; label: string };
+
+export type Field =
+  | { kind: "text"; name: string; label: string; placeholder?: string; required?: boolean; hint?: string }
+  | { kind: "textarea"; name: string; label: string; placeholder?: string; required?: boolean; hint?: string }
+  | { kind: "number"; name: string; label: string; hint?: string; required?: boolean; min?: number }
+  | { kind: "tel"; name: string; label: string; required?: boolean }
+  | { kind: "radio"; name: string; label: string; choices: Choice[]; required?: boolean; hint?: string; otherFor?: string }
+  | { kind: "users"; name: string; label: string; hint?: string }
+  | { kind: "files"; name: string; label: string; categorie: FileCategory; hint?: string; accept?: string };
+
+export type FileCategory = "recettes" | "factures" | "mercuriale" | "produits_prix" | "logo" | "autre";
+
+export type Step = {
+  id: string;
+  title: string;
+  intro?: string;
+  fields: Field[];
+};
+
+export const ONBOARDING_STEPS: Step[] = [
+  {
+    id: "etablissement",
+    title: "Votre établissement",
+    fields: [
+      { kind: "text", name: "etablissement", label: "Nom de l'établissement", required: true },
+      { kind: "text", name: "ville", label: "Ville", required: true },
+      { kind: "tel", name: "telephone", label: "Téléphone" },
+      {
+        kind: "text",
+        name: "siret",
+        label: "SIRET",
+        hint: "Facultatif — utile pour préparer le contrat.",
+      },
+      {
+        kind: "radio",
+        name: "activite",
+        label: "Activité principale",
+        required: true,
+        otherFor: "activite_autre",
+        choices: [
+          { value: "patisserie", label: "Pâtisserie" },
+          { value: "boulangerie", label: "Boulangerie" },
+          { value: "chocolaterie", label: "Chocolaterie" },
+          { value: "restaurant_hotel", label: "Restaurant / Hôtel" },
+          { value: "autre", label: "Autre" },
+        ],
+      },
+      { kind: "number", name: "nb_sites_production", label: "Nombre de sites de production", min: 1, required: true },
+      { kind: "number", name: "nb_points_vente", label: "Nombre de points de vente", min: 0 },
+      { kind: "number", name: "effectif_production", label: "Effectif en production", min: 0 },
+    ],
+  },
+  {
+    id: "organisation",
+    title: "Votre organisation actuelle",
+    intro: "Il n'y a pas de mauvaise réponse. Ces trois questions servent à dimensionner le travail de reprise, pas à vous juger.",
+    fields: [
+      {
+        kind: "radio",
+        name: "gestion_fiches",
+        label: "Comment gérez-vous vos fiches techniques aujourd'hui ?",
+        required: true,
+        otherFor: "gestion_fiches_logiciel",
+        choices: [
+          { value: "excel", label: "Excel / Google Sheets" },
+          { value: "papier", label: "Papier / classeur" },
+          { value: "logiciel", label: "Logiciel métier" },
+          { value: "rien", label: "Rien de formalisé" },
+        ],
+      },
+      {
+        kind: "radio",
+        name: "connaissance_cout",
+        label: "Connaissez-vous le coût matière de vos produits ?",
+        required: true,
+        choices: [
+          { value: "oui_a_jour", label: "Oui, à jour" },
+          { value: "oui_ancien", label: "Oui, mais ancien" },
+          { value: "approximatif", label: "Approximativement" },
+          { value: "non", label: "Non" },
+        ],
+      },
+      {
+        kind: "radio",
+        name: "frequence_maj_prix",
+        label: "À quelle fréquence mettez-vous vos prix d'achat à jour ?",
+        required: true,
+        choices: [
+          { value: "chaque_facture", label: "À chaque facture" },
+          { value: "mensuel", label: "Mensuel" },
+          { value: "annuel", label: "Annuel" },
+          { value: "jamais", label: "Jamais" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "volumes",
+    title: "Volumes à reprendre",
+    intro: "Des ordres de grandeur suffisent. C'est ce qui détermine la durée de la mise en service et le niveau d'accompagnement.",
+    fields: [
+      {
+        kind: "number",
+        name: "volume_sous_recettes",
+        label: "Sous-recettes / préparations de base",
+        hint: "Crèmes, pâtes, ganaches, appareils…",
+        min: 0,
+        required: true,
+      },
+      { kind: "number", name: "volume_recettes_composees", label: "Recettes composées", min: 0, required: true },
+      { kind: "number", name: "volume_produits_finis", label: "Produits finis référencés à la vente", min: 0 },
+      { kind: "number", name: "nb_fournisseurs", label: "Fournisseurs actifs", min: 0 },
+      { kind: "number", name: "nb_references", label: "Références achetées (matières premières, environ)", min: 0 },
+      { kind: "number", name: "factures_par_mois", label: "Factures fournisseurs reçues par mois", min: 0 },
+    ],
+  },
+  {
+    id: "utilisateurs",
+    title: "Utilisateurs",
+    intro: "Qui utilisera Gramme au quotidien ? C'est le point le plus déterminant pour que le compte vive après la mise en service.",
+    fields: [
+      { kind: "users", name: "utilisateurs", label: "Personnes à créer" },
+      {
+        kind: "text",
+        name: "utilisateur_principal",
+        label: "Qui sera l'utilisateur principal au quotidien ?",
+        required: true,
+        hint: "Une seule personne, nommée. C'est elle qui fera vivre le compte.",
+      },
+    ],
+  },
+  {
+    id: "technique",
+    title: "Contexte technique",
+    fields: [
+      {
+        kind: "radio",
+        name: "materiel",
+        label: "Matériel disponible en production",
+        required: true,
+        choices: [
+          { value: "ordinateur", label: "Ordinateur" },
+          { value: "tablette", label: "Tablette" },
+          { value: "smartphone", label: "Smartphone uniquement" },
+        ],
+      },
+      {
+        kind: "radio",
+        name: "connexion_labo",
+        label: "Connexion internet au laboratoire",
+        required: true,
+        choices: [
+          { value: "oui", label: "Oui" },
+          { value: "faible", label: "Faible / instable" },
+          { value: "non", label: "Non" },
+        ],
+      },
+      {
+        kind: "radio",
+        name: "factures_numeriques",
+        label: "Recevez-vous vos factures fournisseurs au format numérique (PDF) ?",
+        required: true,
+        choices: [
+          { value: "oui", label: "Oui, toutes" },
+          { value: "partiel", label: "En partie" },
+          { value: "non", label: "Non, papier" },
+        ],
+      },
+    ],
+  },
+  {
+    id: "attentes",
+    title: "Vos attentes",
+    fields: [
+      {
+        kind: "textarea",
+        name: "probleme_principal",
+        label: "Quel est le problème n°1 que vous voulez régler avec Gramme ?",
+        required: true,
+        placeholder: "Ex. je ne sais pas ce que me coûtent réellement mes entremets depuis que le chocolat a augmenté.",
+      },
+      {
+        kind: "textarea",
+        name: "echeance",
+        label: "Y a-t-il une échéance à respecter ?",
+        placeholder: "Ouverture, saison, changement de carte, audit…",
+      },
+    ],
+  },
+  {
+    id: "fichiers",
+    title: "Vos documents",
+    intro:
+      "Facultatif, mais c'est ce qui change tout : si nous recevons vos documents avant le rendez-vous, votre compte sera déjà préparé quand nous arriverons. Vous pourrez aussi nous les remettre sur place.",
+    fields: [
+      {
+        kind: "files",
+        name: "f_recettes",
+        label: "Fiches techniques et recettes",
+        categorie: "recettes",
+        hint: "Tout format, y compris des photos de votre classeur ou de votre cahier.",
+      },
+      {
+        kind: "files",
+        name: "f_factures",
+        label: "Factures fournisseurs des 3 derniers mois",
+        categorie: "factures",
+        hint: "PDF ou scans. C'est ce qui permet d'avoir vos prix d'achat justes dès le premier jour.",
+      },
+      {
+        kind: "files",
+        name: "f_mercuriale",
+        label: "Mercuriale / tarifs fournisseurs négociés",
+        categorie: "mercuriale",
+      },
+      {
+        kind: "files",
+        name: "f_produits_prix",
+        label: "Liste des produits finis avec prix de vente",
+        categorie: "produits_prix",
+      },
+      { kind: "files", name: "f_logo", label: "Logo et éléments d'identité visuelle", categorie: "logo" },
+    ],
+  },
+];
+
+export const ACCEPTED_MIME = [
+  "application/pdf",
+  "image/jpeg",
+  "image/png",
+  "image/heic",
+  "image/webp",
+  "text/csv",
+  "application/vnd.ms-excel",
+  "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+  "application/vnd.oasis.opendocument.spreadsheet",
+];
+
+export const MAX_UPLOAD_BYTES = 25 * 1024 * 1024;
+
+export type UserRow = { nom: string; fonction: string; email: string; usage: string };
+
+export const USER_USAGES: Choice[] = [
+  { value: "consultation", label: "Consultation" },
+  { value: "recettes", label: "Création de recettes" },
+  { value: "couts", label: "Gestion des coûts" },
+];
+
+/** Champs obligatoires d'une étape, pour la validation avant passage à la suivante. */
+export function requiredFieldsOf(step: Step): string[] {
+  return step.fields.filter((f) => "required" in f && f.required).map((f) => f.name);
+}
