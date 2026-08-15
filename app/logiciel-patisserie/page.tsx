@@ -118,7 +118,7 @@ export default function LogicielPatisseriePage() {
             Le logiciel de pâtisserie qui sait ce qu&apos;est une sous-recette
           </h1>
           <p className="mt-5 max-w-2xl text-base text-[#4d6952] md:text-lg">
-            La pâtisserie n&apos;est pas de la boulangerie avec du sucre. Une carte se construit en cascade :
+            Votre métier nécessite de la précision. Une carte se construit en cascade :
             un entremets contient une mousse qui contient une pâte à bombe, un insert qui contient un confit,
             un croustillant qui contient un praliné. Un logiciel qui traite chaque recette comme une liste
             d&apos;ingrédients à plat vous donnera des coûts faux dès la troisième fiche.
