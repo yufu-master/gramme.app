@@ -37,7 +37,7 @@ export const metadata: Metadata = {
 const painPoints = [
   {
     title: "Une base peut servir plusieurs fois",
-    text: "Un praliné, un biscuit joconde, une ganache montée : en pâtisserie, une préparation intermédiaire se retrouve dans toute la carte. Recopiée dans chaque fiche, elle est mise à jour nulle part. Dans Gramme, une sous-recette est un objet unique, valorisé à son coût au kilo, relié à toutes les recettes qui l'utilisent, sur autant de niveaux que nécessaire.",
+    text: "Un praliné, un biscuit joconde, une ganache montée : en production, une sous-recette peut se retrouver plusieurs fois dans la carte. Recopiée dans chaque fiche, elle est mise à jour nulle part. Dans Gramme, une sous-recette est un objet unique, valorisé à son coût au kilo, relié à toutes les recettes qui l'utilisent, sur autant de niveaux que nécessaire.",
   },
   {
     title: "Les pertes sont rarement intégrées aux calculs",
