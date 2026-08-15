@@ -36,19 +36,19 @@ export const metadata: Metadata = {
 
 const painPoints = [
   {
-    title: "Une base entre dans douze produits",
+    title: "Une base peut servir plusieurs fois",
     text: "Un praliné, un biscuit joconde, une ganache montée : en pâtisserie, une préparation intermédiaire se retrouve dans toute la carte. Recopiée dans chaque fiche, elle est mise à jour nulle part. Dans Gramme, une sous-recette est un objet unique, valorisé à son coût au kilo, relié à toutes les recettes qui l'utilisent, sur autant de niveaux que nécessaire.",
   },
   {
-    title: "Le parage n'est jamais dans le calcul",
+    title: "Les pertes sont rarement intégrées aux calculs",
     text: "Un entremets détaillé en cadre perd à la découpe, une ganache perd au dressage, un appareil perd à la cuisson. Ces pertes font l'écart entre un coût théorique flatteur et la réalité de la caisse. Elles sont saisies étape par étape et appliquées à chaque calcul de coût et de marge.",
   },
   {
-    title: "Le chocolat et les fruits bougent tout le temps",
+    title: "Le prix des matières premières évolue constamment",
     text: "Une couverture, un beurre de cacao, des framboises hors saison peuvent varier de vingt pour cent en un trimestre. Chaque facture scannée met à jour le prix d'achat, et toutes les recettes qui contiennent cette matière — bases comprises — se recalculent.",
   },
   {
-    title: "La gamme s'étale sur des dizaines de références",
+    title: "La gamme change, les marges aussi",
     text: "Individuels, entremets, gâteaux de voyage, chocolats, pièces de fête : une pâtisserie gère plus de références qu'une boulangerie, avec des saisonnalités différentes. Les recettes dont la marge se dégrade remontent d'elles-mêmes, au lieu de se découvrir au bilan.",
   },
 ];
