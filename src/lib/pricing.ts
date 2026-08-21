@@ -27,7 +27,7 @@ export const pricingPlans: Plan[] = [
     tagline: "Pour les artisans qui veulent aller à l’essentiel.",
     features: [
       "1 utilisateur (vous)",
-      "50 recettes",
+      "50 Fiches techniques",
       "Scan de 30 factures/mois",
       "200 Mo de photos recettes",
       "Suivi marge en temps réel",
