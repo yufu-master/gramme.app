@@ -10,13 +10,16 @@ import { SITE_URL, breadcrumbSchema, webPageSchema } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Prix d'un logiciel de gestion boulangerie",
   description:
-    "Combien coûte un logiciel de gestion pour boulangerie ? Gramme : 49 € HT/mois (490 €/an) en Starter, 89 € HT/mois (890 €/an) en Pro, installation accompagnée en une fois. Sans engagement en mensuel.",
+    "Combien coûte un logiciel de gestion pour boulangerie ? Gramme : 49 € HT/mois (490 €/an) en Starter, 89 € HT/mois (890 €/an) en Pro avec calcul des marges et gestion des stocks. 50 fiches techniques en Starter, recettes illimitées en Pro, installation accompagnée en une fois, sans engagement en mensuel.",
   keywords: [
     "logiciel gestion boulangerie prix",
     "prix logiciel boulangerie",
     "combien coûte un logiciel de boulangerie",
     "tarif logiciel pâtisserie",
     "abonnement logiciel boulangerie",
+    "logiciel gestion de production prix",
+    "logiciel calcul des marges",
+    "logiciel gestion de stocks boulangerie",
   ],
   alternates: { canonical: "https://gramme.app/tarifs" },
   openGraph: {
@@ -127,6 +130,16 @@ export default function TarifsPage() {
             accompagnée, facturée une seule fois à la mise en service : nous reprenons vos recettes et vos factures
             pour que le compte soit utilisable dès le premier jour. Pas de commission, pas de coût par utilisateur
             caché, pas de frais de sortie.
+          </p>
+          <p className="mt-4 text-base leading-relaxed text-[#4d6952] md:text-lg">
+            {/* Starter est bien plafonnée à 50 fiches côté serveur
+                (maxRecipes dans _shared/plan-limits.ts de l'application) :
+                annoncer l'illimité sur les deux offres se heurtait au refus à
+                la 51ᵉ fiche, et c'est le client qui l'apprenait. */}
+            L&apos;offre Pro ne limite pas le nombre de recettes : vous digitalisez tout votre cahier, fiches
+            techniques et sous-recettes comprises. Elle ajoute le calcul des marges et le pilotage de la
+            rentabilité en temps réel, ainsi que la gestion des stocks et des inventaires valorisés. Starter
+            couvre 50 fiches techniques, de quoi démarrer sur une carte complète.
           </p>
         </header>
         <PricingPageContent />

@@ -10,6 +10,7 @@ import {
   type Field,
   type Step,
   type UserRow,
+  USER_ROLES,
 } from "@/content/onboarding";
 
 type Reponses = Record<string, unknown>;
@@ -60,6 +61,25 @@ export function QuestionnaireForm({ token }: { token: string }) {
   const [sending, setSending] = useState(false);
   const [sendError, setSendError] = useState<string | null>(null);
   const savedRef = useRef<string>("");
+  const sectionRef = useRef<HTMLElement>(null);
+
+  /**
+   * Remonter en haut de l'ÉTAPE à chaque changement (#63).
+   *
+   * Avant : `window.scrollTo({ top: 0, behavior: "smooth" })` juste après le
+   * setState. Deux problèmes. Le haut de la page n'est pas le haut du
+   * questionnaire — il y a l'en-tête du site au-dessus — et surtout un
+   * défilement animé lancé au moment où React remplace tout le contenu de
+   * l'étape se fait annuler par Safari : on restait au milieu de la nouvelle
+   * étape, à l'endroit exact où on avait cliqué.
+   *
+   * Ici, le défilement est joué APRÈS le rendu, vise la section elle-même, et
+   * respecte scroll-mt pour ne pas passer sous la barre de progression collée.
+   */
+  useEffect(() => {
+    if (stepIndex === 0) return;
+    sectionRef.current?.scrollIntoView({ block: "start" });
+  }, [stepIndex]);
 
   const step: Step = ONBOARDING_STEPS[stepIndex];
   const isLast = stepIndex === ONBOARDING_STEPS.length - 1;
@@ -143,12 +163,10 @@ export function QuestionnaireForm({ token }: { token: string }) {
     if (!validateStep()) return;
     await saveDraft(reponses);
     setStepIndex((i) => Math.min(i + 1, ONBOARDING_STEPS.length - 1));
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const goPrev = () => {
     setStepIndex((i) => Math.max(i - 1, 0));
-    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   const submit = async () => {
@@ -236,7 +254,7 @@ export function QuestionnaireForm({ token }: { token: string }) {
         </div>
       </div>
 
-      <section aria-labelledby={`step-${step.id}`}>
+      <section ref={sectionRef} aria-labelledby={`step-${step.id}`} className="scroll-mt-40">
         <h2 id={`step-${step.id}`} className="text-2xl font-bold text-[#27421f] md:text-3xl">
           {step.title}
         </h2>
@@ -457,10 +475,78 @@ function FieldRenderer({
     );
   }
 
+  if (field.kind === "checkbox") {
+    // Valeur stockée en tableau ; on tolère une ancienne réponse en chaîne
+    // (questionnaires remplis avant le passage au choix multiple).
+    const selection: string[] = Array.isArray(value)
+      ? (value as string[])
+      : value
+        ? [String(value)]
+        : [];
+    const basculer = (v: string) => {
+      const suite = selection.includes(v)
+        ? selection.filter((x) => x !== v)
+        : [...selection, v];
+      onChange(field.name, suite);
+      // « Autre » décoché : on n'emporte pas une précision devenue orpheline.
+      if (field.otherFor && v === "autre" && selection.includes(v)) {
+        onChange(field.otherFor, "");
+      }
+    };
+    const montrerAutre = !!field.otherFor && (selection.includes("autre") || selection.includes("logiciel"));
+
+    return wrapper(
+      <fieldset>
+        <legend className={labelCls}>
+          {field.label}
+          {field.required ? <span className="text-[#8a3b3b]"> *</span> : null}
+        </legend>
+        {/* Pas d'indication ici : `wrapper` l'affiche déjà sous le champ, comme
+            pour tous les autres types. Écrite aux deux endroits, « Plusieurs
+            réponses possibles. » se lisait deux fois d'affilée. */}
+        <div className="mt-3 grid gap-2 sm:grid-cols-2">
+          {field.choices.map((c) => {
+            const checked = selection.includes(c.value);
+            return (
+              <label
+                key={c.value}
+                className={`flex cursor-pointer items-center gap-3 rounded-xl border px-4 py-3 transition ${
+                  checked
+                    ? "border-[#6e9f55] bg-[#f2f8ec] font-semibold text-[#27421f]"
+                    : "border-[#dcead2] bg-white text-[#4d6952] hover:bg-[#f8fbf5]"
+                }`}
+              >
+                <input
+                  type="checkbox"
+                  name={field.name}
+                  value={c.value}
+                  checked={checked}
+                  onChange={() => basculer(c.value)}
+                  className="size-4 accent-[#355329]"
+                />
+                {c.label}
+              </label>
+            );
+          })}
+        </div>
+        {montrerAutre ? (
+          <input
+            type="text"
+            value={String(reponses[field.otherFor!] ?? "")}
+            onChange={(e) => onChange(field.otherFor!, e.target.value)}
+            placeholder={selection.includes("logiciel") ? "Lequel ?" : "Précisez"}
+            aria-label="Précisez"
+            className={inputCls}
+          />
+        ) : null}
+      </fieldset>,
+    );
+  }
+
   if (field.kind === "users") {
     const rows: UserRow[] = Array.isArray(value) && value.length
       ? (value as UserRow[])
-      : [{ nom: "", fonction: "", email: "", usage: "" }];
+      : [{ nom: "", fonction: "", email: "", usage: "", role: "operateur" }];
 
     const update = (i: number, patch: Partial<UserRow>) => {
       const next = rows.map((r, idx) => (idx === i ? { ...r, ...patch } : r));
@@ -511,6 +597,20 @@ function FieldRenderer({
                     </option>
                   ))}
                 </select>
+                {/* Rôle applicatif (#63) : renseigné ici, il n'y a plus à le
+                    redemander au moment de créer les accès. */}
+                <select
+                  value={row.role || "operateur"}
+                  onChange={(e) => update(i, { role: e.target.value })}
+                  aria-label={`Rôle Gramme de l'utilisateur ${i + 1}`}
+                  className={`${inputCls} mt-0 sm:col-span-2`}
+                >
+                  {USER_ROLES.map((r) => (
+                    <option key={r.value} value={r.value}>
+                      {r.label}
+                    </option>
+                  ))}
+                </select>
               </div>
               {rows.length > 1 ? (
                 <button
@@ -526,7 +626,12 @@ function FieldRenderer({
         </div>
         <button
           type="button"
-          onClick={() => onChange(field.name, [...rows, { nom: "", fonction: "", email: "", usage: "" }])}
+          onClick={() =>
+            onChange(field.name, [
+              ...rows,
+              { nom: "", fonction: "", email: "", usage: "", role: "operateur" },
+            ])
+          }
           className="mt-3 rounded-xl border border-[#d8e6cf] bg-white px-4 py-2.5 text-sm font-semibold text-[#355329] transition hover:bg-[#f6fbf2]"
         >
           Ajouter une personne

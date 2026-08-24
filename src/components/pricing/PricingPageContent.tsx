@@ -79,9 +79,15 @@ export function PricingPageContent() {
               <ul className="mt-6 space-y-2 text-sm">
                 {plan.features.map((item) => (
                   <li
-                    key={item}
+                    key={item.label}
                     className={`flex items-start gap-2 ${
-                      plan.highlight ? "text-white/95" : "text-[#4d6952]"
+                      item.emphasis
+                        ? plan.highlight
+                          ? "font-bold text-white"
+                          : "font-bold text-[#27421f]"
+                        : plan.highlight
+                          ? "text-white/95"
+                          : "text-[#4d6952]"
                     }`}
                   >
                     <CheckIcon
@@ -89,7 +95,7 @@ export function PricingPageContent() {
                         plan.highlight ? "text-[#a8cf8c]" : "text-[#6e9f55]"
                       }`}
                     />
-                    {item}
+                    {item.label}
                   </li>
                 ))}
               </ul>

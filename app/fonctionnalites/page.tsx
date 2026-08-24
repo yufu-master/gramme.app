@@ -11,11 +11,18 @@ import { SITE_URL, webPageSchema } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Fonctionnalités du logiciel de gestion boulangerie",
   description:
-    "Les sept modules de Gramme : import de recettes en photo, fiches techniques, scan de factures et mercuriale, production, stock, fournisseurs et suivi des marges.",
+    "Les sept modules de Gramme : digitalisation des recettes en photo, fiches techniques et calcul du coût de revient, scan de factures, mercuriale et alertes de prix, planning de production, gestion de stocks, fournisseurs et pilotage des marges en temps réel.",
   keywords: [
     "fonctionnalités logiciel boulangerie",
     "logiciel gestion pâtisserie",
+    "logiciel gestion de production",
     "fiche technique boulangerie",
+    "digitalisation des recettes",
+    "calculatrice coût de revient",
+    "alertes de prix",
+    "planning de production",
+    "gestion de stocks",
+    "marges en temps réel",
     "mercuriale fournisseurs",
     "gestion stock pâtisserie",
   ],
@@ -23,7 +30,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Fonctionnalités | Gramme",
     description:
-      "Recettes, fiches techniques, factures, mercuriale, production, stock, fournisseurs et marges : sept modules reliés entre eux.",
+      "Recettes digitalisées, fiches techniques, factures, mercuriale et alertes de prix, planning de production, gestion de stocks, fournisseurs et marges en temps réel : sept modules reliés entre eux.",
     url: `${SITE_URL}/fonctionnalites`,
   },
 };
@@ -51,7 +58,7 @@ export default function FonctionnalitesPage() {
           webPageSchema({
             title: "Fonctionnalités du logiciel de gestion boulangerie | Gramme",
             description:
-              "Les sept modules de Gramme pour les boulangeries et pâtisseries artisanales : recettes, coûts, achats, production, stock, fournisseurs et marges.",
+              "Les sept modules de Gramme pour les boulangeries et pâtisseries artisanales : digitalisation des recettes, fiches techniques et coûts, achats et alertes de prix, planning de production, gestion de stocks, fournisseurs et marges en temps réel.",
             path: "/fonctionnalites",
           }),
           itemListSchema,

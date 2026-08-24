@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     template: "%s | Gramme",
   },
   description:
-    "Gramme est le logiciel de gestion pour boulangeries et pâtisseries : fiches techniques, scan de factures, mercuriale, stock, production et marges en temps réel. Pilotez votre rentabilité au gramme près.",
+    "Gramme est le logiciel de gestion et de production pour boulangeries et pâtisseries : digitalisation des recettes, fiches techniques, calculatrice de coût de revient, scan de factures, mercuriale et alertes de prix, gestion de stocks, planning de production et marges en temps réel. Tout est connecté : pilotez votre rentabilité au gramme près.",
   keywords: [...primaryKeywords],
   authors: [{ name: "Gramme", url: "https://gramme.app" }],
   creator: "Gramme",
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Gramme | Logiciel gestion boulangerie & pâtisserie",
     description:
-      "Centralisez recettes, factures fournisseurs, stock, production et marges. Le logiciel pensé pour les artisans boulangers-pâtissiers.",
+      "Digitalisez vos recettes et fiches techniques, centralisez factures, mercuriale, stocks et planning de production, pilotez vos marges en temps réel. Tout est connecté.",
     url: "https://gramme.app",
     siteName: "Gramme",
     locale: "fr_FR",
@@ -53,7 +53,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Gramme | Logiciel gestion boulangerie",
     description:
-      "Recettes, factures, stock, production et marges réunis dans un outil simple pour boulangers-pâtissiers.",
+      "Recettes digitalisées, fiches techniques, alertes de prix, stocks, planning de production et marges en temps réel, réunis dans un seul outil.",
     images: ["/images/hero-lifestyle.jpg"],
   },
   robots: {

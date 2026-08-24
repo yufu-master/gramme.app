@@ -55,6 +55,37 @@ const painPoints = [
 
 const showcasedFeatures = ["import-recettes-photo", "fiches-techniques", "marges-et-decisions", "scan-factures-mercuriale"];
 
+/**
+ * L'exemple chiffré de l'entremets.
+ *
+ * Les quantités et les coûts au kilo sont les données ; les deux totaux s'en
+ * déduisent. Écrits en dur, ils avaient dérivé : 36,04 € annoncés pour 34,13 €
+ * réels. Sur une page qui vend un calcul de coût de revient, un lecteur qui
+ * pose sa calculatrice est le client qu'on cherche — pas celui qu'on peut se
+ * permettre de contredire.
+ */
+const composantsEntremets = [
+  { nom: "Biscuit joconde", niveau: "Sous-recette", quantiteKg: 0.85, coutKg: 5.32 },
+  { nom: "Croustillant praliné", niveau: "Sous-recette de sous-recette", quantiteKg: 0.42, coutKg: 11.9 },
+  { nom: "Confit de fruits", niveau: "Sous-recette", quantiteKg: 0.6, coutKg: 7.15 },
+  {
+    nom: "Mousse chocolat (pâte à bombe incluse)",
+    niveau: "Sous-recette à 2 niveaux",
+    quantiteKg: 1.8,
+    coutKg: 9.4,
+  },
+  { nom: "Glaçage miroir", niveau: "Sous-recette", quantiteKg: 0.5, coutKg: 6.8 },
+];
+
+const PARAGE_PCT = 9;
+
+const coutAvantParage = composantsEntremets.reduce(
+  (total, ligne) => total + ligne.quantiteKg * ligne.coutKg,
+  0,
+);
+/** Le parage se retire du produit fini : ce qui reste vendable porte tout le coût. */
+const coutApresParage = coutAvantParage / (1 - PARAGE_PCT / 100);
+
 const faq = [
   {
     q: "Quel logiciel pour une pâtisserie artisanale ?",
@@ -70,7 +101,11 @@ const faq = [
   },
   {
     q: "Peut-on importer des fiches de pâtisserie existantes ?",
-    a: "Oui. Les fiches manuscrites, même anciennes, farinées ou tachées, se photographient et sont reconstruites automatiquement, avec les sous-recettes séparées des recettes finales. Les fichiers Excel, même volumineux, s'importent en une fois.",
+    // La photo et le PDF s'analysent depuis l'application ; le tableur, lui,
+    // est repris à l'installation (l'application refuse les .xlsx à l'envoi).
+    // Le reste du site le dit déjà ainsi — cette page était la seule à laisser
+    // croire à un import en libre-service.
+    a: "Oui. Les fiches manuscrites, même anciennes, farinées ou tachées, se photographient depuis l'application et sont reconstruites automatiquement, avec les sous-recettes séparées des recettes finales. Les fichiers Excel, même volumineux, sont repris lors de l'installation accompagnée : vous les envoyez, votre compte arrive rempli.",
   },
   {
     q: "Combien coûte un logiciel de gestion pour une pâtisserie ?",
@@ -182,27 +217,35 @@ export default function LogicielPatisseriePage() {
                 </tr>
               </thead>
               <tbody className="text-[#4d6952]">
-                {[
-                  ["Biscuit joconde", "Sous-recette", "0,850 kg", "5,32 € / kg"],
-                  ["Croustillant praliné", "Sous-recette de sous-recette", "0,420 kg", "11,90 € / kg"],
-                  ["Confit de fruits", "Sous-recette", "0,600 kg", "7,15 € / kg"],
-                  ["Mousse chocolat (pâte à bombe incluse)", "Sous-recette à 2 niveaux", "1,800 kg", "9,40 € / kg"],
-                  ["Glaçage miroir", "Sous-recette", "0,500 kg", "6,80 € / kg"],
-                ].map((row) => (
-                  <tr key={row[0]} className="border-t border-[#dcead2]">
-                    <td className="px-4 py-3 font-semibold text-[#27421f]">{row[0]}</td>
-                    <td className="px-4 py-3">{row[1]}</td>
-                    <td className="px-4 py-3 tabular-nums">{row[2]}</td>
-                    <td className="px-4 py-3 tabular-nums">{row[3]}</td>
+                {composantsEntremets.map((row) => (
+                  <tr key={row.nom} className="border-t border-[#dcead2]">
+                    <td className="px-4 py-3 font-semibold text-[#27421f]">{row.nom}</td>
+                    <td className="px-4 py-3">{row.niveau}</td>
+                    <td className="px-4 py-3 tabular-nums">
+                      {row.quantiteKg.toLocaleString("fr-FR", {
+                        minimumFractionDigits: 3,
+                        maximumFractionDigits: 3,
+                      })}{" "}
+                      kg
+                    </td>
+                    <td className="px-4 py-3 tabular-nums">{formatEuro(row.coutKg)} / kg</td>
                   </tr>
                 ))}
+                {/* Les deux totaux se recalculent depuis les lignes du tableau
+                    (#108) : ils étaient écrits en dur, et faux de près de deux
+                    euros. Un exemple de calcul de coût qui ne tombe pas juste
+                    est le pire argument possible pour un logiciel de calcul de
+                    coût — le lecteur qui vérifie est exactement le client
+                    qu'on cherche. */}
                 <tr className="border-t border-[#dcead2] bg-[#f6fbf2] font-bold text-[#27421f]">
                   <td className="px-4 py-3" colSpan={3}>Coût matière avant parage</td>
-                  <td className="px-4 py-3 tabular-nums">36,04 €</td>
+                  <td className="px-4 py-3 tabular-nums">{formatEuro(coutAvantParage, 2)}</td>
                 </tr>
                 <tr className="border-t border-[#dcead2] bg-[#f6fbf2] font-bold text-[#27421f]">
-                  <td className="px-4 py-3" colSpan={3}>Après 9 % de parage et découpe</td>
-                  <td className="px-4 py-3 tabular-nums">39,60 €</td>
+                  <td className="px-4 py-3" colSpan={3}>
+                    Après {PARAGE_PCT} % de parage et découpe
+                  </td>
+                  <td className="px-4 py-3 tabular-nums">{formatEuro(coutApresParage, 2)}</td>
                 </tr>
               </tbody>
             </table>

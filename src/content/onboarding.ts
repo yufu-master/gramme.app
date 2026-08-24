@@ -13,6 +13,8 @@ export type Field =
   | { kind: "number"; name: string; label: string; hint?: string; required?: boolean; min?: number }
   | { kind: "tel"; name: string; label: string; required?: boolean }
   | { kind: "radio"; name: string; label: string; choices: Choice[]; required?: boolean; hint?: string; otherFor?: string }
+  /** Choix multiple : plusieurs réponses cochables, stockées en tableau. */
+  | { kind: "checkbox"; name: string; label: string; choices: Choice[]; required?: boolean; hint?: string; otherFor?: string }
   | { kind: "users"; name: string; label: string; hint?: string }
   | { kind: "files"; name: string; label: string; categorie: FileCategory; hint?: string; accept?: string };
 
@@ -40,9 +42,14 @@ export const ONBOARDING_STEPS: Step[] = [
         hint: "Facultatif — utile pour préparer le contrat.",
       },
       {
-        kind: "radio",
+        // Choix multiple (#109) : un artisan est rarement d'une seule
+        // spécialité — boulangerie ET pâtisserie ET chocolaterie est le cas
+        // ordinaire. « Activité principale » obligeait à en renier deux, et le
+        // dimensionnement de la reprise partait de là.
+        kind: "checkbox",
         name: "activite",
-        label: "Activité principale",
+        label: "Activités",
+        hint: "Plusieurs réponses possibles.",
         required: true,
         otherFor: "activite_autre",
         choices: [
@@ -64,9 +71,13 @@ export const ONBOARDING_STEPS: Step[] = [
     intro: "Il n'y a pas de mauvaise réponse. Ces trois questions servent à dimensionner le travail de reprise, pas à vous juger.",
     fields: [
       {
-        kind: "radio",
+        // Choix multiple (#63) : en pratique c'est presque toujours « Excel ET
+        // le cahier du chef ». Forcer une réponse unique donnait un
+        // dimensionnement faux dès la première question.
+        kind: "checkbox",
         name: "gestion_fiches",
         label: "Comment gérez-vous vos fiches techniques aujourd'hui ?",
+        hint: "Plusieurs réponses possibles.",
         required: true,
         otherFor: "gestion_fiches_logiciel",
         choices: [
@@ -74,6 +85,7 @@ export const ONBOARDING_STEPS: Step[] = [
           { value: "papier", label: "Papier / classeur" },
           { value: "logiciel", label: "Logiciel métier" },
           { value: "rien", label: "Rien de formalisé" },
+          { value: "autre", label: "Autre" },
         ],
       },
       {
@@ -142,14 +154,17 @@ export const ONBOARDING_STEPS: Step[] = [
     title: "Contexte technique",
     fields: [
       {
-        kind: "radio",
+        kind: "checkbox",
         name: "materiel",
         label: "Matériel disponible en production",
+        hint: "Plusieurs réponses possibles.",
         required: true,
+        otherFor: "materiel_autre",
         choices: [
           { value: "ordinateur", label: "Ordinateur" },
           { value: "tablette", label: "Tablette" },
-          { value: "smartphone", label: "Smartphone uniquement" },
+          { value: "smartphone", label: "Smartphone" },
+          { value: "autre", label: "Autre" },
         ],
       },
       {
@@ -220,6 +235,7 @@ export const ONBOARDING_STEPS: Step[] = [
         name: "f_mercuriale",
         label: "Mercuriale / tarifs fournisseurs négociés",
         categorie: "mercuriale",
+        hint: "Idéalement les références réellement commandées sur l'année écoulée — ou sur le plus de mois possible. C'est ce qui donne un historique de prix dès le premier jour.",
       },
       {
         kind: "files",
@@ -246,7 +262,22 @@ export const ACCEPTED_MIME = [
 
 export const MAX_UPLOAD_BYTES = 25 * 1024 * 1024;
 
-export type UserRow = { nom: string; fonction: string; email: string; usage: string };
+export type UserRow = {
+  nom: string;
+  fonction: string;
+  email: string;
+  usage: string;
+  /** Rôle Gramme à attribuer à la création du compte (#63). */
+  role: string;
+};
+
+/** Miroir de public.roles_permissions — voir docs/ACCES-PAR-ROLE.md côté app. */
+export const USER_ROLES: Choice[] = [
+  { value: "admin", label: "Admin — tout, équipe comprise" },
+  { value: "gestionnaire", label: "Gestionnaire — tout le métier, sans l'équipe" },
+  { value: "operateur", label: "Opérateur — atelier : recettes, stock, scans" },
+  { value: "lecture_seule", label: "Lecture seule — consultation" },
+];
 
 export const USER_USAGES: Choice[] = [
   { value: "consultation", label: "Consultation" },

@@ -8,16 +8,24 @@ export const metadata: Metadata = {
     absolute: "Logiciel gestion boulangerie & pâtisserie | Gramme",
   },
   description:
-    "Gramme, logiciel de gestion pour boulangeries et pâtisseries : importez vos recettes d'une simple photo, fiches techniques, scan de factures, mercuriale, stock, production et marges en temps réel.",
+    "Gramme, logiciel de gestion et de production pour boulangeries et pâtisseries : digitalisez vos recettes d'une simple photo, fiches techniques, calcul des marges en temps réel, alertes de prix, planning de production et gestion de stocks. Tout est connecté.",
   keywords: [
     "logiciel gestion boulangerie",
     "logiciel pâtisserie",
+    "logiciel gestion de production",
     "ERP boulangerie",
     "fiche technique boulangerie",
+    "digitalisation des recettes",
     "importer recettes photo",
     "numériser fiches techniques",
     "import Excel recettes",
     "calcul marge boulangerie",
+    "marges en temps réel",
+    "pilotage de la rentabilité",
+    "alertes de prix",
+    "calculatrice coût de revient",
+    "planning de production",
+    "gestion de stocks",
     "mercuriale fournisseurs",
     "gestion stock pâtisserie",
   ],
@@ -27,7 +35,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Gramme | Logiciel gestion boulangerie & pâtisserie",
     description:
-      "Centralisez recettes, factures fournisseurs, stock et production pour sécuriser votre rentabilité.",
+      "Recettes digitalisées, fiches techniques, alertes de prix, gestion de stocks, planning de production et marges en temps réel : tout est connecté pour sécuriser votre rentabilité.",
     url: "https://gramme.app/",
     images: [
       {
@@ -49,7 +57,7 @@ export default function Home() {
           webPageSchema({
             title: "Logiciel gestion boulangerie & pâtisserie | Gramme",
             description:
-              "Application de gestion pour artisans boulangers et pâtissiers : recettes, coûts, stock, production et marges.",
+              "Application de gestion et de production pour artisans boulangers et pâtissiers : recettes digitalisées, fiches techniques, coûts, alertes de prix, stocks, planning de production et marges en temps réel.",
             path: "/",
           }),
         ]}

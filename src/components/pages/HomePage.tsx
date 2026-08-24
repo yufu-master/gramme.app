@@ -12,10 +12,14 @@ import { formatEuro, pricingPlans, type BillingPeriod } from "@/lib/pricing";
 import { trackEvent } from "@/lib/analytics";
 
 const trustItems = [
-  { label: "Recettes & fiches techniques", icon: ShieldIcon },
-  { label: "Scan facture intelligent", icon: ScanIcon },
-  { label: "Impact marge en temps réel", icon: PulseIcon },
-  { label: "Mobile & atelier-friendly", icon: MobileIcon },
+  { label: "Digitalisation des recettes & fiches techniques", icon: BookIcon },
+  { label: "Scan de factures & mercuriale", icon: ScanIcon },
+  { label: "Calculatrice de coût de revient", icon: CalculatorIcon },
+  { label: "Marges en temps réel", icon: PulseIcon },
+  { label: "Alertes de prix", icon: BellIcon },
+  { label: "Gestion de stocks", icon: BoxIcon },
+  { label: "Gestion & planning de production", icon: CalendarIcon },
+  { label: "Tout est connecté", icon: LinkIcon },
 ];
 
 const importSteps = [
@@ -98,7 +102,8 @@ export default function HomePage() {
               près.
             </h1>
             <p className="mt-5 max-w-md text-base text-white/85 sm:text-lg">
-              Le logiciel de gestion pour boulangers-pâtissiers : fiches techniques, coûts matière, stock, production et marges en temps réel.
+              Le logiciel de gestion et de production pour boulangers-pâtissiers : recettes digitalisées, fiches
+              techniques, alertes de prix, gestion de stocks, planning de production et marges en temps réel.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <button
@@ -231,8 +236,11 @@ export default function HomePage() {
           <div className="max-w-3xl">
             <h2 className="text-3xl font-bold md:text-4xl">Les fonctionnalités qui font gagner du temps et de la marge.</h2>
             <p className="mt-4 text-[var(--muted-foreground)]">
-              Sept modules reliés entre eux : fiches techniques, mercuriale, stock, production et alertes marges — sans
-              complexité inutile. Dépliez pour l&apos;essentiel, ouvrez la page dédiée pour le détail.
+              Sept modules reliés entre eux : digitalisation des recettes, fiches techniques et calcul du coût de
+              revient, mercuriale et alertes de prix, gestion de stocks, planning de production et pilotage de la
+              rentabilité — sans complexité inutile. Tout est connecté : un prix qui bouge sur une facture se
+              répercute jusqu&apos;à la marge de chaque recette. Dépliez pour l&apos;essentiel, ouvrez la page dédiée
+              pour le détail.
             </p>
             <p className="mt-3 text-sm text-[var(--muted-foreground)]">
               Vous êtes pâtissier ?{" "}
@@ -361,9 +369,20 @@ export default function HomePage() {
                 <p className={`mt-3 text-sm ${plan.highlight ? "text-white/85" : "text-[var(--muted-foreground)]"}`}>{plan.tagline}</p>
                 <ul className="mt-5 space-y-2 text-sm">
                   {plan.features.map((item) => (
-                    <li key={item} className={`flex items-start gap-2 ${plan.highlight ? "text-white/95" : "text-[var(--muted-foreground)]"}`}>
+                    <li
+                      key={item.label}
+                      className={`flex items-start gap-2 ${
+                        item.emphasis
+                          ? plan.highlight
+                            ? "font-bold text-white"
+                            : "font-bold text-[#27421f]"
+                          : plan.highlight
+                            ? "text-white/95"
+                            : "text-[var(--muted-foreground)]"
+                      }`}
+                    >
                       <CheckIcon className={`mt-0.5 size-4 shrink-0 ${plan.highlight ? "text-[#a8cf8c]" : "text-[#6e9f55]"}`} />
-                      {item}
+                      {item.label}
                     </li>
                   ))}
                 </ul>
@@ -491,17 +510,26 @@ function CheckIcon({ className }: IconProps) {
 function SparkIcon({ className }: IconProps) {
   return <svg viewBox="0 0 20 20" fill="none" className={className}><path d="m10 2 1.6 4.4L16 8l-4.4 1.6L10 14l-1.6-4.4L4 8l4.4-1.6L10 2Z" stroke="currentColor" strokeWidth="1.5" /></svg>;
 }
-function ShieldIcon({ className }: IconProps) {
-  return <svg viewBox="0 0 20 20" fill="none" className={className}><path d="M10 2 4.5 4v5.5c0 4.3 3 6.5 5.5 8 2.5-1.5 5.5-3.7 5.5-8V4L10 2Z" stroke="currentColor" strokeWidth="1.5" /></svg>;
-}
 function ScanIcon({ className }: IconProps) {
   return <svg viewBox="0 0 20 20" fill="none" className={className}><path d="M6 3H3v3M14 3h3v3M6 17H3v-3M17 14v3h-3M5 10h10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>;
 }
 function PulseIcon({ className }: IconProps) {
   return <svg viewBox="0 0 20 20" fill="none" className={className}><path d="M2.5 10h3l2-3.5 3 7 2.2-3.5h4.8" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>;
 }
-function MobileIcon({ className }: IconProps) {
-  return <svg viewBox="0 0 20 20" fill="none" className={className}><rect x="6" y="2.5" width="8" height="15" rx="2" stroke="currentColor" strokeWidth="1.5" /><path d="M9 14.5h2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>;
+function CalculatorIcon({ className }: IconProps) {
+  return <svg viewBox="0 0 20 20" fill="none" className={className}><rect x="4" y="2.5" width="12" height="15" rx="2" stroke="currentColor" strokeWidth="1.5" /><path d="M7 6h6M7 10h2m2 0h2m-4 3.5h2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>;
+}
+function BellIcon({ className }: IconProps) {
+  return <svg viewBox="0 0 20 20" fill="none" className={className}><path d="M6 8.5a4 4 0 0 1 8 0c0 3 1 4 1.5 4.5h-11C5 12.5 6 11.5 6 8.5Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" /><path d="M8.5 15.5a1.6 1.6 0 0 0 3 0" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>;
+}
+function BoxIcon({ className }: IconProps) {
+  return <svg viewBox="0 0 20 20" fill="none" className={className}><path d="M10 2.5 17 6v8l-7 3.5L3 14V6l7-3.5Z" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" /><path d="M3 6l7 3.5L17 6M10 9.5v8" stroke="currentColor" strokeWidth="1.5" strokeLinejoin="round" /></svg>;
+}
+function CalendarIcon({ className }: IconProps) {
+  return <svg viewBox="0 0 20 20" fill="none" className={className}><rect x="3" y="4.5" width="14" height="13" rx="2" stroke="currentColor" strokeWidth="1.5" /><path d="M3 8.5h14M7 2.5v3m6-3v3" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" /></svg>;
+}
+function LinkIcon({ className }: IconProps) {
+  return <svg viewBox="0 0 20 20" fill="none" className={className}><path d="M8.5 11.5a3 3 0 0 0 4.2 0l2.3-2.3a3 3 0 0 0-4.2-4.2l-1 1M11.5 8.5a3 3 0 0 0-4.2 0L5 10.8a3 3 0 0 0 4.2 4.2l1-1" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" /></svg>;
 }
 function BookIcon({ className }: IconProps) {
   return <svg viewBox="0 0 20 20" fill="none" className={className}><path d="M4 3.5h9a3 3 0 0 1 3 3V16H7a3 3 0 0 0-3 3V3.5Z" stroke="currentColor" strokeWidth="1.5" /><path d="M7 16h9" stroke="currentColor" strokeWidth="1.5" /></svg>;

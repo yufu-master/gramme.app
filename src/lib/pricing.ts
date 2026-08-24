@@ -4,12 +4,18 @@ export type BillingPeriod = "monthly" | "yearly";
 
 export type PlanId = "starter" | "pro";
 
+export type PlanFeature = {
+  label: string;
+  /** Ligne mise en avant visuellement dans la carte d'offre */
+  emphasis?: boolean;
+};
+
 export type Plan = {
   id: PlanId;
   name: string;
   tagline: string;
   highlight?: boolean;
-  features: string[];
+  features: PlanFeature[];
   monthlyPrice: number;
   yearlyPrice: number;
   /** Prix mensuel équivalent affiché en mode annuel */
@@ -26,11 +32,15 @@ export const pricingPlans: Plan[] = [
     name: "Starter",
     tagline: "Pour les artisans qui veulent aller à l’essentiel.",
     features: [
-      "1 utilisateur (vous)",
-      "50 Fiches techniques",
-      "Scan de 30 factures/mois",
-      "200 Mo de photos recettes",
-      "Suivi marge en temps réel",
+      { label: "1 utilisateur (vous)" },
+      // « 50 fiches techniques », pas « illimitées » : le serveur plafonne
+      // réellement l'offre Starter à 50 recettes (maxRecipes dans
+      // _shared/plan-limits.ts). Une carte d'offre qui promet l'illimité se
+      // heurte au refus à la 51ᵉ fiche, et c'est le client qui l'apprend.
+      { label: "50 fiches techniques" },
+      { label: "Scan de 30 factures/mois" },
+      { label: "200 Mo de photos recettes" },
+      { label: "Coût de revient et marge en temps réel" },
     ],
     monthlyPrice: 49,
     yearlyPrice: 490,
@@ -43,15 +53,18 @@ export const pricingPlans: Plan[] = [
   {
     id: "pro",
     name: "Pro",
-    tagline: "Pour les équipes qui pilotent production + achats.",
+    tagline: "Pour les équipes qui pilotent leurs marges, leurs stocks et leur production.",
     highlight: true,
     features: [
-      "Jusqu’à 5 utilisateurs",
-      "Recettes illimitées",
-      "Scan de 150 factures/mois",
-      "2 Go de photos recettes",
-      "Stocks, fournisseurs et alertes avancées",
-      "Support prioritaire",
+      { label: "Calcul des marges et pilotage de la rentabilité en temps réel", emphasis: true },
+      { label: "Gestion des stocks et inventaires valorisés", emphasis: true },
+      { label: "Jusqu’à 5 utilisateurs" },
+      { label: "Recettes et fiches techniques illimitées" },
+      { label: "Historique de production" },
+      { label: "Alertes de prix fournisseurs avancées" },
+      { label: "Scan de 150 factures/mois" },
+      { label: "2 Go de photos recettes" },
+      { label: "Support prioritaire" },
     ],
     monthlyPrice: 89,
     yearlyPrice: 890,
