@@ -3,6 +3,33 @@ export const SITE_NAME = "Gramme";
 export const SITE_EMAIL = "bonjour@gramme.app";
 export const SUPPORT_EMAIL = "support@gramme.app";
 
+/**
+ * Identité légale de l'éditeur.
+ *
+ * Elle sert deux fois : les mentions légales, obligatoires, et le balisage
+ * `Organization`. Un moteur génératif qui doit décider si « Gramme » est une
+ * entreprise réelle cherche un SIREN, une adresse et un dirigeant — un site
+ * sans identité vérifiable se fait citer beaucoup moins qu'un site qui la
+ * publie. Le nom commercial et la raison sociale diffèrent : les tenir au même
+ * endroit évite qu'ils divergent d'une page à l'autre.
+ */
+export const EDITEUR = {
+  raisonSociale: "YUFU CAPITAL",
+  formeJuridique: "SASU — société par actions simplifiée unipersonnelle",
+  capital: "123 219,00 €",
+  adresse: "172 avenue de Choisy, 75013 Paris, France",
+  rue: "172 avenue de Choisy",
+  codePostal: "75013",
+  ville: "Paris",
+  pays: "FR",
+  siren: "824 411 375",
+  siret: "824 411 375 00010",
+  rcs: "824 411 375 R.C.S. Paris — greffe de Paris, inscrit le 20 décembre 2016",
+  tva: "FR14824411375",
+  ape: "70.10Z — Activités des sièges sociaux",
+  directeurPublication: "Clermont Fu, président",
+} as const;
+
 /** Mots-clés cibles SEO / GEO — logiciels boulangerie & pâtisserie */
 export const primaryKeywords = [
   "logiciel gestion boulangerie",
@@ -102,8 +129,25 @@ export const siteGraph = {
       "@type": "Organization",
       "@id": `${SITE_URL}/#organization`,
       name: SITE_NAME,
-      legalName: "Gramme",
+      legalName: EDITEUR.raisonSociale,
+      alternateName: "Gramme.app",
       url: SITE_URL,
+      // Identifiants vérifiables : c'est ce qui distingue une entreprise réelle
+      // d'un nom de domaine, pour un moteur comme pour un lecteur.
+      vatID: EDITEUR.tva,
+      taxID: EDITEUR.siren,
+      identifier: [
+        { "@type": "PropertyValue", propertyID: "SIREN", value: EDITEUR.siren },
+        { "@type": "PropertyValue", propertyID: "SIRET", value: EDITEUR.siret },
+        { "@type": "PropertyValue", propertyID: "VAT", value: EDITEUR.tva },
+      ],
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: EDITEUR.rue,
+        postalCode: EDITEUR.codePostal,
+        addressLocality: EDITEUR.ville,
+        addressCountry: EDITEUR.pays,
+      },
       logo: {
         "@type": "ImageObject",
         url: `${SITE_URL}/logos/gramme-icon.svg`,
@@ -114,6 +158,7 @@ export const siteGraph = {
       email: SITE_EMAIL,
       foundingDate: "2025",
       sameAs: ["https://www.instagram.com/gramme.app/"],
+      founder: [{ "@id": `${SITE_URL}/#jeremy` }, { "@id": `${SITE_URL}/#clermont-fu` }],
       areaServed: {
         "@type": "Country",
         name: "France",
@@ -242,11 +287,35 @@ export const siteGraph = {
       "@type": "Person",
       "@id": `${SITE_URL}/#jeremy`,
       name: "Jeremy",
-      jobTitle: "Chef pâtissier & Co-fondateur",
+      jobTitle: "Chef pâtissier, responsable R&D — co-fondateur de Gramme",
       worksFor: { "@id": `${SITE_URL}/#organization` },
       description:
-        "Chef pâtissier et co-fondateur de Gramme. Apporte l'expertise terrain pour concevoir un logiciel de gestion adapté aux laboratoires artisanaux.",
+        "Chef pâtissier formé aux exigences des grandes maisons et responsable de la recherche et développement d'une entreprise du secteur. Co-fondateur de Gramme, il apporte l'expertise de laboratoire : fiches techniques, rendements, coût matière et contraintes réelles de production.",
+      knowsAbout: [
+        "pâtisserie",
+        "fiche technique pâtisserie",
+        "recherche et développement produit",
+        "coût matière",
+        "production en laboratoire",
+      ],
       image: `${SITE_URL}/images/jeremy-chef-rd.jpg`,
+      url: `${SITE_URL}/a-propos-de-gramme`,
+    },
+    {
+      "@type": "Person",
+      "@id": `${SITE_URL}/#clermont-fu`,
+      name: "Clermont Fu",
+      jobTitle: "Entrepreneur — co-fondateur de Gramme",
+      worksFor: { "@id": `${SITE_URL}/#organization` },
+      description:
+        "Entrepreneur, fondateur de plusieurs entreprises et président de YUFU CAPITAL. Il accompagne des sociétés dans le développement de leur chiffre d'affaires, leur stratégie commerciale, leur marketing et l'outillage de leur gestion. Co-fondateur de Gramme, il porte le volet rentabilité et pilotage.",
+      knowsAbout: [
+        "stratégie d'entreprise",
+        "développement commercial",
+        "marketing",
+        "pilotage de la rentabilité",
+        "création d'entreprise",
+      ],
       url: `${SITE_URL}/a-propos-de-gramme`,
     },
   ],

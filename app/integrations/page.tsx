@@ -33,8 +33,7 @@ export default function IntegrationsPage() {
         <Breadcrumbs currentLabel="Intégrations" />
 
         <section className="mt-8 rounded-3xl border border-[#dcead2] bg-white p-6 shadow-sm sm:p-10">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6e9f55]">À venir</p>
-          <h1 className="mt-3 text-3xl font-black text-[#27421f] md:text-4xl">
+          <h1 className="text-3xl font-black text-[#27421f] md:text-4xl">
             Intégrations compatibles
           </h1>
           <p className="mt-4 max-w-3xl text-lg text-[#4d6952]">

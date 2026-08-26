@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { FeatureIcon } from "@/components/features/FeatureIcon";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
@@ -79,10 +78,6 @@ export default async function FeaturePage({ params }: { params: Promise<Params> 
         />
 
         <section className="mt-6 rounded-3xl border border-[#dcead2] bg-white/90 p-6 shadow-[0_20px_70px_rgba(58,92,39,0.08)] sm:p-8 md:p-12">
-          <p className="mb-4 inline-flex items-center gap-2 rounded-full border border-[#a8cf8c]/60 bg-[#a8cf8c]/20 px-4 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#3e6134]">
-            <FeatureIcon name={feature.icon} className="size-3.5" />
-            Fonctionnalité
-          </p>
           <h1 className="text-3xl font-black leading-tight text-[#27421f] md:text-5xl">{feature.h1}</h1>
           <p className="mt-5 max-w-2xl text-base text-[#4d6952] md:text-lg">{feature.intro}</p>
           <ul className="mt-7 grid gap-2 sm:grid-cols-2">

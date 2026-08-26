@@ -146,9 +146,6 @@ export default function LogicielPatisseriePage() {
         />
 
         <section className="mt-6 rounded-3xl border border-[#dcead2] bg-white/90 p-6 shadow-[0_20px_70px_rgba(58,92,39,0.08)] sm:p-8 md:p-12">
-          <p className="mb-4 inline-flex rounded-full border border-[#a8cf8c]/60 bg-[#a8cf8c]/20 px-4 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#3e6134]">
-            Pâtisserie
-          </p>
           <h1 className="text-3xl font-black leading-tight text-[#27421f] md:text-5xl">
             Le logiciel de pâtisserie qui sait ce qu&apos;est une sous-recette
           </h1>

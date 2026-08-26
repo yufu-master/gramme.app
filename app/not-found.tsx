@@ -14,8 +14,7 @@ export default function NotFound() {
     <main className="mx-auto flex w-full max-w-5xl flex-1 flex-col px-4 pb-20 pt-6 sm:px-5 sm:pt-8">
       <Breadcrumbs currentLabel="Page introuvable" />
       <section className="mt-10 rounded-3xl border border-[#dcead2] bg-white p-8 shadow-sm sm:p-12">
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6e9f55]">Erreur 404</p>
-        <h1 className="mt-3 text-3xl font-black text-[#27421f] md:text-4xl">Cette page n&apos;est pas là.</h1>
+        <h1 className="text-3xl font-black text-[#27421f] md:text-4xl">Cette page n&apos;est pas là.</h1>
         <p className="mt-4 max-w-2xl text-[#4d6952]">
           Le lien est peut-être ancien, ou la page a bougé. Revenez à l&apos;accueil ou contactez-nous : on vous oriente en quelques minutes.
         </p>

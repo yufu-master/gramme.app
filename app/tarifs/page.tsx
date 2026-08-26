@@ -120,8 +120,7 @@ export default function TarifsPage() {
       <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-20 pt-6 sm:px-5 sm:pt-8">
         <Breadcrumbs currentLabel="Tarifs" />
         <header className="mt-8 max-w-3xl">
-          <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6e9f55]">Tarifs</p>
-          <h1 className="mt-3 text-3xl font-black leading-tight text-[#27421f] md:text-4xl">
+          <h1 className="text-3xl font-black leading-tight text-[#27421f] md:text-4xl">
             Combien coûte un logiciel de gestion pour une boulangerie ?
           </h1>
           <p className="mt-5 text-base leading-relaxed text-[#4d6952] md:text-lg">

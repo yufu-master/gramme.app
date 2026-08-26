@@ -16,8 +16,7 @@ export default function MerciPage() {
     <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-20 pt-6 sm:px-5 sm:pt-8">
       <Breadcrumbs currentLabel="Merci" />
       <section className="mt-8 rounded-3xl border border-[#dcead2] bg-white p-8 shadow-[0_20px_70px_rgba(58,92,39,0.08)] sm:p-12">
-        <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6e9f55]">Message reçu</p>
-        <h1 className="mt-3 text-3xl font-black text-[#27421f] md:text-4xl">Merci, c&apos;est bien envoyé.</h1>
+        <h1 className="text-3xl font-black text-[#27421f] md:text-4xl">Merci, c&apos;est bien envoyé.</h1>
         <p className="mt-5 max-w-2xl text-lg text-[#4d6952]">
           Nous revenons vers vous sous <strong className="text-[#355329]">4 heures ouvrées</strong>.
           En attendant, vous pouvez préparer vos questions sur recettes, coûts matière ou organisation d&apos;atelier.

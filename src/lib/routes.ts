@@ -70,14 +70,6 @@ export const siteRoutes: SiteRoute[] = [
     breadcrumb: true,
   },
   {
-    path: "/ressources",
-    title: "Ressources",
-    sitemap: true,
-    priority: 0.4,
-    changeFrequency: "monthly",
-    breadcrumb: true,
-  },
-  {
     path: "/contact",
     title: "Contact",
     sitemap: true,
@@ -89,7 +81,7 @@ export const siteRoutes: SiteRoute[] = [
     path: "/demo",
     title: "Démonstration",
     sitemap: true,
-    priority: 0.7,
+    priority: 0.9,
     changeFrequency: "monthly",
     breadcrumb: true,
   },
@@ -127,7 +119,7 @@ export const siteRoutes: SiteRoute[] = [
   },
   {
     path: "/cgv",
-    title: "CGV",
+    title: "Conditions générales de vente",
     sitemap: true,
     priority: 0.3,
     changeFrequency: "yearly",

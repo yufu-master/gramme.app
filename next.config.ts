@@ -8,6 +8,13 @@ const nextConfig: NextConfig = {
       { protocol: "https", hostname: "logo.clearbit.com", pathname: "/**" },
     ],
   },
+  async redirects() {
+    return [
+      // Page vide qui renvoyait elle-même vers /guides : elle diluait le même
+      // contenu sur deux URL. Permanente, pour transmettre l'autorité.
+      { source: "/ressources", destination: "/guides", permanent: true },
+    ];
+  },
   async headers() {
     const csp = [
       "default-src 'self'",

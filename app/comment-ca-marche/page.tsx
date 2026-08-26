@@ -84,9 +84,6 @@ export default function CommentCaMarchePage() {
       <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-20 pt-6 sm:px-5 sm:pt-8">
         <Breadcrumbs currentLabel="Comment ça marche" />
         <section className="mt-6 rounded-3xl border border-[#dcead2] bg-white/90 p-6 shadow-[0_20px_70px_rgba(58,92,39,0.08)] sm:p-8 md:p-12">
-          <p className="mb-4 inline-flex rounded-full border border-[#a8cf8c]/60 bg-[#a8cf8c]/20 px-4 py-1 text-xs font-semibold uppercase tracking-[0.12em] text-[#3e6134]">
-            Parcours
-          </p>
           <h1 className="text-3xl font-black leading-tight text-[#27421f] md:text-5xl">Comment ça marche</h1>
           <p className="mt-5 max-w-2xl text-base text-[#4d6952] md:text-lg">
             Gramme ne remplace ni le geste ni l’intuition. Il les prolonge : un compagnon de laboratoire pour protéger vos marges — au gramme près.
