@@ -35,7 +35,7 @@ export type Guide = {
 
 export const GUIDE_AUTHOR = {
   name: "Jeremy",
-  jobTitle: "Chef pâtissier & Co-fondateur de Gramme",
+  jobTitle: "Chef pâtissier, responsable R&D — co-fondateur de Gramme",
   url: "/a-propos-de-gramme",
   image: "/images/jeremy-chef-rd.jpg",
 } as const;

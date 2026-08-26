@@ -1,6 +1,6 @@
 import type { Guide, GuideBlock } from "@/content/guides/types";
 import { GUIDE_AUTHOR } from "@/content/guides/types";
-import { SITE_NAME, SITE_URL } from "@/lib/seo";
+import { SITE_URL } from "@/lib/seo";
 
 export function slugifyHeading(text: string): string {
   return text
@@ -39,14 +39,10 @@ export function articleSchema(guide: Guide) {
       jobTitle: GUIDE_AUTHOR.jobTitle,
       url: `${SITE_URL}${GUIDE_AUTHOR.url}`,
     },
-    publisher: {
-      "@type": "Organization",
-      name: SITE_NAME,
-      logo: {
-        "@type": "ImageObject",
-        url: `${SITE_URL}/logos/gramme-icon.svg`,
-      },
-    },
+    // Référence, pas recopie : le graphe du site décrit déjà l'éditeur avec son
+    // SIREN et son adresse. Un second objet `Organization` planté ici crée une
+    // deuxième entité concurrente, plus pauvre, sur chaque guide.
+    publisher: { "@id": `${SITE_URL}/#organization` },
     keywords: guide.keywords.join(", "),
   };
 }
