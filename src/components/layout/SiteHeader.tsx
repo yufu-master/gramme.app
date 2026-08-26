@@ -17,6 +17,7 @@ const navItems: NavItem[] = [
   { label: "Tarifs", href: "/tarifs" },
   { label: "Comment ça marche", href: "/comment-ca-marche" },
   { label: "Guides", href: "/guides" },
+  { label: "FAQ", href: "/faq" },
   { label: "À propos", href: "/a-propos-de-gramme" },
   { label: "Contact", href: "/contact" },
 ];
@@ -81,15 +82,23 @@ export function SiteHeader() {
       >
         <Link
           href="/"
-          className="flex shrink-0 items-center"
+          className="flex shrink-0 items-center gap-2"
           aria-label="Gramme — retour à l'accueil"
         >
+          <Image
+            src="/logos/gramme-icon.png"
+            alt=""
+            width={2000}
+            height={1879}
+            className="h-7 w-auto sm:h-8"
+            priority
+          />
           <Image
             src="/logos/gramme-logo-text.png"
             alt="Gramme"
             width={2000}
             height={371}
-            className="h-7 w-auto sm:h-8"
+            className="h-5 w-auto sm:h-6"
             priority
           />
         </Link>
@@ -181,7 +190,7 @@ export function SiteHeader() {
           </a>
           <Link
             href="/contact"
-            className="rounded-xl bg-[#264021] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1f341a]"
+            className="whitespace-nowrap rounded-xl bg-[#264021] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1f341a]"
           >
             Demander une démo
           </Link>

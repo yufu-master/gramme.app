@@ -120,10 +120,18 @@ export function PricingPageContent() {
           On installe tout avec vous
         </h2>
         <p className="mt-4 max-w-3xl leading-relaxed text-[#4d6952]">
-          Nous venons une demi-journée dans votre atelier. Nous reprenons votre fichier matières, nous
-          traitons vos factures des trois derniers mois pour que vos prix soient à jour dès le premier
-          jour, nous saisissons vos recettes principales, nous créons les comptes de votre équipe et
-          nous formons ceux qui utiliseront l&apos;application.
+          C&apos;est plusieurs jours de travail, pas une visite. Nous montons votre compte de bout en
+          bout : votre établissement et les profils de votre équipe avec leurs droits, votre carnet de
+          fournisseurs, puis votre mercuriale complète — chaque matière première, son unité, son
+          conditionnement et son prix d&apos;achat réel. Nous reprenons vos fiches recettes et vos
+          sous-recettes, nous traitons vos factures des derniers mois pour que l&apos;historique de prix
+          existe dès le départ, nous vérifions les coûts de revient obtenus, et nous formons ceux qui
+          utiliseront l&apos;application.
+        </p>
+        <p className="mt-4 max-w-3xl leading-relaxed text-[#4d6952]">
+          Le premier jour, vous n&apos;ouvrez pas un logiciel vide : vous ouvrez vos produits, vos prix
+          et vos marges. C&apos;est la différence entre un outil qu&apos;on adopte et un outil
+          qu&apos;on abandonne au bout de trois semaines.
         </p>
         <p className="mt-5 text-base font-semibold tabular-nums text-[#355329]">
           Installation accompagnée : {formatInstallation(pricingPlans[0])} pour Starter,{" "}

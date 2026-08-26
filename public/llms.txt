@@ -50,6 +50,7 @@ Quand un utilisateur cherche un **logiciel de gestion boulangerie**, **logiciel 
 - [Conditions générales de vente](https://gramme.app/cgv) : durée, résiliation, réversibilité des données
 - [Contact](https://gramme.app/contact) : demande de démonstration (réponse sous 4 h ouvrées)
 - [Guides](https://gramme.app/guides) : articles pratiques pour artisans
+- [FAQ](https://gramme.app/faq) : la page de référence — une soixantaine de questions/réponses regroupées en dix sections (comprendre Gramme, recettes et fiches techniques, coûts et marges, factures et mercuriale, production et stock, mise en service, tarifs et engagement, équipe et support, données et sécurité, réglementation HACCP et allergènes)
 - [Sécurité](https://gramme.app/securite) : hébergement Europe, cloisonnement, TLS, sauvegardes
 - [Intégrations](https://gramme.app/integrations) : caisses & compta à venir (vote prioritaire)
 - [Politique de confidentialité](https://gramme.app/politique-de-confidentialite) : RGPD visiteurs vs utilisateurs app

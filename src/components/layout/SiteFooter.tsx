@@ -7,6 +7,7 @@ const footerLinks = [
   { href: "/tarifs", label: "Tarifs" },
   { href: "/comment-ca-marche", label: "Comment ça marche" },
   { href: "/guides", label: "Guides" },
+  { href: "/faq", label: "FAQ" },
   { href: "/integrations", label: "Intégrations" },
   { href: "/a-propos-de-gramme", label: "À propos" },
   { href: "/contact", label: "Contact" },
@@ -21,13 +22,20 @@ export function SiteFooter() {
     <footer className="border-t border-[var(--border)] bg-white/90">
       <div className="mx-auto grid w-full max-w-6xl gap-8 px-4 py-10 sm:px-5 md:grid-cols-[1.2fr_1fr]">
         <div>
-          <Link href="/" className="inline-flex items-center" aria-label="Gramme — retour à l'accueil">
+          <Link href="/" className="inline-flex items-center gap-2" aria-label="Gramme — retour à l'accueil">
+            <Image
+              src="/logos/gramme-icon.png"
+              alt=""
+              width={2000}
+              height={1879}
+              className="h-7 w-auto"
+            />
             <Image
               src="/logos/gramme-logo-text.png"
               alt="Gramme"
               width={2000}
               height={371}
-              className="h-6 w-auto"
+              className="h-5 w-auto"
             />
           </Link>
           <p className="mt-3 max-w-md text-sm leading-relaxed text-[var(--muted-foreground)]">

@@ -79,7 +79,7 @@ export const pricingPlans: Plan[] = [
 export const pricingFaq = [
   {
     q: "Pourquoi l’installation est-elle payante ?",
-    a: "Parce qu’elle représente une demi-journée de travail chez vous, à reprendre vos recettes et vos factures pour que l’application soit utilisable dès le premier jour. Beaucoup d’outils vous laissent tout saisir vous-même, et c’est la raison pour laquelle ils finissent inutilisés.",
+    a: "Parce qu’elle représente plusieurs jours de travail. Nous montons votre compte de bout en bout : votre établissement et les profils de votre équipe avec leurs droits, votre carnet de fournisseurs, votre mercuriale complète — chaque matière première, son unité, son conditionnement et son prix d’achat réel —, la reprise de vos fiches recettes et de vos sous-recettes, le traitement de vos factures des derniers mois pour que l’historique de prix existe dès le départ, puis les contrôles et la formation. C’est ce travail-là qui fait qu’on ouvre l’application le premier jour sur ses vrais chiffres. Les outils qui vous laissent tout saisir vous-même sont gratuits à l’installation, et c’est exactement pour cela qu’ils finissent inutilisés.",
   },
   {
     q: "Puis-je m’en passer et tout saisir moi-même ?",

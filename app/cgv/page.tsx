@@ -227,7 +227,9 @@ export default function CgvPage() {
             <p>
               <strong className="text-[#3e6134]">Réversibilité</strong> — le Client peut à tout moment demander
               l&apos;export de ses données dans un format exploitable. À l&apos;issue du contrat, ses données sont
-              conservées trente jours, période pendant laquelle il peut en demander la restitution, puis supprimées.
+              conservées douze mois, période pendant laquelle il peut en demander la restitution ou reprendre son
+              abonnement sans rien avoir perdu. Passé ce délai, elles sont supprimées. Le Client peut demander leur
+              suppression anticipée à tout moment.
             </p>
             <p>
               Les traitements de données personnelles sont décrits dans la{" "}

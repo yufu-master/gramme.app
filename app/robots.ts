@@ -33,6 +33,7 @@ export default function robots(): MetadataRoute.Robots {
           "/comment-ca-marche",
           "/securite",
           "/guides",
+          "/faq",
           "/fonctionnalites",
           "/logiciel-patisserie",
           "/tarifs",

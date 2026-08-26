@@ -70,6 +70,14 @@ export const siteRoutes: SiteRoute[] = [
     breadcrumb: true,
   },
   {
+    path: "/faq",
+    title: "FAQ",
+    sitemap: true,
+    priority: 0.85,
+    changeFrequency: "monthly",
+    breadcrumb: true,
+  },
+  {
     path: "/contact",
     title: "Contact",
     sitemap: true,
