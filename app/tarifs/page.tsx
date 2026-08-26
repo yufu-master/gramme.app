@@ -4,13 +4,13 @@ import { PricingPageContent } from "@/components/pricing/PricingPageContent";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { formatEuro, pricingFaq, pricingPlans } from "@/lib/pricing";
+import { MISE_EN_SERVICE_EN_CREATION, formatEuro, formatInstallation, pricingFaq, pricingPlans } from "@/lib/pricing";
 import { SITE_URL, breadcrumbSchema, webPageSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Prix d'un logiciel de gestion boulangerie",
   description:
-    "Combien coûte un logiciel de gestion pour boulangerie ? Gramme : 49 € HT/mois (490 €/an) en Starter, 89 € HT/mois (890 €/an) en Pro avec calcul des marges et gestion des stocks. 50 fiches techniques en Starter, recettes illimitées en Pro, installation accompagnée en une fois, sans engagement en mensuel.",
+    "Combien coûte un logiciel de gestion pour boulangerie ? Gramme : 49 € HT/mois (490 €/an) en Starter, 89 € HT/mois (890 €/an) en Pro avec calcul des marges et gestion des stocks. 50 fiches techniques en Starter, recettes illimitées en Pro, installation accompagnée en une fois à partir de 300 € HT (forfait ferme de 300 € pour une entreprise en création), sans engagement en mensuel.",
   keywords: [
     "logiciel gestion boulangerie prix",
     "prix logiciel boulangerie",
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Prix d'un logiciel de gestion boulangerie | Gramme",
     description:
-      "Starter 49 € HT/mois, Pro 89 € HT/mois. Sans engagement en mensuel, deux mois offerts en annuel, installation accompagnée facturée une seule fois.",
+      "Starter 49 € HT/mois, Pro 89 € HT/mois. Sans engagement en mensuel, deux mois offerts en annuel. Installation accompagnée facturée une seule fois : à partir de 300 € HT en Starter, 500 € HT en Pro, forfait ferme de 300 € HT pour une entreprise en cours de création.",
     url: "https://gramme.app/tarifs",
   },
 };
@@ -69,12 +69,27 @@ function pricingOffersSchema() {
   const installOffers = pricingPlans.map((plan) => ({
     "@type": "Offer",
     name: `Installation accompagnée — ${plan.name}`,
-    price: String(plan.installPrice),
+    priceSpecification: {
+      "@type": "PriceSpecification",
+      minPrice: plan.installPrice,
+      priceCurrency: "EUR",
+      valueAddedTaxIncluded: false,
+    },
     priceCurrency: "EUR",
-    description: `Prestation unique d'installation accompagnée pour ${plan.name}, ${formatEuro(plan.installPrice)} HT, payable en trois fois sans supplément.`,
+    description: `Prestation unique d'installation accompagnée pour ${plan.name}, ${formatInstallation(plan)}, payable en trois fois sans supplément. Forfait ferme de ${formatEuro(MISE_EN_SERVICE_EN_CREATION)} HT pour une entreprise en cours de création.`,
     url: `${SITE_URL}/tarifs`,
     availability: "https://schema.org/InStock",
   }));
+
+  const installCreation = {
+    "@type": "Offer",
+    name: "Installation accompagnée — entreprise en cours de création",
+    price: String(MISE_EN_SERVICE_EN_CREATION),
+    priceCurrency: "EUR",
+    description: `Forfait ferme de ${formatEuro(MISE_EN_SERVICE_EN_CREATION)} HT pour une entreprise en cours de création, quelle que soit l'offre : sans historique de factures ni fiches à reprendre, la charge d'installation est connue d'avance.`,
+    url: `${SITE_URL}/tarifs`,
+    availability: "https://schema.org/InStock",
+  };
 
   return {
     "@context": "https://schema.org",
@@ -83,7 +98,7 @@ function pricingOffersSchema() {
     description:
       "Abonnements Starter et Pro, mensuel ou annuel, avec installation accompagnée.",
     brand: { "@type": "Brand", name: "Gramme" },
-    offers: [...subscriptionOffers, ...installOffers],
+    offers: [...subscriptionOffers, ...installOffers, installCreation],
   };
 }
 

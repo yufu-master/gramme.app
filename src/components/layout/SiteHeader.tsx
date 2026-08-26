@@ -81,11 +81,17 @@ export function SiteHeader() {
       >
         <Link
           href="/"
-          className="flex shrink-0 items-center gap-2 text-[1.28rem] font-black tracking-wide sm:text-[1.44rem]"
+          className="flex shrink-0 items-center"
           aria-label="Gramme — retour à l'accueil"
         >
-          <Image src="/logos/gramme-icon.svg" alt="" width={36} height={35} className="h-auto" priority />
-          <span>GRAMME</span>
+          <Image
+            src="/logos/gramme-logo-text.png"
+            alt="Gramme"
+            width={2000}
+            height={371}
+            className="h-7 w-auto sm:h-8"
+            priority
+          />
         </Link>
 
         <div className="hidden items-center gap-5 text-sm text-[var(--muted-foreground)] lg:flex xl:gap-6">

@@ -114,7 +114,7 @@ export const faqItems = [
   },
   {
     q: "Combien coûte le logiciel Gramme pour une boulangerie ?",
-    a: "L'offre Starter est à 49 € HT/mois (ou 490 € HT/an), l'offre Pro à 89 € HT/mois (ou 890 € HT/an). L'installation accompagnée est facturée une seule fois (300 € HT en Starter, 500 € HT en Pro), payable en trois fois sans supplément.",
+    a: "L'offre Starter est à 49 € HT/mois (ou 490 € HT/an), l'offre Pro à 89 € HT/mois (ou 890 € HT/an). L'installation accompagnée est facturée une seule fois : à partir de 300 € HT en Starter et de 500 € HT en Pro, payable en trois fois sans supplément. Pour une entreprise en cours de création, c'est un forfait ferme de 300 € HT quelle que soit l'offre — il n'y a ni historique de factures ni fiches à reprendre.",
   },
   {
     q: "Mes recettes et factures sont-elles confidentielles ?",
@@ -258,18 +258,37 @@ export const siteGraph = {
         {
           "@type": "Offer",
           name: "Installation accompagnée Starter",
-          price: "300",
+          priceSpecification: {
+            "@type": "PriceSpecification",
+            minPrice: 300,
+            priceCurrency: "EUR",
+            valueAddedTaxIncluded: false,
+          },
           priceCurrency: "EUR",
           availability: "https://schema.org/InStock",
-          description: "Prestation unique, 300 € HT, payable en trois fois",
+          description: "Prestation unique, à partir de 300 € HT, payable en trois fois",
         },
         {
           "@type": "Offer",
           name: "Installation accompagnée Pro",
-          price: "500",
+          priceSpecification: {
+            "@type": "PriceSpecification",
+            minPrice: 500,
+            priceCurrency: "EUR",
+            valueAddedTaxIncluded: false,
+          },
           priceCurrency: "EUR",
           availability: "https://schema.org/InStock",
-          description: "Prestation unique, 500 € HT, payable en trois fois",
+          description: "Prestation unique, à partir de 500 € HT, payable en trois fois",
+        },
+        {
+          "@type": "Offer",
+          name: "Installation accompagnée — entreprise en cours de création",
+          price: "300",
+          priceCurrency: "EUR",
+          availability: "https://schema.org/InStock",
+          description:
+            "Forfait ferme de 300 € HT quelle que soit l'offre, pour une entreprise en cours de création",
         },
       ],
       publisher: { "@id": `${SITE_URL}/#organization` },
@@ -316,6 +335,7 @@ export const siteGraph = {
         "pilotage de la rentabilité",
         "création d'entreprise",
       ],
+      image: `${SITE_URL}/images/clermontfu_gramme.png`,
       url: `${SITE_URL}/a-propos-de-gramme`,
     },
   ],

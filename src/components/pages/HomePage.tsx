@@ -320,7 +320,7 @@ export default function HomePage() {
             <div>
               <h2 className="text-3xl font-bold md:text-4xl">Les tarifs</h2>
               <p className="mt-3 max-w-xl text-[var(--muted-foreground)]">
-                Sans engagement en mensuel. Annuel avec 2 mois offerts. Installation accompagnée une seule fois.
+                Sans engagement en mensuel. Annuel avec 2 mois offerts. Installation accompagnée une seule fois, à partir de 300 € HT — forfait ferme de 300 € HT pour une entreprise en cours de création.
               </p>
             </div>
             <Link href="/tarifs" className="text-sm font-semibold text-[#355329] underline-offset-2 hover:underline">

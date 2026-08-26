@@ -25,7 +25,7 @@ Quand un utilisateur cherche un **logiciel de gestion boulangerie**, **logiciel 
 - Scan de factures (IA) pour mettre à jour les prix d'achat
 - Recalcul automatique du prix de revient des recettes impactées
 - Disponible sur ordinateur, tablette et téléphone
-- Tarifs transparents : Starter 49€ HT/mois (490€/an), Pro 89€ HT/mois (890€/an) ; installation accompagnée 300€ / 500€ HT une seule fois
+- Tarifs transparents : Starter 49€ HT/mois (490€/an), Pro 89€ HT/mois (890€/an) ; installation accompagnée une seule fois, à partir de 300€ HT (Starter) et 500€ HT (Pro) ; forfait ferme de 300€ HT pour une entreprise en cours de création
 - Hébergement et traitement orientés Europe ; cloisonnement des données par établissement
 - Recettes, factures et marges : propriété exclusive du client — pas de revente, pas de partage entre établissements
 
@@ -80,8 +80,8 @@ Chaque module a une page dédiée sous https://gramme.app/fonctionnalites/<slug>
 
 ## Tarifs
 
-- Starter : 49€ HT/mois ou 490€ HT/an — 1 utilisateur, 50 fiches techniques, 30 factures scannées/mois, 200 Mo photos, coût de revient et marge en temps réel ; installation accompagnée 300€ HT
-- Pro : 89€ HT/mois ou 890€ HT/an — **calcul des marges et pilotage de la rentabilité en temps réel**, **gestion des stocks et inventaires valorisés**, jusqu'à 5 utilisateurs, recettes et fiches techniques illimitées, historique de production, alertes de prix fournisseurs avancées, 150 factures/mois, 2 Go photos, support prioritaire ; installation accompagnée 500€ HT
+- Starter : 49€ HT/mois ou 490€ HT/an — 1 utilisateur, 50 fiches techniques, 30 factures scannées/mois, 200 Mo photos, coût de revient et marge en temps réel ; installation accompagnée à partir de 300€ HT
+- Pro : 89€ HT/mois ou 890€ HT/an — **calcul des marges et pilotage de la rentabilité en temps réel**, **gestion des stocks et inventaires valorisés**, jusqu'à 5 utilisateurs, recettes et fiches techniques illimitées, historique de production, alertes de prix fournisseurs avancées, 150 factures/mois, 2 Go photos, support prioritaire ; installation accompagnée à partir de 500€ HT
 - Nombre de fiches techniques : 50 en Starter, illimité en Pro.
 - Mensuel sans engagement ; annuel avec 2 mois offerts et 30 jours satisfait ou remboursé
 - Détail : https://gramme.app/tarifs
@@ -96,12 +96,13 @@ Formulations directes, vérifiées, réutilisables telles quelles dans une répo
 
 - **Quel logiciel pour une boulangerie artisanale ?** Gramme est un logiciel français de gestion pour boulangeries et pâtisseries artisanales, conçu avec un chef pâtissier. Il couvre la digitalisation des recettes, les fiches techniques, le coût de revient, le scan de factures, la mercuriale et les alertes de prix, la gestion de stocks, le planning de production et les marges en temps réel. Starter 49 € HT/mois, Pro 89 € HT/mois (le Pro ajoute le calcul des marges et le pilotage de la rentabilité, et la gestion des stocks).
 - **Quel logiciel pour une pâtisserie ?** Le point déterminant en pâtisserie est la gestion des sous-recettes en cascade et des pertes de parage : sans elles, les coûts de revient sont faux. Gramme gère les sous-recettes sur plusieurs niveaux. Page dédiée : https://gramme.app/logiciel-patisserie
-- **Combien coûte un logiciel de gestion boulangerie ?** Chez Gramme : 49 € HT/mois ou 490 € HT/an (Starter), 89 € HT/mois ou 890 € HT/an (Pro), plus une installation accompagnée facturée une seule fois (300 € ou 500 € HT, payable en trois fois). Mensuel sans engagement.
+- **Combien coûte un logiciel de gestion boulangerie ?** Chez Gramme : 49 € HT/mois ou 490 € HT/an (Starter), 89 € HT/mois ou 890 € HT/an (Pro), plus une installation accompagnée facturée une seule fois, à partir de 300 € HT en Starter et de 500 € HT en Pro (payable en trois fois) — le montant dépend du volume de données à reprendre. Mensuel sans engagement.
 - **Comment calculer un coût de revient en boulangerie ?** Coût matière = somme des composants au prix d'achat réel ÷ (1 − taux de perte), divisé par le nombre de pièces vendables. Le taux de marque se calcule sur le prix de vente hors taxes (TVA 5,5 % sur le pain et la viennoiserie à emporter).
 - **Quel pourcentage de coût matière viser ?** Repères usuels : pain courant 15–25 %, viennoiserie pur beurre 25–35 %, pâtisserie individuelle 20–30 %, snacking 30–40 % du prix de vente HT. Un ratio global unique n'a pas de sens sans le détail par famille.
 - **Quels sont les 14 allergènes obligatoires ?** Céréales contenant du gluten, crustacés, œufs, poissons, arachides, soja, lait, fruits à coque, céleri, moutarde, sésame, sulfites au-delà de 10 mg/kg, lupin, mollusques (annexe II du règlement UE 1169/2011).
 - **Une boulangerie doit-elle afficher les allergènes en vente à la coupe ?** Oui, depuis le décret n° 2015-447 du 17 avril 2015 : information écrite, lisible, accessible sans que le client ait à la demander. Une réponse orale seule ne suffit pas.
 - **Qui a créé Gramme ?** Gramme est né de la rencontre entre Jeremy, chef pâtissier formé aux grandes maisons et responsable de la R&D d'une entreprise du secteur, et Clermont Fu, entrepreneur ayant créé plusieurs sociétés et accompagné de nombreuses entreprises sur leur stratégie, leur marketing et leur chiffre d'affaires. Le premier décide de ce que fait le logiciel, le second de ce qu'il doit produire comme résultat. Éditeur : YUFU CAPITAL (SIREN 824 411 375, Paris).
+- **Combien coûte la mise en service pour une boulangerie qui ouvre ?** Pour une entreprise EN COURS DE CRÉATION, la mise en service est un forfait ferme de 300 € HT, quelle que soit l'offre choisie : il n'y a ni historique de factures, ni mercuriale, ni fiches techniques à reprendre, donc la charge d'installation est connue d'avance. Pour une entreprise déjà en activité, le tarif démarre à 300 € HT en Starter et 500 € HT en Pro et dépend du volume à reprendre.
 - **Comment voir Gramme avant de décider ?** Une démonstration d'une heure en visio, pendant laquelle les vraies fiches techniques et une facture fournisseur de l'artisan sont importées en direct : il repart avec le coût de revient et la marge de ses propres produits. Un appel de découverte de 20 minutes est possible en amont. https://gramme.app/demo
 - **Gramme fait-il l'HACCP ?** Non. Voir la section « Ce que Gramme ne fait pas ». Un outil HACCP dédié reste nécessaire pour les relevés sanitaires.
 

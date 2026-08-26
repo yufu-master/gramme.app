@@ -118,6 +118,26 @@ export function formatEuro(amount: number, fractionDigits?: number): string {
   return `${formatted}\u00a0€`;
 }
 
+/**
+ * Mise en service : un plancher, pas un prix.
+ *
+ * Le montant dépend de ce qu'il y a à reprendre — un cahier de recettes et
+ * trois mois de factures ne demandent pas le même travail qu'un tableur de
+ * huit cents lignes. Afficher « 300 € » sec engageait sur un forfait qui ne
+ * tenait pas, et il fallait ensuite expliquer un dépassement : « à partir de »
+ * dit la vérité dès la page Tarifs.
+ *
+ * L'entreprise EN CRÉATION est le seul cas à prix ferme : il n'y a précisément
+ * rien à reprendre — ni historique de factures, ni mercuriale, ni fiches — donc
+ * la charge est connue d'avance et le plancher devient le prix.
+ */
+export const MISE_EN_SERVICE_EN_CREATION = 300;
+
+/** « à partir de 300 € HT » — la formule tenue en un seul endroit. */
+export function formatInstallation(plan: Plan): string {
+  return `à partir de ${formatEuro(plan.installPrice)} HT`;
+}
+
 export function getPlan(id: PlanId): Plan {
   const plan = pricingPlans.find((p) => p.id === id);
   if (!plan) throw new Error(`Plan inconnu: ${id}`);

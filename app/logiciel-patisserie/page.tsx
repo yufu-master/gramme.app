@@ -109,7 +109,7 @@ const faq = [
   },
   {
     q: "Combien coûte un logiciel de gestion pour une pâtisserie ?",
-    a: `Gramme propose deux offres : Starter à ${formatEuro(pricingPlans[0].monthlyPrice)} HT par mois (${formatEuro(pricingPlans[0].yearlyPrice)} HT par an) et Pro à ${formatEuro(pricingPlans[1].monthlyPrice)} HT par mois (${formatEuro(pricingPlans[1].yearlyPrice)} HT par an). L'installation accompagnée, facturée une seule fois, reprend vos recettes et vos factures pour que le compte soit utilisable dès le premier jour.`,
+    a: `Gramme propose deux offres : Starter à ${formatEuro(pricingPlans[0].monthlyPrice)} HT par mois (${formatEuro(pricingPlans[0].yearlyPrice)} HT par an) et Pro à ${formatEuro(pricingPlans[1].monthlyPrice)} HT par mois (${formatEuro(pricingPlans[1].yearlyPrice)} HT par an). L'installation accompagnée, facturée une seule fois, démarre à 300 € HT en Starter et 500 € HT en Pro — forfait ferme de 300 € HT si votre entreprise est en cours de création. Elle reprend vos recettes et vos factures pour que le compte soit utilisable dès le premier jour.`,
   },
 ];
 

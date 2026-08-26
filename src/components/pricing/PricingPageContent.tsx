@@ -4,12 +4,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 import { BillingPeriodToggle } from "@/components/pricing/BillingPeriodToggle";
-import {
-  formatEuro,
-  pricingFaq,
-  pricingPlans,
-  type BillingPeriod,
-} from "@/lib/pricing";
+import { MISE_EN_SERVICE_EN_CREATION, formatEuro, formatInstallation, pricingFaq, pricingPlans, type BillingPeriod } from "@/lib/pricing";
 
 export function PricingPageContent() {
   const [period, setPeriod] = useState<BillingPeriod>("yearly");
@@ -131,9 +126,18 @@ export function PricingPageContent() {
           nous formons ceux qui utiliseront l&apos;application.
         </p>
         <p className="mt-5 text-base font-semibold tabular-nums text-[#355329]">
-          Installation accompagnée : {formatEuro(pricingPlans[0].installPrice)} HT pour Starter,{" "}
-          {formatEuro(pricingPlans[1].installPrice)} HT pour Pro. Une seule fois, à la mise en service.
+          Installation accompagnée : {formatInstallation(pricingPlans[0])} pour Starter,{" "}
+          {formatInstallation(pricingPlans[1])} pour Pro. Une seule fois, à la mise en service.
           Payable en trois fois sans supplément si vous préférez.
+        </p>
+        {/* Le cas où le plancher devient le prix : il n'y a rien à reprendre,
+            donc la charge est connue d'avance. C'est aussi le profil qui hésite
+            le plus sur le coût de départ — autant le lever ici. */}
+        <p className="mt-4 rounded-2xl border border-[#a8cf8c]/50 bg-[#f6fbf2] p-4 text-[#4d6952]">
+          <strong className="text-[#3e6134]">Vous êtes en cours de création ?</strong> La mise en service
+          est alors un forfait ferme de {formatEuro(MISE_EN_SERVICE_EN_CREATION)} HT, quelle que soit
+          l&apos;offre : sans historique de factures ni fiches à reprendre, le travail d&apos;installation
+          est connu d&apos;avance. Nous partons de vos recettes et nous montons votre mercuriale avec vous.
         </p>
       </section>
 

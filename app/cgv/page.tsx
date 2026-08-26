@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { EDITEUR, SITE_EMAIL, SITE_URL, SUPPORT_EMAIL, webPageSchema } from "@/lib/seo";
-import { pricingPlans } from "@/lib/pricing";
+import { MISE_EN_SERVICE_EN_CREATION, pricingPlans } from "@/lib/pricing";
 
 export const metadata: Metadata = {
   title: "Conditions générales de vente",
@@ -116,9 +116,11 @@ export default function CgvPage() {
                 {pro.yearlyMonthlyEquivalent.toLocaleString("fr-FR", { minimumFractionDigits: 2 })} € HT par mois).
               </li>
               <li>
-                <strong className="text-[#3e6134]">Installation accompagnée</strong> — prestation unique de{" "}
-                {starter.installPrice} € HT en {starter.name} et {pro.installPrice} € HT en {pro.name}, payable en{" "}
-                {starter.installInstallments} fois sans supplément.
+                <strong className="text-[#3e6134]">Installation accompagnée</strong> — prestation unique, à partir
+                de {starter.installPrice} € HT en {starter.name} et de {pro.installPrice} € HT en {pro.name},
+                payable en {starter.installInstallments} fois sans supplément. Pour un Client dont
+                l&apos;entreprise est en cours de création, il s&apos;agit d&apos;un forfait ferme de{" "}
+                {MISE_EN_SERVICE_EN_CREATION} € HT quelle que soit l&apos;offre.
               </li>
             </ul>
             <p>
@@ -136,7 +138,10 @@ export default function CgvPage() {
           <Article numero={4} titre="Installation accompagnée">
             <p>
               L&apos;installation accompagnée est une prestation distincte de l&apos;abonnement, facturée une seule
-              fois à la souscription. Elle comprend la création de l&apos;établissement, la reprise des données
+              fois à la souscription. Son montant dépend du volume de données à reprendre : les tarifs annoncés à
+              l&apos;article 3 sont des planchers, et le prix définitif est communiqué au Client par écrit avant
+              toute exécution. Il ne peut être révisé une fois accepté. Pour une entreprise en cours de création,
+              ce montant est un forfait ferme de {MISE_EN_SERVICE_EN_CREATION} € HT. Elle comprend la création de l&apos;établissement, la reprise des données
               existantes du Client — fiches recettes, tableurs, mercuriale, factures fournisseurs — et la prise en
               main par l&apos;équipe.
             </p>

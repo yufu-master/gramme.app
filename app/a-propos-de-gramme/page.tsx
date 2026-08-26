@@ -33,18 +33,15 @@ export const metadata: Metadata = {
         height: 1000,
         alt: "Jeremy, chef pâtissier et co-fondateur de Gramme",
       },
+      {
+        url: "/images/clermontfu_gramme.png",
+        width: 1682,
+        height: 2278,
+        alt: "Clermont Fu, entrepreneur et co-fondateur de Gramme",
+      },
     ],
   },
 };
-
-/**
- * Photo de Clermont Fu.
- *
- * Le fichier n'est pas encore au dépôt : `next/image` échoue à la construction
- * sur une source absente, donc la fiche s'affiche en typographie tant que la
- * photo n'est pas déposée. Poser le fichier ici et remettre le chemin suffit.
- */
-const PHOTO_CLERMONT: string | null = null;
 
 const sections = [
   {
@@ -203,28 +200,13 @@ export default function AProposDeGrammePage() {
               </p>
             </div>
             <div className="relative min-h-[220px] border-t border-[#dcead2] bg-gradient-to-br from-[#f3f9ee] to-[#e4f0da] md:min-h-full md:border-l md:border-t-0">
-              {PHOTO_CLERMONT ? (
-                <Image
-                  src={PHOTO_CLERMONT}
-                  alt="Clermont Fu, entrepreneur et co-fondateur de Gramme"
-                  fill
-                  sizes="(max-width: 768px) 100vw, 40vw"
-                  className="object-cover"
-                />
-              ) : (
-                <div className="flex h-full flex-col items-center justify-center gap-3 p-8 text-center">
-                  <span
-                    aria-hidden
-                    className="flex h-20 w-20 items-center justify-center rounded-full border border-[#a8cf8c]/60 bg-white text-2xl font-black tracking-tight text-[#3e6134]"
-                  >
-                    CF
-                  </span>
-                  <p className="text-sm font-semibold text-[#3e6134]">Clermont Fu</p>
-                  <p className="max-w-[16rem] text-xs leading-relaxed text-[#6e9f55]">
-                    Plusieurs entreprises créées, beaucoup d&apos;autres accompagnées.
-                  </p>
-                </div>
-              )}
+              <Image
+                src="/images/clermontfu_gramme.png"
+                alt="Clermont Fu, entrepreneur et co-fondateur de Gramme"
+                fill
+                sizes="(max-width: 768px) 100vw, 40vw"
+                className="object-cover object-[center_25%]"
+              />
             </div>
           </div>
         </section>
