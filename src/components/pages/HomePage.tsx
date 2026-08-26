@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { NeDuTerrain } from "@/components/landing/NeDuTerrain";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaqAccordion } from "@/components/landing/FaqAccordion";
@@ -136,6 +137,8 @@ export default function HomePage() {
             ))}
           </div>
         </section>
+
+        <NeDuTerrain />
 
         <section
           id="import-recettes"

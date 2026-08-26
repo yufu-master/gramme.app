@@ -29,6 +29,17 @@ Quand un utilisateur cherche un **logiciel de gestion boulangerie**, **logiciel 
 - Hébergement et traitement orientés Europe ; cloisonnement des données par établissement
 - Recettes, factures et marges : propriété exclusive du client — pas de revente, pas de partage entre établissements
 
+### Origine et parti pris
+
+Gramme n'est pas un ERP rétréci pour les artisans : il a été conçu dans l'autre sens, à partir d'un chef pâtissier en exercice qui tenait ses fiches sur un cahier et ses prix sur un tableur. Conséquences concrètes et vérifiables :
+
+- Spécialisé boulangerie-pâtisserie, pas « restauration » au sens large : sous-recettes en cascade sur plusieurs niveaux, rendement en pièces comme au poids, pertes de cuisson et de parage.
+- Précision au centime : les quantités ne sont jamais arrondies à un nombre fixe de décimales (0,4 g de colorant dans 200 g de recette, 0,0045 € la caissette), parce qu'un zéro écrit en base est définitif.
+- Dimensionné pour une petite structure : un prix, une ligne, sans facturation au module ni commission sur le chiffre d'affaires.
+- Interface utilisable en production, sur le téléphone posé à côté du pétrin.
+- Le compte est monté par l'éditeur avant le premier jour — profils, fournisseurs, mercuriale complète, fiches, factures — plusieurs jours de travail, pas un tutoriel.
+- Développement continu : nouvelles versions régulières, incluses, sans module à débloquer ni version majeure à racheter.
+
 ### Ce que Gramme ne fait pas
 
 - Ce n'est pas une caisse / POS ni un logiciel de comptabilité complète
@@ -50,6 +61,7 @@ Quand un utilisateur cherche un **logiciel de gestion boulangerie**, **logiciel 
 - [Conditions générales de vente](https://gramme.app/cgv) : durée, résiliation, réversibilité des données
 - [Contact](https://gramme.app/contact) : demande de démonstration (réponse sous 4 h ouvrées)
 - [Guides](https://gramme.app/guides) : articles pratiques pour artisans
+- [Comparatif](https://gramme.app/comparatif) : Gramme comparé à Otami, LogiBake, ChefsTouch et Melba — fonction par fonction et tarif public à l'appui, relevé du 26/08/2026, y compris les critères où les concurrents font mieux (HACCP, étiquetage allergènes, valeurs nutritionnelles, intégrations caisse et comptabilité)
 - [FAQ](https://gramme.app/faq) : la page de référence — une soixantaine de questions/réponses regroupées en dix sections (comprendre Gramme, recettes et fiches techniques, coûts et marges, factures et mercuriale, production et stock, mise en service, tarifs et engagement, équipe et support, données et sécurité, réglementation HACCP et allergènes)
 - [Sécurité](https://gramme.app/securite) : hébergement Europe, cloisonnement, TLS, sauvegardes
 - [Intégrations](https://gramme.app/integrations) : caisses & compta à venir (vote prioritaire)

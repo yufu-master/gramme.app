@@ -15,7 +15,7 @@ type NavItem = {
 const navItems: NavItem[] = [
   { label: "Pâtisserie", href: "/logiciel-patisserie" },
   { label: "Tarifs", href: "/tarifs" },
-  { label: "Comment ça marche", href: "/comment-ca-marche" },
+  { label: "Comparatif", href: "/comparatif" },
   { label: "Guides", href: "/guides" },
   { label: "FAQ", href: "/faq" },
   { label: "À propos", href: "/a-propos-de-gramme" },
@@ -85,20 +85,15 @@ export function SiteHeader() {
           className="flex shrink-0 items-center gap-2"
           aria-label="Gramme — retour à l'accueil"
         >
+          {/* La marque seule en tête de page : au-dessus du hero, le nom est déjà
+              écrit en toutes lettres dans le titre. Le mot-mark complet vit au
+              pied de page, où rien d'autre ne porte le nom. */}
           <Image
             src="/logos/gramme-icon.png"
-            alt=""
-            width={2000}
-            height={1879}
-            className="h-7 w-auto sm:h-8"
-            priority
-          />
-          <Image
-            src="/logos/gramme-logo-text.png"
             alt="Gramme"
             width={2000}
-            height={371}
-            className="h-5 w-auto sm:h-6"
+            height={1879}
+            className="h-8 w-auto sm:h-9"
             priority
           />
         </Link>

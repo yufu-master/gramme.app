@@ -34,6 +34,7 @@ export default function robots(): MetadataRoute.Robots {
           "/securite",
           "/guides",
           "/faq",
+          "/comparatif",
           "/fonctionnalites",
           "/logiciel-patisserie",
           "/tarifs",
