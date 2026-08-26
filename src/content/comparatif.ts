@@ -53,9 +53,9 @@ export const concurrents: Concurrent[] = [
     tarif:
       "49 € HT/mois (490 €/an) en Starter, 89 € HT/mois (890 €/an) en Pro. Installation accompagnée à partir de 300 € HT, une seule fois.",
     force:
-      "Volume de factures traitées sans surcoût, sous-recettes en cascade sur plusieurs niveaux, reprise complète des données faite par l'éditeur avant le premier jour, et planning de production inclus dans l'offre Pro.",
+      "Le pourcentage de perte et les rendements traités comme des données de premier plan, les sous-recettes en cascade sur plusieurs niveaux, le volume de factures inclus sans surcoût, la reprise complète des données faite par l'éditeur avant le premier jour, et le planning de production compris dans l'offre Pro.",
     reserve:
-      "Ni HACCP, ni étiquetage allergènes réglementaire, ni valeurs nutritionnelles. Pas encore de connexion aux caisses ni aux logiciels comptables. Un abonnement par établissement.",
+      "HACCP, étiquetage allergènes, valeurs nutritionnelles et connexion aux caisses et à la comptabilité sont en cours de développement, annoncés d'ici fin 2026 : nous ne les comptons donc pas encore comme acquis dans les tableaux ci-dessous.",
   },
   {
     id: "otami",
@@ -69,7 +69,7 @@ export const concurrents: Concurrent[] = [
     force:
       "Le réseau d'intégrations, de loin le plus fourni du marché : caisses (Zelty, CarrePOS, Cashpad, Connectill, Addictill), comptabilité (Pennylane, Synapsy, Evoliz), facturation (Libeo, Abill, Cashmag, Menlog). Utilisateurs et appareils illimités sur toutes les offres, et gestion multi-site native.",
     reserve:
-      "Le nombre de documents traités par mois est la variable de facturation : 5 en Access, 20 en Essentiel, 40 en Intégrale. Une boulangerie qui reçoit une trentaine de factures par mois sort de l'offre d'entrée. Le planning de production se paie en plus.",
+      "Le nombre de documents traités par mois est la variable de facturation : 5 en Access, 20 en Essentiel, 40 en Intégrale. Une boulangerie qui reçoit une trentaine de factures par mois sort de l'offre d'entrée. Le planning de production se paie en plus, et les pages produit ne documentent pas la gestion des pertes ni des rendements.",
   },
   {
     id: "logibake",
@@ -79,11 +79,11 @@ export const concurrents: Concurrent[] = [
       "« La logique au service de votre boulangerie-pâtisserie. » Une couverture métier très large, HACCP et étiquetage compris.",
     cible: "Fabrication à domicile, petits laboratoires, boulangeries en croissance, laboratoires centralisés.",
     tarif:
-      "Offre unique, toutes fonctionnalités incluses, mensuelle ou annuelle, sans engagement. Montant non communiqué sur la page publique des prix au moment du relevé. Essai gratuit de 14 jours sans carte bancaire.",
+      "Offre unique « Tout inclus » à 399 € HT par an, soit 33,25 € HT par mois, avec deux mois offerts. Sans engagement. Essai gratuit de 14 jours sans carte bancaire.",
     force:
-      "La couverture réglementaire, que peu proposent : traçabilité HACCP, gestion des DLC, étiquettes allergènes, valeurs nutritionnelles. Le compte démarre pré-rempli avec 200 recettes professionnelles et 300 ingrédients déjà chiffrés, et un assistant IA (« Pastel ») interroge vos données.",
+      "Le tarif le plus bas du marché sur un périmètre complet — 399 € HT par an, tout inclus — et la couverture réglementaire que peu proposent : traçabilité HACCP, gestion des DLC, étiquettes allergènes, valeurs nutritionnelles. Le compte démarre pré-rempli avec 200 recettes professionnelles et 300 ingrédients déjà chiffrés, et un assistant IA (« Pastel ») interroge vos données.",
     reserve:
-      "Application de bureau macOS et Windows ; les versions iOS, iPadOS et Android sont annoncées comme « bientôt » disponibles. Le prix n'étant pas public, il faut demander un devis pour comparer.",
+      "Application de bureau macOS et Windows ; les versions iOS, iPadOS et Android sont annoncées comme « bientôt » disponibles. Les pages produit ne documentent ni le pourcentage de perte, ni les rendements, ni les sous-recettes — trois mécaniques déterminantes pour un coût de revient juste en boulangerie.",
   },
   {
     id: "chefstouch",
@@ -117,7 +117,18 @@ export const concurrents: Concurrent[] = [
   },
 ];
 
-export type Valeur = "oui" | "non" | "partiel" | "option";
+export type Valeur = "oui" | "non" | "partiel" | "option" | "prevu";
+
+/**
+ * Échéance annoncée pour les fonctions en cours de développement.
+ *
+ * « Prévu » n'est PAS « oui », et la distinction n'est pas cosmétique : compter
+ * une fonction non livrée comme livrée est précisément la publicité trompeuse
+ * que la loi interdit, et c'est aussi la promesse qui se retourne le jour où le
+ * client la cherche dans l'application. La case porte donc sa date, et le
+ * lecteur juge.
+ */
+export const ECHEANCE_ROADMAP = "d'ici fin 2026";
 
 export type LigneComparatif = {
   critere: string;
@@ -169,6 +180,21 @@ export const blocsComparatif: BlocComparatif[] = [
           logibake: { v: "partiel", note: "Compte pré-rempli de 200 recettes et 300 ingrédients" },
           chefstouch: { v: "partiel", note: "Base de recettes partagées à dupliquer et adapter" },
           melba: { v: "partiel" },
+        },
+      },
+      {
+        critere: "Pourcentage de perte documenté et intégré au coût",
+        pourquoi:
+          "Une pâte qui perd 12 % à la cuisson, un fruit qui perd 30 % au parage : sans ce taux, le coût est calculé sur une matière qui n'arrive jamais en vitrine. C'est l'écart le plus fréquent entre un coût de revient théorique et le vrai.",
+        valeurs: {
+          gramme: {
+            v: "oui",
+            note: "Poids brut, poids net et taux de perte sur chaque fiche ; le coût est rapporté au produit vendable",
+          },
+          otami: { v: "partiel", note: "Non documenté sur les pages produit au moment du relevé" },
+          logibake: { v: "partiel", note: "Non documenté sur les pages Recettes et Production au moment du relevé" },
+          chefstouch: { v: "partiel", note: "Approche restauration : coûts, ratios et portions" },
+          melba: { v: "oui", note: "Gestion des pertes annoncée dans le module Analyses" },
         },
       },
       {
@@ -300,13 +326,13 @@ export const blocsComparatif: BlocComparatif[] = [
   },
   {
     id: "reglementaire",
-    titre: "Réglementaire — là où nous ne sommes pas les meilleurs",
+    titre: "Réglementaire — ce que nous n'avons pas encore",
     lignes: [
       {
         critere: "Traçabilité HACCP, relevés, DLC",
         pourquoi: "Obligatoire en production alimentaire, et opposable en cas de contrôle.",
         valeurs: {
-          gramme: { v: "non", note: "Gramme s'utilise en complément d'un outil HACCP, jamais à sa place" },
+          gramme: { v: "prevu", note: "En développement, annoncé d'ici fin 2026. En attendant, Gramme s'utilise en complément d'un outil HACCP" },
           otami: { v: "non" },
           logibake: { v: "oui", note: "Traçabilité HACCP et gestion des DLC" },
           chefstouch: { v: "partiel", note: "Étiquetage INCO" },
@@ -317,7 +343,7 @@ export const blocsComparatif: BlocComparatif[] = [
         critere: "Étiquetage allergènes réglementaire",
         pourquoi: "Obligatoire en vente non préemballée depuis le décret n° 2015-447.",
         valeurs: {
-          gramme: { v: "non", note: "Le répertoire de recettes sert de source fiable, il ne produit pas l'affichage" },
+          gramme: { v: "prevu", note: "En développement, annoncé d'ici fin 2026. Le répertoire de recettes en constitue déjà la source fiable" },
           otami: { v: "non" },
           logibake: { v: "oui" },
           chefstouch: { v: "oui" },
@@ -328,7 +354,7 @@ export const blocsComparatif: BlocComparatif[] = [
         critere: "Valeurs nutritionnelles",
         pourquoi: "Nécessaire pour la vente préemballée et la fourniture à des collectivités.",
         valeurs: {
-          gramme: { v: "non" },
+          gramme: { v: "prevu", note: "En développement, annoncé d'ici fin 2026" },
           otami: { v: "non" },
           logibake: { v: "oui" },
           chefstouch: { v: "oui", note: "AW et PAC compris" },
@@ -339,7 +365,7 @@ export const blocsComparatif: BlocComparatif[] = [
         critere: "Connexion aux caisses et à la comptabilité",
         pourquoi: "Évite la double saisie entre le point de vente, la gestion et l'expert-comptable.",
         valeurs: {
-          gramme: { v: "non", note: "Annoncé, pas encore livré — nous ne le comptons donc pas" },
+          gramme: { v: "prevu", note: "En développement, annoncé d'ici fin 2026 — tant que ce n'est pas livré, nous ne le comptons pas comme acquis" },
           otami: { v: "oui", note: "Le réseau le plus fourni du marché" },
           logibake: { v: "partiel", note: "Non documenté publiquement" },
           chefstouch: { v: "partiel" },
@@ -353,14 +379,45 @@ export const blocsComparatif: BlocComparatif[] = [
     titre: "Au quotidien",
     lignes: [
       {
-        critere: "Utilisable sur téléphone et tablette",
-        pourquoi: "Un outil de laboratoire qui n'existe que sur l'ordinateur du bureau ne sert pas en production.",
+        critere: "Utilisable sur téléphone dans le laboratoire",
+        pourquoi:
+          "C'est le point de bascule. Un boulanger n'est pas devant un ordinateur : il est devant un four à quatre heures du matin, et le seul écran à portée est celui de sa poche. Un outil qui suppose un poste de bureau ne sera ouvert qu'une fois par semaine — donc jamais tenu à jour.",
         valeurs: {
-          gramme: { v: "oui", note: "Navigateur et écran d'accueil du téléphone, notifications comprises" },
+          gramme: {
+            v: "oui",
+            note: "Application web installable (PWA) : elle s'ajoute à l'écran d'accueil et se comporte comme une application native, notifications comprises",
+          },
           otami: { v: "oui", note: "Appareils illimités" },
-          logibake: { v: "non", note: "macOS et Windows ; iOS, iPadOS et Android annoncés « bientôt »" },
+          logibake: {
+            v: "non",
+            note: "Application de bureau macOS et Windows ; iOS, iPadOS et Android annoncés « bientôt »",
+          },
           chefstouch: { v: "oui" },
           melba: { v: "oui", note: "100 % cloud" },
+        },
+      },
+      {
+        critere: "Rien à installer, aucune mise à jour à lancer",
+        pourquoi:
+          "Un logiciel de bureau, ce sont des installations poste par poste, des versions qui divergent entre l'ordinateur du bureau et celui du labo, et un informaticien à appeler. Une application web s'ouvre, et elle est déjà à jour.",
+        valeurs: {
+          gramme: { v: "oui", note: "Le même compte, la même version, sur ordinateur, tablette et téléphone" },
+          otami: { v: "oui" },
+          logibake: { v: "non", note: "Installation sur chaque poste macOS ou Windows" },
+          chefstouch: { v: "oui" },
+          melba: { v: "oui", note: "« 0 installation requise — 100 % cloud »" },
+        },
+      },
+      {
+        critere: "Interface pensée pour être utilisée en production",
+        pourquoi:
+          "Des écrans lisibles à bout de bras, peu de champs, pas de vocabulaire de logiciel — parce qu'on s'en sert les mains farineuses, debout, entre deux fournées.",
+        valeurs: {
+          gramme: { v: "oui", note: "Chaque écran est validé en laboratoire avant d'exister" },
+          otami: { v: "oui", note: "« Interface accessible sans technicité requise »" },
+          logibake: { v: "partiel", note: "Ergonomie de bureau, tant que les versions mobiles ne sont pas sorties" },
+          chefstouch: { v: "partiel" },
+          melba: { v: "partiel", note: "Profondeur d'un ERP : richesse fonctionnelle, donc apprentissage" },
         },
       },
       {
@@ -398,7 +455,7 @@ export const blocsComparatif: BlocComparatif[] = [
         valeurs: {
           gramme: { v: "oui" },
           otami: { v: "oui" },
-          logibake: { v: "non", note: "Montant non communiqué sur la page des prix au moment du relevé" },
+          logibake: { v: "oui", note: "399 € HT/an, tout inclus" },
           chefstouch: { v: "oui" },
           melba: { v: "partiel", note: "« À partir de » par module" },
         },
@@ -407,7 +464,7 @@ export const blocsComparatif: BlocComparatif[] = [
         critere: "Multi-établissement",
         pourquoi: "Indispensable dès qu'il y a deux laboratoires ou plusieurs points de vente.",
         valeurs: {
-          gramme: { v: "partiel", note: "Un abonnement par établissement, bascule entre eux depuis le même compte" },
+          gramme: { v: "oui", note: "Forfait multi-établissement dédié, bascule entre les ateliers depuis le même compte" },
           otami: { v: "oui", note: "Partage de recettes et suivi par magasin" },
           logibake: { v: "oui", note: "Laboratoires centralisés multi-points de vente" },
           chefstouch: { v: "oui", note: "Facturation par administrateur et par site" },
@@ -429,26 +486,38 @@ export const cheminsDeChoix = [
   {
     profil: "Votre priorité absolue est la conformité sanitaire et l'étiquetage",
     conseil:
-      "Regardez LogiBake ou Melba. HACCP, DLC, allergènes et valeurs nutritionnelles sont chez eux des fonctions du produit, alors que Gramme ne les couvre pas et ne prétend pas les couvrir. Nous préférons vous le dire ici plutôt qu'après la signature.",
-    verdict: "autre" as const,
+      "Tout dépend de votre calendrier. HACCP, DLC, allergènes et valeurs nutritionnelles sont aujourd'hui des fonctions livrées chez LogiBake et Melba, alors qu'elles sont en cours de développement chez nous, annoncées d'ici fin 2026. S'il vous les faut ce trimestre, prenez l'un d'eux. Si votre échéance est plus lointaine, parlons-en : nous vous dirons où nous en sommes précisément, sans arrondir.",
+    verdict: "nuance" as const,
   },
   {
     profil: "Vous voulez surtout supprimer la double saisie entre caisse, gestion et comptabilité",
     conseil:
-      "Otami a aujourd'hui le réseau d'intégrations le plus fourni du secteur, et c'est un vrai avantage si votre caisse ou votre logiciel comptable y figure. Nos connexions sont en préparation ; tant qu'elles ne sont pas livrées, nous ne les comptons pas.",
-    verdict: "autre" as const,
+      "Otami a aujourd'hui le réseau d'intégrations le plus fourni du secteur, et c'est un vrai avantage si votre caisse ou votre logiciel comptable y figure. Nos connexions sont en développement, annoncées d'ici fin 2026 : tant qu'elles ne sont pas livrées, nous ne les comptons pas comme acquises — regardez la date à laquelle vous en avez besoin.",
+    verdict: "nuance" as const,
   },
   {
     profil: "Vous pilotez plusieurs sites ou une cuisine centrale",
     conseil:
-      "Melba et Otami sont construits pour ça. Gramme fonctionne par établissement : c'est tenable à deux laboratoires, moins au-delà. Parlons-en avant que vous souscriviez, nous vous dirons franchement si c'est jouable.",
-    verdict: "autre" as const,
+      "Gramme a un forfait multi-établissement dédié : chaque atelier garde ses données cloisonnées et vous basculez de l'un à l'autre depuis le même compte. Melba et Otami sont également armés pour ça, avec une profondeur d'ERP chez le premier. Écrivez-nous votre organisation, nous vous dirons franchement lequel des trois vous convient.",
+    verdict: "nuance" as const,
   },
   {
     profil: "Vous démarrez et vous cherchez d'abord à structurer vos fiches",
     conseil:
       "L'offre gratuite de ChefsTouch permet de commencer sans rien engager. Vous y viendrez à la limite le jour où vous voudrez que vos factures mettent vos prix à jour toutes seules — c'est le moment où Gramme prend le relais, et où le forfait de mise en service à 300 € pour une entreprise en création prend son sens.",
     verdict: "nuance" as const,
+  },
+  {
+    profil: "Vous travaillez au four, pas au bureau",
+    conseil:
+      "C'est la question qui décide de tout le reste, et elle est rarement posée. Gramme est une application web installable : elle s'ajoute à l'écran d'accueil du téléphone et s'ouvre comme une application, sans rien installer et sans mise à jour à lancer. Le même compte, la même version, sur le téléphone posé près du pétrin, sur la tablette du labo et sur l'ordinateur du bureau. LogiBake, à l'inverse, est aujourd'hui une application de bureau macOS et Windows — ses versions mobiles sont annoncées comme « bientôt » disponibles.",
+    verdict: "gramme" as const,
+  },
+  {
+    profil: "Vos coûts de revient vous paraissent trop beaux pour être vrais",
+    conseil:
+      "Regardez d'abord si votre outil actuel tient le pourcentage de perte. Une pâte qui perd 12 % à la cuisson, un fruit qui perd 30 % au parage : sans ce taux, le coût est calculé sur une matière qui n'arrive jamais en vitrine, et la marge affichée est systématiquement flatteuse. C'est le premier calcul que Gramme pose sur chaque fiche — poids brut, poids net, taux de perte — et c'est aussi ce que les pages produit d'Otami et de LogiBake ne documentent pas.",
+    verdict: "gramme" as const,
   },
   {
     profil: "Vous êtes noyé dans un tableur que plus personne ne tient",

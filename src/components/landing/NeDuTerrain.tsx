@@ -28,14 +28,24 @@ const piliers = [
       "Un colorant à 0,4 g dans une recette de 200 g. Une caissette à 4,50 € les mille, soit 0,0045 € la pièce. Ces montants-là s'arrondissent à zéro dans la plupart des outils, et ce zéro-là est définitif : multipliez la recette par dix, il reste zéro. Gramme garde les décimales nécessaires plutôt que de les effacer. Sur une viennoiserie vendue 1,30 €, trois centimes d'erreur, c'est plus de deux points de marge.",
   },
   {
+    titre: "Le pourcentage de perte, traité comme un chiffre de premier plan",
+    texte:
+      "Une pâte perd 12 % à la cuisson, un fruit 30 % au parage. Sans ce taux, votre coût est calculé sur une matière qui n'arrive jamais en vitrine — et la marge affichée est systématiquement plus belle que la vraie. Chaque fiche Gramme porte son poids brut, son poids net et son taux de perte, et le coût est rapporté au produit vendable. C'est le premier écart que l'on trouve en reprenant un tableur, et c'est celui qui coûte le plus cher.",
+  },
+  {
     titre: "Taillé pour une petite structure",
     texte:
       "Les ERP du secteur sont vendus module par module, avec un accompagnement à la hauteur d'un groupe de plusieurs sites — et un budget de démarrage qui n'a aucun rapport avec ce qu'une boulangerie de quartier peut engager sur un logiciel. Ils ne sont pas mauvais : ils ne sont pas pour vous. Gramme est une ligne, comprise, sans commission sur votre chiffre d'affaires et sans coût qui gonfle à chaque fonction que vous ouvrez.",
   },
   {
+    titre: "Dans la poche, pas sur le bureau",
+    texte:
+      "Un boulanger n'est pas devant un ordinateur : il est devant un four à quatre heures du matin, et le seul écran à portée est celui de sa poche. Gramme est une application web installable — elle s'ajoute à l'écran d'accueil du téléphone et s'ouvre comme une application, sans rien installer, sans mise à jour à lancer. Le même compte et la même version sur le téléphone près du pétrin, la tablette du labo et l'ordinateur du bureau. Plusieurs logiciels du secteur restent aujourd'hui des applications de bureau : c'est la raison la plus fréquente pour laquelle un outil n'est ouvert qu'une fois par semaine, donc jamais tenu à jour.",
+  },
+  {
     titre: "Utilisable avec les mains dans la farine",
     texte:
-      "Des écrans lisibles à bout de bras, peu de champs, aucun vocabulaire de logiciel. Ça marche sur le téléphone posé à côté du pétrin comme sur l'ordinateur du bureau. Et vous ne démarrez pas devant un outil vide : nous montons votre compte — profils, fournisseurs, mercuriale, fiches — avant que vous l'ouvriez. Le premier jour, vous voyez vos produits et vos marges, pas un tutoriel.",
+      "Des écrans lisibles à bout de bras, peu de champs, aucun vocabulaire de logiciel. Et vous ne démarrez pas devant un outil vide : nous montons votre compte — profils, fournisseurs, mercuriale, fiches — avant que vous l'ouvriez. Le premier jour, vous voyez vos produits et vos marges, pas un tutoriel.",
   },
   {
     titre: "En chantier permanent, et c'est voulu",

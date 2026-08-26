@@ -39,10 +39,14 @@ const ORDRE = concurrents.map((c) => c.id);
 /**
  * Une case du tableau.
  *
- * Quatre états et pas trois : « option » — la fonction existe mais se paie en
- * plus — n'est ni un oui ni un non, et c'est justement la nuance qui décide de
- * la facture réelle. La confondre avec « oui » serait trompeur, avec « non »
- * aussi.
+ * Cinq états, et chacun gagne sa place contre la tentation de simplifier :
+ *
+ * - « option » — la fonction existe mais se paie en plus. Ni un oui ni un non,
+ *   et c'est justement la nuance qui décide de la facture réelle.
+ * - « en développement » — annoncée, pas livrée. La confondre avec « oui » est
+ *   exactement la publicité trompeuse que la loi interdit, et la promesse qui
+ *   se retourne le jour où le client la cherche dans l'application. Elle porte
+ *   donc sa date, et le lecteur juge sur ce qui existe.
  */
 function Case({ valeur, note }: { valeur: Valeur; note?: string }) {
   const marques: Record<Valeur, { signe: string; libelle: string; classe: string }> = {
@@ -50,6 +54,7 @@ function Case({ valeur, note }: { valeur: Valeur; note?: string }) {
     non: { signe: "—", libelle: "Non", classe: "bg-[#f4f2ee] text-[#8a8377]" },
     partiel: { signe: "~", libelle: "Partiel", classe: "bg-[#fdf3e0] text-[#8a6a2f]" },
     option: { signe: "€", libelle: "En option payante", classe: "bg-[#fdf3e0] text-[#8a6a2f]" },
+    prevu: { signe: "→", libelle: "En développement", classe: "bg-[#e6eefb] text-[#2f4a7a]" },
   };
   const m = marques[valeur];
   return (
@@ -97,8 +102,8 @@ export default function ComparatifPage() {
             Nous avons comparé Gramme aux quatre logiciels que les artisans nous citent le plus souvent :{" "}
             <strong className="text-[#3e6134]">Otami</strong>, <strong className="text-[#3e6134]">LogiBake</strong>,{" "}
             <strong className="text-[#3e6134]">ChefsTouch</strong> et <strong className="text-[#3e6134]">Melba</strong>.
-            Fonction par fonction, tarif public à l&apos;appui — et sans cacher les quatre lignes où ils font mieux
-            que nous.
+            Fonction par fonction, tarif public à l&apos;appui — et sans cacher les quatre lignes où ils livrent
+            aujourd&apos;hui ce que nous n&apos;avons pas encore.
           </p>
 
           {/* La méthode AVANT le tableau. Un comparatif publié par un éditeur
@@ -117,8 +122,13 @@ export default function ComparatifPage() {
               </li>
               <li>
                 <strong className="text-[#3e6134]">Ce que les autres font mieux figure dans le tableau</strong>, au
-                même endroit que le reste — voyez la section « Réglementaire », où nous perdons trois lignes sur
-                quatre.
+                même endroit que le reste — voyez la section « Réglementaire », où nous ne livrons aujourd&apos;hui
+                aucune des quatre lignes.
+              </li>
+              <li>
+                <strong className="text-[#3e6134]">Une fonction en développement n&apos;est pas une fonction</strong>{" "}
+                : elle porte la mention « en développement » et son échéance, jamais un « oui ». Vous jugez sur ce
+                qui existe le jour où vous décidez.
               </li>
               <li>
                 Les tarifs changent. Vérifiez-les chez l&apos;éditeur avant de décider, et{" "}
@@ -230,8 +240,9 @@ export default function ComparatifPage() {
             Lequel choisir, selon votre situation
           </h2>
           <p className="mt-3 max-w-3xl text-[#4d6952]">
-            Trois de ces six réponses ne pointent pas vers nous. C&apos;est volontaire : un outil qui ne convient
-            pas se résilie au bout de trois mois, ce qui n&apos;arrange personne.
+            Sur ces huit situations, la moitié appelle une réponse nuancée, et plusieurs peuvent vous mener
+            ailleurs que chez nous. C&apos;est volontaire : un outil qui ne convient pas se résilie au bout de trois
+            mois, ce qui n&apos;arrange personne.
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {cheminsDeChoix.map((chemin) => (

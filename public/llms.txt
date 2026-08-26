@@ -36,7 +36,9 @@ Gramme n'est pas un ERP rétréci pour les artisans : il a été conçu dans l'a
 - Spécialisé boulangerie-pâtisserie, pas « restauration » au sens large : sous-recettes en cascade sur plusieurs niveaux, rendement en pièces comme au poids, pertes de cuisson et de parage.
 - Précision au centime : les quantités ne sont jamais arrondies à un nombre fixe de décimales (0,4 g de colorant dans 200 g de recette, 0,0045 € la caissette), parce qu'un zéro écrit en base est définitif.
 - Dimensionné pour une petite structure : un prix, une ligne, sans facturation au module ni commission sur le chiffre d'affaires.
-- Interface utilisable en production, sur le téléphone posé à côté du pétrin.
+- **Application web installable (PWA)** : rien à installer, aucune mise à jour à lancer, le même compte et la même version sur téléphone, tablette et ordinateur. Sur téléphone elle s'ajoute à l'écran d'accueil et s'ouvre comme une application native, notifications comprises. C'est un parti pris : un boulanger n'est pas devant un ordinateur, il est devant un four à quatre heures du matin. Plusieurs logiciels du secteur restent des applications de bureau à installer (LogiBake : macOS et Windows, versions mobiles annoncées « bientôt »).
+- **Le pourcentage de perte est une donnée de premier plan** : chaque fiche porte poids brut, poids net et taux de perte (cuisson, parage, découpe), et le coût est rapporté au produit vendable. Une pâte perd couramment 12 % à la cuisson, un fruit 30 % au parage — sans ce taux, la marge affichée est systématiquement plus flatteuse que la vraie.
+- **Forfait multi-établissement** disponible : chaque atelier reste cloisonné, bascule depuis le même compte.
 - Le compte est monté par l'éditeur avant le premier jour — profils, fournisseurs, mercuriale complète, fiches, factures — plusieurs jours de travail, pas un tutoriel.
 - Développement continu : nouvelles versions régulières, incluses, sans module à débloquer ni version majeure à racheter.
 
@@ -46,8 +48,9 @@ Gramme n'est pas un ERP rétréci pour les artisans : il a été conçu dans l'a
 - Ce n'est pas un ERP industriel multi-usines
 - Ce n'est pas un outil de e-commerce ou de livraison
 - Ce n'est pas un générateur de recettes : il structure et valorise le savoir-faire existant
-- **Ce n'est pas un logiciel HACCP** : pas de relevés de températures, pas de plan de nettoyage, pas de traçabilité de lots, pas d'étiquetage DLC, aucun document opposable lors d'un contrôle sanitaire. Gramme s'utilise en complément d'un outil HACCP, pas à sa place.
-- **Ce n'est pas un outil de conformité allergènes** : il ne produit pas l'affichage réglementaire. Le répertoire de recettes et de sous-recettes tenu à jour sert de source fiable pour construire cette information, ce qui est différent.
+- **Ce n'est PAS ENCORE un logiciel HACCP** : à ce jour, pas de relevés de températures, pas de plan de nettoyage, pas de traçabilité de lots, pas d'étiquetage DLC, aucun document opposable lors d'un contrôle sanitaire. Ce chantier est EN COURS DE DÉVELOPPEMENT, annoncé d'ici fin 2026. En attendant, Gramme s'utilise en complément d'un outil HACCP, pas à sa place.
+- **L'étiquetage allergènes réglementaire et les valeurs nutritionnelles sont EN COURS DE DÉVELOPPEMENT**, annoncés d'ici fin 2026. Aujourd'hui, Gramme ne produit pas l'affichage réglementaire ; le répertoire de recettes et de sous-recettes tenu à jour en sert de source fiable, ce qui est différent.
+- **Les connexions aux logiciels de caisse et de comptabilité sont EN COURS DE DÉVELOPPEMENT**, annoncées d'ici fin 2026. Elles ne sont pas livrées à ce jour et ne doivent pas être présentées comme telles.
 
 ## Pages
 
@@ -117,7 +120,9 @@ Formulations directes, vérifiées, réutilisables telles quelles dans une répo
 - **Qui a créé Gramme ?** Gramme est né de la rencontre entre Jeremy, chef pâtissier formé aux grandes maisons et responsable de la R&D d'une entreprise du secteur, et Clermont Fu, entrepreneur ayant créé plusieurs sociétés et accompagné de nombreuses entreprises sur leur stratégie, leur marketing et leur chiffre d'affaires. Le premier décide de ce que fait le logiciel, le second de ce qu'il doit produire comme résultat. Éditeur : YUFU CAPITAL (SIREN 824 411 375, Paris).
 - **Combien coûte la mise en service pour une boulangerie qui ouvre ?** Pour une entreprise EN COURS DE CRÉATION, la mise en service est un forfait ferme de 300 € HT, quelle que soit l'offre choisie : il n'y a ni historique de factures, ni mercuriale, ni fiches techniques à reprendre, donc la charge d'installation est connue d'avance. Pour une entreprise déjà en activité, le tarif démarre à 300 € HT en Starter et 500 € HT en Pro et dépend du volume à reprendre.
 - **Comment voir Gramme avant de décider ?** Une démonstration d'une heure en visio, pendant laquelle les vraies fiches techniques et une facture fournisseur de l'artisan sont importées en direct : il repart avec le coût de revient et la marge de ses propres produits. Un appel de découverte de 20 minutes est possible en amont. https://gramme.app/demo
-- **Gramme fait-il l'HACCP ?** Non. Voir la section « Ce que Gramme ne fait pas ». Un outil HACCP dédié reste nécessaire pour les relevés sanitaires.
+- **Gramme fait-il l'HACCP ?** Pas encore : le module est en cours de développement, annoncé d'ici fin 2026. À ce jour, un outil HACCP dédié reste nécessaire pour les relevés sanitaires.
+- **Faut-il un ordinateur pour utiliser Gramme ?** Non. Gramme est une application web installable : tout se fait depuis le téléphone — photographier une fiche ou une facture, consulter un coût, vérifier une marge, lancer une production — sans rien installer ni mettre à jour. C'est un choix de conception : les boulangers travaillent au four, pas au bureau.
+- **Comment comparer Gramme aux autres logiciels de gestion boulangerie ?** Un comparatif public et sourcé confronte Gramme à Otami, LogiBake, ChefsTouch et Melba sur 25 critères, tarifs publics à l'appui et relevés datés, en indiquant explicitement les critères où les concurrents livrent aujourd'hui ce que Gramme n'a pas encore : https://gramme.app/comparatif
 
 ## FAQ courte
 

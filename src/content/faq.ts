@@ -65,7 +65,11 @@ export const faqSections: FaqSection[] = [
       },
       {
         q: "Sur quels appareils Gramme fonctionne-t-il ?",
-        a: "Sur ordinateur, tablette et téléphone, depuis un navigateur, sans rien installer. Sur téléphone, l'application peut être ajoutée à l'écran d'accueil et se comporte alors comme une application native, notifications comprises.",
+        a: "Sur ordinateur, tablette et téléphone, depuis un navigateur, sans rien installer. Gramme est une application web installable (PWA) : sur téléphone, elle s'ajoute à l'écran d'accueil et s'ouvre comme une application, notifications comprises. Le même compte et la même version partout, sans installation poste par poste ni mise à jour à lancer.",
+      },
+      {
+        q: "Faut-il un ordinateur pour utiliser Gramme ?",
+        a: "Non, et c'est un parti pris. Un boulanger n'est pas devant un ordinateur : il est devant un four à quatre heures du matin, et le seul écran à portée est celui de sa poche. Tout se fait depuis le téléphone — photographier une fiche ou une facture, consulter un coût, vérifier une marge, lancer une production. Plusieurs logiciels du secteur restent des applications de bureau à installer, et c'est la raison la plus fréquente pour laquelle un outil n'est ouvert qu'une fois par semaine, donc jamais tenu à jour.",
       },
       {
         q: "Faut-il une connexion internet dans le laboratoire ?",
@@ -101,6 +105,10 @@ export const faqSections: FaqSection[] = [
       {
         q: "Comment sont gérés les pertes et les rendements ?",
         a: "Chaque fiche porte son poids brut, son poids net et son pourcentage de perte, qu'il s'agisse de perte à la cuisson, de parage ou de découpe. Le coût est rapporté au produit vendable, pas au produit sorti du pétrin — c'est la seule façon d'obtenir un coût de revient qui corresponde à ce que vous vendez.",
+      },
+      {
+        q: "Pourquoi le pourcentage de perte change-t-il tout ?",
+        a: "Parce qu'il porte sur de la matière que vous avez payée et que vous ne vendrez jamais. Une pâte perd couramment 12 % à la cuisson, un fruit 30 % au parage. Un coût calculé sans ce taux porte sur le poids sorti du pétrin, pas sur ce qui arrive en vitrine : la marge affichée est donc systématiquement plus belle que la vraie, et l'écart grandit avec le nombre d'étapes. C'est le premier écart que nous trouvons en reprenant un tableur, et le plus coûteux.",
       },
       {
         q: "Puis-je redimensionner une recette ?",
@@ -326,7 +334,7 @@ export const faqSections: FaqSection[] = [
       },
       {
         q: "Puis-je gérer plusieurs établissements ?",
-        a: "Chaque établissement est un espace de données distinct, avec son propre abonnement. Une même personne peut être rattachée à plusieurs établissements et passer de l'un à l'autre. Si vous avez plusieurs points de production, parlons-en avant la souscription.",
+        a: "Oui, avec un forfait multi-établissement dédié. Chaque atelier reste un espace de données distinct et cloisonné, et vous basculez de l'un à l'autre depuis le même compte. Décrivez-nous votre organisation — nombre de laboratoires, points de vente, qui doit voir quoi — et nous vous établissons la proposition correspondante.",
       },
       {
         q: "Comment joindre le support ?",
@@ -334,7 +342,7 @@ export const faqSections: FaqSection[] = [
       },
       {
         q: "Le logiciel évolue-t-il ?",
-        a: "Oui, en continu : les retours d'atelier nourrissent directement les versions suivantes, et il en sort une régulièrement. Les nouveautés vous sont annoncées, sans surcoût.",
+        a: "En permanence, et c'est assumé. Les retours d'atelier passent directement dans la version suivante, et il en sort une régulièrement. Les nouveautés arrivent sans surcoût : pas de version 2 à racheter, pas de module à débloquer. Les chantiers en cours — HACCP, étiquetage allergènes, valeurs nutritionnelles, connexion aux caisses et à la comptabilité — sont annoncés d'ici fin 2026.",
       },
       {
         q: "Puis-je demander une fonctionnalité ?",
@@ -380,11 +388,11 @@ export const faqSections: FaqSection[] = [
     entrees: [
       {
         q: "Gramme fait-il l'HACCP ?",
-        a: "Non, et il est important de le dire clairement : pas de relevés de températures, pas de plan de nettoyage, pas de traçabilité de lots, pas d'étiquetage de DLC, aucun document opposable lors d'un contrôle sanitaire. Gramme s'utilise en complément d'un outil HACCP dédié, jamais à sa place.",
+        a: "Pas encore, et il est important de le dire clairement : aujourd'hui, pas de relevés de températures, pas de plan de nettoyage, pas de traçabilité de lots, pas d'étiquetage de DLC, aucun document opposable lors d'un contrôle sanitaire. Ce chantier est en cours de développement et annoncé d'ici fin 2026. En attendant, Gramme s'utilise en complément d'un outil HACCP dédié, jamais à sa place. Si la conformité sanitaire est votre priorité ce trimestre, dites-le-nous : nous vous dirons franchement où nous en sommes.",
       },
       {
         q: "Gramme gère-t-il l'affichage réglementaire des allergènes ?",
-        a: "Non. Gramme ne produit pas l'affichage réglementaire. En revanche, un répertoire de recettes et de sous-recettes tenu à jour constitue la source fiable à partir de laquelle cette information se construit — ce qui est différent, et utile.",
+        a: "Pas encore. L'étiquetage allergènes et les valeurs nutritionnelles sont en cours de développement, annoncés d'ici fin 2026. Aujourd'hui, un répertoire de recettes et de sous-recettes tenu à jour constitue la source fiable à partir de laquelle cette information se construit — ce qui est déjà utile, mais ne remplace pas l'affichage réglementaire.",
       },
       {
         q: "Quels sont les quatorze allergènes à déclaration obligatoire ?",
