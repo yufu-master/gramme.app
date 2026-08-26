@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { features, featurePath } from "@/content/features";
+import { publishedArticles } from "@/content/articles";
 import { publishedGuides } from "@/content/guides";
 import { SITE_URL } from "@/lib/seo";
 
@@ -67,6 +68,14 @@ export const siteRoutes: SiteRoute[] = [
     sitemap: true,
     priority: 0.8,
     changeFrequency: "monthly",
+    breadcrumb: true,
+  },
+  {
+    path: "/articles",
+    title: "Articles",
+    sitemap: true,
+    priority: 0.85,
+    changeFrequency: "weekly",
     breadcrumb: true,
   },
   {
@@ -179,5 +188,12 @@ export function sitemapEntries(baseUrl: string = SITE_URL): MetadataRoute.Sitema
     priority: 0.8,
   }));
 
-  return [...staticEntries, ...featureEntries, ...guideEntries];
+  const articleEntries: MetadataRoute.Sitemap = publishedArticles.map((article) => ({
+    url: `${baseUrl}/articles/${article.slug}`,
+    lastModified: new Date(article.updatedAt),
+    changeFrequency: "monthly" as const,
+    priority: 0.8,
+  }));
+
+  return [...staticEntries, ...featureEntries, ...guideEntries, ...articleEntries];
 }

@@ -7,6 +7,7 @@ const footerLinks = [
   { href: "/tarifs", label: "Tarifs" },
   { href: "/comment-ca-marche", label: "Comment ça marche" },
   { href: "/guides", label: "Guides" },
+  { href: "/articles", label: "Articles" },
   { href: "/comparatif", label: "Comparatif" },
   { href: "/faq", label: "FAQ" },
   { href: "/integrations", label: "Intégrations" },

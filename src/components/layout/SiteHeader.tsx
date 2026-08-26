@@ -15,11 +15,43 @@ type NavItem = {
 const navItems: NavItem[] = [
   { label: "Pâtisserie", href: "/logiciel-patisserie" },
   { label: "Tarifs", href: "/tarifs" },
-  { label: "Comparatif", href: "/comparatif" },
-  { label: "Guides", href: "/guides" },
-  { label: "FAQ", href: "/faq" },
   { label: "À propos", href: "/a-propos-de-gramme" },
   { label: "Contact", href: "/contact" },
+];
+
+/**
+ * Ressources : tout ce qui se lit avant de décider.
+ *
+ * Ces quatre pages en entrée directe portaient la barre à neuf éléments, et
+ * « Comparatif » à côté de « Tarifs » lisait comme une rubrique produit alors
+ * que c'est de la documentation. Regroupées, elles se trouvent mieux et
+ * laissent la barre respirer.
+ */
+const ressourcesItems: { label: string; href: string; description: string; icone: typeof BookIcon }[] = [
+  {
+    label: "Guides",
+    href: "/guides",
+    description: "Méthodes de calcul, réglementation, organisation du laboratoire.",
+    icone: BookIcon,
+  },
+  {
+    label: "Articles",
+    href: "/articles",
+    description: "Ce qu'on apprend en reprenant les chiffres de vrais ateliers.",
+    icone: PenIcon,
+  },
+  {
+    label: "Comparatif",
+    href: "/comparatif",
+    description: "Gramme face à Otami, LogiBake, ChefsTouch et Melba, tarifs à l'appui.",
+    icone: ScaleIcon,
+  },
+  {
+    label: "FAQ",
+    href: "/faq",
+    description: "77 réponses sur les coûts, les marges, les données et la réglementation.",
+    icone: HelpIcon,
+  },
 ];
 
 /** Rubriques secondaires : pied de page et menu mobile uniquement. */
@@ -30,8 +62,11 @@ export function SiteHeader() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isFeaturesOpen, setIsFeaturesOpen] = useState(false);
   const [isMobileFeaturesOpen, setIsMobileFeaturesOpen] = useState(false);
+  const [isRessourcesOpen, setIsRessourcesOpen] = useState(false);
+  const [isMobileRessourcesOpen, setIsMobileRessourcesOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const featuresRef = useRef<HTMLDivElement>(null);
+  const ressourcesRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -67,6 +102,7 @@ export function SiteHeader() {
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
   const isFeaturesActive = isActive("/fonctionnalites");
+  const isRessourcesActive = ressourcesItems.some((item) => isActive(item.href));
 
   return (
     <header
@@ -160,6 +196,57 @@ export function SiteHeader() {
             </div>
           </div>
 
+          <div
+            ref={ressourcesRef}
+            className="relative"
+            onMouseEnter={() => setIsRessourcesOpen(true)}
+            onMouseLeave={() => setIsRessourcesOpen(false)}
+          >
+            <button
+              type="button"
+              aria-expanded={isRessourcesOpen}
+              aria-haspopup="true"
+              aria-controls="ressources-menu"
+              onClick={() => setIsRessourcesOpen((value) => !value)}
+              className={`inline-flex items-center gap-1.5 py-2 transition hover:text-[#355329] ${
+                isRessourcesActive ? "font-semibold text-[#355329]" : ""
+              }`}
+            >
+              Ressources
+              <ChevronIcon className={`size-3 transition ${isRessourcesOpen ? "rotate-180" : ""}`} />
+            </button>
+
+            <div
+              id="ressources-menu"
+              hidden={!isRessourcesOpen}
+              className="absolute left-0 top-full z-50 w-[min(24rem,calc(100vw-2rem))] pt-3"
+            >
+              <div className="overflow-hidden rounded-2xl border border-[#dcead2] bg-white shadow-[0_24px_70px_rgba(38,64,33,0.16)]">
+                <ul className="grid gap-1 p-3">
+                  {ressourcesItems.map(({ label, href, description, icone: Icone }) => (
+                    <li key={href}>
+                      <Link
+                        href={href}
+                        onClick={() => setIsRessourcesOpen(false)}
+                        className="flex h-full gap-3 rounded-xl p-3 transition hover:bg-[#f6fbf2]"
+                      >
+                        <span className="mt-0.5 inline-flex size-8 shrink-0 items-center justify-center rounded-lg bg-[#a8cf8c]/25 text-[#355329]">
+                          <Icone className="size-4" />
+                        </span>
+                        <span className="min-w-0">
+                          <span className="block text-sm font-bold text-[#1a2e14]">{label}</span>
+                          <span className="mt-0.5 block text-xs leading-snug text-[var(--muted-foreground)]">
+                            {description}
+                          </span>
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+          </div>
+
           {navItems.map((item) => (
             <Link
               key={item.label}
@@ -249,6 +336,44 @@ export function SiteHeader() {
               ))}
             </ul>
 
+            <div className="flex items-center gap-1">
+              <span
+                className={`flex-1 rounded-lg px-3 py-3 text-sm ${
+                  isRessourcesActive ? "bg-[#f6fbf2] font-semibold text-[#355329]" : "text-[#355329]"
+                }`}
+              >
+                Ressources
+              </span>
+              <button
+                type="button"
+                aria-expanded={isMobileRessourcesOpen}
+                aria-controls="mobile-ressources"
+                aria-label={isMobileRessourcesOpen ? "Masquer les ressources" : "Afficher les ressources"}
+                onClick={() => setIsMobileRessourcesOpen((value) => !value)}
+                className="inline-flex size-11 items-center justify-center rounded-lg text-[#355329] hover:bg-[#f6fbf2]"
+              >
+                <ChevronIcon className={`size-3.5 transition ${isMobileRessourcesOpen ? "rotate-180" : ""}`} />
+              </button>
+            </div>
+            <ul
+              id="mobile-ressources"
+              hidden={!isMobileRessourcesOpen}
+              className="mb-1 ml-3 border-l border-[#dcead2] pl-2"
+            >
+              {ressourcesItems.map(({ label, href, icone: Icone }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-sm text-[#355329] hover:bg-[#f6fbf2]"
+                  >
+                    <Icone className="size-4 shrink-0 text-[#6e9f55]" />
+                    {label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
             {[...navItems, ...secondaryNavItems].map((item) => (
               <Link
                 key={item.label}
@@ -282,6 +407,46 @@ export function SiteHeader() {
         </div>
       )}
     </header>
+  );
+}
+
+function BookIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden strokeWidth="1.8" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+    </svg>
+  );
+}
+
+function PenIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden strokeWidth="1.8" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 20h9" />
+      <path d="M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z" />
+    </svg>
+  );
+}
+
+function ScaleIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden strokeWidth="1.8" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+      <path d="M12 3v18" />
+      <path d="M5 7h14" />
+      <path d="m3 13 3-6 3 6a3 3 0 0 1-6 0Z" />
+      <path d="m15 13 3-6 3 6a3 3 0 0 1-6 0Z" />
+      <path d="M8 21h8" />
+    </svg>
+  );
+}
+
+function HelpIcon({ className }: { className?: string }) {
+  return (
+    <svg viewBox="0 0 24 24" fill="none" className={className} aria-hidden strokeWidth="1.8" stroke="currentColor" strokeLinecap="round" strokeLinejoin="round">
+      <circle cx="12" cy="12" r="10" />
+      <path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3" />
+      <path d="M12 17h.01" />
+    </svg>
   );
 }
 

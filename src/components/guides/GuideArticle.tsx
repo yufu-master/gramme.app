@@ -5,7 +5,17 @@ import { GUIDE_AUTHOR } from "@/content/guides/types";
 import { formatGuideDate, guideToc } from "@/lib/guides";
 import { renderInline } from "@/components/guides/renderInline";
 
-export function GuideArticle({ guide }: { guide: Guide }) {
+export function GuideArticle({
+  guide,
+  rubrique = "Guide",
+  base = "/guides",
+}: {
+  guide: Guide;
+  /** Libellé affiché au-dessus du titre : « Guide » ou « Article ». */
+  rubrique?: string;
+  /** Base d'URL de la rubrique, pour le lien « à lire aussi ». */
+  base?: string;
+}) {
   const toc = guideToc(guide.blocks);
 
   return (
@@ -21,7 +31,7 @@ export function GuideArticle({ guide }: { guide: Guide }) {
 
       <header className="rounded-3xl border border-[#dcead2] bg-white p-6 shadow-sm sm:p-10">
         <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6e9f55]">
-          {guide.draft ? "Guide · brouillon" : "Guide"}
+          {guide.draft ? `${rubrique} · brouillon` : rubrique}
         </p>
         <h1 className="mt-3 text-3xl font-black leading-tight text-[#27421f] md:text-4xl">{guide.title}</h1>
         <p className="mt-5 max-w-[42rem] text-base leading-relaxed text-[#4d6952] sm:text-lg">{guide.intro}</p>
@@ -173,7 +183,7 @@ export function GuideArticle({ guide }: { guide: Guide }) {
           </li>
           <li>
             <Link
-              href={`/guides/${guide.relatedSlug}`}
+              href={`${base}/${guide.relatedSlug}`}
               className="block rounded-2xl border border-[#dcead2] bg-white px-4 py-3 text-sm font-semibold text-[#355329] hover:bg-[#f6fbf2]"
             >
               {guide.relatedLabel}

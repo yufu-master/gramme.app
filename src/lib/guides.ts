@@ -18,7 +18,7 @@ export function guideToc(blocks: GuideBlock[]): { id: string; text: string }[] {
   }));
 }
 
-export function articleSchema(guide: Guide) {
+export function articleSchema(guide: Guide, base: "/guides" | "/articles" = "/guides") {
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -30,7 +30,7 @@ export function articleSchema(guide: Guide) {
     inLanguage: "fr-FR",
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `${SITE_URL}/guides/${guide.slug}`,
+      "@id": `${SITE_URL}${base}/${guide.slug}`,
     },
     author: {
       "@type": "Person",

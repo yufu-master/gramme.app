@@ -1,56 +1,69 @@
 import Link from "next/link";
+import {
+  Calculator,
+  ChefHat,
+  FlaskConical,
+  Layers,
+  PackageCheck,
+  Smartphone,
+  Sparkles,
+  Zap,
+} from "@/vendor/lucide-react";
 
 /**
- * Le manifeste : pourquoi cet outil-là plutôt qu'un autre.
+ * Le manifeste, en huit repères.
  *
- * C'est le seul argument que la concurrence ne peut pas copier — les
- * fonctionnalités se rattrapent, l'origine non. Le texte évite deux pièges :
- * il ne cite aucun concurrent par son nom (le comparatif s'en charge, chiffres
- * à l'appui), et il ne dit rien de méprisant sur les ERP, qui font
- * correctement le travail pour lequel ils ont été conçus — celui d'un groupe,
- * pas celui d'un artisan.
+ * Version courte assumée : la première rédaction faisait huit paragraphes de
+ * six lignes, personne ne lit ça sur une page d'accueil. Chaque argument tient
+ * ici en un titre et une phrase — le développement vit sur les pages qui vont
+ * avec (`/comparatif`, `/a-propos-de-gramme`, `/faq`), où le lecteur arrive
+ * justement parce qu'il veut le détail.
+ *
+ * Le texte ne cite aucun concurrent : le comparatif s'en charge, chiffres à
+ * l'appui. Et il ne dit rien de méprisant sur les ERP, qui font correctement le
+ * travail pour lequel ils ont été conçus — celui d'un groupe, pas d'un artisan.
  */
 
 const piliers = [
   {
-    titre: "Écrit par quelqu'un qui a les mains dedans",
-    texte:
-      "Jeremy est chef pâtissier en exercice, responsable de la R&D d'une entreprise du secteur. Chaque écran de Gramme passe l'épreuve du laboratoire avant d'exister : si une fonction ne sert pas un lundi matin en pleine production, elle ne rentre pas. C'est aussi simple, et c'est ce qui explique presque toutes les différences que vous verrez à l'usage.",
+    icone: ChefHat,
+    titre: "Conçu par un chef pâtissier",
+    texte: "En exercice, responsable R&D. Chaque écran passe l'épreuve du laboratoire avant d'exister.",
   },
   {
-    titre: "Fait pour la boulangerie et la pâtisserie, pas pour « la restauration »",
-    texte:
-      "Un outil pensé pour les restaurants gère des plats. Un outil de boulangerie doit gérer des sous-recettes en cascade, des rendements en pièces comme au poids, des pertes de parage et de cuisson, des fournées. Une crème pâtissière qui entre dans un flan qui entre dans un plateau : sans cette mécanique-là, les coûts de revient sont faux, et ils le sont d'autant plus que le produit est travaillé.",
+    icone: Layers,
+    titre: "Boulangerie, pas « restauration »",
+    texte: "Sous-recettes en cascade, rendement en pièces comme au poids, fournées. Pas des plats.",
   },
   {
-    titre: "La marge au centime, parce que c'est là qu'elle se joue",
-    texte:
-      "Un colorant à 0,4 g dans une recette de 200 g. Une caissette à 4,50 € les mille, soit 0,0045 € la pièce. Ces montants-là s'arrondissent à zéro dans la plupart des outils, et ce zéro-là est définitif : multipliez la recette par dix, il reste zéro. Gramme garde les décimales nécessaires plutôt que de les effacer. Sur une viennoiserie vendue 1,30 €, trois centimes d'erreur, c'est plus de deux points de marge.",
+    icone: Calculator,
+    titre: "La marge au centime",
+    texte: "0,4 g de colorant, 0,0045 € la caissette : ailleurs, ces montants s'arrondissent à zéro.",
   },
   {
-    titre: "Le pourcentage de perte, traité comme un chiffre de premier plan",
-    texte:
-      "Une pâte perd 12 % à la cuisson, un fruit 30 % au parage. Sans ce taux, votre coût est calculé sur une matière qui n'arrive jamais en vitrine — et la marge affichée est systématiquement plus belle que la vraie. Chaque fiche Gramme porte son poids brut, son poids net et son taux de perte, et le coût est rapporté au produit vendable. C'est le premier écart que l'on trouve en reprenant un tableur, et c'est celui qui coûte le plus cher.",
+    icone: FlaskConical,
+    titre: "Le taux de perte compté",
+    texte: "12 % à la cuisson, 30 % au parage. Sans lui, votre marge est plus belle que la vraie.",
   },
   {
-    titre: "Taillé pour une petite structure",
-    texte:
-      "Les ERP du secteur sont vendus module par module, avec un accompagnement à la hauteur d'un groupe de plusieurs sites — et un budget de démarrage qui n'a aucun rapport avec ce qu'une boulangerie de quartier peut engager sur un logiciel. Ils ne sont pas mauvais : ils ne sont pas pour vous. Gramme est une ligne, comprise, sans commission sur votre chiffre d'affaires et sans coût qui gonfle à chaque fonction que vous ouvrez.",
-  },
-  {
+    icone: Smartphone,
     titre: "Dans la poche, pas sur le bureau",
-    texte:
-      "Un boulanger n'est pas devant un ordinateur : il est devant un four à quatre heures du matin, et le seul écran à portée est celui de sa poche. Gramme est une application web installable — elle s'ajoute à l'écran d'accueil du téléphone et s'ouvre comme une application, sans rien installer, sans mise à jour à lancer. Le même compte et la même version sur le téléphone près du pétrin, la tablette du labo et l'ordinateur du bureau. Plusieurs logiciels du secteur restent aujourd'hui des applications de bureau : c'est la raison la plus fréquente pour laquelle un outil n'est ouvert qu'une fois par semaine, donc jamais tenu à jour.",
+    texte: "Application installable sur le téléphone. Rien à installer, aucune mise à jour à lancer.",
   },
   {
-    titre: "Utilisable avec les mains dans la farine",
-    texte:
-      "Des écrans lisibles à bout de bras, peu de champs, aucun vocabulaire de logiciel. Et vous ne démarrez pas devant un outil vide : nous montons votre compte — profils, fournisseurs, mercuriale, fiches — avant que vous l'ouvriez. Le premier jour, vous voyez vos produits et vos marges, pas un tutoriel.",
+    icone: Zap,
+    titre: "Un prix, pas un devis",
+    texte: "Une ligne. Sans module à débloquer, sans commission sur votre chiffre d'affaires.",
   },
   {
-    titre: "En chantier permanent, et c'est voulu",
-    texte:
-      "Gramme évolue toutes les semaines. Les retours d'atelier passent directement dans la version suivante, et les nouveautés arrivent sans surcoût : pas de version 2 à racheter, pas de module à débloquer. Un métier dont les prix bougent tous les mois ne peut pas travailler avec un logiciel figé — c'est exactement ce qui fait abandonner les tableurs au bout de six mois.",
+    icone: PackageCheck,
+    titre: "Votre compte monté avant le premier jour",
+    texte: "Profils, fournisseurs, mercuriale, fiches. Vous ouvrez vos marges, pas un tutoriel.",
+  },
+  {
+    icone: Sparkles,
+    titre: "Une version toutes les semaines",
+    texte: "Vos retours passent dans la suivante. Sans surcoût, sans version 2 à racheter.",
   },
 ];
 
@@ -67,46 +80,39 @@ export function NeDuTerrain() {
         >
           Gramme vient du laboratoire, pas d&apos;un cahier des charges
         </h2>
-        <p className="mt-5 text-base leading-relaxed text-[#4d6952] md:text-lg">
-          La plupart des logiciels de gestion du secteur ont été conçus pour l&apos;industrie
-          agroalimentaire, puis rétrécis pour être vendus aux artisans. Gramme a été fait dans
-          l&apos;autre sens : il part d&apos;un chef pâtissier qui tenait ses fiches sur un cahier et
-          ses prix sur un tableur, et qui savait exactement où ça coinçait.
+        <p className="mt-4 text-base leading-relaxed text-[#4d6952] md:text-lg">
+          La plupart des logiciels du secteur ont été conçus pour l&apos;industrie, puis rétrécis pour
+          les artisans. Gramme a été fait dans l&apos;autre sens.
         </p>
       </div>
 
-      <div className="mt-10 grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-        {piliers.map((pilier) => (
-          <article
-            key={pilier.titre}
-            className="rounded-2xl border border-[#dcead2] bg-white p-6 shadow-sm"
+      <ul className="mt-9 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        {piliers.map(({ icone: Icone, titre, texte }) => (
+          <li
+            key={titre}
+            className="rounded-2xl border border-[#dcead2] bg-white p-5 shadow-sm transition-colors hover:border-[#a8cf8c]"
           >
-            <h3 className="text-lg font-bold leading-snug text-[#27421f]">{pilier.titre}</h3>
-            <p className="mt-3 leading-relaxed text-[#4d6952]">{pilier.texte}</p>
-          </article>
+            <span className="inline-flex size-10 items-center justify-center rounded-xl bg-[#a8cf8c]/20 text-[#3e6134]">
+              <Icone className="size-5" />
+            </span>
+            <h3 className="mt-3.5 text-base font-bold leading-snug text-[#27421f]">{titre}</h3>
+            <p className="mt-1.5 text-sm leading-relaxed text-[#4d6952]">{texte}</p>
+          </li>
         ))}
-      </div>
+      </ul>
 
-      <div className="mt-8 rounded-2xl border border-[#a8cf8c]/50 bg-[#f6fbf2] p-6 sm:p-8">
-        <p className="max-w-3xl leading-relaxed text-[#4d6952] md:text-lg">
+      <div className="mt-7 flex flex-wrap items-center gap-3 rounded-2xl border border-[#a8cf8c]/50 bg-[#f6fbf2] p-5 sm:p-6">
+        <p className="min-w-[16rem] flex-1 leading-relaxed text-[#4d6952]">
           <strong className="text-[#3e6134]">Ce n&apos;est pas un discours.</strong> Nous avons comparé
-          Gramme aux principaux logiciels du secteur, fonction par fonction et tarif public à
-          l&apos;appui — y compris là où ils font des choses que nous ne faisons pas.
+          Gramme aux principaux logiciels du secteur, tarifs publics à l&apos;appui — y compris là où ils
+          font mieux que nous.
         </p>
-        <div className="mt-5 flex flex-wrap gap-3">
-          <Link
-            href="/comparatif"
-            className="inline-flex rounded-xl bg-[#264021] px-5 py-3 font-semibold text-white transition-colors hover:bg-[#1e3319]"
-          >
-            Voir le comparatif détaillé
-          </Link>
-          <Link
-            href="/a-propos-de-gramme"
-            className="inline-flex rounded-xl border border-[#a8cf8c] px-5 py-3 font-semibold text-[#355329] transition-colors hover:bg-white"
-          >
-            Qui est derrière Gramme
-          </Link>
-        </div>
+        <Link
+          href="/comparatif"
+          className="inline-flex shrink-0 rounded-xl bg-[#264021] px-5 py-3 font-semibold text-white transition-colors hover:bg-[#1e3319]"
+        >
+          Voir le comparatif
+        </Link>
       </div>
     </section>
   );

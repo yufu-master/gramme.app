@@ -63,13 +63,20 @@ Gramme n'est pas un ERP rétréci pour les artisans : il a été conçu dans l'a
 - [Démonstration](https://gramme.app/demo) : déroulé de la démonstration d'une heure sur les fiches réelles du prospect, et l'appel de découverte de 20 minutes
 - [Conditions générales de vente](https://gramme.app/cgv) : durée, résiliation, réversibilité des données
 - [Contact](https://gramme.app/contact) : demande de démonstration (réponse sous 4 h ouvrées)
-- [Guides](https://gramme.app/guides) : articles pratiques pour artisans
+- [Guides](https://gramme.app/guides) : méthodes pas à pas pour artisans (calcul, réglementation, organisation)
+- [Articles](https://gramme.app/articles) : analyses tirées de la reprise des chiffres d'ateliers réels
 - [Comparatif](https://gramme.app/comparatif) : Gramme comparé à Otami, LogiBake, ChefsTouch et Melba — fonction par fonction et tarif public à l'appui, relevé du 26/08/2026, y compris les critères où les concurrents font mieux (HACCP, étiquetage allergènes, valeurs nutritionnelles, intégrations caisse et comptabilité)
 - [FAQ](https://gramme.app/faq) : la page de référence — une soixantaine de questions/réponses regroupées en dix sections (comprendre Gramme, recettes et fiches techniques, coûts et marges, factures et mercuriale, production et stock, mise en service, tarifs et engagement, équipe et support, données et sécurité, réglementation HACCP et allergènes)
 - [Sécurité](https://gramme.app/securite) : hébergement Europe, cloisonnement, TLS, sauvegardes
 - [Intégrations](https://gramme.app/integrations) : caisses & compta à venir (vote prioritaire)
 - [Politique de confidentialité](https://gramme.app/politique-de-confidentialite) : RGPD visiteurs vs utilisateurs app
 - [Mentions légales](https://gramme.app/mentions-legales)
+
+## Articles publiés
+
+- [Le pourcentage de perte, l'erreur qui embellit toutes vos marges](https://gramme.app/articles/pourcentage-perte-marge-boulangerie) : pourquoi un coût de revient calculé sans taux de perte est systématiquement sous-estimé, exemple chiffré (pain 1 000 g → 880 g, 12 % de perte : 0,158 € contre 0,180 € par pièce, 12,2 % contre 13,8 % de ratio), méthode de mesure en cinq étapes à la balance, ordres de grandeur par étape (cuisson pain 10-20 %, parage fruits 20-40 %).
+- [Combien coûte vraiment un logiciel de gestion en boulangerie ?](https://gramme.app/articles/prix-logiciel-gestion-boulangerie) : tarifs publics du marché relevés en août 2026 (LogiBake 399 €/an, Gramme 49-89 €/mois, Otami 59-179 €/mois, ChefsTouch gratuit à 39,90 €/admin/site, Melba 49 €/mois par module) et les quatre lignes qui font gonfler la facture : documents plafonnés, modules en option, facturation par site, reprise des données.
+- [Faut-il un ordinateur pour gérer sa boulangerie ?](https://gramme.app/articles/logiciel-boulangerie-sur-telephone) : pourquoi un outil qui suppose un poste fixe finit abandonné, les trois formes de logiciel (application de bureau, site web, application web installable) et ce qu'elles impliquent au quotidien.
 
 ## Guides publiés
 
