@@ -145,38 +145,64 @@ export default function ComparatifPage() {
           <h2 id="qui-fait-quoi" className="text-2xl font-bold text-[#2f4f26] md:text-3xl">
             Qui fait quoi, et pour qui
           </h2>
-          <div className="mt-6 grid gap-5 lg:grid-cols-2">
+          <p className="mt-3 max-w-3xl text-[#4d6952]">
+            Cinq fiches, dépliez celles qui vous intéressent.
+          </p>
+
+          {/* Fiches repliées par défaut : cinq fiches ouvertes faisaient plus de
+              deux écrans avant le premier tableau, et personne ne lit cinq
+              descriptions d'affilée. `<details>` natif plutôt qu'un accordéon en
+              JavaScript : le texte reste dans le HTML servi, donc lisible par un
+              moteur, et la page fonctionne même sans JS. L'en-tête porte le nom
+              et le prix d'entrée pour qu'on sache quoi ouvrir. */}
+          <div className="mt-5 space-y-3">
             {concurrents.map((c) => (
-              <article
+              <details
                 key={c.id}
-                className={`rounded-2xl border p-6 shadow-sm ${
+                className={`group overflow-hidden rounded-2xl border shadow-sm ${
                   c.id === "gramme" ? "border-[#a8cf8c] bg-[#f6fbf2]" : "border-[#dcead2] bg-white"
                 }`}
               >
-                <div className="flex flex-wrap items-baseline justify-between gap-2">
-                  <h3 className="text-xl font-black text-[#27421f]">{c.nom}</h3>
-                  <span className="text-xs font-semibold text-[#6e9f55]">{c.site}</span>
+                <summary className="flex cursor-pointer list-none items-center gap-3 p-5">
+                  <span className="min-w-0 flex-1">
+                    <span className="flex flex-wrap items-baseline gap-x-2.5 gap-y-1">
+                      <span className="text-lg font-black text-[#27421f]">{c.nom}</span>
+                      <span className="text-xs font-semibold text-[#6e9f55]">{c.site}</span>
+                    </span>
+                    <span className="mt-1 block text-sm font-semibold tabular-nums text-[#3e6134]">
+                      {c.tarifCourt}
+                    </span>
+                  </span>
+                  <span
+                    aria-hidden
+                    className="shrink-0 text-xl font-black leading-none text-[#6e9f55] transition-transform group-open:rotate-45"
+                  >
+                    +
+                  </span>
+                </summary>
+
+                <div className="border-t border-[#eef5e8] px-5 py-4">
+                  <p className="leading-relaxed text-[#4d6952]">{c.positionnement}</p>
+                  <dl className="mt-4 space-y-3 text-sm">
+                    <div>
+                      <dt className="font-bold text-[#3e6134]">Pour qui</dt>
+                      <dd className="mt-0.5 leading-relaxed text-[#4d6952]">{c.cible}</dd>
+                    </div>
+                    <div>
+                      <dt className="font-bold text-[#3e6134]">Tarif public</dt>
+                      <dd className="mt-0.5 leading-relaxed text-[#4d6952]">{c.tarif}</dd>
+                    </div>
+                    <div>
+                      <dt className="font-bold text-[#3e6134]">Ce qu&apos;il fait bien</dt>
+                      <dd className="mt-0.5 leading-relaxed text-[#4d6952]">{c.force}</dd>
+                    </div>
+                    <div>
+                      <dt className="font-bold text-[#8a6a2f]">Ce qui peut coincer</dt>
+                      <dd className="mt-0.5 leading-relaxed text-[#4d6952]">{c.reserve}</dd>
+                    </div>
+                  </dl>
                 </div>
-                <p className="mt-3 leading-relaxed text-[#4d6952]">{c.positionnement}</p>
-                <dl className="mt-4 space-y-3 text-sm">
-                  <div>
-                    <dt className="font-bold text-[#3e6134]">Pour qui</dt>
-                    <dd className="mt-0.5 leading-relaxed text-[#4d6952]">{c.cible}</dd>
-                  </div>
-                  <div>
-                    <dt className="font-bold text-[#3e6134]">Tarif public</dt>
-                    <dd className="mt-0.5 leading-relaxed text-[#4d6952]">{c.tarif}</dd>
-                  </div>
-                  <div>
-                    <dt className="font-bold text-[#3e6134]">Ce qu&apos;il fait bien</dt>
-                    <dd className="mt-0.5 leading-relaxed text-[#4d6952]">{c.force}</dd>
-                  </div>
-                  <div>
-                    <dt className="font-bold text-[#8a6a2f]">Ce qui peut coincer</dt>
-                    <dd className="mt-0.5 leading-relaxed text-[#4d6952]">{c.reserve}</dd>
-                  </div>
-                </dl>
-              </article>
+              </details>
             ))}
           </div>
         </section>

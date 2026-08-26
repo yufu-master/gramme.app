@@ -36,6 +36,15 @@ export type Concurrent = {
   positionnement: string;
   cible: string;
   tarif: string;
+  /**
+   * Le tarif en trois mots, visible sur la fiche repliée.
+   *
+   * Une fiche fermée qui ne dit qu'un nom n'aide personne à décider s'il faut
+   * l'ouvrir. Le prix d'entrée est le chiffre que tout le monde cherche en
+   * premier : il reste donc dehors, et le détail — offres, options, variable de
+   * facturation — attend derrière.
+   */
+  tarifCourt: string;
   /** Ce que l'éditeur fait particulièrement bien. Honnête, pas concédé du bout des lèvres. */
   force: string;
   /** Ce qui, pour un artisan boulanger-pâtissier, peut coincer. Factuel. */
@@ -52,6 +61,7 @@ export const concurrents: Concurrent[] = [
     cible: "Boulangerie, pâtisserie, chocolaterie artisanales — de l'artisan seul à l'équipe d'une quinzaine.",
     tarif:
       "49 € HT/mois (490 €/an) en Starter, 89 € HT/mois (890 €/an) en Pro. Installation accompagnée à partir de 300 € HT, une seule fois.",
+    tarifCourt: "49 à 89 € HT/mois",
     force:
       "Le pourcentage de perte et les rendements traités comme des données de premier plan, les sous-recettes en cascade sur plusieurs niveaux, le volume de factures inclus sans surcoût, la reprise complète des données faite par l'éditeur avant le premier jour, et le planning de production compris dans l'offre Pro.",
     reserve:
@@ -66,6 +76,7 @@ export const concurrents: Concurrent[] = [
     cible: "Boulangerie, pâtisserie et restauration, du commerce isolé au multi-site.",
     tarif:
       "Avec engagement annuel : 59 € HT/mois (Access), 70 € (Essentiel, au lieu de 99 €), 100 € (Intégrale, au lieu de 159 €). Sans engagement : 69 €, 119 €, 179 €. Planning de production en option à 49 € HT/mois, module comptable à 49 € HT/mois.",
+    tarifCourt: "59 à 179 € HT/mois",
     force:
       "Le réseau d'intégrations, de loin le plus fourni du marché : caisses (Zelty, CarrePOS, Cashpad, Connectill, Addictill), comptabilité (Pennylane, Synapsy, Evoliz), facturation (Libeo, Abill, Cashmag, Menlog). Utilisateurs et appareils illimités sur toutes les offres, et gestion multi-site native.",
     reserve:
@@ -80,6 +91,7 @@ export const concurrents: Concurrent[] = [
     cible: "Fabrication à domicile, petits laboratoires, boulangeries en croissance, laboratoires centralisés.",
     tarif:
       "Offre unique « Tout inclus » à 399 € HT par an, soit 33,25 € HT par mois, avec deux mois offerts. Sans engagement. Essai gratuit de 14 jours sans carte bancaire.",
+    tarifCourt: "399 € HT/an, soit 33,25 €/mois",
     force:
       "Le tarif le plus bas du marché sur un périmètre complet — 399 € HT par an, tout inclus — et la couverture réglementaire que peu proposent : traçabilité HACCP, gestion des DLC, étiquettes allergènes, valeurs nutritionnelles. Le compte démarre pré-rempli avec 200 recettes professionnelles et 300 ingrédients déjà chiffrés, et un assistant IA (« Pastel ») interroge vos données.",
     reserve:
@@ -95,6 +107,7 @@ export const concurrents: Concurrent[] = [
       "Chefs, restaurateurs, boulangers, pâtissiers, chocolatiers, traiteurs, glaciers, mais aussi collectivités, écoles, hôpitaux et marques agroalimentaires.",
     tarif:
       "Starter gratuit (100 fiches), Essentiel 1,99 € HT/mois, Booster 4,90 €, Pro 9,90 €, Business+ 19,90 € par administrateur et par site, Business Pro 39,90 € par administrateur et par site. Offres organisation à 120 € et 240 € HT/mois.",
+    tarifCourt: "Gratuit à 39,90 €/admin/site",
     force:
       "Le ticket d'entrée le plus bas du marché, et une offre gratuite réellement utilisable pour créer ses premières fiches. Étiquetage INCO, valeurs nutritionnelles, allergènes, AW et PAC, traduction, et un fonds de recettes partagées par la communauté.",
     reserve:
@@ -110,6 +123,7 @@ export const concurrents: Concurrent[] = [
       "Chaînes et groupes, cuisines centrales, dark kitchens, traiteurs, hôtels-restaurants, et boulangers-pâtissiers parmi d'autres métiers.",
     tarif:
       "À partir de 49 € HT/mois et par module, sur cinq modules (Analyses, Opérations, Traçabilité, Multisite, IA). Crédits IA facturés à part. Aucun frais d'installation : « 0 installation requise — 100 % cloud ».",
+    tarifCourt: "49 € HT/mois par module",
     force:
       "La profondeur fonctionnelle d'un ERP : analyse des marges, anomalies de livraison, gestion des pertes, traçabilité complète avec relevés de température et étiquetage INCO, pilotage multisite centralisé, et plus de cent outils pilotables par IA.",
     reserve:
