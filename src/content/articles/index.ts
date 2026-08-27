@@ -1,5 +1,6 @@
 import type { Guide } from "@/content/guides/types";
 import { assertPublishedGuidesHaveNoPlaceholders } from "@/content/guides/types";
+import { articleMarge } from "./calculer-sa-marge-boulangerie-patisserie";
 import { articlePerte } from "./pourcentage-perte-marge-boulangerie";
 import { articlePrix } from "./prix-logiciel-gestion-boulangerie";
 import { articleTelephone } from "./logiciel-boulangerie-sur-telephone";
@@ -17,7 +18,7 @@ import { articleTelephone } from "./logiciel-boulangerie-sur-telephone";
  * faudra corriger le balisage `Article` ou le sommaire, une seule correction
  * suffira.
  */
-export const articles: Guide[] = [articlePerte, articlePrix, articleTelephone];
+export const articles: Guide[] = [articleMarge, articlePerte, articlePrix, articleTelephone];
 
 assertPublishedGuidesHaveNoPlaceholders(articles);
 

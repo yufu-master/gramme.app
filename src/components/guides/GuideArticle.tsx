@@ -113,15 +113,34 @@ export function GuideArticle({
                     </tr>
                   </thead>
                   <tbody>
-                    {block.rows.map((row, rowIndex) => (
-                      <tr key={rowIndex} className={rowIndex % 2 === 0 ? "bg-white" : "bg-[#f6fbf2]"}>
-                        {row.map((cell, cellIndex) => (
-                          <td key={cellIndex} className="px-4 py-3 text-[#4d6952]">
-                            {renderInline(cell)}
-                          </td>
-                        ))}
-                      </tr>
-                    ))}
+                    {block.rows.map((row, rowIndex) => {
+                      // Une ligne dont le premier libellé est en gras est une ligne de
+                      // résultat — un sous-total, un palier de marge. Dans un tableau de
+                      // dix lignes, le gras seul se noie ; c'est le fond qui la fait
+                      // ressortir, et c'est elle que le lecteur vient chercher.
+                      const estResultat = row[0]?.trimStart().startsWith("**") ?? false;
+                      return (
+                        <tr
+                          key={rowIndex}
+                          className={
+                            estResultat
+                              ? "border-y border-[#c3ddb0] bg-[#e7f3da]"
+                              : rowIndex % 2 === 0
+                                ? "bg-white"
+                                : "bg-[#f6fbf2]"
+                          }
+                        >
+                          {row.map((cell, cellIndex) => (
+                            <td
+                              key={cellIndex}
+                              className={`px-4 py-3 ${estResultat ? "text-[#27421f]" : "text-[#4d6952]"}`}
+                            >
+                              {renderInline(cell)}
+                            </td>
+                          ))}
+                        </tr>
+                      );
+                    })}
                   </tbody>
                 </table>
               </div>
