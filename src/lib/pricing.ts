@@ -57,6 +57,7 @@ export const pricingPlans: Plan[] = [
     highlight: true,
     features: [
       { label: "Calcul des marges et pilotage de la rentabilité en temps réel", emphasis: true },
+      { label: "Allergènes propagés et étiquetage produit", emphasis: true },
       { label: "Gestion des stocks et inventaires valorisés", emphasis: true },
       { label: "Jusqu’à 5 utilisateurs" },
       { label: "Recettes et fiches techniques illimitées" },

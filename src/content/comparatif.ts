@@ -65,7 +65,7 @@ export const concurrents: Concurrent[] = [
     force:
       "Le pourcentage de perte et les rendements traités comme des données de premier plan, les sous-recettes en cascade sur plusieurs niveaux, le volume de factures inclus sans surcoût, la reprise complète des données faite par l'éditeur avant le premier jour, et le planning de production compris dans l'offre Pro.",
     reserve:
-      "HACCP, étiquetage allergènes, valeurs nutritionnelles et connexion aux caisses et à la comptabilité sont en cours de développement, annoncés d'ici fin 2026 : nous ne les comptons donc pas encore comme acquis dans les tableaux ci-dessous.",
+      "La traçabilité HACCP (relevés de température, plans de nettoyage) et la connexion aux caisses et à la comptabilité restent en cours de développement, annoncées d'ici fin 2026 : nous ne les comptons pas comme acquises dans les tableaux ci-dessous. L'étiquetage allergènes et les valeurs nutritionnelles, eux, sont livrés depuis le 30 août 2026.",
   },
   {
     id: "otami",
@@ -357,7 +357,7 @@ export const blocsComparatif: BlocComparatif[] = [
         critere: "Étiquetage allergènes réglementaire",
         pourquoi: "Obligatoire en vente non préemballée depuis le décret n° 2015-447.",
         valeurs: {
-          gramme: { v: "prevu", note: "En développement, annoncé d'ici fin 2026. Le répertoire de recettes en constitue déjà la source fiable" },
+          gramme: { v: "oui", note: "Les 14 allergènes de l'annexe II du règlement (UE) 1169/2011, propagés des matières aux sous-recettes puis aux produits finis. Affiche de vitrine et étiquette produit, avec archivage de chaque version imprimée" },
           otami: { v: "non" },
           logibake: { v: "oui" },
           chefstouch: { v: "oui" },
@@ -368,7 +368,7 @@ export const blocsComparatif: BlocComparatif[] = [
         critere: "Valeurs nutritionnelles",
         pourquoi: "Nécessaire pour la vente préemballée et la fourniture à des collectivités.",
         valeurs: {
-          gramme: { v: "prevu", note: "En développement, annoncé d'ici fin 2026" },
+          gramme: { v: "oui", note: "Calcul pondéré depuis les fiches, table Ciqual de l'ANSES intégrée (3 484 aliments), ordre et arrondis du règlement (UE) 1169/2011" },
           otami: { v: "non" },
           logibake: { v: "oui" },
           chefstouch: { v: "oui", note: "AW et PAC compris" },
@@ -500,7 +500,7 @@ export const cheminsDeChoix = [
   {
     profil: "Votre priorité absolue est la conformité sanitaire et l'étiquetage",
     conseil:
-      "Tout dépend de votre calendrier. HACCP, DLC, allergènes et valeurs nutritionnelles sont aujourd'hui des fonctions livrées chez LogiBake et Melba, alors qu'elles sont en cours de développement chez nous, annoncées d'ici fin 2026. S'il vous les faut ce trimestre, prenez l'un d'eux. Si votre échéance est plus lointaine, parlons-en : nous vous dirons où nous en sommes précisément, sans arrondir.",
+      "Séparons les deux sujets. Les allergènes et les valeurs nutritionnelles sont livrés chez nous depuis le 30 août 2026, et nous les tenons pour l'un de nos points forts : ils se propagent tout seuls des matières aux produits finis, ce que peu d'outils savent faire. La traçabilité HACCP — relevés de température, plans de nettoyage, contrôles à réception — ne l'est pas, et LogiBake comme Melba la proposent aujourd'hui. S'il vous la faut ce trimestre, prenez l'un d'eux, ou utilisez Gramme à côté d'un outil d'hygiène. Nous préférons le dire que vous le laisser découvrir.",
     verdict: "nuance" as const,
   },
   {

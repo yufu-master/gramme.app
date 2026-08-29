@@ -11,6 +11,7 @@ export type FeatureIcon =
   | "layers"
   | "box"
   | "users"
+  | "tag"
   | "spark";
 
 export type Feature = {
@@ -147,6 +148,74 @@ export const features: Feature[] = [
       {
         q: "Puis-je gérer des recettes qui en contiennent d'autres ?",
         a: "Oui. Les sous-recettes sont un objet à part entière : une base est saisie une seule fois puis rattachée à toutes les recettes qui l'utilisent, sur autant de niveaux que nécessaire.",
+      },
+    ],
+  },
+  {
+    slug: "allergenes-etiquetage",
+    name: "Allergènes & étiquetage",
+    icon: "tag",
+    summary:
+      "Les allergènes remontent tout seuls de vos matières premières jusqu'au produit fini, et l'étiquette s'écrit à partir de vos fiches.",
+    bullets: [
+      "Les 14 allergènes du règlement européen, renseignés une fois par matière",
+      "Propagation automatique aux sous-recettes puis aux produits finis",
+      "Affiche de vitrine et étiquette produit, aux formats de vos rouleaux",
+      "Valeurs nutritionnelles calculées, table Ciqual de l'ANSES intégrée",
+      "Chaque étiquette imprimée est archivée : qui l'a validée, quand, et ce qu'elle disait",
+    ],
+    image: {
+      src: "/images/fiches-techniques.jpg",
+      alt: "Étiquette produit avec liste d'ingrédients et allergènes mis en évidence, générée par le logiciel Gramme",
+    },
+    h1: "Allergènes et étiquetage : la même magie que les prix",
+    metaTitle: "Allergènes & étiquetage — logiciel boulangerie pâtisserie",
+    metaDescription:
+      "Renseignez les allergènes une fois par matière première : Gramme les propage à toutes vos recettes, produit l'affiche de vitrine et l'étiquette produit, et calcule les valeurs nutritionnelles depuis la table Ciqual de l'ANSES.",
+    keywords: [
+      "logiciel allergènes boulangerie",
+      "étiquetage INCO pâtisserie",
+      "affichage allergènes vitrine",
+      "valeurs nutritionnelles recette",
+      "table Ciqual logiciel",
+      "règlement 1169/2011 artisan",
+    ],
+    intro:
+      "Recopier les allergènes de chaque produit à la main, c'est une soirée de travail — et la certitude d'en oublier un le jour où l'on change de fournisseur de praliné. Gramme applique aux allergènes exactement ce qu'il fait déjà aux prix : vous renseignez la matière première une fois, et tout ce qui l'emploie se met à jour tout seul.",
+    sections: [
+      {
+        title: "Renseigné une fois, propagé partout",
+        text: "Vous cochez les allergènes sur la fiche d'une matière première — ou vous photographiez l'étiquette de votre fournisseur et Gramme vous les propose, en vous montrant l'extrait qui les justifie. Ensuite, tout remonte : la sous-recette hérite de ses composants, le produit fini hérite de ses sous-recettes. Le jour où votre nouveau praliné contient des traces de fruits à coque, tous les entremets concernés le disent, sans que vous ayez à y penser. Et chaque recette affiche quel ingrédient apporte quel allergène : vous voyez d'où vient l'information, vous ne la croyez pas sur parole.",
+      },
+      {
+        title: "Ce que la loi demande vraiment à votre vitrine",
+        text: "Pour un produit vendu à la coupe ou en vitrine, l'information sur les allergènes doit être écrite et visible près des denrées. Gramme édite l'affiche correspondante pour tout votre catalogue, en une page. Pour un produit emballé, l'étiquette complète se construit à partir de la fiche : liste d'ingrédients dans l'ordre décroissant de poids, allergènes mis en évidence, quantité nette, conservation. Un questionnaire de trois questions vous dit quelles mentions vous concernent — sans jamais décider à votre place.",
+      },
+      {
+        title: "Les valeurs nutritionnelles, calculées et sourcées",
+        text: "Le règlement européen autorise à calculer la déclaration nutritionnelle à partir des ingrédients plutôt que de payer une analyse en laboratoire par recette. Gramme le fait : les valeurs de chaque matière se combinent au prorata des quantités, l'énergie se déduit des coefficients officiels, et le tableau sort dans l'ordre et avec les arrondis imposés. Vous n'avez pas les valeurs d'une matière ? La table Ciqual de l'ANSES — 3 484 aliments — vous les propose, et vous confirmez.",
+      },
+      {
+        title: "Rien ne s'imprime sans vous",
+        text: "Un allergène ne se devine jamais. Tant qu'une seule matière de la recette n'a pas été renseignée, aucune étiquette ne sort — et l'écran vous dit laquelle. Avant chaque impression, vous cochez que vous avez vérifié les informations. Chaque version imprimée est ensuite archivée telle quelle, avec sa date et votre nom : en cas de contrôle ou de rappel, vous savez exactement ce qui a été apposé, et quand. Gramme aide à rassembler ces informations ; vous restez responsable de ce que vous diffusez.",
+      },
+    ],
+    faq: [
+      {
+        q: "Dois-je vraiment tout renseigner avant de pouvoir imprimer ?",
+        a: "Oui, et c'est volontaire. Une étiquette qui tait un allergène parce qu'il n'était pas renseigné se lit comme une information — elle est plus dangereuse qu'une absence d'étiquette. Gramme vous nomme les matières qui manquent, et un écran de reprise permet de traiter tout un catalogue rapidement : la majorité des matières n'ont aucun allergène, et se déclarent en un clic.",
+      },
+      {
+        q: "L'étiquette produite est-elle conforme ?",
+        a: "Gramme construit l'étiquette à partir du règlement (UE) 1169/2011 : les 14 allergènes de l'annexe II, l'ordre décroissant des ingrédients de l'article 18, la mise en évidence de l'article 21, l'ordre et les unités du tableau nutritionnel de l'annexe XV. Mais la conformité dépend aussi de votre situation, et nous ne la certifions pas : c'est vous l'exploitant, et l'application vous aide à rédiger, elle n'atteste de rien. Chaque information réglementaire affichée porte sa source et sa date.",
+      },
+      {
+        q: "Suis-je obligé de faire la déclaration nutritionnelle ?",
+        a: "Pas forcément. Le règlement prévoit des exemptions, notamment pour les denrées de fabrication artisanale fournies en faibles quantités directement au consommateur final. Beaucoup d'artisans en relèvent — c'est pourquoi ce bloc est désactivé par défaut chez nous. Le questionnaire enregistre ce que vous déclarez, daté ; nous ne qualifions jamais votre situation à votre place.",
+      },
+      {
+        q: "D'où viennent les valeurs nutritionnelles ?",
+        a: "De vos propres matières en priorité : celles que vous avez saisies ou lues sur l'étiquette de votre fournisseur. À défaut, Gramme vous propose celles de la table Ciqual de l'ANSES, une base publique de 3 484 aliments. Une valeur venue de Ciqual reste marquée « à vérifier » tant que vous ne l'avez pas confirmée : un praliné maison n'est pas le praliné moyen d'une table statistique.",
       },
     ],
   },

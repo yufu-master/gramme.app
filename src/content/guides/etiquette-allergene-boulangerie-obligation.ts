@@ -121,7 +121,7 @@ export const guideAllergenes: Guide = {
     },
     {
       type: "p",
-      text: "C'est le lien direct entre cette obligation et la tenue de vos fiches techniques. Gramme ne produit pas votre affichage allergènes et n'est pas un outil de conformité réglementaire : il tient à jour le répertoire de recettes et de sous-recettes à partir duquel cette information se construit de façon fiable. La différence est importante, et nous préférons la dire clairement.",
+      text: "C'est le lien direct entre cette obligation et la tenue de vos fiches techniques. Depuis le 30 août 2026, Gramme produit l'affiche d'allergènes de votre vitrine et l'étiquette de vos produits emballés : vous renseignez chaque matière première une fois, et l'information remonte d'elle-même aux sous-recettes puis aux produits finis. Une limite que nous préférons dire clairement : Gramme n'est pas un outil de certification. Il rassemble et met en forme l'information à partir de ce que vous avez saisi, il ne garantit pas votre conformité — celle-ci dépend aussi de votre situation, et vous en restez l'exploitant responsable.",
     },
     {
       type: "p",

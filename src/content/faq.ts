@@ -342,7 +342,7 @@ export const faqSections: FaqSection[] = [
       },
       {
         q: "Le logiciel évolue-t-il ?",
-        a: "En permanence, et c'est assumé. Les retours d'atelier passent directement dans la version suivante, et il en sort une régulièrement. Les nouveautés arrivent sans surcoût : pas de version 2 à racheter, pas de module à débloquer. Les chantiers en cours — HACCP, étiquetage allergènes, valeurs nutritionnelles, connexion aux caisses et à la comptabilité — sont annoncés d'ici fin 2026.",
+        a: "En permanence, et c'est assumé. Les retours d'atelier passent directement dans la version suivante, et il en sort une régulièrement. Les nouveautés arrivent sans surcoût : pas de version 2 à racheter, pas de module à débloquer. L'étiquetage allergènes et les valeurs nutritionnelles sont arrivés le 30 août 2026. Les chantiers encore en cours — traçabilité HACCP, connexion aux caisses et à la comptabilité — sont annoncés d'ici fin 2026.",
       },
       {
         q: "Puis-je demander une fonctionnalité ?",
@@ -392,7 +392,7 @@ export const faqSections: FaqSection[] = [
       },
       {
         q: "Gramme gère-t-il l'affichage réglementaire des allergènes ?",
-        a: "Pas encore. L'étiquetage allergènes et les valeurs nutritionnelles sont en cours de développement, annoncés d'ici fin 2026. Aujourd'hui, un répertoire de recettes et de sous-recettes tenu à jour constitue la source fiable à partir de laquelle cette information se construit — ce qui est déjà utile, mais ne remplace pas l'affichage réglementaire.",
+        a: "Oui, depuis le 30 août 2026. Vous renseignez les allergènes une fois par matière première — ou vous photographiez l'étiquette de votre fournisseur — et ils remontent tout seuls aux sous-recettes puis aux produits finis. Gramme édite l'affiche à poser en vitrine et l'étiquette des produits emballés, avec les valeurs nutritionnelles si vous en avez besoin. Une précision qui compte : nous vous aidons à rassembler et à rédiger cette information, nous ne certifions pas sa conformité. Vous restez l'exploitant responsable de ce que vous diffusez, et rien ne s'imprime sans que vous ayez validé.",
       },
       {
         q: "Quels sont les quatorze allergènes à déclaration obligatoire ?",
