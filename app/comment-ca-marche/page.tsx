@@ -3,19 +3,20 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema, webPageSchema } from "@/lib/seo";
+import { breadcrumbSchema, webPageSchema, imageSociale } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Comment ça marche",
   description:
-    "Découvrez en quelques étapes comment Gramme aide les boulangers et pâtissiers à organiser recettes, achats, production et marges — simplement, au quotidien.",
+    "De vos recettes à vos marges en sept étapes : import, factures, production, stock, marges, registres d'hygiène et étiquettes.",
   alternates: {
     canonical: "https://gramme.app/comment-ca-marche",
   },
   openGraph: {
+    images: imageSociale("/images/app/production.png", "Le planning de production dans Gramme"),
     title: "Comment ça marche | Gramme",
     description:
-      "Un parcours clair : recettes, factures, production, stock et marges — sans complexité inutile.",
+      "Un parcours clair : recettes, factures, production, stock, marges, hygiène et étiquetage, sans complexité inutile.",
     url: "https://gramme.app/comment-ca-marche",
   },
 };
@@ -29,7 +30,7 @@ const steps = [
   {
     n: "02",
     title: "Mettez vos prix à jour sans ressaisie",
-    text: "Photographiez ou importez vos factures fournisseurs. Les prix d’achat alimentent votre mercuriale et se répercutent sur les recettes concernées — vous voyez l’impact avant qu’il n’érode vos marges.",
+    text: "Photographiez ou importez vos factures fournisseurs. Les prix d’achat alimentent votre mercuriale et se répercutent sur les recettes concernées : vous voyez l’impact avant qu’il n’érode vos marges.",
   },
   {
     n: "03",
@@ -46,16 +47,26 @@ const steps = [
     title: "Pilotez vos marges au quotidien",
     text: "Alertes sur les recettes sensibles, vision des marges et priorisation des actions. Vous ne découvrez plus vos chiffres en fin de mois : vous les anticipez entre deux fournées.",
   },
+  {
+    n: "06",
+    title: "Tenez vos registres d’hygiène depuis le téléphone",
+    text: "Relevés de températures avec vos enceintes, vos bornes et vos heures ; plan de nettoyage pointé d’un geste ; étiquettes de lot et dates limites. Le registre s’imprime sur la période demandée, et rien ne s’y réécrit : pas même par un administrateur.",
+  },
+  {
+    n: "07",
+    title: "Sortez vos étiquettes et vos affiches",
+    text: "Les allergènes remontent seuls de vos matières jusqu’aux produits finis, les valeurs nutritionnelles se calculent depuis la table Ciqual de l’ANSES, et l’affiche de vitrine comme l’étiquette produit s’éditent depuis vos fiches. Vous validez, Gramme archive la version imprimée.",
+  },
 ];
 
 const pillars = [
   {
     title: "Pensé pour le laboratoire",
-    text: "Interface lisible sur téléphone et tablette, adaptée au rythme de l’atelier — pas un logiciel de bureau lourd.",
+    text: "Interface lisible sur téléphone et tablette, adaptée au rythme de l’atelier, pas un logiciel de bureau lourd.",
   },
   {
     title: "La précision avant la complexité",
-    text: "Six modules reliés (recettes, achats, production, stock, fournisseurs, décisions) sans ERP industriel.",
+    text: "Recettes, achats, production, stock, fournisseurs, hygiène et étiquetage reliés entre eux, sans ERP industriel, et sans module à payer en plus.",
   },
   {
     title: "Accompagnement à la mise en service",
@@ -69,7 +80,7 @@ export default function CommentCaMarchePage() {
       <JsonLd
         data={[
           webPageSchema({
-            title: "Comment ça marche — Gramme",
+            title: "Comment ça marche · Gramme",
             description:
               "Parcours en étapes pour comprendre comment Gramme pilote recettes, achats, production et marges en boulangerie-pâtisserie.",
             path: "/comment-ca-marche",
@@ -86,7 +97,7 @@ export default function CommentCaMarchePage() {
         <section className="mt-6 rounded-3xl border border-[#dcead2] bg-white/90 p-6 shadow-[0_20px_70px_rgba(58,92,39,0.08)] sm:p-8 md:p-12">
           <h1 className="text-3xl font-black leading-tight text-[#27421f] md:text-5xl">Comment ça marche</h1>
           <p className="mt-5 max-w-2xl text-base text-[#4d6952] md:text-lg">
-            Gramme ne remplace ni le geste ni l’intuition. Il les prolonge : un compagnon de laboratoire pour protéger vos marges — au gramme près.
+            Gramme ne remplace ni le geste ni l’intuition. Il les prolonge : un compagnon de laboratoire pour protéger vos marges, au gramme près.
           </p>
         </section>
 
@@ -123,7 +134,7 @@ export default function CommentCaMarchePage() {
         <section className="mt-12 rounded-3xl bg-[#264021] p-6 text-white sm:p-8 md:mt-16 md:p-10">
           <h2 className="text-2xl font-bold md:text-3xl">Prêt à voir Gramme sur votre activité ?</h2>
           <p className="mt-3 max-w-2xl text-white/85">
-            On échange sur votre laboratoire, vos recettes et vos priorités — sans engagement.
+            On échange sur votre laboratoire, vos recettes et vos priorités, sans engagement.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/contact" className="rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]">

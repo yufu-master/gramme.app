@@ -4,7 +4,7 @@ export const guideAllergenes: Guide = {
   slug: "etiquette-allergene-boulangerie-obligation",
   title: "Allergènes en boulangerie : vos obligations",
   description:
-    "Obligation d'information sur les allergènes en boulangerie-pâtisserie : les 14 allergènes du règlement INCO, les règles pour les produits vendus non préemballés, et comment construire l'information.",
+    "Ce que le décret 2015-447 impose en vente à la coupe, les 14 allergènes à déclarer, et comment tenir l'affiche à jour.",
   keywords: [
     "étiquette allergène boulangerie obligation",
     "allergènes boulangerie réglementation",
@@ -34,7 +34,7 @@ export const guideAllergenes: Guide = {
     },
     {
       type: "p",
-      text: "Le second est français : le décret n° 2015-447 du 17 avril 2015, applicable depuis le 1er juillet 2015. Il précise, pour les denrées vendues non préemballées — ce qui est le cas de l'essentiel de la production d'une boulangerie —, comment cette information doit être portée à la connaissance du consommateur. C'est ce décret qui concerne le plus directement le comptoir.",
+      text: "Le second est français : le décret n° 2015-447 du 17 avril 2015, applicable depuis le 1er juillet 2015. Il précise, pour les denrées vendues non préemballées, ce qui est le cas de l'essentiel de la production d'une boulangerie), comment cette information doit être portée à la connaissance du consommateur. C'est ce décret qui concerne le plus directement le comptoir.",
     },
     {
       type: "h2",
@@ -64,7 +64,7 @@ export const guideAllergenes: Guide = {
     },
     {
       type: "p",
-      text: "Deux pièges reviennent constamment en boulangerie. Le premier : la dorure. Un pain brioché doré au jaune d'œuf contient de l'œuf, même si l'œuf n'apparaît pas dans la pâte. Le second : les auxiliaires et améliorants. Une lécithine de soja ou une farine de lupin entrant dans un mélange acheté prêt à l'emploi doit être signalée comme si vous l'aviez ajoutée vous-même — c'est la fiche technique du fournisseur qui vous l'apprend.",
+      text: "Deux pièges reviennent constamment en boulangerie. Le premier : la dorure. Un pain brioché doré au jaune d'œuf contient de l'œuf, même si l'œuf n'apparaît pas dans la pâte. Le second : les auxiliaires et améliorants. Une lécithine de soja ou une farine de lupin entrant dans un mélange acheté prêt à l'emploi doit être signalée comme si vous l'aviez ajoutée vous-même, c'est la fiche technique du fournisseur qui vous l'apprend.",
     },
     {
       type: "h2",
@@ -73,7 +73,7 @@ export const guideAllergenes: Guide = {
     },
     {
       type: "p",
-      text: "Pour une denrée préemballée — un pain de mie sous sachet, une boîte de macarons fermée avant la commande du client —, l'allergène doit apparaître dans la liste des ingrédients et être mis en évidence par rapport au reste de la liste. La mise en évidence se fait par une différence de typographie : caractères gras, majuscules, italique, soulignement ou couleur de fond. Écrire l'ingrédient sans le distinguer ne suffit pas.",
+      text: "Pour une denrée préemballée, un pain de mie sous sachet, une boîte de macarons fermée avant la commande du client), l'allergène doit apparaître dans la liste des ingrédients et être mis en évidence par rapport au reste de la liste. La mise en évidence se fait par une différence de typographie : caractères gras, majuscules, italique, soulignement ou couleur de fond. Écrire l'ingrédient sans le distinguer ne suffit pas.",
     },
     {
       type: "h2",
@@ -86,7 +86,7 @@ export const guideAllergenes: Guide = {
     },
     {
       type: "p",
-      text: "Concrètement, cela exclut la réponse orale seule : dire au client qui interroge la vendeuse ne suffit pas à satisfaire l'obligation. Les formes admises sont l'affichage à proximité des produits, l'indication sur une étiquette de rayon, ou la mise à disposition d'un support consultable librement — un classeur posé sur le comptoir, un écran, une ardoise. Ce qui compte est que le support existe, soit tenu à jour et soit accessible sans démarche particulière du client.",
+      text: "Concrètement, cela exclut la réponse orale seule : dire au client qui interroge la vendeuse ne suffit pas à satisfaire l'obligation. Les formes admises sont l'affichage à proximité des produits, l'indication sur une étiquette de rayon, ou la mise à disposition d'un support consultable librement : un classeur posé sur le comptoir, un écran, une ardoise. Ce qui compte est que le support existe, soit tenu à jour et soit accessible sans démarche particulière du client.",
     },
     {
       type: "table",
@@ -121,7 +121,7 @@ export const guideAllergenes: Guide = {
     },
     {
       type: "p",
-      text: "C'est le lien direct entre cette obligation et la tenue de vos fiches techniques. Depuis le 30 août 2026, Gramme produit l'affiche d'allergènes de votre vitrine et l'étiquette de vos produits emballés : vous renseignez chaque matière première une fois, et l'information remonte d'elle-même aux sous-recettes puis aux produits finis. Une limite que nous préférons dire clairement : Gramme n'est pas un outil de certification. Il rassemble et met en forme l'information à partir de ce que vous avez saisi, il ne garantit pas votre conformité — celle-ci dépend aussi de votre situation, et vous en restez l'exploitant responsable.",
+      text: "C'est le lien direct entre cette obligation et la tenue de vos fiches techniques. Gramme produit l'affiche d'allergènes de votre vitrine et l'étiquette de vos produits emballés : vous renseignez chaque matière première une fois, et l'information remonte d'elle-même aux sous-recettes puis aux produits finis. Une limite que nous préférons dire clairement : Gramme n'est pas un outil de certification. Il rassemble et met en forme l'information à partir de ce que vous avez saisi, il ne garantit pas votre conformité : celle-ci dépend aussi de votre situation, et vous en restez l'exploitant responsable.",
     },
     {
       type: "p",

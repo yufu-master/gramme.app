@@ -1,5 +1,5 @@
 import type { Guide } from "./types";
-import { assertPublishedGuidesHaveNoPlaceholders } from "./types";
+import { assertPublishedGuidesHaveNoEmDash, assertPublishedGuidesHaveNoPlaceholders } from "./types";
 import { guideAllergenes } from "./etiquette-allergene-boulangerie-obligation";
 import { guideCoefficientCoutMatiere } from "./coefficient-cout-matiere-boulangerie";
 import { guideCoutDeRevient } from "./calcul-cout-de-revient-boulangerie";
@@ -20,6 +20,7 @@ export const guides: Guide[] = [
 ];
 
 assertPublishedGuidesHaveNoPlaceholders(guides);
+assertPublishedGuidesHaveNoEmDash(guides);
 
 /** Guides publiés uniquement — index, sitemap, llms.txt. */
 export const publishedGuides: Guide[] = guides.filter((g) => !g.draft);

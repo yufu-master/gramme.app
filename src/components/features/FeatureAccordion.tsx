@@ -3,12 +3,23 @@
 import Link from "next/link";
 import { useState } from "react";
 import { FeatureIcon } from "@/components/features/FeatureIcon";
+import { CadreAppareil } from "@/components/produit/CadreAppareil";
 import { features, featurePath } from "@/content/features";
 import { trackEvent } from "@/lib/analytics";
 
 /**
  * Accordéon des fonctionnalités (page d'accueil).
  * Résumé toujours visible, détail replié, lien vers la page dédiée.
+ *
+ * Le panneau déplié montre l'ÉCRAN du module. C'est la plus grosse section
+ * produit du site et elle est restée longtemps en texte pur, alors que la
+ * donnée était déjà là : `features` porte une `image` par module, et ce
+ * composant l'importait sans jamais s'en servir. Une liste de puces décrit ce
+ * que fait un logiciel ; une capture montre à quoi il ressemble, et c'est la
+ * question que se pose vraiment quelqu'un qui hésite.
+ *
+ * L'image n'est montée QUE lorsque le panneau s'ouvre : neuf captures chargées
+ * d'avance sur une page d'accueil coûteraient plus cher qu'elles ne rapportent.
  */
 export function FeatureAccordion() {
   const [openSlug, setOpenSlug] = useState<string | null>(null);
@@ -60,6 +71,15 @@ export function FeatureAccordion() {
                     </li>
                   ))}
                 </ul>
+                {/* Montée seulement à l'ouverture, voir le commentaire du composant. */}
+                <div className="mt-4 max-w-xl">
+                  <CadreAppareil
+                    appareil="navigateur"
+                    src={feature.image.src}
+                    alt={feature.image.alt}
+                    sizes="(max-width: 640px) 88vw, 576px"
+                  />
+                </div>
                 <Link
                   href={featurePath(feature.slug)}
                   onClick={() => trackEvent("feature_detail_click", { feature: feature.slug })}

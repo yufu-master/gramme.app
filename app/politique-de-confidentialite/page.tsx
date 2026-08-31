@@ -64,7 +64,7 @@ const sections: { title: string; body: ReactNode }[] = [
       <ul className="list-disc space-y-2 pl-5">
         <li>
           <strong>Formulaire de contact</strong> : nom, adresse e-mail, sujet, nom de structure, état de la structure,
-          message éventuel — saisis par vous.
+          message éventuel, saisis par vous.
         </li>
         <li>
           <strong>Mesure d&apos;audience</strong> : statistiques agrégées de fréquentation (pages vues, pays
@@ -82,18 +82,18 @@ const sections: { title: string; body: ReactNode }[] = [
     body: (
       <ul className="list-disc space-y-2 pl-5">
         <li>
-          Répondre à votre demande de contact ou de démonstration — <em>intérêt légitime</em> / mesures précontractuelles
+          Répondre à votre demande de contact ou de démonstration : <em>intérêt légitime</em> / mesures précontractuelles
           (art. 6.1.b et 6.1.f RGPD).
         </li>
         <li>
-          Créer un dossier prospect dans notre outil interne pour assurer le suivi commercial — <em>intérêt légitime</em>.
+          Créer un dossier prospect dans notre outil interne pour assurer le suivi commercial : <em>intérêt légitime</em>.
         </li>
         <li>
-          Mesurer l&apos;audience du site de façon anonymisée pour améliorer le contenu — <em>intérêt légitime</em>,
+          Mesurer l&apos;audience du site de façon anonymisée pour améliorer le contenu : <em>intérêt légitime</em>,
           sans cookie.
         </li>
         <li>
-          Sécurité, prévention des abus et des envois automatisés — <em>intérêt légitime</em>.
+          Sécurité, prévention des abus et des envois automatisés : <em>intérêt légitime</em>.
         </li>
       </ul>
     ),
@@ -104,7 +104,7 @@ const sections: { title: string; body: ReactNode }[] = [
       <ul className="list-disc space-y-2 pl-5">
         <li>Équipe Gramme (accès limité au besoin).</li>
         <li>Hébergeur du site (infrastructure européenne ou équivalente selon le prestataire).</li>
-        <li>Supabase (backend CRM / application) — données de prospect issues du formulaire.</li>
+        <li>Supabase (backend CRM / application) : données de prospect issues du formulaire.</li>
         <li>Resend (envoi d&apos;e-mails transactionnels de notification).</li>
         <li>Plausible Analytics (mesure d&apos;audience sans cookie), lorsque configuré.</li>
       </ul>
@@ -192,7 +192,7 @@ export default function PolitiqueConfidentialitePage() {
         <article className="mt-8 rounded-3xl border border-[#dcead2] bg-white p-6 shadow-sm sm:p-10">
           <h1 className="text-3xl font-black text-[#27421f] md:text-4xl">Politique de confidentialité</h1>
           <p className="mt-4 max-w-3xl text-[#4d6952]">
-            Document clair sur les données personnelles traitées via le site vitrine gramme.app — sans jargon inutile.
+            Document clair sur les données personnelles traitées via le site vitrine gramme.app, sans jargon inutile.
           </p>
           <div className="mt-10 space-y-10">
             {sections.map((section) => (

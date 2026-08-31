@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { CadreAppareil } from "@/components/produit/CadreAppareil";
 import { NeDuTerrain } from "@/components/landing/NeDuTerrain";
 import Link from "next/link";
 import { useEffect, useState } from "react";
@@ -69,7 +70,7 @@ export default function HomePage() {
         >
           <Image
             src="/images/hero-lifestyle.jpg"
-            alt="Logiciel gestion boulangerie Gramme sur smartphone — recettes, stock et mercuriale"
+            alt="Logiciel gestion boulangerie Gramme sur smartphone : recettes, stock et mercuriale"
             fill
             priority
             sizes="100vw"
@@ -86,7 +87,7 @@ export default function HomePage() {
           <div className="relative z-10 w-full max-w-[34rem] self-end px-4 pb-12 pt-24 sm:self-center sm:px-6 sm:pb-14 sm:pt-24 md:max-w-[36rem] md:px-8 lg:max-w-[38rem] lg:px-10 xl:px-14">
             <p className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#cfe8bf]">
               <SparkIcon className="size-4" />
-              Gramme — logiciel boulangerie &amp; pâtisserie
+              Gramme : logiciel boulangerie &amp; pâtisserie
             </p>
             <h1 className="text-[2.35rem] font-black leading-[1.08] text-white sm:text-5xl md:text-6xl">
               Pilotez votre marge
@@ -239,9 +240,9 @@ export default function HomePage() {
           <div className="max-w-3xl">
             <h2 className="text-3xl font-bold md:text-4xl">Les fonctionnalités qui font gagner du temps et de la marge.</h2>
             <p className="mt-4 text-[var(--muted-foreground)]">
-              Sept modules reliés entre eux : digitalisation des recettes, fiches techniques et calcul du coût de
+              Neuf modules reliés entre eux : digitalisation des recettes, fiches techniques et calcul du coût de
               revient, mercuriale et alertes de prix, gestion de stocks, planning de production et pilotage de la
-              rentabilité — sans complexité inutile. Tout est connecté : un prix qui bouge sur une facture se
+              rentabilité, sans complexité inutile. Tout est connecté : un prix qui bouge sur une facture se
               répercute jusqu&apos;à la marge de chaque recette. Dépliez pour l&apos;essentiel, ouvrez la page dédiée
               pour le détail.
             </p>
@@ -250,7 +251,7 @@ export default function HomePage() {
               <Link href="/logiciel-patisserie" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
                 Voir la page dédiée aux laboratoires de pâtisserie
               </Link>{" "}
-              — sous-recettes en cascade, coût de revient à l&apos;entremets, pertes de parage.
+              : sous-recettes en cascade, coût de revient à l&apos;entremets, pertes de parage.
             </p>
           </div>
           <FeatureAccordion />
@@ -267,17 +268,41 @@ export default function HomePage() {
             <div className="mx-auto max-w-2xl text-center">
               <h2 id="multidevice-title" className="text-3xl font-bold text-white md:text-4xl">Sur ordinateur, tablette ou téléphone.</h2>
               <p className="mt-4 text-white/75">
-                Pilotez votre boulangerie partout : mercuriale, stock et recettes synchronisés sur tous vos écrans.
+                Le même compte, la même version, sur l&apos;ordinateur du bureau, la tablette du labo et le téléphone
+                posé près du pétrin. Rien à installer, aucune mise à jour à lancer.
               </p>
             </div>
-            <div className="relative mx-auto mt-10 aspect-[16/10] w-full max-w-5xl sm:mt-14 sm:aspect-[16/9]">
-              <Image
-                src="/images/multi-device.png"
-                alt="Logiciel Gramme multi-appareils — mercuriale desktop, stock tablette et menu mobile"
-                fill
-                sizes="(max-width: 1024px) 100vw, 1024px"
-                className="object-contain object-center"
-              />
+            {/* De vraies captures, encadrées en CSS.
+                Le rendu qui occupait cette place était une image générée dont
+                le texte d'interface était du charabia (« Scanner une fecture »,
+                « Foundeboves », « Dormière mies à jour ») : visible à l'œil en
+                pleine largeur, sur la seule section du site qui montre le
+                produit sur plusieurs écrans. */}
+            <div className="mx-auto mt-10 flex max-w-5xl flex-col items-center gap-6 sm:mt-14 lg:flex-row lg:items-end lg:gap-8">
+              <div className="w-full lg:flex-[1.6]">
+                <CadreAppareil
+                  appareil="navigateur"
+                  src="/images/app/mercuriale.png"
+                  alt="La mercuriale de Gramme sur ordinateur : chaque matière première avec son prix de référence, son fournisseur et sa tendance"
+                  sizes="(max-width: 1024px) 92vw, 620px"
+                />
+              </div>
+              <div className="w-full max-w-[320px] lg:flex-1 lg:max-w-none">
+                <CadreAppareil
+                  appareil="tablette"
+                  src="/images/app/haccp-nettoyage-tablette.png"
+                  alt="Le plan de nettoyage de Gramme sur tablette, posé au laboratoire : douze tâches à jour, pointages par semaine et par zone"
+                  sizes="(max-width: 1024px) 60vw, 320px"
+                />
+              </div>
+              <div className="w-[168px] shrink-0 sm:w-[196px]">
+                <CadreAppareil
+                  appareil="telephone"
+                  src="/images/app/accueil-atelier-telephone.png"
+                  alt="L'accueil de Gramme sur téléphone en mode atelier : six grandes tuiles utilisables les mains farineuses"
+                  sizes="196px"
+                />
+              </div>
             </div>
           </div>
         </section>
@@ -289,7 +314,7 @@ export default function HomePage() {
             </h2>
             <p className="mt-4 text-[var(--muted-foreground)]">
               Fiches techniques, factures fournisseurs, prix d&apos;achat et marges restent votre propriété.
-              Aucune revente, aucun partage avec d&apos;autres établissements, accès limité au support — dans un cadre RGPD.
+              Aucune revente, aucun partage avec d&apos;autres établissements, accès limité au support : dans un cadre RGPD.
             </p>
           </div>
           <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -323,7 +348,7 @@ export default function HomePage() {
             <div>
               <h2 className="text-3xl font-bold md:text-4xl">Les tarifs</h2>
               <p className="mt-3 max-w-xl text-[var(--muted-foreground)]">
-                Sans engagement en mensuel. Annuel avec 2 mois offerts. Installation accompagnée une seule fois, à partir de 300 € HT — forfait ferme de 300 € HT pour une entreprise en cours de création.
+                Sans engagement en mensuel. Annuel avec 2 mois offerts. Installation accompagnée une seule fois, à partir de 300 € HT : forfait ferme de 300 € HT pour une entreprise en cours de création.
               </p>
             </div>
             <Link href="/tarifs" className="text-sm font-semibold text-[#355329] underline-offset-2 hover:underline">
@@ -495,7 +520,7 @@ function ImportResultCard() {
         <SparkIcon className="size-3.5" />
         Fiche reconstituée
       </p>
-      <p className="mt-1.5 text-sm font-bold text-[#1a2e14]">Croissant au beurre — 60 pièces</p>
+      <p className="mt-1.5 text-sm font-bold text-[#1a2e14]">Croissant au beurre : 60 pièces</p>
       <ul className="mt-2 flex flex-wrap gap-1.5 text-[11px] font-semibold">
         <li className="rounded-full bg-[#a8cf8c]/30 px-2 py-0.5 text-[#355329]">Détrempe · sous-recette</li>
         <li className="rounded-full bg-[#a8cf8c]/30 px-2 py-0.5 text-[#355329]">Tourage · 8 ingrédients</li>

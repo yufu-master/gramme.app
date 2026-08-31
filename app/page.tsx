@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     absolute: "Logiciel gestion boulangerie & pâtisserie | Gramme",
   },
   description:
-    "Gramme, logiciel de gestion et de production pour boulangeries et pâtisseries : digitalisez vos recettes d'une simple photo, fiches techniques, calcul des marges en temps réel, alertes de prix, planning de production et gestion de stocks. Tout est connecté.",
+    "Recettes, coût de revient, factures, mercuriale, production, stock, hygiène et étiquetage dans une seule application. Un prix qui bouge remonte à la marge.",
   keywords: [
     "logiciel gestion boulangerie",
     "logiciel pâtisserie",
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
         url: "/images/hero-lifestyle.jpg",
         width: 1200,
         height: 630,
-        alt: "Gramme — application de gestion pour boulangers et pâtissiers",
+        alt: "Gramme, application de gestion pour boulangers et pâtissiers",
       },
     ],
   },

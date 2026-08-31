@@ -26,7 +26,13 @@ export async function generateMetadata({
   const url = `${SITE_URL}${featurePath(feature.slug)}`;
 
   return {
-    title: feature.metaTitle,
+    /*
+     * `title.absolute` : le gabarit de `app/layout.tsx` ajoute « | Gramme », ce
+     * qui poussait les neuf pages module au-delà de soixante caractères — donc
+     * tronquées dans les résultats. Les `metaTitle` nomment déjà Gramme quand
+     * c'est utile.
+     */
+    title: { absolute: feature.metaTitle },
     description: feature.metaDescription,
     keywords: feature.keywords,
     alternates: { canonical: url },
@@ -127,7 +133,7 @@ export default async function FeaturePage({ params }: { params: Promise<Params> 
         <section className="mt-12 rounded-3xl bg-[#264021] p-6 text-white sm:p-8 md:mt-16 md:p-10">
           <h2 className="text-2xl font-bold md:text-3xl">Voir {feature.name.toLowerCase()} sur votre activité</h2>
           <p className="mt-3 max-w-2xl text-white/85">
-            On échange sur votre laboratoire, vos recettes et vos priorités — sans engagement.
+            On échange sur votre laboratoire, vos recettes et vos priorités, sans engagement.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/contact" className="rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]">

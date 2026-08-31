@@ -7,7 +7,7 @@ const howToSteps = [
   },
   {
     name: "Pesez la recette en unités réelles, sous-recettes comprises",
-    text: "Chaque composant est exprimé dans la même unité que son prix d'achat. Une préparation intermédiaire — détrempe, crème pâtissière, praliné — se calcule d'abord seule, puis entre dans la recette finale à son coût au kilo, pas à son prix d'ingrédients recopié.",
+    text: "Chaque composant est exprimé dans la même unité que son prix d'achat. Une préparation intermédiaire (détrempe, crème pâtissière, praliné) se calcule d'abord seule, puis entre dans la recette finale à son coût au kilo, pas à son prix d'ingrédients recopié.",
   },
   {
     name: "Appliquez les pertes",
@@ -25,9 +25,9 @@ const howToSteps = [
 
 export const guideCoutDeRevient: Guide = {
   slug: "calcul-cout-de-revient-boulangerie",
-  title: "Calculer le coût de revient d'un produit de boulangerie",
+  title: "Calculer son coût de revient en boulangerie",
   description:
-    "La méthode de calcul du coût de revient en boulangerie : prix d'achat réels, sous-recettes, pourcentage de perte, rendement, taux de marque. Avec exemples chiffrés.",
+    "La méthode complète : matières, pertes, main-d'œuvre et charges, avec un exemple chiffré de la farine au pain vendu.",
   keywords: [
     "calcul coût de revient boulangerie",
     "coût de revient pain",
@@ -64,7 +64,7 @@ export const guideCoutDeRevient: Guide = {
     },
     {
       type: "p",
-      text: "En boulangerie artisanale, la décision quotidienne — quel produit garder, lequel réajuster, lequel retirer de la gamme — se prend sur le coût matière et la marge brute. Le coût de revient complet sert à valider une gamme ou à préparer un plan de financement, pas à arbitrer entre deux viennoiseries un mardi matin. C'est pourquoi cet article part du coût matière, celui que vous pouvez tenir à jour sans comptable.",
+      text: "En boulangerie artisanale, la décision quotidienne (quel produit garder, lequel réajuster, lequel retirer de la gamme) se prend sur le coût matière et la marge brute. Le coût de revient complet sert à valider une gamme ou à préparer un plan de financement, pas à arbitrer entre deux viennoiseries un mardi matin. C'est pourquoi cet article part du coût matière, celui que vous pouvez tenir à jour sans comptable.",
     },
     {
       type: "howto-steps",

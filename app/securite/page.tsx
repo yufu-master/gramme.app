@@ -8,7 +8,7 @@ import { webPageSchema } from "@/lib/seo";
 export const metadata: Metadata = {
   title: "Sécurité & confidentialité des recettes",
   description:
-    "Vos recettes, factures et marges restent les vôtres : pas de revente, pas de partage entre établissements, hébergement Europe, RGPD et accès strictement limités.",
+    "Hébergement européen, cloisonnement par établissement, sauvegardes et RGPD : comment vos recettes et vos prix restent votre propriété.",
   alternates: { canonical: "https://gramme.app/securite" },
 };
 
@@ -67,7 +67,7 @@ export default function SecuritePage() {
           <p className="mt-4 max-w-3xl text-lg text-[#4d6952]">
             En confiant votre laboratoire à Gramme, vous nous confiez votre savoir-faire. Notre engagement est simple :
             <strong className="text-[#355329]"> pas de partage, pas de revente, pas d&apos;usage hors de votre compte</strong>
-            — avec un cadre RGPD et des accès limités au strict nécessaire.
+           , avec un cadre RGPD et des accès limités au strict nécessaire.
           </p>
 
           <ul className="mt-8 grid gap-3 sm:grid-cols-2">

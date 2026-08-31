@@ -2,9 +2,9 @@ import type { Guide } from "@/content/guides/types";
 
 export const articlePerte: Guide = {
   slug: "pourcentage-perte-marge-boulangerie",
-  title: "Le pourcentage de perte, l'erreur qui embellit toutes vos marges",
+  title: "Le pourcentage de perte qui ronge votre marge",
   description:
-    "Une pâte perd 12 % à la cuisson, un fruit 30 % au parage. Sans ce taux, votre coût de revient porte sur une matière qui n'arrive jamais en vitrine — et la marge affichée est systématiquement plus belle que la vraie. Comment le repérer et le corriger.",
+    "Cuisson, parage, invendus : où part la matière que vous avez payée, et comment la compter dans un coût de revient juste.",
   keywords: [
     "pourcentage de perte boulangerie",
     "perte à la cuisson pâte",
@@ -17,9 +17,9 @@ export const articlePerte: Guide = {
   updatedAt: "2026-08-26",
   ogImage: "/images/feature-recette-detail.png",
   summary:
-    "Le taux de perte est le paramètre le plus souvent absent des calculs de coût de revient — et celui qui les fausse le plus. Explication chiffrée, et méthode pour le mesurer sans matériel.",
+    "Le taux de perte est le paramètre le plus souvent absent des calculs de coût de revient, et celui qui les fausse le plus. Explication chiffrée, et méthode pour le mesurer sans matériel.",
   intro:
-    "C'est le premier écart que nous trouvons en reprenant le tableur d'un atelier, et de loin le plus coûteux. Pas une erreur de saisie, pas un prix oublié : un paramètre entier qui manque, et qui rend toutes les marges plus belles qu'elles ne sont. Il porte plusieurs noms selon les métiers — perte, freinte, rendement, taux de parage — et il désigne toujours la même chose : de la matière que vous avez payée et que vous ne vendrez jamais.",
+    "C'est le premier écart que nous trouvons en reprenant le tableur d'un atelier, et de loin le plus coûteux. Pas une erreur de saisie, pas un prix oublié : un paramètre entier qui manque, et qui rend toutes les marges plus belles qu'elles ne sont. Il porte plusieurs noms selon les métiers (perte, freinte, rendement, taux de parage) et il désigne toujours la même chose : de la matière que vous avez payée et que vous ne vendrez jamais.",
   blocks: [
     {
       type: "h2",
@@ -28,7 +28,7 @@ export const articlePerte: Guide = {
     },
     {
       type: "p",
-      text: "Vous enfournez 1 000 g de pâte. Vous sortez 880 g de pain. Les 120 g manquants ne se sont pas volatilisés dans une erreur de pesée : c'est de l'eau partie à la cuisson. Vous les avez pourtant achetés — la farine, l'eau, le sel, la levure de ces 120 g figurent bien sur votre facture fournisseur.",
+      text: "Vous enfournez 1 000 g de pâte. Vous sortez 880 g de pain. Les 120 g manquants ne se sont pas volatilisés dans une erreur de pesée : c'est de l'eau partie à la cuisson. Vous les avez pourtant achetés : la farine, l'eau, le sel, la levure de ces 120 g figurent bien sur votre facture fournisseur.",
     },
     {
       type: "p",
@@ -61,11 +61,11 @@ export const articlePerte: Guide = {
     },
     {
       type: "p",
-      text: "Deux centimes par pièce, 1,6 point de ratio. Sur un produit isolé, c'est anecdotique. Sur mille pièces par semaine, c'est **plus de mille euros par an** — sur une seule référence, et sur le produit le plus simple de la carte.",
+      text: "Deux centimes par pièce, 1,6 point de ratio. Sur un produit isolé, c'est anecdotique. Sur mille pièces par semaine, c'est **plus de mille euros par an** : sur une seule référence, et sur le produit le plus simple de la carte.",
     },
     {
       type: "p",
-      text: "Et l'écart grandit avec le nombre d'étapes. Un entremets fait de trois sous-recettes qui perdent chacune à leur niveau accumule les erreurs en cascade : un biscuit qui perd 10 % à la cuisson, une crème qui perd 5 % au transfert, un montage qui perd 8 % à la découpe. Trois oublis de 5 à 10 % ne s'additionnent pas, ils se multiplient — et le coût réel peut dépasser de 20 à 25 % le coût affiché.",
+      text: "Et l'écart grandit avec le nombre d'étapes. Un entremets fait de trois sous-recettes qui perdent chacune à leur niveau accumule les erreurs en cascade : un biscuit qui perd 10 % à la cuisson, une crème qui perd 5 % au transfert, un montage qui perd 8 % à la découpe. Trois oublis de 5 à 10 % ne s'additionnent pas, ils se multiplient, et le coût réel peut dépasser de 20 à 25 % le coût affiché.",
     },
     {
       type: "h2",
@@ -82,11 +82,11 @@ export const articlePerte: Guide = {
     },
     {
       type: "p",
-      text: "**Beaucoup d'outils de gestion ne le documentent pas.** En comparant les principaux logiciels du secteur, nous avons relevé que plusieurs éditeurs annoncent le calcul du coût matière et de la marge sans mentionner nulle part le taux de perte, le rendement ou la distinction entre poids brut et poids net. Cela ne veut pas dire que la fonction est absente de leur produit — seulement qu'elle n'est pas mise en avant, ce qui en dit long sur l'importance qu'on lui accorde.",
+      text: "**Beaucoup d'outils de gestion ne le documentent pas.** En comparant les principaux logiciels du secteur, nous avons relevé que plusieurs éditeurs annoncent le calcul du coût matière et de la marge sans mentionner nulle part le taux de perte, le rendement ou la distinction entre poids brut et poids net. Cela ne veut pas dire que la fonction est absente de leur produit : seulement qu'elle n'est pas mise en avant, ce qui en dit long sur l'importance qu'on lui accorde.",
     },
     {
       type: "p",
-      text: "**L'erreur va dans le sens agréable.** Un coût sous-estimé donne une marge flatteuse. Rien n'alerte, aucun chiffre ne paraît suspect, et l'écart ne se voit qu'en fin d'exercice, dans le décalage entre le ratio matière théorique et le ratio comptable réel. À ce moment-là, on l'attribue au vol, à la casse ou aux invendus — rarement au calcul.",
+      text: "**L'erreur va dans le sens agréable.** Un coût sous-estimé donne une marge flatteuse. Rien n'alerte, aucun chiffre ne paraît suspect, et l'écart ne se voit qu'en fin d'exercice, dans le décalage entre le ratio matière théorique et le ratio comptable réel. À ce moment-là, on l'attribue au vol, à la casse ou aux invendus : rarement au calcul.",
     },
     {
       type: "h2",
@@ -127,11 +127,11 @@ export const articlePerte: Guide = {
     },
     {
       type: "p",
-      text: "Ces fourchettes ne remplacent pas vos mesures — elles servent à repérer une valeur aberrante dans vos fiches actuelles. Si votre fiche indique 2 % de perte sur un pain de campagne, il y a un problème.",
+      text: "Ces fourchettes ne remplacent pas vos mesures, elles servent à repérer une valeur aberrante dans vos fiches actuelles. Si votre fiche indique 2 % de perte sur un pain de campagne, il y a un problème.",
     },
     {
       type: "table",
-      caption: "Ordres de grandeur usuels — à confirmer par vos propres pesées",
+      caption: "Ordres de grandeur usuels · à confirmer par vos propres pesées",
       headers: ["Étape", "Fourchette courante"],
       rows: [
         ["Cuisson d'un pain (perte en eau)", "10 à 20 % selon le format et la durée"],
@@ -148,7 +148,7 @@ export const articlePerte: Guide = {
     },
     {
       type: "p",
-      text: "L'expérience est presque toujours la même : deux ou trois produits que l'on croyait rentables passent sous la barre, et un produit que l'on soupçonnait de tirer la marge vers le bas se révèle correct. Les décisions qui suivent — une hausse de prix ciblée, un fournisseur à renégocier, une recette à retravailler — portent enfin sur les bons produits.",
+      text: "L'expérience est presque toujours la même : deux ou trois produits que l'on croyait rentables passent sous la barre, et un produit que l'on soupçonnait de tirer la marge vers le bas se révèle correct. Les décisions qui suivent (une hausse de prix ciblée, un fournisseur à renégocier, une recette à retravailler) portent enfin sur les bons produits.",
     },
     {
       type: "p",
@@ -156,7 +156,7 @@ export const articlePerte: Guide = {
     },
     {
       type: "p",
-      text: "Dans Gramme, chaque fiche porte son poids brut, son poids net et son taux de perte, et le coût est rapporté au produit vendable — y compris à travers les sous-recettes, où l'effet cumulé se produit. Le taux se saisit une fois et suit la fiche pour toujours, quels que soient les redimensionnements.",
+      text: "Dans Gramme, chaque fiche porte son poids brut, son poids net et son taux de perte, et le coût est rapporté au produit vendable, y compris à travers les sous-recettes, où l'effet cumulé se produit. Le taux se saisit une fois et suit la fiche pour toujours, quels que soient les redimensionnements.",
     },
   ],
   faqs: [
@@ -174,7 +174,7 @@ export const articlePerte: Guide = {
     },
     {
       q: "Comment savoir si mon logiciel actuel prend la perte en compte ?",
-      a: "Ouvrez une fiche et cherchez trois champs : poids brut, poids net et un pourcentage. S'ils n'y sont pas, ou si le coût par pièce se calcule directement en divisant le coût total par le nombre de pièces annoncé, la perte n'est pas dans le calcul — même si le résultat paraît crédible.",
+      a: "Ouvrez une fiche et cherchez trois champs : poids brut, poids net et un pourcentage. S'ils n'y sont pas, ou si le coût par pièce se calcule directement en divisant le coût total par le nombre de pièces annoncé, la perte n'est pas dans le calcul : même si le résultat paraît crédible.",
     },
   ],
   draft: false,

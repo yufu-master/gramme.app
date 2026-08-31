@@ -2,7 +2,7 @@ import type { Guide } from "./types";
 
 export const guideLogicielChef: Guide = {
   slug: "logiciel-concu-par-un-chef-patissier",
-  title: "Un logiciel de gestion conçu par un chef pâtissier, pour les artisans",
+  title: "Un logiciel conçu par un chef pâtissier",
   description:
     "Pourquoi une application pensée dans un laboratoire ne ressemble pas à un outil venu de la restauration. Sous recettes, montage, coût de revient réel.",
   keywords: [
@@ -63,7 +63,7 @@ export const guideLogicielChef: Guide = {
     },
     {
       type: "p",
-      text: "Prenons l'exemple d'un entremets chocolat-praliné de huit parts, vendu 34 €. Les coûts ci-dessous s'appuient sur des ordres de grandeur d'achat pro relevés en France en 2026 (beurre autour de 11–13 €/kg en GMS, chocolat de couverture courant autour de 15–25 €/kg chez les fournisseurs pâtisserie) — à affiner avec vos propres factures.",
+      text: "Prenons l'exemple d'un entremets chocolat-praliné de huit parts, vendu 34 €. Les coûts ci-dessous s'appuient sur des ordres de grandeur d'achat pro relevés en France en 2026 (beurre autour de 11–13 €/kg en GMS, chocolat de couverture courant autour de 15–25 €/kg chez les fournisseurs pâtisserie) : à affiner avec vos propres factures.",
     },
     {
       type: "table",
@@ -93,7 +93,7 @@ export const guideLogicielChef: Guide = {
     },
     {
       type: "p",
-      text: "Par honnêteté, et parce que vous le découvririez de toute façon. Gramme n'est pas un logiciel de caisse et ne remplace pas votre encaissement. Il ne gère pas la traçabilité sanitaire ni les relevés de température. Il ne fait pas votre comptabilité. Et il a besoin d'une connexion pour analyser vos documents.",
+      text: "Par honnêteté, et parce que vous le découvririez de toute façon. Gramme n'est pas un logiciel de caisse et ne remplace pas votre encaissement. Il tient vos registres d'hygiène (relevés de températures, nettoyage, lots) mais il ne rédige pas votre plan de maîtrise sanitaire et n'atteste d'aucune conformité. Il ne fait pas votre comptabilité. Et il a besoin d'une connexion pour analyser vos documents.",
     },
     {
       type: "p",

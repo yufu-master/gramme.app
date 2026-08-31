@@ -24,7 +24,7 @@ export default async function MiseEnServicePage({
         </h1>
         <p className="mt-5 leading-relaxed text-[#4d6952]">
           Une dizaine de minutes. Ces réponses nous permettent de préparer votre compte en amont et de
-          dimensionner correctement l&apos;accompagnement — pour que le jour du rendez-vous serve à
+          dimensionner correctement l&apos;accompagnement, pour que le jour du rendez-vous serve à
           travailler, pas à saisir.
         </p>
       </header>

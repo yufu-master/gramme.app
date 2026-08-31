@@ -3,13 +3,13 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema, SITE_EMAIL, SITE_URL, webPageSchema } from "@/lib/seo";
+import { breadcrumbSchema, SITE_EMAIL, SITE_URL, webPageSchema, imageSociale } from "@/lib/seo";
 import { faqSections, toutesLesQuestions } from "@/content/faq";
 
 export const metadata: Metadata = {
-  title: "FAQ — logiciel de gestion boulangerie & pâtisserie",
+  title: "FAQ du logiciel de gestion boulangerie",
   description:
-    "Toutes les réponses sur Gramme : coût de revient, marges, sous-recettes, scan de factures, mercuriale, stocks, tarifs, mise en service, sécurité des données, HACCP et allergènes.",
+    "Toutes les questions sur Gramme : coût de revient, scan de factures, hygiène HACCP, allergènes, tarifs, données et mise en service.",
   keywords: [
     "FAQ logiciel boulangerie",
     "questions logiciel pâtisserie",
@@ -20,7 +20,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${SITE_URL}/faq` },
   openGraph: {
-    title: "FAQ — logiciel de gestion boulangerie & pâtisserie",
+    images: imageSociale("/images/app/mercuriale.png", "La mercuriale de Gramme, prix de référence et tendance par matière"),
+    title: "FAQ · logiciel de gestion boulangerie & pâtisserie",
     description:
       "Coûts, marges, sous-recettes, factures, stocks, tarifs, données, réglementation : les réponses en clair.",
     url: `${SITE_URL}/faq`,
@@ -86,7 +87,7 @@ export default function FaqPage() {
             <Link href="/contact" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
               Écrivez-nous
             </Link>{" "}
-            — réponse sous 4 heures ouvrées.
+            : réponse sous 4 heures ouvrées.
           </p>
         </section>
 
@@ -152,7 +153,7 @@ export default function FaqPage() {
             Une question qui n&apos;est pas dans cette liste ?
           </h2>
           <p className="mt-4 max-w-3xl leading-relaxed text-[#4d6952] md:text-lg">
-            Posez-la. Si elle mérite d&apos;être ici, elle y sera — cette page est faite des questions que les
+            Posez-la. Si elle mérite d&apos;être ici, elle y sera : cette page est faite des questions que les
             artisans nous posent réellement. Écrivez à{" "}
             <a
               href={`mailto:${SITE_EMAIL}`}

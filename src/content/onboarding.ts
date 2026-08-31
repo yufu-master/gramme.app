@@ -39,7 +39,7 @@ export const ONBOARDING_STEPS: Step[] = [
         kind: "text",
         name: "siret",
         label: "SIRET",
-        hint: "Facultatif — utile pour préparer le contrat.",
+        hint: "Facultatif, utile pour préparer le contrat.",
       },
       {
         // Choix multiple (#109) : un artisan est rarement d'une seule
@@ -235,7 +235,7 @@ export const ONBOARDING_STEPS: Step[] = [
         name: "f_mercuriale",
         label: "Mercuriale / tarifs fournisseurs négociés",
         categorie: "mercuriale",
-        hint: "Idéalement les références réellement commandées sur l'année écoulée — ou sur le plus de mois possible. C'est ce qui donne un historique de prix dès le premier jour.",
+        hint: "Idéalement les références réellement commandées sur l'année écoulée, ou sur le plus de mois possible. C'est ce qui donne un historique de prix dès le premier jour.",
       },
       {
         kind: "files",
@@ -273,10 +273,10 @@ export type UserRow = {
 
 /** Miroir de public.roles_permissions — voir docs/ACCES-PAR-ROLE.md côté app. */
 export const USER_ROLES: Choice[] = [
-  { value: "admin", label: "Admin — tout, équipe comprise" },
-  { value: "gestionnaire", label: "Gestionnaire — tout le métier, sans l'équipe" },
-  { value: "operateur", label: "Opérateur — atelier : recettes, stock, scans" },
-  { value: "lecture_seule", label: "Lecture seule — consultation" },
+  { value: "admin", label: "Admin : tout, équipe comprise" },
+  { value: "gestionnaire", label: "Gestionnaire : tout le métier, sans l'équipe" },
+  { value: "operateur", label: "Opérateur : atelier, recettes, stock, scans" },
+  { value: "lecture_seule", label: "Lecture seule : consultation" },
 ];
 
 export const USER_USAGES: Choice[] = [

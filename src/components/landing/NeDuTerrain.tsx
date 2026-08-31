@@ -116,7 +116,7 @@ export function NeDuTerrain() {
       <div className="mt-6 flex flex-col gap-4 rounded-2xl border border-[#a8cf8c]/50 bg-[#f6fbf2] p-5 sm:mt-7 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3 sm:p-6">
         <p className="flex-1 text-sm leading-relaxed text-[#4d6952] sm:min-w-[16rem] sm:text-base">
           <strong className="text-[#3e6134]">Ce n&apos;est pas un discours.</strong> Nous avons comparé
-          Gramme aux principaux logiciels du secteur, tarifs publics à l&apos;appui — y compris là où ils
+          Gramme aux principaux logiciels du secteur, tarifs publics à l&apos;appui, y compris là où ils
           font mieux que nous.
         </p>
         <Link

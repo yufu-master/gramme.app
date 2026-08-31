@@ -45,7 +45,7 @@ export const faqSections: FaqSection[] = [
       },
       {
         q: "Qu'est-ce que Gramme ne fait pas ?",
-        a: "Gramme n'est ni une caisse enregistreuse, ni un logiciel de comptabilité, ni un outil de e-commerce ou de livraison, ni un logiciel HACCP. Il ne génère pas non plus vos recettes : il structure et valorise celles que vous avez déjà. Ces limites sont assumées — un outil qui prétend tout faire ne fait rien correctement.",
+        a: "Gramme n'est ni une caisse enregistreuse, ni un logiciel de comptabilité, ni un outil de e-commerce ou de livraison. Il tient vos registres d'hygiène (températures, nettoyage, lots, réceptions) mais il ne rédige pas votre plan de maîtrise sanitaire et ne certifie aucune conformité. Il ne génère pas non plus vos recettes : il structure et valorise celles que vous avez déjà. Ces limites sont assumées : un outil qui prétend tout faire ne fait rien correctement.",
       },
       {
         q: "En quoi Gramme est-il différent d'un tableur Excel ?",
@@ -61,7 +61,7 @@ export const faqSections: FaqSection[] = [
       },
       {
         q: "Faut-il être à l'aise avec l'informatique pour utiliser Gramme ?",
-        a: "Non. L'interface a été dessinée pour être utilisée avec les mains dans la farine : des écrans lisibles, peu de champs, pas de vocabulaire de logiciel. Et surtout, vous ne démarrez pas devant un outil vide — l'installation accompagnée remplit votre compte avant que vous l'ouvriez.",
+        a: "Non. L'interface a été dessinée pour être utilisée avec les mains dans la farine : des écrans lisibles, peu de champs, pas de vocabulaire de logiciel. Et surtout, vous ne démarrez pas devant un outil vide : l'installation accompagnée remplit votre compte avant que vous l'ouvriez.",
       },
       {
         q: "Sur quels appareils Gramme fonctionne-t-il ?",
@@ -69,11 +69,11 @@ export const faqSections: FaqSection[] = [
       },
       {
         q: "Faut-il un ordinateur pour utiliser Gramme ?",
-        a: "Non, et c'est un parti pris. Un boulanger n'est pas devant un ordinateur : il est devant un four à quatre heures du matin, et le seul écran à portée est celui de sa poche. Tout se fait depuis le téléphone — photographier une fiche ou une facture, consulter un coût, vérifier une marge, lancer une production. Plusieurs logiciels du secteur restent des applications de bureau à installer, et c'est la raison la plus fréquente pour laquelle un outil n'est ouvert qu'une fois par semaine, donc jamais tenu à jour.",
+        a: "Non, et c'est un parti pris. Un boulanger n'est pas devant un ordinateur : il est devant un four à quatre heures du matin, et le seul écran à portée est celui de sa poche. Tout se fait depuis le téléphone : photographier une fiche ou une facture, consulter un coût, vérifier une marge, lancer une production. Plusieurs logiciels du secteur restent des applications de bureau à installer, et c'est la raison la plus fréquente pour laquelle un outil n'est ouvert qu'une fois par semaine, donc jamais tenu à jour.",
       },
       {
         q: "Faut-il une connexion internet dans le laboratoire ?",
-        a: "Oui, Gramme fonctionne en ligne. La consultation reste possible sur une connexion faible, mais un laboratoire en sous-sol sans réseau demande un point d'accès — c'est à vérifier avant la mise en service.",
+        a: "Oui, Gramme fonctionne en ligne. La consultation reste possible sur une connexion faible, mais un laboratoire en sous-sol sans réseau demande un point d'accès, c'est à vérifier avant la mise en service.",
       },
     ],
   },
@@ -84,11 +84,11 @@ export const faqSections: FaqSection[] = [
     entrees: [
       {
         q: "Puis-je importer mes recettes en photo ?",
-        a: "Oui, c'est la voie principale. Vous photographiez vos fiches manuscrites depuis le téléphone — anciennes, jaunies, farinées ou tachées de graisse — et Gramme reconstruit la fiche technique : ingrédients, quantités, unités, rendement, sous-recettes rattachées, pourcentage de perte, coût matière et marge.",
+        a: "Oui, c'est la voie principale. Vous photographiez vos fiches manuscrites depuis le téléphone (anciennes, jaunies, farinées ou tachées de graisse) et Gramme reconstruit la fiche technique : ingrédients, quantités, unités, rendement, sous-recettes rattachées, pourcentage de perte, coût matière et marge.",
       },
       {
         q: "Mes fiches doivent-elles être propres pour être lues ?",
-        a: "Non. La lecture est faite pour des documents d'atelier, pas pour des scans de bureau. Une photo prise de travers, sur un plan de travail, avec une tache, passe. Ce qui bloque vraiment, c'est une écriture illisible même pour un humain — dans ce cas la ligne vous est signalée pour arbitrage plutôt que devinée.",
+        a: "Non. La lecture est faite pour des documents d'atelier, pas pour des scans de bureau. Une photo prise de travers, sur un plan de travail, avec une tache, passe. Ce qui bloque vraiment, c'est une écriture illisible même pour un humain : dans ce cas la ligne vous est signalée pour arbitrage plutôt que devinée.",
       },
       {
         q: "Et si une quantité est mal lue ?",
@@ -100,11 +100,11 @@ export const faqSections: FaqSection[] = [
       },
       {
         q: "Gramme gère-t-il les sous-recettes ?",
-        a: "Oui, et sur plusieurs niveaux. Une crème pâtissière entre dans un flan qui entre dans un plateau : le coût remonte toute la chaîne. C'est le point déterminant en pâtisserie — sans sous-recettes en cascade, les coûts de revient sont faux, et ils le sont d'autant plus que la recette est élaborée.",
+        a: "Oui, et sur plusieurs niveaux. Une crème pâtissière entre dans un flan qui entre dans un plateau : le coût remonte toute la chaîne. C'est le point déterminant en pâtisserie, sans sous-recettes en cascade, les coûts de revient sont faux, et ils le sont d'autant plus que la recette est élaborée.",
       },
       {
         q: "Comment sont gérés les pertes et les rendements ?",
-        a: "Chaque fiche porte son poids brut, son poids net et son pourcentage de perte, qu'il s'agisse de perte à la cuisson, de parage ou de découpe. Le coût est rapporté au produit vendable, pas au produit sorti du pétrin — c'est la seule façon d'obtenir un coût de revient qui corresponde à ce que vous vendez.",
+        a: "Chaque fiche porte son poids brut, son poids net et son pourcentage de perte, qu'il s'agisse de perte à la cuisson, de parage ou de découpe. Le coût est rapporté au produit vendable, pas au produit sorti du pétrin, c'est la seule façon d'obtenir un coût de revient qui corresponde à ce que vous vendez.",
       },
       {
         q: "Pourquoi le pourcentage de perte change-t-il tout ?",
@@ -135,15 +135,15 @@ export const faqSections: FaqSection[] = [
     entrees: [
       {
         q: "Comment calcule-t-on un coût de revient en boulangerie ?",
-        a: "On additionne le coût de chaque composant à son prix d'achat réel, on applique le taux de perte, puis on divise par le nombre de pièces vendables. À cela s'ajoutent l'emballage, la main d'œuvre — temps de préparation multiplié par votre taux horaire — et, si vous les renseignez, vos charges fixes ramenées à la pièce. Gramme fait ce calcul et le refait à chaque changement de prix.",
+        a: "On additionne le coût de chaque composant à son prix d'achat réel, on applique le taux de perte, puis on divise par le nombre de pièces vendables. À cela s'ajoutent l'emballage, la main d'œuvre (temps de préparation multiplié par votre taux horaire) et, si vous les renseignez, vos charges fixes ramenées à la pièce. Gramme fait ce calcul et le refait à chaque changement de prix.",
       },
       {
         q: "Gramme prend-il en compte mes charges fixes ?",
-        a: "Oui, si vous les renseignez. Vous saisissez vos charges — loyer, énergie, assurances, abonnements — avec leur périodicité, ainsi que les quantités vendues sur la période. Gramme en déduit la part de charges fixes imputable à une pièce et l'intègre au coût de revient, donc à la marge et au coefficient. Si vous ne renseignez rien, les calculs restent sur les matières, l'emballage et la main d'œuvre.",
+        a: "Oui, si vous les renseignez. Vous saisissez vos charges (loyer, énergie, assurances, abonnements) avec leur périodicité, ainsi que les quantités vendues sur la période. Gramme en déduit la part de charges fixes imputable à une pièce et l'intègre au coût de revient, donc à la marge et au coefficient. Si vous ne renseignez rien, les calculs restent sur les matières, l'emballage et la main d'œuvre.",
       },
       {
         q: "Quelle est la différence entre ratio matière et marge ?",
-        a: "Le ratio matière ne compte que les matières premières, rapportées au prix de vente hors taxes : c'est le chiffre qui se compare aux repères du métier. La marge, elle, porte sur le coût de revient complet — matières, emballage, main d'œuvre et charges fixes. Confondre les deux fait croire à une rentabilité qui n'existe pas.",
+        a: "Le ratio matière ne compte que les matières premières, rapportées au prix de vente hors taxes : c'est le chiffre qui se compare aux repères du métier. La marge, elle, porte sur le coût de revient complet : matières, emballage, main d'œuvre et charges fixes. Confondre les deux fait croire à une rentabilité qui n'existe pas.",
       },
       {
         q: "Quel pourcentage de coût matière faut-il viser ?",
@@ -151,7 +151,7 @@ export const faqSections: FaqSection[] = [
       },
       {
         q: "Sur quel prix se calcule la marge, HT ou TTC ?",
-        a: "Hors taxes, toujours. Un coût de revient est hors taxes, il ne peut se comparer qu'à un prix hors taxes. Calculer une marge sur le prix TTC gonfle artificiellement le résultat — en pain et viennoiserie à emporter, à 5,5 % de TVA, l'écart n'est pas anodin.",
+        a: "Hors taxes, toujours. Un coût de revient est hors taxes, il ne peut se comparer qu'à un prix hors taxes. Calculer une marge sur le prix TTC gonfle artificiellement le résultat : en pain et viennoiserie à emporter, à 5,5 % de TVA, l'écart n'est pas anodin.",
       },
       {
         q: "Gramme me dit-il à quel prix vendre ?",
@@ -163,7 +163,7 @@ export const faqSections: FaqSection[] = [
       },
       {
         q: "Puis-je voir l'historique du coût d'une recette ?",
-        a: "Oui. Chaque fiche conserve l'évolution de son coût de revient, ce qui permet de voir en un coup d'œil quel produit s'est dégradé sur six mois — et donc lequel mérite une révision de prix ou de recette.",
+        a: "Oui. Chaque fiche conserve l'évolution de son coût de revient, ce qui permet de voir en un coup d'œil quel produit s'est dégradé sur six mois, et donc lequel mérite une révision de prix ou de recette.",
       },
       {
         q: "Faut-il un comptable pour exploiter ces chiffres ?",
@@ -194,7 +194,7 @@ export const faqSections: FaqSection[] = [
       },
       {
         q: "Suis-je prévenu quand un prix augmente ?",
-        a: "Oui. Une hausse déclenche une alerte, sur le téléphone si vous les avez activées et par courriel. Vous choisissez ce que vous recevez et à quelles heures — une notification à trois heures du matin fait couper les notifications pour toujours.",
+        a: "Oui. Une hausse déclenche une alerte, sur le téléphone si vous les avez activées et par courriel. Vous choisissez ce que vous recevez et à quelles heures : une notification à trois heures du matin fait couper les notifications pour toujours.",
       },
       {
         q: "Puis-je comparer deux fournisseurs sur une même matière ?",
@@ -237,7 +237,7 @@ export const faqSections: FaqSection[] = [
       },
       {
         q: "Sait-on d'où vient un mouvement de stock ?",
-        a: "Oui. Chaque mouvement porte sa cause — une production, une facture appliquée, une correction manuelle — de sorte que l'historique reste lisible et qu'un écart puisse s'expliquer.",
+        a: "Oui. Chaque mouvement porte sa cause (une production, une facture appliquée, une correction manuelle) de sorte que l'historique reste lisible et qu'un écart puisse s'expliquer.",
       },
     ],
   },
@@ -248,7 +248,7 @@ export const faqSections: FaqSection[] = [
     entrees: [
       {
         q: "En quoi consiste l'installation accompagnée ?",
-        a: "Nous montons votre compte de bout en bout : votre établissement, les profils de votre équipe avec leurs droits, votre carnet de fournisseurs, votre mercuriale complète — chaque matière première, son unité, son conditionnement, son prix d'achat réel —, la reprise de vos fiches recettes et de vos sous-recettes, le traitement de vos factures des derniers mois, puis les contrôles et la formation.",
+        a: "Nous montons votre compte de bout en bout : votre établissement, les profils de votre équipe avec leurs droits, votre carnet de fournisseurs, votre mercuriale complète, chaque matière première, son unité, son conditionnement, son prix d'achat réel), la reprise de vos fiches recettes et de vos sous-recettes, le traitement de vos factures des derniers mois, puis les contrôles et la formation.",
       },
       {
         q: "Combien de temps cela représente-t-il ?",
@@ -260,7 +260,7 @@ export const faqSections: FaqSection[] = [
       },
       {
         q: "Combien coûte la mise en service ?",
-        a: "À partir de 300 € HT en Starter et de 500 € HT en Pro, payable en trois fois sans supplément. Le montant final dépend du volume à reprendre — un cahier de recettes et trois mois de factures ne demandent pas le même travail qu'un tableur de huit cents lignes. Il vous est communiqué par écrit avant toute exécution et ne peut plus être révisé ensuite.",
+        a: "À partir de 300 € HT en Starter et de 500 € HT en Pro, payable en trois fois sans supplément. Le montant final dépend du volume à reprendre : un cahier de recettes et trois mois de factures ne demandent pas le même travail qu'un tableur de huit cents lignes. Il vous est communiqué par écrit avant toute exécution et ne peut plus être révisé ensuite.",
       },
       {
         q: "Et si mon entreprise est en cours de création ?",
@@ -276,7 +276,7 @@ export const faqSections: FaqSection[] = [
       },
       {
         q: "Que dois-je préparer de mon côté ?",
-        a: "Vos fiches recettes sous n'importe quelle forme — cahier, classeur, tableur —, vos factures fournisseurs des derniers mois, la liste des personnes qui auront un accès, et vos prix de vente actuels. Rien de plus.",
+        a: "Vos fiches recettes sous n'importe quelle forme, cahier, classeur, tableur), vos factures fournisseurs des derniers mois, la liste des personnes qui auront un accès, et vos prix de vente actuels. Rien de plus.",
       },
     ],
   },
@@ -303,7 +303,7 @@ export const faqSections: FaqSection[] = [
       },
       {
         q: "Que se passe-t-il si j'arrête ?",
-        a: "Vos données restent exportables à tout moment, et elles sont conservées douze mois après votre départ — le temps de les récupérer, ou de revenir sans rien avoir perdu. Passé ce délai elles sont supprimées, et vous pouvez demander leur suppression plus tôt si vous le souhaitez.",
+        a: "Vos données restent exportables à tout moment, et elles sont conservées douze mois après votre départ, le temps de les récupérer, ou de revenir sans rien avoir perdu. Passé ce délai elles sont supprimées, et vous pouvez demander leur suppression plus tôt si vous le souhaitez.",
       },
       {
         q: "Puis-je changer d'offre en cours d'année ?",
@@ -334,7 +334,7 @@ export const faqSections: FaqSection[] = [
       },
       {
         q: "Puis-je gérer plusieurs établissements ?",
-        a: "Oui, avec un forfait multi-établissement dédié. Chaque atelier reste un espace de données distinct et cloisonné, et vous basculez de l'un à l'autre depuis le même compte. Décrivez-nous votre organisation — nombre de laboratoires, points de vente, qui doit voir quoi — et nous vous établissons la proposition correspondante.",
+        a: "Oui, avec un forfait multi-établissement dédié. Chaque atelier reste un espace de données distinct et cloisonné, et vous basculez de l'un à l'autre depuis le même compte. Décrivez-nous votre organisation (nombre de laboratoires, points de vente, qui doit voir quoi) et nous vous établissons la proposition correspondante.",
       },
       {
         q: "Comment joindre le support ?",
@@ -342,7 +342,7 @@ export const faqSections: FaqSection[] = [
       },
       {
         q: "Le logiciel évolue-t-il ?",
-        a: "En permanence, et c'est assumé. Les retours d'atelier passent directement dans la version suivante, et il en sort une régulièrement. Les nouveautés arrivent sans surcoût : pas de version 2 à racheter, pas de module à débloquer. L'étiquetage allergènes et les valeurs nutritionnelles sont arrivés le 30 août 2026. Les chantiers encore en cours — traçabilité HACCP, connexion aux caisses et à la comptabilité — sont annoncés d'ici fin 2026.",
+        a: "En permanence, et c'est assumé. Les retours d'atelier passent directement dans la version suivante, et il en sort une régulièrement. Les nouveautés arrivent sans surcoût : pas de version 2 à racheter, pas de module à débloquer. L'étiquetage allergènes, les valeurs nutritionnelles et les registres d'hygiène (températures, nettoyage, lots, réceptions) font partie de l'offre Pro. Le chantier encore en cours, la connexion aux caisses et à la comptabilité, est annoncé d'ici fin 2026.",
       },
       {
         q: "Puis-je demander une fonctionnalité ?",
@@ -353,7 +353,7 @@ export const faqSections: FaqSection[] = [
   {
     id: "donnees",
     titre: "Données, sécurité et confidentialité",
-    chapeau: "Vos recettes sont votre patrimoine. Ce que nous en faisons — et ne faisons pas.",
+    chapeau: "Vos recettes sont votre patrimoine. Ce que nous en faisons, et ne faisons pas.",
     entrees: [
       {
         q: "Mes recettes m'appartiennent-elles ?",
@@ -384,19 +384,19 @@ export const faqSections: FaqSection[] = [
   {
     id: "reglementation",
     titre: "Réglementation : HACCP et allergènes",
-    chapeau: "Là où passe la frontière — et pourquoi nous la disons franchement.",
+    chapeau: "Ce que nous enregistrons, ce que nous imprimons, et où s'arrête notre responsabilité.",
     entrees: [
       {
         q: "Gramme fait-il l'HACCP ?",
-        a: "Pas encore, et il est important de le dire clairement : aujourd'hui, pas de relevés de températures, pas de plan de nettoyage, pas de traçabilité de lots, pas d'étiquetage de DLC, aucun document opposable lors d'un contrôle sanitaire. Ce chantier est en cours de développement et annoncé d'ici fin 2026. En attendant, Gramme s'utilise en complément d'un outil HACCP dédié, jamais à sa place. Si la conformité sanitaire est votre priorité ce trimestre, dites-le-nous : nous vous dirons franchement où nous en sommes.",
+        a: "Oui, et c'est compris dans l'offre Pro. Vous déclarez vos enceintes, leurs bornes et leurs heures de relevé ; le relevé du jour se prend en quelques secondes depuis le téléphone, et un écart hors de vos bornes ne s'enregistre pas sans l'action corrective qui va avec. Le plan de nettoyage se pointe de la même façon, par zone et par fréquence. Vos préparations sortent avec leur numéro de lot et leur date limite, et le contrôle à réception part de la facture déjà scannée. Tout cela s'imprime en registre, sur la période de votre choix. Une chose ne change pas : un logiciel n'est pas un plan de maîtrise sanitaire et ne rend personne conforme. Il enregistre vos relevés, les horodate, les rend consultables et imprimables, et il ne les réécrit jamais, y compris pour un administrateur. La maîtrise sanitaire, elle, reste la vôtre.",
       },
       {
         q: "Gramme gère-t-il l'affichage réglementaire des allergènes ?",
-        a: "Oui, depuis le 30 août 2026. Vous renseignez les allergènes une fois par matière première — ou vous photographiez l'étiquette de votre fournisseur — et ils remontent tout seuls aux sous-recettes puis aux produits finis. Gramme édite l'affiche à poser en vitrine et l'étiquette des produits emballés, avec les valeurs nutritionnelles si vous en avez besoin. Une précision qui compte : nous vous aidons à rassembler et à rédiger cette information, nous ne certifions pas sa conformité. Vous restez l'exploitant responsable de ce que vous diffusez, et rien ne s'imprime sans que vous ayez validé.",
+        a: "Oui. Vous renseignez les allergènes une fois par matière première (ou vous photographiez l'étiquette de votre fournisseur) et ils remontent tout seuls aux sous-recettes puis aux produits finis. Gramme édite l'affiche à poser en vitrine et l'étiquette des produits emballés, avec les valeurs nutritionnelles si vous en avez besoin. Une précision qui compte : nous vous aidons à rassembler et à rédiger cette information, nous ne certifions pas sa conformité. Vous restez l'exploitant responsable de ce que vous diffusez, et rien ne s'imprime sans que vous ayez validé.",
       },
       {
         q: "Quels sont les quatorze allergènes à déclaration obligatoire ?",
-        a: "Céréales contenant du gluten, crustacés, œufs, poissons, arachides, soja, lait, fruits à coque, céleri, moutarde, graines de sésame, anhydride sulfureux et sulfites au-delà de 10 mg/kg, lupin et mollusques — annexe II du règlement UE 1169/2011.",
+        a: "Céréales contenant du gluten, crustacés, œufs, poissons, arachides, soja, lait, fruits à coque, céleri, moutarde, graines de sésame, anhydride sulfureux et sulfites au-delà de 10 mg/kg, lupin et mollusques, annexe II du règlement UE 1169/2011.",
       },
       {
         q: "Une boulangerie doit-elle afficher les allergènes en vente à la coupe ?",

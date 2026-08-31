@@ -7,7 +7,7 @@ const howToSteps = [
   },
   {
     name: "Calculez le coût matière réel, sous-recettes comprises",
-    text: "Chaque préparation intermédiaire — pâte, appareil, crème, croustillant — se calcule d'abord seule, avec son propre taux de perte, et entre dans le produit fini à son coût au kilo réellement utilisable. Jamais à la somme de ses ingrédients recopiée.",
+    text: "Chaque préparation intermédiaire (pâte, appareil, crème, croustillant) se calcule d'abord seule, avec son propre taux de perte, et entre dans le produit fini à son coût au kilo réellement utilisable. Jamais à la somme de ses ingrédients recopiée.",
   },
   {
     name: "Ajoutez la main-d'œuvre au coût horaire chargé",
@@ -31,7 +31,7 @@ export const articleMarge: Guide = {
   slug: "calculer-sa-marge-boulangerie-patisserie",
   title: "Comment calculer sa marge en boulangerie-pâtisserie",
   description:
-    "Marge sur matière, sur coût de production, sur coût de revient, nette, puis après impôt : les cinq étages du calcul, appliqués à une part de flan, chiffres à l'appui.",
+    "Marge brute, marge nette, ratio matière : les trois chiffres à ne pas confondre, avec deux exemples chiffrés de A à Z.",
   keywords: [
     "calculer sa marge boulangerie",
     "calcul marge pâtisserie",
@@ -132,7 +132,7 @@ export const articleMarge: Guide = {
     },
     {
       type: "table",
-      caption: "Sous-recette 1 — la pâte, au kilo réellement utilisable",
+      caption: "Sous-recette 1 · la pâte, au kilo réellement utilisable",
       headers: ["Ingrédient", "Quantité", "Prix d'achat", "Coût"],
       rows: [
         ["Farine T55", "500 g", "0,92 € / kg", "0,46 €"],
@@ -151,7 +151,7 @@ export const articleMarge: Guide = {
     },
     {
       type: "table",
-      caption: "Sous-recette 2 — l'appareil, au kilo réellement coulé",
+      caption: "Sous-recette 2 · l'appareil, au kilo réellement coulé",
       headers: ["Ingrédient", "Quantité", "Prix d'achat", "Coût"],
       rows: [
         ["Lait entier", "1 500 g", "1,00 € / L", "1,50 €"],
@@ -182,7 +182,7 @@ export const articleMarge: Guide = {
     },
     {
       type: "p",
-      text: "Une remarque au passage sur la perte à la cuisson, qui revient toujours dans cette discussion. Le flan perd de l'eau au four, mais il est vendu à la part, pas au poids : cette perte-là ne change pas le coût de la part. Les pertes qui comptent ici sont celles qui font disparaître de la matière payée avant le découpage — les chutes de fonçage et le fond de casserole. La règle générale : **une perte n'affecte le coût que si elle réduit le nombre d'unités vendables ou la quantité de matière qui y entre.**",
+      text: "Une remarque au passage sur la perte à la cuisson, qui revient toujours dans cette discussion. Le flan perd de l'eau au four, mais il est vendu à la part, pas au poids : cette perte-là ne change pas le coût de la part. Les pertes qui comptent ici sont celles qui font disparaître de la matière payée avant le découpage : les chutes de fonçage et le fond de casserole. La règle générale : **une perte n'affecte le coût que si elle réduit le nombre d'unités vendables ou la quantité de matière qui y entre.**",
     },
     {
       type: "h2",
@@ -263,7 +263,7 @@ export const articleMarge: Guide = {
     },
     {
       type: "p",
-      text: "Le principe : les charges qui font tourner le laboratoire existent que vous produisiez ou non. Le four consomme, le loyer court, le pétrin s'amortit. Elles ne se rattachent à aucune recette en particulier, mais elles se rattachent parfaitement au **temps** — donc on les ramène à l'heure d'atelier.",
+      text: "Le principe : les charges qui font tourner le laboratoire existent que vous produisiez ou non. Le four consomme, le loyer court, le pétrin s'amortit. Elles ne se rattachent à aucune recette en particulier, mais elles se rattachent parfaitement au **temps**, donc on les ramène à l'heure d'atelier.",
     },
     {
       type: "table",
@@ -286,7 +286,7 @@ export const articleMarge: Guide = {
     },
     {
       type: "p",
-      text: "Une limite honnête de cette méthode, qu'il faut connaître : elle répartit les charges au temps de main-d'œuvre, alors que certaines ressources se consomment sans personne devant. Le flan occupe le four 45 minutes pendant lesquelles le tourier travaille sur autre chose. Tant que le four n'est pas saturé, ce n'est pas un problème. Le jour où il l'est — un 24 décembre, une veille de fête des Mères — la ressource rare n'est plus l'heure de main-d'œuvre mais l'heure de four, et la répartition doit suivre.",
+      text: "Une limite honnête de cette méthode, qu'il faut connaître : elle répartit les charges au temps de main-d'œuvre, alors que certaines ressources se consomment sans personne devant. Le flan occupe le four 45 minutes pendant lesquelles le tourier travaille sur autre chose. Tant que le four n'est pas saturé, ce n'est pas un problème. Le jour où il l'est (un 24 décembre, une veille de fête des Mères) la ressource rare n'est plus l'heure de main-d'œuvre mais l'heure de four, et la répartition doit suivre.",
     },
     {
       type: "h2",
@@ -295,11 +295,11 @@ export const articleMarge: Guide = {
     },
     {
       type: "p",
-      text: "Restent les charges qui ne se rattachent pas au laboratoire : le personnel de vente, le loyer de la boutique, l'administratif, la comptabilité, les frais bancaires, les assurances générales. Les répartir produit par produit n'aurait pas de sens, elles ne dépendent pas de la recette. La méthode admise consiste à les exprimer en pourcentage du chiffre d'affaires hors taxes — dans une boulangerie-pâtisserie artisanale, l'ordre de grandeur tourne autour de 30 % — et à vérifier que chaque produit dégage assez pour les couvrir.",
+      text: "Restent les charges qui ne se rattachent pas au laboratoire : le personnel de vente, le loyer de la boutique, l'administratif, la comptabilité, les frais bancaires, les assurances générales. Les répartir produit par produit n'aurait pas de sens, elles ne dépendent pas de la recette. La méthode admise consiste à les exprimer en pourcentage du chiffre d'affaires hors taxes (dans une boulangerie-pâtisserie artisanale, l'ordre de grandeur tourne autour de 30 %) et à vérifier que chaque produit dégage assez pour les couvrir.",
     },
     {
       type: "p",
-      text: "Dernière ligne, la plus désagréable : les invendus et les offerts. Ce n'est pas une perte technique, c'est une perte commerciale, et elle se traite à part — mais elle se traite. Six pour cent de la production qui ne trouve pas preneur, ce sont six pour cent de recette en moins sur tout ce qui a été fabriqué.",
+      text: "Dernière ligne, la plus désagréable : les invendus et les offerts. Ce n'est pas une perte technique, c'est une perte commerciale, et elle se traite à part, mais elle se traite. Six pour cent de la production qui ne trouve pas preneur, ce sont six pour cent de recette en moins sur tout ce qui a été fabriqué.",
     },
     {
       type: "table",
@@ -326,7 +326,7 @@ export const articleMarge: Guide = {
     },
     {
       type: "p",
-      text: "Notez que 14,2 % de marge nette sur un produit, c'est bon — très au-dessus de ce que dégage une boulangerie-pâtisserie dans son ensemble. Le flan est un produit qui tire la maison vers le haut. La moyenne est ramenée plus bas par le pain, vendu à un prix que le marché fixe, par le snacking, dont le ratio matière est le plus mauvais de la boutique, et par les références à faible rotation qui immobilisent du temps pour peu de volume. C'est exactement l'information qu'on cherche : non pas un chiffre global, mais **quels produits portent les autres.**",
+      text: "Notez que 14,2 % de marge nette sur un produit, c'est bon, très au-dessus de ce que dégage une boulangerie-pâtisserie dans son ensemble. Le flan est un produit qui tire la maison vers le haut. La moyenne est ramenée plus bas par le pain, vendu à un prix que le marché fixe, par le snacking, dont le ratio matière est le plus mauvais de la boutique, et par les références à faible rotation qui immobilisent du temps pour peu de volume. C'est exactement l'information qu'on cherche : non pas un chiffre global, mais **quels produits portent les autres.**",
     },
     {
       type: "h2",
@@ -407,7 +407,7 @@ export const articleMarge: Guide = {
     },
     {
       type: "p",
-      text: "**La consommation théorique n'est pas la consommation réelle.** À la fin du mois, deux chiffres existent. Le théorique : la somme de ce que les recettes produites auraient dû consommer. Le réel : stock de début, plus achats, moins stock de fin. Sur un mois, un atelier trouve 612 kg de beurre en théorique et 658 kg en réel — 46 kg d'écart, 7,5 %, **386 € qui ont disparu** entre le grammage annoncé et le grammage pratiqué, la casse, les essais et les retours. Cet écart est la seule mesure fiable de la fidélité entre les fiches et l'atelier, et il ne s'obtient qu'en tenant un inventaire.",
+      text: "**La consommation théorique n'est pas la consommation réelle.** À la fin du mois, deux chiffres existent. Le théorique : la somme de ce que les recettes produites auraient dû consommer. Le réel : stock de début, plus achats, moins stock de fin. Sur un mois, un atelier trouve 612 kg de beurre en théorique et 658 kg en réel : 46 kg d'écart, 7,5 %, **386 € qui ont disparu** entre le grammage annoncé et le grammage pratiqué, la casse, les essais et les retours. Cet écart est la seule mesure fiable de la fidélité entre les fiches et l'atelier, et il ne s'obtient qu'en tenant un inventaire.",
     },
     {
       type: "p",
@@ -443,7 +443,7 @@ export const articleMarge: Guide = {
     },
     {
       type: "p",
-      text: "C'est ce qui explique une scène qu'on voit dans presque tous les ateliers : le fichier de coûts de revient est excellent, très bien construit, souvent par quelqu'un de rigoureux — et il date de deux ans. Il n'a pas été abandonné parce qu'il était mauvais. Il a été abandonné parce que le tenir à jour était devenu un deuxième métier.",
+      text: "C'est ce qui explique une scène qu'on voit dans presque tous les ateliers : le fichier de coûts de revient est excellent, très bien construit, souvent par quelqu'un de rigoureux, et il date de deux ans. Il n'a pas été abandonné parce qu'il était mauvais. Il a été abandonné parce que le tenir à jour était devenu un deuxième métier.",
     },
     {
       type: "h2",
@@ -460,7 +460,7 @@ export const articleMarge: Guide = {
     },
     {
       type: "p",
-      text: "L'objectif n'est pas de vous apprendre à calculer une marge — vous savez le faire, cet article vient de le montrer. Il est de faire en sorte que le calcul soit encore juste dans six mois, sur deux cents références, sans y passer vos dimanches.",
+      text: "L'objectif n'est pas de vous apprendre à calculer une marge, vous savez le faire, cet article vient de le montrer. Il est de faire en sorte que le calcul soit encore juste dans six mois, sur deux cents références, sans y passer vos dimanches.",
     },
   ],
   faqs: [
@@ -478,11 +478,11 @@ export const articleMarge: Guide = {
     },
     {
       q: "Comment répartir les charges fixes sur les produits ?",
-      a: "En deux temps. Les charges du laboratoire — loyer de la partie production, énergie, amortissement du matériel, maintenance, assurances — se divisent par le nombre d'heures d'atelier réellement travaillées dans l'année : vous obtenez un coût horaire de structure à appliquer au temps de chaque production. Les charges de vente et d'administration, elles, ne dépendent pas de la recette : on les exprime en pourcentage du chiffre d'affaires hors taxes et on vérifie que chaque produit dégage assez pour les couvrir.",
+      a: "En deux temps. Les charges du laboratoire (loyer de la partie production, énergie, amortissement du matériel, maintenance, assurances) se divisent par le nombre d'heures d'atelier réellement travaillées dans l'année : vous obtenez un coût horaire de structure à appliquer au temps de chaque production. Les charges de vente et d'administration, elles, ne dépendent pas de la recette : on les exprime en pourcentage du chiffre d'affaires hors taxes et on vérifie que chaque produit dégage assez pour les couvrir.",
     },
     {
       q: "Comment l'impôt entre-t-il dans le calcul de la marge ?",
-      a: "Il n'entre pas dans le coût de revient : il se prélève sur le bénéfice, donc après la marge nette. Pour une société à l'impôt sur les sociétés, c'est 15 % jusqu'à 42 500 € de bénéfice puis 25 %, et 30 % de plus sur la part distribuée en dividendes. Sur la part de flan de cet article, les 0,43 € de marge nette deviennent 0,26 € dans la poche — 8,6 % du prix de vente hors taxes. En entreprise individuelle, la logique diffère (cotisations sociales d'environ 45 % du résultat puis impôt sur le revenu) mais l'ordre de grandeur est comparable.",
+      a: "Il n'entre pas dans le coût de revient : il se prélève sur le bénéfice, donc après la marge nette. Pour une société à l'impôt sur les sociétés, c'est 15 % jusqu'à 42 500 € de bénéfice puis 25 %, et 30 % de plus sur la part distribuée en dividendes. Sur la part de flan de cet article, les 0,43 € de marge nette deviennent 0,26 € dans la poche : 8,6 % du prix de vente hors taxes. En entreprise individuelle, la logique diffère (cotisations sociales d'environ 45 % du résultat puis impôt sur le revenu) mais l'ordre de grandeur est comparable.",
     },
     {
       q: "Pourquoi ma marge théorique ne correspond-elle pas à mon résultat comptable ?",

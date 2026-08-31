@@ -6,9 +6,9 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, webPageSchema, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Qui a créé Gramme — chef pâtissier & entrepreneur",
+  title: "Qui a créé Gramme",
   description:
-    "Gramme est né de la rencontre entre Jeremy, chef pâtissier en R&D, et Clermont Fu, entrepreneur. L'exigence du laboratoire d'un côté, la lecture de la rentabilité de l'autre.",
+    "Gramme est né dans un laboratoire, pas dans un bureau. L'histoire, l'équipe et ce que nous refusons de faire dans un logiciel de gestion.",
   keywords: [
     "qui est derrière Gramme",
     "fondateurs Gramme",
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     canonical: `${SITE_URL}/a-propos-de-gramme`,
   },
   openGraph: {
-    title: "Qui est derrière Gramme — un chef pâtissier et un entrepreneur",
+    title: "Qui est derrière Gramme · un chef pâtissier et un entrepreneur",
     description:
       "Un chef pâtissier qui connaît le laboratoire, un entrepreneur qui sait faire tenir des chiffres. Gramme est né de cette rencontre.",
     url: `${SITE_URL}/a-propos-de-gramme`,
@@ -52,7 +52,7 @@ const sections = [
   {
     title: "Vos marges, toujours sous contrôle",
     content:
-      "Suivre l'évolution des prix des matières premières relève du casse-tête quand on est une petite structure. Gramme répertorie vos factures, tient votre carnet de fournisseurs et maintient vos tarifs d'achat à jour. Dès qu'un prix bouge, le coût de revient de toutes les recettes concernées est recalculé — et la marge avec. Vous protégez votre rentabilité sans y passer vos soirées.",
+      "Suivre l'évolution des prix des matières premières relève du casse-tête quand on est une petite structure. Gramme répertorie vos factures, tient votre carnet de fournisseurs et maintient vos tarifs d'achat à jour. Dès qu'un prix bouge, le coût de revient de toutes les recettes concernées est recalculé, et la marge avec. Vous protégez votre rentabilité sans y passer vos soirées.",
   },
   {
     title: "Une structure qui grandit avec vous",
@@ -109,14 +109,14 @@ export default function AProposDeGrammePage() {
             </p>
             <p>
               De l&apos;autre, Clermont Fu. Entrepreneur, il a créé plusieurs entreprises et en a accompagné bien
-              d&apos;autres — à structurer leur offre, à clarifier leur stratégie, à faire remonter leur chiffre
+              d&apos;autres : à structurer leur offre, à clarifier leur stratégie, à faire remonter leur chiffre
               d&apos;affaires là où il devait être. Son métier consiste à regarder une activité et à voir où la valeur
               se perd : dans un processus mal posé, un prix jamais revu, une décision prise à l&apos;instinct faute de
               chiffre fiable.
             </p>
             <p>
               Quand ils se sont rencontrés, le constat a été immédiat. Les artisans boulangers et pâtissiers font un
-              métier d&apos;une précision extrême — au gramme près — et pilotent leur rentabilité au doigt mouillé. Non
+              métier d&apos;une précision extrême (au gramme près) et pilotent leur rentabilité au doigt mouillé. Non
               par négligence : parce qu&apos;aucun outil ne parlait leur langue. Les logiciels de gestion étaient
               pensés pour des industriels, les tableurs demandaient une vie entière d&apos;entretien, et personne
               n&apos;avait pris la peine de relier une facture fournisseur à la marge d&apos;un croissant.
@@ -158,13 +158,13 @@ export default function AProposDeGrammePage() {
                 Jeremy
               </h3>
               <p className="mt-2 text-sm font-semibold text-[#355329]">
-                Chef pâtissier, responsable R&amp;D — co-fondateur
+                Chef pâtissier, responsable R&amp;D : co-fondateur
               </p>
               <p className="mt-5 leading-relaxed text-[#4d6952] md:text-lg">
                 Issu du terrain et formé aux exigences des grandes structures, Jeremy dirige la recherche et le
                 développement d&apos;une entreprise du secteur. Chaque jour, il confronte création, coût matière et
-                réalités de production. C&apos;est cette expérience — entre laboratoire d&apos;excellence et
-                contraintes économiques — qui a donné sa forme à Gramme.
+                réalités de production. C&apos;est cette expérience : entre laboratoire d&apos;excellence et
+                contraintes économiques : qui a donné sa forme à Gramme.
               </p>
               <p className="mt-4 leading-relaxed text-[#4d6952] md:text-lg">
                 Il transpose aux boulangeries et pâtisseries indépendantes les méthodes de R&amp;D des grandes
@@ -185,17 +185,17 @@ export default function AProposDeGrammePage() {
                 Clermont Fu
               </h3>
               <p className="mt-2 text-sm font-semibold text-[#355329]">
-                Entrepreneur, stratégie &amp; développement — co-fondateur
+                Entrepreneur, stratégie &amp; développement : co-fondateur
               </p>
               <p className="mt-5 leading-relaxed text-[#4d6952] md:text-lg">
                 Clermont a créé plusieurs entreprises et en accompagne d&apos;autres depuis des années : structurer une
                 offre, bâtir une stratégie commerciale, installer les outils qui font réellement progresser un chiffre
-                d&apos;affaires. Marketing, business, organisation — son métier est de regarder une activité et de dire
+                d&apos;affaires. Marketing, business, organisation : son métier est de regarder une activité et de dire
                 où la valeur se perd.
               </p>
               <p className="mt-4 leading-relaxed text-[#4d6952] md:text-lg">
                 Dans l&apos;artisanat, il a trouvé le cas d&apos;école : des entreprises remarquables au produit, et
-                sans instrument pour mesurer ce qu&apos;elles gagnent. Gramme est sa réponse — un outil qui rend la
+                sans instrument pour mesurer ce qu&apos;elles gagnent. Gramme est sa réponse : un outil qui rend la
                 rentabilité lisible sans jamais demander à un artisan de devenir comptable.
               </p>
             </div>

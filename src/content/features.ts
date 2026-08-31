@@ -12,6 +12,7 @@ export type FeatureIcon =
   | "box"
   | "users"
   | "tag"
+  | "thermo"
   | "spark";
 
 export type Feature = {
@@ -52,9 +53,9 @@ export const features: Feature[] = [
       alt: "Boulanger photographiant ses fiches recettes manuscrites pour les importer dans le logiciel Gramme",
     },
     h1: "Importer ses recettes d'une simple photo",
-    metaTitle: "Importer ses recettes en photo — fiches techniques automatiques",
+    metaTitle: "Numériser ses recettes en photo | Gramme",
     metaDescription:
-      "Photographiez vos fiches recettes manuscrites ou importez vos tableaux Excel : Gramme reconstruit la fiche technique, sépare les sous-recettes et calcule coût matière, perte et marge.",
+      "Photographiez vos fiches manuscrites ou déposez vos tableaux Excel : Gramme reconstruit la fiche technique, ingrédients et rendements compris.",
     keywords: [
       "importer recettes photo",
       "numériser fiches techniques",
@@ -110,11 +111,11 @@ export const features: Feature[] = [
       "Impression de fiches techniques pour le laboratoire",
     ],
     image: {
-      src: "/images/feature-recette-detail.png",
-      alt: "Fiche technique détaillée dans le logiciel Gramme avec coût matière et marge",
+      src: "/images/app/recette-fiche.png",
+      alt: "Fiche technique d'un entremets dans Gramme : ingrédients, quantités et rendement",
     },
     h1: "Fiches techniques et coût de revient",
-    metaTitle: "Fiche technique boulangerie & coût de revient recette",
+    metaTitle: "Fiche technique et coût de revient | Gramme",
     metaDescription:
       "Créez vos fiches techniques de boulangerie et pâtisserie dans Gramme : coût de revient, gestion des pertes, marges par recette et impression pour le laboratoire.",
     keywords: [
@@ -165,13 +166,13 @@ export const features: Feature[] = [
       "Chaque étiquette imprimée est archivée : qui l'a validée, quand, et ce qu'elle disait",
     ],
     image: {
-      src: "/images/fiches-techniques.jpg",
-      alt: "Étiquette produit avec liste d'ingrédients et allergènes mis en évidence, générée par le logiciel Gramme",
+      src: "/images/app/recette-etiquetage.png",
+      alt: "Onglet Étiquetage d'une recette dans Gramme, avec les allergènes remontés depuis les matières premières",
     },
     h1: "Allergènes et étiquetage : la même magie que les prix",
-    metaTitle: "Allergènes & étiquetage — logiciel boulangerie pâtisserie",
+    metaTitle: "Allergènes et étiquetage réglementaire | Gramme",
     metaDescription:
-      "Renseignez les allergènes une fois par matière première : Gramme les propage à toutes vos recettes, produit l'affiche de vitrine et l'étiquette produit, et calcule les valeurs nutritionnelles depuis la table Ciqual de l'ANSES.",
+      "Renseignez les allergènes une fois par matière : Gramme les propage à toutes vos recettes, édite l'affiche de vitrine et l'étiquette produit.",
     keywords: [
       "logiciel allergènes boulangerie",
       "étiquetage INCO pâtisserie",
@@ -181,29 +182,29 @@ export const features: Feature[] = [
       "règlement 1169/2011 artisan",
     ],
     intro:
-      "Recopier les allergènes de chaque produit à la main, c'est une soirée de travail — et la certitude d'en oublier un le jour où l'on change de fournisseur de praliné. Gramme applique aux allergènes exactement ce qu'il fait déjà aux prix : vous renseignez la matière première une fois, et tout ce qui l'emploie se met à jour tout seul.",
+      "Recopier les allergènes de chaque produit à la main, c'est une soirée de travail, et la certitude d'en oublier un le jour où l'on change de fournisseur de praliné. Gramme applique aux allergènes exactement ce qu'il fait déjà aux prix : vous renseignez la matière première une fois, et tout ce qui l'emploie se met à jour tout seul.",
     sections: [
       {
         title: "Renseigné une fois, propagé partout",
-        text: "Vous cochez les allergènes sur la fiche d'une matière première — ou vous photographiez l'étiquette de votre fournisseur et Gramme vous les propose, en vous montrant l'extrait qui les justifie. Ensuite, tout remonte : la sous-recette hérite de ses composants, le produit fini hérite de ses sous-recettes. Le jour où votre nouveau praliné contient des traces de fruits à coque, tous les entremets concernés le disent, sans que vous ayez à y penser. Et chaque recette affiche quel ingrédient apporte quel allergène : vous voyez d'où vient l'information, vous ne la croyez pas sur parole.",
+        text: "Vous cochez les allergènes sur la fiche d'une matière première, ou vous photographiez l'étiquette de votre fournisseur et Gramme vous les propose, en vous montrant l'extrait qui les justifie. Ensuite, tout remonte : la sous-recette hérite de ses composants, le produit fini hérite de ses sous-recettes. Le jour où votre nouveau praliné contient des traces de fruits à coque, tous les entremets concernés le disent, sans que vous ayez à y penser. Et chaque recette affiche quel ingrédient apporte quel allergène : vous voyez d'où vient l'information, vous ne la croyez pas sur parole.",
       },
       {
         title: "Ce que la loi demande vraiment à votre vitrine",
-        text: "Pour un produit vendu à la coupe ou en vitrine, l'information sur les allergènes doit être écrite et visible près des denrées. Gramme édite l'affiche correspondante pour tout votre catalogue, en une page. Pour un produit emballé, l'étiquette complète se construit à partir de la fiche : liste d'ingrédients dans l'ordre décroissant de poids, allergènes mis en évidence, quantité nette, conservation. Un questionnaire de trois questions vous dit quelles mentions vous concernent — sans jamais décider à votre place.",
+        text: "Pour un produit vendu à la coupe ou en vitrine, l'information sur les allergènes doit être écrite et visible près des denrées. Gramme édite l'affiche correspondante pour tout votre catalogue, en une page. Pour un produit emballé, l'étiquette complète se construit à partir de la fiche : liste d'ingrédients dans l'ordre décroissant de poids, allergènes mis en évidence, quantité nette, conservation. Un questionnaire de trois questions vous dit quelles mentions vous concernent, sans jamais décider à votre place.",
       },
       {
         title: "Les valeurs nutritionnelles, calculées et sourcées",
-        text: "Le règlement européen autorise à calculer la déclaration nutritionnelle à partir des ingrédients plutôt que de payer une analyse en laboratoire par recette. Gramme le fait : les valeurs de chaque matière se combinent au prorata des quantités, l'énergie se déduit des coefficients officiels, et le tableau sort dans l'ordre et avec les arrondis imposés. Vous n'avez pas les valeurs d'une matière ? La table Ciqual de l'ANSES — 3 484 aliments — vous les propose, et vous confirmez.",
+        text: "Le règlement européen autorise à calculer la déclaration nutritionnelle à partir des ingrédients plutôt que de payer une analyse en laboratoire par recette. Gramme le fait : les valeurs de chaque matière se combinent au prorata des quantités, l'énergie se déduit des coefficients officiels, et le tableau sort dans l'ordre et avec les arrondis imposés. Vous n'avez pas les valeurs d'une matière ? La table Ciqual de l'ANSES (3 484 aliments) vous les propose, et vous confirmez.",
       },
       {
         title: "Rien ne s'imprime sans vous",
-        text: "Un allergène ne se devine jamais. Tant qu'une seule matière de la recette n'a pas été renseignée, aucune étiquette ne sort — et l'écran vous dit laquelle. Avant chaque impression, vous cochez que vous avez vérifié les informations. Chaque version imprimée est ensuite archivée telle quelle, avec sa date et votre nom : en cas de contrôle ou de rappel, vous savez exactement ce qui a été apposé, et quand. Gramme aide à rassembler ces informations ; vous restez responsable de ce que vous diffusez.",
+        text: "Un allergène ne se devine jamais. Tant qu'une seule matière de la recette n'a pas été renseignée, aucune étiquette ne sort, et l'écran vous dit laquelle. Avant chaque impression, vous cochez que vous avez vérifié les informations. Chaque version imprimée est ensuite archivée telle quelle, avec sa date et votre nom : en cas de contrôle ou de rappel, vous savez exactement ce qui a été apposé, et quand. Gramme aide à rassembler ces informations ; vous restez responsable de ce que vous diffusez.",
       },
     ],
     faq: [
       {
         q: "Dois-je vraiment tout renseigner avant de pouvoir imprimer ?",
-        a: "Oui, et c'est volontaire. Une étiquette qui tait un allergène parce qu'il n'était pas renseigné se lit comme une information — elle est plus dangereuse qu'une absence d'étiquette. Gramme vous nomme les matières qui manquent, et un écran de reprise permet de traiter tout un catalogue rapidement : la majorité des matières n'ont aucun allergène, et se déclarent en un clic.",
+        a: "Oui, et c'est volontaire. Une étiquette qui tait un allergène parce qu'il n'était pas renseigné se lit comme une information : elle est plus dangereuse qu'une absence d'étiquette. Gramme vous nomme les matières qui manquent, et un écran de reprise permet de traiter tout un catalogue rapidement : la majorité des matières n'ont aucun allergène, et se déclarent en un clic.",
       },
       {
         q: "L'étiquette produite est-elle conforme ?",
@@ -211,11 +212,89 @@ export const features: Feature[] = [
       },
       {
         q: "Suis-je obligé de faire la déclaration nutritionnelle ?",
-        a: "Pas forcément. Le règlement prévoit des exemptions, notamment pour les denrées de fabrication artisanale fournies en faibles quantités directement au consommateur final. Beaucoup d'artisans en relèvent — c'est pourquoi ce bloc est désactivé par défaut chez nous. Le questionnaire enregistre ce que vous déclarez, daté ; nous ne qualifions jamais votre situation à votre place.",
+        a: "Pas forcément. Le règlement prévoit des exemptions, notamment pour les denrées de fabrication artisanale fournies en faibles quantités directement au consommateur final. Beaucoup d'artisans en relèvent, c'est pourquoi ce bloc est désactivé par défaut chez nous. Le questionnaire enregistre ce que vous déclarez, daté ; nous ne qualifions jamais votre situation à votre place.",
       },
       {
         q: "D'où viennent les valeurs nutritionnelles ?",
         a: "De vos propres matières en priorité : celles que vous avez saisies ou lues sur l'étiquette de votre fournisseur. À défaut, Gramme vous propose celles de la table Ciqual de l'ANSES, une base publique de 3 484 aliments. Une valeur venue de Ciqual reste marquée « à vérifier » tant que vous ne l'avez pas confirmée : un praliné maison n'est pas le praliné moyen d'une table statistique.",
+      },
+    ],
+  },
+  {
+    slug: "hygiene-haccp",
+    name: "Hygiène & HACCP",
+    icon: "thermo",
+    summary:
+      "Vos relevés de températures, votre plan de nettoyage et vos étiquettes de lot, pris depuis le téléphone et imprimables en registre.",
+    bullets: [
+      "Relevés de températures avec vos enceintes, vos bornes et vos heures de relevé",
+      "Un écart ne s'enregistre pas sans l'action corrective qui va avec",
+      "Plan de nettoyage par zone et par fréquence, pointé d'un geste",
+      "Étiquettes de lot et dates limites, contrôle à réception depuis la facture scannée",
+      "Registres imprimables sur la période de votre choix, et impossibles à réécrire",
+    ],
+    image: {
+      src: "/images/app/haccp-temperatures.png",
+      alt: "Écran des relevés de températures dans Gramme : les enceintes, leurs bornes et la courbe sur trente jours",
+    },
+    h1: "Hygiène et HACCP : le cahier de relevés qui ne se perd pas",
+    metaTitle: "Logiciel HACCP boulangerie : relevés et nettoyage | Gramme",
+    metaDescription:
+      "Relevés de températures, plan de nettoyage, étiquettes de lot et contrôles à réception, pris depuis le téléphone et imprimables en registre.",
+    keywords: [
+      "logiciel HACCP boulangerie",
+      "relevé de température boulangerie",
+      "application relevé température chambre froide",
+      "plan de nettoyage boulangerie",
+      "registre HACCP numérique",
+      "traçabilité lot pâtisserie",
+      "étiquette DLC boulangerie",
+      "contrôle à réception marchandise",
+    ],
+    intro:
+      "Le cahier de relevés est le document le plus demandé lors d'un contrôle, et le plus mal tenu de tous : non par négligence, mais parce qu'il est accroché à un mur, loin des mains et des fours. On le remplit le dimanche soir, de mémoire, et tout le monde le sait. Gramme le déplace là où vous êtes déjà : sur le téléphone dans votre poche.",
+    sections: [
+      {
+        title: "Vos enceintes, vos bornes, vos horaires",
+        text: "Vous déclarez une fois chaque chambre froide, congélateur, vitrine ou friteuse, avec le minimum et le maximum que VOUS fixez, l'application ne vous impose aucune valeur, elle compare vos relevés aux vôtres. Vous indiquez aussi les heures auxquelles le relevé se prend, sept heures et dix-sept heures par exemple. C'est ce détail qui change tout : au lieu d'un vague « trois relevés en retard », l'écran dit que le relevé de dix-sept heures manque sur la chambre froide pâtisserie. Le premier se néglige, le second se traite.",
+      },
+      {
+        title: "Un écart appelle son action corrective",
+        text: "Quand la valeur saisie sort de vos bornes, le relevé ne part pas seul : l'écran demande ce que vous avez fait (denrées transférées, groupe froid relancé, technicien appelé) et n'enregistre rien tant que la réponse est vide. C'est exactement ce qu'un contrôleur cherche : non pas l'absence d'écart, qui n'existe dans aucun laboratoire, mais la preuve que l'écart a été vu et traité. Les bornes appliquées sont figées avec le relevé : remonter un plafond demain ne repeint pas l'historique d'hier.",
+      },
+      {
+        title: "Le plan de nettoyage se pointe, il ne se recopie pas",
+        text: "Vous listez ce qui se nettoie, dans quelle zone, à quelle fréquence et avec quel produit. Ensuite, chaque tâche se pointe d'un geste, et ce qui est en retard remonte en tête de liste. Chaque pointage garde le nom de la personne et la date, et retirer une tâche du plan n'efface aucun pointage passé : l'historique garde son libellé.",
+      },
+      {
+        title: "Les lots, les dates limites et les réceptions",
+        text: "Une préparation qui sort du froid sans numéro de lot n'est pas traçable. Depuis une fiche, depuis une fournée que vous venez de valider ou depuis la liste de vos préparations, l'étiquette sort avec son numéro de lot, sa date limite et votre prénom déjà remplis, aux dimensions de vos rouleaux : 57 × 40, 100 × 50, ou en planche A4. Côté entrées, le contrôle à réception part de la facture que vous avez déjà scannée : le fournisseur et la date sont repris, il ne reste qu'une température et deux cases.",
+      },
+      {
+        title: "Un registre qui ne se réécrit pas",
+        text: "Températures, nettoyages, lots, impressions et réceptions s'impriment en registre, sur la période de votre choix, avec la recherche et les totaux. Et rien ne s'y efface : une erreur de saisie ne se supprime pas, elle s'annule avec un motif, et les deux lignes restent visibles. Même un administrateur du compte ne peut pas réécrire une ligne passée. C'est cette impossibilité qui fait la valeur d'un registre : un journal qu'on peut corriger après coup ne prouve rien.",
+      },
+    ],
+    faq: [
+      {
+        q: "Gramme rend-il ma boulangerie conforme ?",
+        a: "Non, et personne ne le peut à votre place. Un logiciel enregistre vos relevés, les horodate, les nomme et les rend imprimables ; il ne rédige pas votre plan de maîtrise sanitaire et n'atteste d'aucune conformité. Vous restez l'exploitant responsable. Ce que Gramme garantit, c'est que ce qui a été saisi ne peut plus être modifié, et c'est précisément ce qu'un cahier papier ne garantit pas.",
+      },
+      {
+        q: "Puis-je remplacer mon cahier de relevés papier ?",
+        a: "Oui, à condition d'y retrouver la même chose qu'un cahier bien tenu : la valeur, l'heure, l'enceinte et la personne. Chaque relevé porte ces quatre informations, et le registre s'imprime quand on vous le demande. Beaucoup d'artisans gardent le papier quelques semaines en parallèle, le temps de vérifier que l'habitude a pris, c'est une prudence raisonnable, et nous ne la déconseillons pas.",
+      },
+      {
+        q: "Est-ce compris dans l'abonnement ou facturé en plus ?",
+        a: "C'est compris dans l'offre Pro à 89 € HT par mois, avec le reste. Il n'y a ni module à activer, ni option à 49 €, ni supplément par enceinte ou par utilisateur. Ce que nous livrons ensuite entre dans votre offre de la même façon : le produit avance, votre abonnement ne bouge pas.",
+      },
+      {
+        q: "Un apprenti peut-il prendre les relevés ?",
+        a: "Oui, et c'est prévu ainsi. Relever une température ou pointer un nettoyage est le geste d'un salarié : le rôle Opérateur y donne accès. En revanche, fixer les bornes d'une enceinte ou composer le plan de nettoyage est une décision : cela reste réservé à un administrateur ou à un gestionnaire. Chaque relevé garde le nom de qui l'a pris.",
+      },
+      {
+        q: "Que se passe-t-il si je retire une chambre froide ?",
+        a: "Son historique reste entier et continue de la nommer. Toutes les lignes de registre figent le nom de ce qu'elles décrivent au moment du geste, pas seulement une référence : retirer une enceinte, une tâche de nettoyage ou une fiche recette ne rend jamais l'historique anonyme.",
       },
     ],
   },
@@ -232,13 +311,13 @@ export const features: Feature[] = [
       "Recettes impactées signalées en temps réel",
     ],
     image: {
-      src: "/images/feature-scan-ia.png",
-      alt: "Scan automatique d'une facture fournisseur dans le logiciel Gramme",
+      src: "/images/app/mercuriale.png",
+      alt: "La mercuriale dans Gramme : prix de référence, fournisseur et tendance de chaque matière première",
     },
     h1: "Scan de factures et mercuriale fournisseurs",
-    metaTitle: "Scan de factures fournisseurs & mercuriale boulangerie",
+    metaTitle: "Scan de factures et mercuriale | Gramme",
     metaDescription:
-      "Scannez vos factures fournisseurs et laissez Gramme tenir votre mercuriale : prix d'achat à jour, historique des hausses et recettes impactées signalées en temps réel.",
+      "Photographiez une facture fournisseur : les prix entrent seuls dans votre mercuriale et remontent jusqu'au coût de chaque recette.",
     keywords: [
       "scan facture fournisseur",
       "mercuriale fournisseurs",
@@ -286,13 +365,13 @@ export const features: Feature[] = [
       "Mise à jour automatique du stock",
     ],
     image: {
-      src: "/images/feature-production.png",
-      alt: "Planning de production quotidien dans le logiciel Gramme",
+      src: "/images/app/production.png",
+      alt: "Planning de production dans Gramme, avec la fournée du jour et le calendrier du mois",
     },
     h1: "Planning de production pour boulangerie et pâtisserie",
-    metaTitle: "Planning de production boulangerie & coût de fabrication",
+    metaTitle: "Planning de production boulangerie | Gramme",
     metaDescription:
-      "Planifiez la production du jour dans Gramme : recettes et quantités, besoins en matières premières consolidés, coût de fabrication et mise à jour automatique du stock.",
+      "Les quantités du jour, les besoins matières consolidés, la feuille d'atelier et le coût de la fournée, au même endroit.",
     keywords: [
       "planning production boulangerie",
       "logiciel production pâtisserie",
@@ -300,7 +379,7 @@ export const features: Feature[] = [
       "organisation laboratoire boulangerie",
     ],
     intro:
-      "Décider ce qu'on produit demain se fait souvent de tête, ou sur un carnet. Cela fonctionne — jusqu'au jour où il manque une matière première à cinq heures du matin, ou jusqu'à ce qu'on s'aperçoive qu'une gamme entière tourne à perte.",
+      "Décider ce qu'on produit demain se fait souvent de tête, ou sur un carnet. Cela fonctionne : jusqu'au jour où il manque une matière première à cinq heures du matin, ou jusqu'à ce qu'on s'aperçoive qu'une gamme entière tourne à perte.",
     sections: [
       {
         title: "Le jour est posé avant d'entrer au fournil",
@@ -339,11 +418,11 @@ export const features: Feature[] = [
       "Moins de ruptures, moins de gaspillage",
     ],
     image: {
-      src: "/images/feature-stock.png",
-      alt: "Gestion du stock de matières premières dans le logiciel Gramme",
+      src: "/images/app/stock.png",
+      alt: "Gestion du stock dans Gramme : articles suivis et valeur totale du stock",
     },
     h1: "Gestion de stock pour laboratoire artisanal",
-    metaTitle: "Gestion de stock boulangerie & pâtisserie — logiciel Gramme",
+    metaTitle: "Gestion de stock et inventaire | Gramme",
     metaDescription:
       "Suivez votre stock de matières premières dans Gramme : catégories, édition rapide, valeur du stock en temps réel et mise à jour automatique par la production.",
     keywords: [
@@ -392,11 +471,11 @@ export const features: Feature[] = [
       "Volume d'achat estimé",
     ],
     image: {
-      src: "/images/feature-fournisseurs-list.png",
-      alt: "Carnet fournisseurs centralisé dans le logiciel Gramme",
+      src: "/images/app/fournisseurs.png",
+      alt: "Carnet fournisseurs dans Gramme, avec les coordonnées et les matières livrées",
     },
     h1: "Carnet fournisseurs pour boulangerie et pâtisserie",
-    metaTitle: "Gestion des fournisseurs — logiciel boulangerie Gramme",
+    metaTitle: "Gestion des fournisseurs boulangerie | Gramme",
     metaDescription:
       "Centralisez vos fournisseurs dans Gramme : coordonnées, produits affiliés, volume d'achat estimé et lien direct avec la mercuriale et les factures scannées.",
     keywords: [
@@ -441,11 +520,11 @@ export const features: Feature[] = [
       "Impact d'une hausse de prix visible immédiatement",
     ],
     image: {
-      src: "/images/feature-prix.png",
-      alt: "Suivi des marges et de l'évolution des prix dans le logiciel Gramme",
+      src: "/images/app/statistiques.png",
+      alt: "Statistiques d'achats dans Gramme : dépense par mois et répartition par fournisseur",
     },
     h1: "Suivi des marges en temps réel",
-    metaTitle: "Calcul et suivi des marges — logiciel boulangerie Gramme",
+    metaTitle: "Calcul et suivi des marges | Gramme",
     metaDescription:
       "Suivez vos marges en temps réel avec Gramme : alertes sur les recettes sensibles, impact immédiat des hausses de prix et priorisation des actions rentables.",
     keywords: [

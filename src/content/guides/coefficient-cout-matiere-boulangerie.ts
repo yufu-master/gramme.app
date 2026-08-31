@@ -2,9 +2,9 @@ import type { Guide } from "./types";
 
 export const guideCoefficientCoutMatiere: Guide = {
   slug: "coefficient-cout-matiere-boulangerie",
-  title: "Quel pourcentage de coût matière viser en boulangerie",
+  title: "Coefficient et coût matière en boulangerie",
   description:
-    "Le coût matière en pourcentage du chiffre d'affaires en boulangerie et pâtisserie : ordres de grandeur par famille de produits, coefficient multiplicateur et méthode pour situer sa propre gamme.",
+    "Quel ratio viser, comment le calculer, et pourquoi un coefficient multiplicateur seul ne suffit jamais à fixer un prix.",
   keywords: [
     "coût matière boulangerie pourcentage",
     "ratio coût matière boulangerie",
@@ -30,7 +30,7 @@ export const guideCoefficientCoutMatiere: Guide = {
     },
     {
       type: "p",
-      text: "Le ratio de coût matière est la part des matières premières dans le chiffre d'affaires hors taxes. Il se calcule soit globalement, sur un exercice — achats consommés divisés par le chiffre d'affaires HT — soit produit par produit, en rapportant le coût matière unitaire au prix de vente HT. Les deux chiffres ne se ressemblent pas, et c'est normal : le premier inclut ce que vous avez jeté, le second non.",
+      text: "Le ratio de coût matière est la part des matières premières dans le chiffre d'affaires hors taxes. Il se calcule soit globalement, sur un exercice (achats consommés divisés par le chiffre d'affaires HT) soit produit par produit, en rapportant le coût matière unitaire au prix de vente HT. Les deux chiffres ne se ressemblent pas, et c'est normal : le premier inclut ce que vous avez jeté, le second non.",
     },
     {
       type: "p",
@@ -60,7 +60,7 @@ export const guideCoefficientCoutMatiere: Guide = {
     },
     {
       type: "p",
-      text: "Le coefficient multiplicateur est simplement l'inverse du ratio : un coût matière de 25 % correspond à un coefficient de 4. Beaucoup d'artisans raisonnent en coefficient parce qu'il se manipule mentalement — « je multiplie par 4 » — mais il a un défaut : appliqué mécaniquement, il transforme chaque hausse de matière première en hausse de prix de vente, y compris quand le marché ne le supporte pas.",
+      text: "Le coefficient multiplicateur est simplement l'inverse du ratio : un coût matière de 25 % correspond à un coefficient de 4. Beaucoup d'artisans raisonnent en coefficient parce qu'il se manipule mentalement (« je multiplie par 4 ») mais il a un défaut : appliqué mécaniquement, il transforme chaque hausse de matière première en hausse de prix de vente, y compris quand le marché ne le supporte pas.",
     },
     {
       type: "h2",
@@ -86,7 +86,7 @@ export const guideCoefficientCoutMatiere: Guide = {
     },
     {
       type: "p",
-      text: "Ce que vous cherchez n'est pas un produit hors norme, c'est un écart qui bouge. Une viennoiserie stable à 32 % depuis deux ans n'est pas un problème. La même viennoiserie passée de 27 % à 32 % en six mois, parce que le beurre a monté sans que le prix de vente suive, en est un — et c'est le genre de dérive qui ne se voit jamais dans un ratio global de fin d'exercice.",
+      text: "Ce que vous cherchez n'est pas un produit hors norme, c'est un écart qui bouge. Une viennoiserie stable à 32 % depuis deux ans n'est pas un problème. La même viennoiserie passée de 27 % à 32 % en six mois, parce que le beurre a monté sans que le prix de vente suive, en est un, et c'est le genre de dérive qui ne se voit jamais dans un ratio global de fin d'exercice.",
     },
     {
       type: "p",

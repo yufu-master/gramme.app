@@ -11,7 +11,7 @@ const howToSteps = [
   },
   {
     name: "Listez les composants dans l'unité d'achat",
-    text: "Chaque ligne porte un composant, une quantité et l'unité dans laquelle vous l'achetez. Une sous-recette — crème pâtissière, praliné, biscuit — est une ligne comme une autre, valorisée à son coût au kilo et non redétaillée.",
+    text: "Chaque ligne porte un composant, une quantité et l'unité dans laquelle vous l'achetez. Une sous-recette (crème pâtissière, praliné, biscuit) est une ligne comme une autre, valorisée à son coût au kilo et non redétaillée.",
   },
   {
     name: "Renseignez les pertes",
@@ -19,7 +19,7 @@ const howToSteps = [
   },
   {
     name: "Décrivez le procédé en étapes datées",
-    text: "Températures, temps, ordre des opérations, points de contrôle. C'est la partie qui rend la fiche utilisable par quelqu'un d'autre que vous — et donc la partie qui a de la valeur le jour où vous recrutez ou vous absentez.",
+    text: "Températures, temps, ordre des opérations, points de contrôle. C'est la partie qui rend la fiche utilisable par quelqu'un d'autre que vous, et donc la partie qui a de la valeur le jour où vous recrutez ou vous absentez.",
   },
   {
     name: "Ajoutez le bloc économique",
@@ -91,11 +91,11 @@ export const guideFicheTechniqueModele: Guide = {
     },
     {
       type: "p",
-      text: "Voici le gabarit à reproduire dans un tableur ou sur papier. Les colonnes sont dans l'ordre où on les remplit en production. La colonne « coût unitaire » contient le prix d'achat ramené à l'unité de travail, relevé sur votre dernière facture — c'est la seule donnée qui demande un vrai travail de tenue à jour.",
+      text: "Voici le gabarit à reproduire dans un tableur ou sur papier. Les colonnes sont dans l'ordre où on les remplit en production. La colonne « coût unitaire » contient le prix d'achat ramené à l'unité de travail, relevé sur votre dernière facture : c'est la seule donnée qui demande un vrai travail de tenue à jour.",
     },
     {
       type: "table",
-      caption: "Gabarit de fiche technique — bloc composants",
+      caption: "Gabarit de fiche technique : bloc composants",
       headers: ["Composant", "Quantité", "Unité", "Coût unitaire", "Coût ligne"],
       rows: [
         ["Sous-recette ou ingrédient", "0,000", "kg / L / pièce", "0,00 € / unité", "0,00 €"],
@@ -117,7 +117,7 @@ export const guideFicheTechniqueModele: Guide = {
     },
     {
       type: "table",
-      caption: "Tarte au citron meringuée — 8 tartes de 20 cm",
+      caption: "Tarte au citron meringuée, 8 tartes de 20 cm",
       headers: ["Composant", "Quantité", "Coût unitaire", "Coût ligne"],
       rows: [
         ["Pâte sucrée (sous-recette)", "1,760 kg", "4,85 € / kg", "8,54 €"],
@@ -150,7 +150,7 @@ export const guideFicheTechniqueModele: Guide = {
     },
     {
       type: "p",
-      text: "Sur papier, une fiche technique est excellente pour produire et inutilisable pour chiffrer : le jour où le beurre augmente, personne ne reprend cent fiches à la main. Sur tableur, le calcul fonctionne tant qu'il n'y a ni sous-recette en cascade ni changement de prix fréquent — deux conditions rarement réunies en pâtisserie.",
+      text: "Sur papier, une fiche technique est excellente pour produire et inutilisable pour chiffrer : le jour où le beurre augmente, personne ne reprend cent fiches à la main. Sur tableur, le calcul fonctionne tant qu'il n'y a ni sous-recette en cascade ni changement de prix fréquent : deux conditions rarement réunies en pâtisserie.",
     },
     {
       type: "p",

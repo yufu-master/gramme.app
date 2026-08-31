@@ -235,7 +235,7 @@ export function QuestionnaireForm({ token }: { token: string }) {
       <div className="sticky top-[4.5rem] z-10 -mx-4 mb-8 border-b border-[#dcead2] bg-[#f9fcf6]/95 px-4 py-3 backdrop-blur sm:mx-0 sm:rounded-2xl sm:border sm:px-5">
         <div className="flex items-center justify-between gap-4 text-sm">
           <p className="font-semibold text-[#355329]">
-            Étape {stepIndex + 1} sur {ONBOARDING_STEPS.length} — {step.title}
+            Étape {stepIndex + 1} sur {ONBOARDING_STEPS.length} · {step.title}
           </p>
           <p className="shrink-0 text-xs text-[#6e9f55]" aria-live="polite">
             {saving ? "Enregistrement…" : "Enregistré"}
@@ -809,7 +809,7 @@ function FileField({
           <p className="text-sm font-semibold text-[#8a3b3b]">
             {echecs.length} fichier{echecs.length > 1 ? "s" : ""} n&apos;
             {echecs.length > 1 ? "ont" : "a"} pas pu être transféré
-            {echecs.length > 1 ? "s" : ""}. Les autres sont bien arrivés — vous pouvez les
+            {echecs.length > 1 ? "s" : ""}. Les autres sont bien arrivés, vous pouvez les
             resélectionner.
           </p>
           <ul className="mt-1.5 space-y-0.5 text-xs text-[#8a3b3b]">

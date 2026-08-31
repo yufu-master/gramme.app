@@ -2,6 +2,7 @@ import type { MetadataRoute } from "next";
 import { features, featurePath } from "@/content/features";
 import { publishedArticles } from "@/content/articles";
 import { publishedGuides } from "@/content/guides";
+import { pagesConcurrent } from "@/content/comparatif";
 import { SITE_URL } from "@/lib/seo";
 
 export type SiteRoute = {
@@ -195,5 +196,25 @@ export function sitemapEntries(baseUrl: string = SITE_URL): MetadataRoute.Sitema
     priority: 0.8,
   }));
 
-  return [...staticEntries, ...featureEntries, ...guideEntries, ...articleEntries];
+  /**
+   * Les pages dédiées à un concurrent, en priorité haute.
+   *
+   * Elles répondent à une intention plus proche de l'achat que la page pilier
+   * — on tape le nom d'un outil quand on est en train de le comparer au sien —
+   * et l'éditeur concerné ne se compare jamais lui-même.
+   */
+  const concurrentEntries: MetadataRoute.Sitemap = pagesConcurrent.map((page) => ({
+    url: `${baseUrl}/comparatif/${page.id}`,
+    lastModified,
+    changeFrequency: "monthly" as const,
+    priority: 0.85,
+  }));
+
+  return [
+    ...staticEntries,
+    ...featureEntries,
+    ...guideEntries,
+    ...articleEntries,
+    ...concurrentEntries,
+  ];
 }

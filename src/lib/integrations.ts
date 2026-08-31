@@ -19,7 +19,7 @@ export const INTEGRATION_CATEGORIES: {
     id: "encaissement",
     label: "Encaissement",
     description:
-      "Connecter votre caisse pour croiser ventes et coûts — et mieux piloter vos marges produit.",
+      "Connecter votre caisse pour croiser ventes et coûts, et mieux piloter vos marges produit.",
   },
   {
     id: "comptabilite",

@@ -50,6 +50,12 @@ const icons: Record<FeatureIconName, (props: { className?: string }) => React.Re
       <circle cx="13.5" cy="6.5" r="1.25" stroke="currentColor" strokeWidth="1.5" />
     </svg>
   ),
+  thermo: ({ className }) => (
+    <svg viewBox="0 0 20 20" fill="none" className={className} aria-hidden>
+      <path d="M8 11.8V4.5a2 2 0 1 1 4 0v7.3a4 4 0 1 1-4 0Z" stroke="currentColor" strokeWidth="1.5" />
+      <path d="M10 8v6.2" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+    </svg>
+  ),
   spark: ({ className }) => (
     <svg viewBox="0 0 20 20" fill="none" className={className} aria-hidden>
       <path d="m10 2 1.6 4.4L16 8l-4.4 1.6L10 14l-1.6-4.4L4 8l4.4-1.6L10 2Z" stroke="currentColor" strokeWidth="1.5" />

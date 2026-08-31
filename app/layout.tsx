@@ -45,7 +45,7 @@ export const metadata: Metadata = {
         url: "/images/hero-lifestyle.jpg",
         width: 1200,
         height: 630,
-        alt: "Gramme — logiciel de gestion pour boulangers et pâtissiers",
+        alt: "Gramme, logiciel de gestion pour boulangers et pâtissiers",
       },
     ],
   },

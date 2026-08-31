@@ -5,14 +5,15 @@ import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { IntegrationCard } from "@/components/integrations/IntegrationCard";
 import { INTEGRATIONS, INTEGRATION_CATEGORIES } from "@/lib/integrations";
-import { webPageSchema } from "@/lib/seo";
+import { webPageSchema, imageSociale } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Intégrations à venir — caisse & compta",
+  title: "Intégrations à venir · caisse & compta",
   description:
     "Gramme prépare des connexions avec les caisses et outils comptables des boulangers-pâtissiers. Votez pour prioriser Popina, Pennylane, Zettle et d'autres.",
   alternates: { canonical: "https://gramme.app/integrations" },
   openGraph: {
+    images: imageSociale("/images/app/factures.png", "Les factures fournisseurs reprises dans Gramme"),
     title: "Intégrations Gramme | À venir",
     description: "Votez pour les prochaines connexions caisse, comptabilité et facturation.",
     url: "https://gramme.app/integrations",
@@ -38,7 +39,7 @@ export default function IntegrationsPage() {
           </h1>
           <p className="mt-4 max-w-3xl text-lg text-[#4d6952]">
             Gramme se concentre d&apos;abord sur recettes, coûts et marges. Ensuite : brancher les outils que vous
-            utilisez déjà — caisse, comptabilité, facturation. Votez pour nous aider à prioriser la roadmap.
+            utilisez déjà : caisse, comptabilité, facturation. Votez pour nous aider à prioriser la roadmap.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/contact" className="rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]">

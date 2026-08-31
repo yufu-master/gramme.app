@@ -9,7 +9,7 @@ import { MISE_EN_SERVICE_EN_CREATION, pricingPlans } from "@/lib/pricing";
 export const metadata: Metadata = {
   title: "Conditions générales de vente",
   description:
-    "Conditions générales de vente de Gramme, logiciel de gestion pour boulangeries et pâtisseries : abonnements Starter et Pro, installation accompagnée, durée, résiliation, réversibilité des données et support.",
+    "Conditions générales de vente de Gramme : abonnements, installation accompagnée, durée, résiliation et propriété de vos données.",
   alternates: { canonical: `${SITE_URL}/cgv` },
 };
 
@@ -105,18 +105,18 @@ export default function CgvPage() {
             </p>
             <ul className="ml-5 list-disc space-y-1">
               <li>
-                <strong className="text-[#3e6134]">{starter.name}</strong> — {starter.monthlyPrice} € HT par mois,
+                <strong className="text-[#3e6134]">{starter.name}</strong> : {starter.monthlyPrice} € HT par mois,
                 ou {starter.yearlyPrice} € HT par an (soit{" "}
                 {starter.yearlyMonthlyEquivalent.toLocaleString("fr-FR", { minimumFractionDigits: 2 })} € HT par
                 mois).
               </li>
               <li>
-                <strong className="text-[#3e6134]">{pro.name}</strong> — {pro.monthlyPrice} € HT par mois, ou{" "}
+                <strong className="text-[#3e6134]">{pro.name}</strong> : {pro.monthlyPrice} € HT par mois, ou{" "}
                 {pro.yearlyPrice} € HT par an (soit{" "}
                 {pro.yearlyMonthlyEquivalent.toLocaleString("fr-FR", { minimumFractionDigits: 2 })} € HT par mois).
               </li>
               <li>
-                <strong className="text-[#3e6134]">Installation accompagnée</strong> — prestation unique, à partir
+                <strong className="text-[#3e6134]">Installation accompagnée</strong> : prestation unique, à partir
                 de {starter.installPrice} € HT en {starter.name} et de {pro.installPrice} € HT en {pro.name},
                 payable en {starter.installInstallments} fois sans supplément. Pour un Client dont
                 l&apos;entreprise est en cours de création, il s&apos;agit d&apos;un forfait ferme de{" "}
@@ -124,8 +124,8 @@ export default function CgvPage() {
               </li>
             </ul>
             <p>
-              Le détail des limites de chaque offre — nombre d&apos;utilisateurs, de fiches techniques, de factures
-              scannées par mois et espace de stockage — figure sur la page{" "}
+              Le détail des limites de chaque offre : nombre d&apos;utilisateurs, de fiches techniques, de factures
+              scannées par mois et espace de stockage : figure sur la page{" "}
               <Link href="/tarifs" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
                 Tarifs
               </Link>
@@ -142,7 +142,7 @@ export default function CgvPage() {
               l&apos;article 3 sont des planchers, et le prix définitif est communiqué au Client par écrit avant
               toute exécution. Il ne peut être révisé une fois accepté. Pour une entreprise en cours de création,
               ce montant est un forfait ferme de {MISE_EN_SERVICE_EN_CREATION} € HT. Elle comprend la création de l&apos;établissement, la reprise des données
-              existantes du Client — fiches recettes, tableurs, mercuriale, factures fournisseurs — et la prise en
+              existantes du Client (fiches recettes, tableurs, mercuriale, factures fournisseurs) et la prise en
               main par l&apos;équipe.
             </p>
             <p>
@@ -225,7 +225,7 @@ export default function CgvPage() {
               l&apos;installation, à la demande du Client. Les données sont cloisonnées par établissement.
             </p>
             <p>
-              <strong className="text-[#3e6134]">Réversibilité</strong> — le Client peut à tout moment demander
+              <strong className="text-[#3e6134]">Réversibilité</strong> : le Client peut à tout moment demander
               l&apos;export de ses données dans un format exploitable. À l&apos;issue du contrat, ses données sont
               conservées douze mois, période pendant laquelle il peut en demander la restitution ou reprendre son
               abonnement sans rien avoir perdu. Passé ce délai, elles sont supprimées. Le Client peut demander leur

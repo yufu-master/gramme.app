@@ -41,6 +41,7 @@ export const pricingPlans: Plan[] = [
       { label: "Scan de 30 factures/mois" },
       { label: "200 Mo de photos recettes" },
       { label: "Coût de revient et marge en temps réel" },
+      { label: "Hygiène, étiquetage et stocks : réservés à l’offre Pro" },
     ],
     monthlyPrice: 49,
     yearlyPrice: 490,
@@ -57,8 +58,14 @@ export const pricingPlans: Plan[] = [
     highlight: true,
     features: [
       { label: "Calcul des marges et pilotage de la rentabilité en temps réel", emphasis: true },
-      { label: "Allergènes propagés et étiquetage produit", emphasis: true },
+      // L'hygiène est arrivée le 30/08/2026 et c'est désormais l'argument qui
+      // justifie l'écart avec les offres à modules : ailleurs, un registre de
+      // températures et un planning de production se paient en supplément.
+      { label: "Hygiène : relevés de températures, plan de nettoyage, registres", emphasis: true },
+      { label: "Allergènes propagés, étiquetage produit et valeurs nutritionnelles", emphasis: true },
       { label: "Gestion des stocks et inventaires valorisés", emphasis: true },
+      { label: "Planning de production et feuilles d’atelier" },
+      { label: "Étiquettes de traçabilité : numéro de lot et date limite" },
       { label: "Jusqu’à 5 utilisateurs" },
       { label: "Recettes et fiches techniques illimitées" },
       { label: "Historique de production" },
@@ -80,7 +87,7 @@ export const pricingPlans: Plan[] = [
 export const pricingFaq = [
   {
     q: "Pourquoi l’installation est-elle payante ?",
-    a: "Parce qu’elle représente plusieurs jours de travail. Nous montons votre compte de bout en bout : votre établissement et les profils de votre équipe avec leurs droits, votre carnet de fournisseurs, votre mercuriale complète — chaque matière première, son unité, son conditionnement et son prix d’achat réel —, la reprise de vos fiches recettes et de vos sous-recettes, le traitement de vos factures des derniers mois pour que l’historique de prix existe dès le départ, puis les contrôles et la formation. C’est ce travail-là qui fait qu’on ouvre l’application le premier jour sur ses vrais chiffres. Les outils qui vous laissent tout saisir vous-même sont gratuits à l’installation, et c’est exactement pour cela qu’ils finissent inutilisés.",
+    a: "Parce qu’elle représente plusieurs jours de travail. Nous montons votre compte de bout en bout : votre établissement et les profils de votre équipe avec leurs droits, votre carnet de fournisseurs, votre mercuriale complète, chaque matière première, son unité, son conditionnement et son prix d’achat réel), la reprise de vos fiches recettes et de vos sous-recettes, le traitement de vos factures des derniers mois pour que l’historique de prix existe dès le départ, puis les contrôles et la formation. C’est ce travail-là qui fait qu’on ouvre l’application le premier jour sur ses vrais chiffres. Les outils qui vous laissent tout saisir vous-même sont gratuits à l’installation, et c’est exactement pour cela qu’ils finissent inutilisés.",
   },
   {
     q: "Puis-je m’en passer et tout saisir moi-même ?",
@@ -101,6 +108,14 @@ export const pricingFaq = [
   {
     q: "Puis-je changer d’offre en cours d’année ?",
     a: "Oui. Contactez-nous : on ajuste l’offre et on régularise le prorata selon votre périodicité.",
+  },
+  {
+    q: "L’hygiène et l’étiquetage sont-ils facturés en plus ?",
+    a: "Non. Les relevés de températures, le plan de nettoyage, les étiquettes de traçabilité, les contrôles à réception, les registres imprimables, les allergènes et les valeurs nutritionnelles sont compris dans l’offre Pro à 89 € HT/mois. Il n’y a pas de module à activer ni de supplément à prévoir. C’est un choix : plusieurs éditeurs facturent ces fonctions entre 49 € et 89 € HT par mois en plus de l’abonnement, ce qui double parfois la note.",
+  },
+  {
+    q: "Les nouveautés sont-elles payantes ?",
+    a: "Jamais. Tout ce que nous livrons arrive dans votre offre sans surcoût : pas de version 2 à racheter, pas de module à débloquer. L’étiquetage des allergènes, les valeurs nutritionnelles et les registres d’hygiène sont entrés dans l’offre Pro de cette façon, sans un euro de plus, et ce qui suivra fera de même.",
   },
   {
     q: "Y a-t-il un essai gratuit ?",

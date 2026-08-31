@@ -2,9 +2,9 @@ import type { Guide } from "./types";
 
 export const guideHaccp: Guide = {
   slug: "logiciel-haccp-boulangerie",
-  title: "Logiciel HACCP en boulangerie : ce qu'il fait vraiment",
+  title: "Logiciel HACCP en boulangerie : ce qu'il fait",
   description:
-    "À quoi sert un logiciel HACCP en boulangerie-pâtisserie, ce qu'impose réellement le plan de maîtrise sanitaire, et comment il se distingue d'un logiciel de gestion des recettes et des coûts.",
+    "Ce que la réglementation demande, ce qu'un outil enregistre à votre place, et la ligne qu'aucun éditeur ne peut franchir.",
   keywords: [
     "logiciel HACCP boulangerie",
     "plan de maîtrise sanitaire boulangerie",
@@ -13,12 +13,12 @@ export const guideHaccp: Guide = {
     "relevé température boulangerie",
   ],
   publishedAt: "2026-08-13",
-  updatedAt: "2026-08-13",
+  updatedAt: "2026-08-30",
   ogImage: "/images/feature-stock.png",
   summary:
-    "Ce que recouvre réellement l'HACCP en boulangerie, ce qu'un logiciel dédié automatise, et pourquoi il ne faut pas le confondre avec un logiciel de gestion des recettes et des marges.",
+    "Ce que recouvre réellement l'HACCP en boulangerie, ce qu'un logiciel enregistre à votre place, et la ligne que la loi ne laisse déplacer à aucun éditeur : la maîtrise sanitaire reste celle de l'exploitant.",
   intro:
-    "« Logiciel HACCP » est une expression qui recouvre deux choses très différentes : des outils de relevés sanitaires, et des logiciels de gestion qu'on vend parfois sous cette étiquette parce qu'elle rassure. Autant le dire tout de suite : Gramme n'est pas un logiciel HACCP. Cet article explique ce que l'HACCP demande, ce qu'un outil dédié fait à votre place, et où se situe la frontière.",
+    "« Logiciel HACCP » est une expression commode, et trompeuse : aucun logiciel ne rend une boulangerie conforme. Ce qu'un outil peut faire, c'est enregistrer vos relevés, les horodater, les rendre imprimables, et rendre impossible de les réécrire après coup. C'est déjà beaucoup, parce que c'est exactement ce qu'un cahier accroché au mur ne garantit pas. Cet article explique ce que la réglementation demande, ce qu'un outil enregistre à votre place, et où s'arrête sa responsabilité.",
   draft: false,
   relatedSlug: "etiquette-allergene-boulangerie-obligation",
   relatedLabel: "Allergènes en boulangerie : ce que la réglementation impose",
@@ -30,7 +30,7 @@ export const guideHaccp: Guide = {
     },
     {
       type: "p",
-      text: "HACCP signifie Hazard Analysis Critical Control Point : analyse des dangers et points critiques pour leur maîtrise. C'est une démarche en sept principes — identifier les dangers, déterminer les points critiques, fixer des limites, les surveiller, corriger, vérifier, documenter. Le règlement (CE) n° 852/2004 impose aux exploitants du secteur alimentaire de mettre en place des procédures fondées sur ces principes.",
+      text: "HACCP signifie Hazard Analysis Critical Control Point : analyse des dangers et points critiques pour leur maîtrise. C'est une démarche en sept principes : identifier les dangers, déterminer les points critiques, fixer des limites, les surveiller, corriger, vérifier, documenter. Le règlement (CE) n° 852/2004 impose aux exploitants du secteur alimentaire de mettre en place des procédures fondées sur ces principes.",
     },
     {
       type: "p",
@@ -61,27 +61,28 @@ export const guideHaccp: Guide = {
     {
       type: "h2",
       id: "frontiere",
-      text: "Où s'arrête un logiciel de gestion comme Gramme",
+      text: "Où s'arrête un logiciel, et où commence l'exploitant",
     },
     {
       type: "p",
-      text: "Gramme est un logiciel de gestion économique : recettes et fiches techniques, coûts de revient, mercuriale et prix d'achat, stock, production et marges. Il ne gère ni relevés de température, ni plan de nettoyage, ni traçabilité de lots, ni étiquetage de DLC. Il ne produit aucun document opposable en cas de contrôle sanitaire, et nous ne le présentons pas comme tel.",
+      text: "Gramme tient les enregistrements du tableau ci-dessus : relevés de températures avec les bornes et les horaires que vous fixez, plan de nettoyage pointé par zone et par fréquence, étiquettes de lot et dates limites, contrôles à réception repris de la facture déjà scannée, et registres imprimables sur la période de votre choix. Une chose ne change pas pour autant, et elle est plus importante que la liste : cela ne vous rend pas conforme. L'analyse des dangers de votre atelier, vos bonnes pratiques d'hygiène, le choix de vos points critiques et de vos limites, la formation de votre équipe : rien de tout cela ne s'automatise. Un logiciel enregistre la preuve que la démarche est tenue ; il ne tient pas la démarche.",
     },
     {
       type: "p",
-      text: "Il existe malgré tout un point de contact réel, et un seul : le répertoire de recettes. Un plan de maîtrise sanitaire correctement tenu suppose de savoir précisément ce qu'il y a dans chaque produit, sous-recettes et améliorants compris — c'est la même donnée que celle qui sert à construire l'information sur les allergènes. Un répertoire de recettes à jour est donc un préalable utile à ce travail, sans en être l'outil.",
+      text: "Deux garde-fous méritent d'être vérifiés chez n'importe quel éditeur, y compris chez nous. Le premier : une ligne enregistrée peut-elle être modifiée ensuite ? Chez nous, non, pas même par un administrateur du compte. Une erreur se corrige par une annulation motivée, et les deux lignes restent visibles. Un journal qu'on peut réécrire ne prouve rien. Le second : les bornes appliquées sont-elles figées avec le relevé ? Sinon, remonter un plafond de température demain repeindrait l'historique d'hier, et vos écarts passés disparaîtraient d'eux-mêmes.",
     },
     {
       type: "table",
-      caption: "Deux outils, deux périmètres",
-      headers: ["Besoin", "Logiciel HACCP", "Gramme"],
+      caption: "Ce qu'un logiciel enregistre, ce qu'il n'enregistrera jamais",
+      headers: ["Ce dont vous avez besoin", "Un logiciel peut-il le faire ?"],
       rows: [
-        ["Relevés de températures et archivage", "Oui", "Non"],
-        ["Plan de nettoyage, traçabilité des lots, DLC", "Oui", "Non"],
-        ["Preuve documentaire pour un contrôle sanitaire", "Oui", "Non"],
-        ["Répertoire de recettes et de sous-recettes à jour", "Rarement", "Oui"],
-        ["Coût de revient, mercuriale, marges", "Non", "Oui"],
-        ["Stock, production, fournisseurs", "Partiellement", "Oui"],
+        ["Prendre et horodater les relevés de températures", "Oui, et le rendre impossible à réécrire"],
+        ["Rappeler le relevé de dix-sept heures qui manque", "Oui, à condition qu'il connaisse vos horaires"],
+        ["Garder la trace de l'action corrective après un écart", "Oui, en refusant d'enregistrer l'écart sans elle"],
+        ["Sortir le registre le jour du contrôle", "Oui, sur la période demandée"],
+        ["Analyser les dangers propres à votre atelier", "Non · c'est votre travail, ou celui de votre conseil"],
+        ["Fixer vos points critiques et vos limites", "Non · il applique celles que vous entrez"],
+        ["Attester que votre exploitation est conforme", "Non, et méfiez-vous de celui qui l'écrit"],
       ],
     },
     {
@@ -95,7 +96,7 @@ export const guideHaccp: Guide = {
     },
     {
       type: "p",
-      text: "Le mauvais réflexe consiste à chercher un outil unique qui ferait la conformité sanitaire et la gestion économique. Ce sont deux métiers différents, avec deux fréquences d'usage différentes : l'un se remplit plusieurs fois par jour au laboratoire, l'autre se consulte quand une facture arrive ou qu'un prix bouge. Les outils qui prétendent couvrir les deux font généralement l'un des deux correctement.",
+      text: "Si vous regardez un outil qui couvre à la fois l'hygiène et la gestion économique, la question à poser n'est pas « fait-il les deux ? » mais « à quel rythme chacun s'utilise-t-il ? ». Les relevés se prennent plusieurs fois par jour, debout, les mains occupées ; les coûts se consultent quand une facture arrive. Un outil qui traite l'hygiène comme un écran de bureau de plus sera rempli le dimanche soir, de mémoire, et il ne vaudra pas mieux que le cahier qu'il remplace. Demandez donc à voir l'écran de saisie sur un téléphone, et comptez les gestes qu'il faut pour noter une température. C'est ce chiffre-là qui dira si l'outil sera tenu.",
     },
     {
       type: "p",
@@ -104,8 +105,8 @@ export const guideHaccp: Guide = {
   ],
   faqs: [
     {
-      q: "Gramme est-il un logiciel HACCP ?",
-      a: "Non. Gramme est un logiciel de gestion économique pour boulangeries et pâtisseries : fiches techniques, coûts de revient, mercuriale, stock, production et marges. Il ne gère ni relevés de températures, ni plans de nettoyage, ni traçabilité de lots, ni étiquetage de DLC, et ne produit aucun document opposable lors d'un contrôle sanitaire.",
+      q: "Gramme fait-il les relevés de températures et le plan de nettoyage ?",
+      a: "Oui, et c'est compris dans l'offre Pro sans module en supplément. Vous déclarez vos enceintes, les bornes que vous fixez et vos heures de relevé ; le relevé se prend en quelques secondes depuis le téléphone du laboratoire, et un écart hors de vos bornes ne s'enregistre pas sans l'action corrective qui l'accompagne. Le plan de nettoyage se pointe de la même façon, par zone et par fréquence. Les registres s'impriment sur la période de votre choix. En revanche, Gramme ne rédige pas votre plan de maîtrise sanitaire et n'atteste d'aucune conformité : il enregistre, il n'analyse pas à votre place.",
     },
     {
       q: "Un logiciel HACCP est-il obligatoire en boulangerie ?",
@@ -116,8 +117,8 @@ export const guideHaccp: Guide = {
       a: "Trois volets : les bonnes pratiques d'hygiène (personnel, locaux, matériel, matières premières), les procédures fondées sur les principes HACCP, et la traçabilité assortie de la gestion des produits non conformes.",
     },
     {
-      q: "Peut-on utiliser Gramme en complément d'un logiciel HACCP ?",
-      a: "Oui, et c'est la configuration la plus courante : l'outil HACCP couvre les enregistrements sanitaires du laboratoire, Gramme couvre les recettes, les coûts d'achat, le stock et les marges. Le répertoire de recettes tenu à jour dans Gramme sert par ailleurs de base fiable pour construire l'information sur les allergènes.",
+      q: "Un registre numérique vaut-il un cahier papier lors d'un contrôle ?",
+      a: "Ce qui compte n'est pas le support mais la preuve : des enregistrements réellement faits, datés, nominatifs et conservés. Un registre numérique a un avantage que le papier n'a pas : il ne se réécrit pas après coup. Chez nous, une ligne enregistrée ne peut être modifiée par personne, pas même par un administrateur du compte : une erreur s'annule avec un motif et les deux lignes restent visibles. Beaucoup d'artisans gardent le papier quelques semaines en parallèle, le temps de vérifier que l'habitude a pris. C'est une prudence raisonnable.",
     },
   ],
 };

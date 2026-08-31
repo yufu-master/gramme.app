@@ -17,7 +17,7 @@ const howToSteps = [
 
 export const guideScannerFiches: Guide = {
   slug: "scanner-fiches-techniques-patisserie",
-  title: "Photographier ses fiches techniques et les retrouver classées, avec les coûts calculés",
+  title: "Scanner ses fiches techniques de pâtisserie",
   description:
     "Comment numériser un cahier de recettes en photo, avec les sous-recettes reliées, les matières premières identifiées et les coûts calculés.",
   keywords: [
@@ -134,7 +134,7 @@ export const guideScannerFiches: Guide = {
     },
     {
       type: "p",
-      text: "Sur une reprise d'un cahier lisible d'environ cinquante recettes, comptez de l'ordre de deux minutes par recette, vérification comprise — soit moins de deux heures. À affiner dès qu'une mise en service aura été chronométrée de bout en bout.",
+      text: "Sur une reprise d'un cahier lisible d'environ cinquante recettes, comptez de l'ordre de deux minutes par recette, vérification comprise, soit moins de deux heures. À affiner dès qu'une mise en service aura été chronométrée de bout en bout.",
     },
     {
       type: "p",

@@ -4,10 +4,10 @@ import ContactPageContent from "@/components/pages/Contact";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema, webPageSchema } from "@/lib/seo";
+import { breadcrumbSchema, webPageSchema, imageSociale } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Contact — Démo logiciel boulangerie",
+  title: "Contact · Démo logiciel boulangerie",
   description:
     "Contactez Gramme pour une démonstration du logiciel de gestion boulangerie et pâtisserie. Réponse sous 4 heures ouvrées.",
   keywords: [
@@ -20,7 +20,8 @@ export const metadata: Metadata = {
     canonical: "https://gramme.app/contact",
   },
   openGraph: {
-    title: "Contact | Gramme — Logiciel boulangerie",
+    images: imageSociale("/images/app/recette-fiche.png", "Une fiche technique dans Gramme"),
+    title: "Contact | Gramme · Logiciel boulangerie",
     description:
       "Échangez avec l'équipe Gramme pour piloter recettes, coûts et marges dans votre laboratoire.",
     url: "https://gramme.app/contact",

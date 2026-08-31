@@ -25,7 +25,7 @@ export function GuideArticle({
           role="status"
           className="mb-4 rounded-2xl border border-amber-300 bg-amber-50 px-4 py-3 text-sm text-amber-950"
         >
-          Brouillon — emplacements ⟨…⟩ à compléter avec des mesures réelles avant publication. Page non indexée.
+          Brouillon : emplacements ⟨…⟩ à compléter avec des mesures réelles avant publication. Page non indexée.
         </p>
       ) : null}
 

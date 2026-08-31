@@ -12,9 +12,9 @@ import { SITE_URL, webPageSchema } from "@/lib/seo";
 const PATH = "/logiciel-patisserie";
 
 export const metadata: Metadata = {
-  title: "Logiciel pâtisserie — recettes, coûts et marges",
+  title: "Logiciel pâtisserie · recettes, coûts et marges",
   description:
-    "Logiciel de pâtisserie pour laboratoires artisanaux : sous-recettes en cascade, coût de revient à l'entremets, pertes de parage, mercuriale et marges en temps réel. Conçu avec un chef pâtissier.",
+    "Sous-recettes en cascade, coût de revient à l'entremets, pertes de parage et étiquetage : le logiciel pensé pour un laboratoire de pâtisserie.",
   keywords: [
     "logiciel pâtisserie",
     "logiciel gestion pâtisserie",
@@ -45,7 +45,7 @@ const painPoints = [
   },
   {
     title: "Le prix des matières premières évolue constamment",
-    text: "Une couverture, un beurre de cacao, des framboises hors saison peuvent varier de vingt pour cent en un trimestre. Chaque facture scannée met à jour le prix d'achat, et toutes les recettes qui contiennent cette matière — bases comprises — se recalculent.",
+    text: "Une couverture, un beurre de cacao, des framboises hors saison peuvent varier de vingt pour cent en un trimestre. Chaque facture scannée met à jour le prix d'achat, et toutes les recettes qui contiennent cette matière (bases comprises) se recalculent.",
   },
   {
     title: "La gamme change, les marges aussi",
@@ -93,7 +93,7 @@ const faq = [
   },
   {
     q: "Comment calculer le coût de revient d'un entremets ?",
-    a: "En calculant d'abord chaque base — biscuit, croustillant, insert, mousse, glaçage — avec son rendement et ses pertes, puis en les faisant entrer dans la recette finale à leur coût au kilo. On applique ensuite la perte de parage et de découpe, avant de diviser par le nombre de parts réellement vendables.",
+    a: "En calculant d'abord chaque base (biscuit, croustillant, insert, mousse, glaçage) avec son rendement et ses pertes, puis en les faisant entrer dans la recette finale à leur coût au kilo. On applique ensuite la perte de parage et de découpe, avant de diviser par le nombre de parts réellement vendables.",
   },
   {
     q: "Gramme gère-t-il les recettes à plusieurs niveaux de sous-recettes ?",
@@ -109,7 +109,7 @@ const faq = [
   },
   {
     q: "Combien coûte un logiciel de gestion pour une pâtisserie ?",
-    a: `Gramme propose deux offres : Starter à ${formatEuro(pricingPlans[0].monthlyPrice)} HT par mois (${formatEuro(pricingPlans[0].yearlyPrice)} HT par an) et Pro à ${formatEuro(pricingPlans[1].monthlyPrice)} HT par mois (${formatEuro(pricingPlans[1].yearlyPrice)} HT par an). L'installation accompagnée, facturée une seule fois, démarre à 300 € HT en Starter et 500 € HT en Pro — forfait ferme de 300 € HT si votre entreprise est en cours de création. Elle reprend vos recettes et vos factures pour que le compte soit utilisable dès le premier jour.`,
+    a: `Gramme propose deux offres : Starter à ${formatEuro(pricingPlans[0].monthlyPrice)} HT par mois (${formatEuro(pricingPlans[0].yearlyPrice)} HT par an) et Pro à ${formatEuro(pricingPlans[1].monthlyPrice)} HT par mois (${formatEuro(pricingPlans[1].yearlyPrice)} HT par an). L'installation accompagnée, facturée une seule fois, démarre à 300 € HT en Starter et 500 € HT en Pro : forfait ferme de 300 € HT si votre entreprise est en cours de création. Elle reprend vos recettes et vos factures pour que le compte soit utilisable dès le premier jour.`,
   },
 ];
 
@@ -119,7 +119,7 @@ export default function LogicielPatisseriePage() {
       <JsonLd
         data={[
           webPageSchema({
-            title: "Logiciel pâtisserie — gestion des recettes, coûts et marges | Gramme",
+            title: "Logiciel pâtisserie · gestion des recettes, coûts et marges | Gramme",
             description:
               "Logiciel de gestion pour laboratoires de pâtisserie artisanale : sous-recettes en cascade, coût de revient, pertes de parage, mercuriale et marges en temps réel.",
             path: PATH,
@@ -232,7 +232,7 @@ export default function LogicielPatisseriePage() {
                     (#108) : ils étaient écrits en dur, et faux de près de deux
                     euros. Un exemple de calcul de coût qui ne tombe pas juste
                     est le pire argument possible pour un logiciel de calcul de
-                    coût — le lecteur qui vérifie est exactement le client
+                    coût : le lecteur qui vérifie est exactement le client
                     qu'on cherche. */}
                 <tr className="border-t border-[#dcead2] bg-[#f6fbf2] font-bold text-[#27421f]">
                   <td className="px-4 py-3" colSpan={3}>Coût matière avant parage</td>
@@ -249,7 +249,7 @@ export default function LogicielPatisseriePage() {
           </div>
           <p className="mt-4 max-w-3xl text-sm text-[#4d6952]">
             Le jour où le prix du chocolat de couverture bouge, ce sont la mousse, le croustillant et le glaçage
-            qui changent — donc l&apos;entremets, et tous les autres produits qui partagent ces bases. Ce
+            qui changent, donc l&apos;entremets, et tous les autres produits qui partagent ces bases. Ce
             recalcul en cascade est exactement ce qu&apos;un tableur ne tient pas.{" "}
             <Link href="/guides/calcul-cout-de-revient-boulangerie" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
               Voir la méthode de calcul complète

@@ -43,7 +43,7 @@ const ressourcesItems: { label: string; href: string; description: string; icone
   {
     label: "Comparatif",
     href: "/comparatif",
-    description: "Gramme face à Otami, LogiBake, ChefsTouch et Melba, tarifs à l'appui.",
+    description: "Gramme face à Otami, ChefsTouch et Melba, tarifs à l'appui.",
     icone: ScaleIcon,
   },
   {
@@ -119,7 +119,7 @@ export function SiteHeader() {
         <Link
           href="/"
           className="flex shrink-0 items-center gap-2"
-          aria-label="Gramme — retour à l'accueil"
+          aria-label="Gramme · retour à l'accueil"
         >
           {/* La marque seule en tête de page : au-dessus du hero, le nom est déjà
               écrit en toutes lettres dans le titre. Le mot-mark complet vit au

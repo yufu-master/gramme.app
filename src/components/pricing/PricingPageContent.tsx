@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { CadreAppareil } from "@/components/produit/CadreAppareil";
 import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 import { BillingPeriodToggle } from "@/components/pricing/BillingPeriodToggle";
@@ -112,6 +113,111 @@ export function PricingPageContent() {
         })}
       </div>
 
+      {/* Ce que le prix comprend, dit avant le prix de l'installation.
+          Un abonnement se compare rarement sur son montant : il se compare sur
+          ce qu'il faut ACHETER EN PLUS pour couvrir son besoin. Chez plusieurs
+          éditeurs, l'hygiène et le planning de production sont des modules
+          facturés entre 49 € et 89 € par mois : le dire ici, chiffres publics à
+          l'appui, vaut mieux que de le laisser découvrir après signature. */}
+      <section
+        className="mt-10 rounded-3xl border-2 border-[#a8cf8c] bg-white p-6 shadow-[0_20px_70px_rgba(58,92,39,0.08)] sm:p-8"
+        aria-labelledby="tout-compris-title"
+      >
+        <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#6e9f55]">Aucun module, aucune option</p>
+        <h2 id="tout-compris-title" className="mt-2 text-2xl font-black text-[#27421f] md:text-3xl">
+          L&apos;hygiène et l&apos;étiquetage sont compris dans l&apos;offre Pro
+        </h2>
+        <p className="mt-4 max-w-3xl leading-relaxed text-[#4d6952]">
+          Gramme tient vos registres sanitaires. Ce n&apos;est pas une option à cocher ni un module à activer :
+          c&apos;est dans les 89 € HT par mois, comme le reste, et ce que nous livrons ensuite y entre sans
+          surcoût.
+        </p>
+        <ul className="mt-6 grid gap-3 sm:grid-cols-2">
+          {[
+            [
+              "Relevés de températures",
+              "Vos enceintes, vos bornes, vos horaires. Un écart appelle son action corrective avant d'être enregistré, et la courbe couvre quatre-vingt-dix jours.",
+            ],
+            [
+              "Plan de nettoyage",
+              "Par zone et par fréquence, pointé d'un geste depuis le téléphone. Les retards remontent en tête, et chaque pointage garde le nom de qui l'a fait.",
+            ],
+            [
+              "Étiquettes de lot et dates limites",
+              "Numéro de lot, date limite et prénom remplis seuls, aux formats de vos rouleaux. Le contrôle à réception part de la facture déjà scannée.",
+            ],
+            [
+              "Registres imprimables",
+              "Températures et nettoyage sur la période de votre choix. Un registre ne se réécrit pas : pas même par un administrateur.",
+            ],
+            [
+              "Allergènes et valeurs nutritionnelles",
+              "Les 14 allergènes du règlement européen remontent des matières aux produits finis. Table Ciqual de l'ANSES intégrée.",
+            ],
+            [
+              "Planning de production",
+              "Les quantités du jour, les besoins matières consolidés, la feuille d'atelier et le coût de la fournée.",
+            ],
+          ].map(([titre, texte]) => (
+            <li key={titre} className="flex gap-3 rounded-2xl border border-[#dcead2] bg-[#f6fbf2] p-4">
+              <CheckIcon className="mt-0.5 h-5 w-5 shrink-0 text-[#6e9f55]" />
+              <span>
+                <span className="block font-bold text-[#27421f]">{titre}</span>
+                <span className="mt-1 block text-sm leading-relaxed text-[#4d6952]">{texte}</span>
+              </span>
+            </li>
+          ))}
+        </ul>
+        {/* Une page de prix qui ne montre pas ce qu'on achète demande un acte
+            de foi. Les deux écrans ci-dessus sont ceux qui justifient l'écart
+            avec les offres à modules. */}
+        <div className="mt-8 flex flex-wrap items-end justify-center gap-8 rounded-2xl border border-[#dcead2] bg-[#f6fbf2] p-6 sm:gap-12">
+          <div className="w-[160px] sm:w-[190px]">
+            <CadreAppareil
+              appareil="telephone"
+              src="/images/app/haccp-temperatures-telephone.png"
+              alt="Relevé de températures dans Gramme sur téléphone, compris dans l'offre Pro"
+              sizes="190px"
+            />
+            <p className="mt-3 text-center text-xs font-semibold text-[#4d6952]">Relevé de températures</p>
+          </div>
+          <div className="w-[160px] sm:w-[190px]">
+            <CadreAppareil
+              appareil="telephone"
+              src="/images/app/haccp-nettoyage-telephone.png"
+              alt="Plan de nettoyage dans Gramme sur téléphone, compris dans l'offre Pro"
+              sizes="190px"
+            />
+            <p className="mt-3 text-center text-xs font-semibold text-[#4d6952]">Plan de nettoyage</p>
+          </div>
+          <div className="w-[160px] sm:w-[190px]">
+            <CadreAppareil
+              appareil="telephone"
+              src="/images/app/recette-fiche-telephone.png"
+              alt="Fiche technique d'une recette dans Gramme sur téléphone"
+              sizes="190px"
+            />
+            <p className="mt-3 text-center text-xs font-semibold text-[#4d6952]">Fiche technique</p>
+          </div>
+        </div>
+
+        <p className="mt-6 rounded-2xl border border-[#dcead2] bg-[#f6fbf2] p-4 text-sm leading-relaxed text-[#4d6952]">
+          <strong className="text-[#3e6134]">Ce que cela change sur la facture.</strong> Chez plusieurs éditeurs,
+          le planning de production et le suivi sanitaire sont des modules facturés à part : 49 € HT par mois
+          chacun sur les grilles publiques relevées le 30 août 2026. Une boulangerie qui reçoit une trentaine de
+          factures par mois et veut le planning de production paie ailleurs jusqu&apos;à 208 € HT par mois. Le
+          détail, éditeur par éditeur, est dans notre{" "}
+          <Link href="/comparatif" className="font-semibold text-[#355329] underline underline-offset-2">
+            comparatif
+          </Link>
+          .
+        </p>
+        <p className="mt-4 text-sm leading-relaxed text-[#6e7c66]">
+          Une précision qui compte : Gramme enregistre, horodate et imprime vos relevés. Il ne rédige pas votre
+          plan de maîtrise sanitaire et ne certifie aucune conformité : vous restez l&apos;exploitant responsable.
+        </p>
+      </section>
+
       <section
         className="mt-10 rounded-3xl border border-[#dcead2] bg-[#f6fbf2] p-6 sm:p-8"
         aria-labelledby="installation-title"
@@ -122,7 +228,7 @@ export function PricingPageContent() {
         <p className="mt-4 max-w-3xl leading-relaxed text-[#4d6952]">
           C&apos;est plusieurs jours de travail, pas une visite. Nous montons votre compte de bout en
           bout : votre établissement et les profils de votre équipe avec leurs droits, votre carnet de
-          fournisseurs, puis votre mercuriale complète — chaque matière première, son unité, son
+          fournisseurs, puis votre mercuriale complète : chaque matière première, son unité, son
           conditionnement et son prix d&apos;achat réel. Nous reprenons vos fiches recettes et vos
           sous-recettes, nous traitons vos factures des derniers mois pour que l&apos;historique de prix
           existe dès le départ, nous vérifions les coûts de revient obtenus, et nous formons ceux qui
@@ -140,7 +246,7 @@ export function PricingPageContent() {
         </p>
         {/* Le cas où le plancher devient le prix : il n'y a rien à reprendre,
             donc la charge est connue d'avance. C'est aussi le profil qui hésite
-            le plus sur le coût de départ — autant le lever ici. */}
+            le plus sur le coût de départ : autant le lever ici. */}
         <p className="mt-4 rounded-2xl border border-[#a8cf8c]/50 bg-[#f6fbf2] p-4 text-[#4d6952]">
           <strong className="text-[#3e6134]">Vous êtes en cours de création ?</strong> La mise en service
           est alors un forfait ferme de {formatEuro(MISE_EN_SERVICE_EN_CREATION)} HT, quelle que soit

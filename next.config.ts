@@ -3,6 +3,14 @@ import type { NextConfig } from "next";
 const nextConfig: NextConfig = {
   poweredByHeader: false,
   images: {
+    /**
+     * AVIF avant WebP.
+     * Les captures d'application sont des aplats : grandes zones unies, texte
+     * net, peu de dégradés. C'est exactement là où l'AVIF gagne le plus sur le
+     * WebP, souvent un quart du poids. Next essaie les formats dans l'ordre et
+     * retombe sur le WebP pour les navigateurs qui ne suivent pas.
+     */
+    formats: ["image/avif", "image/webp"],
     remotePatterns: [
       { protocol: "https", hostname: "www.google.com", pathname: "/s2/favicons/**" },
       { protocol: "https", hostname: "logo.clearbit.com", pathname: "/**" },

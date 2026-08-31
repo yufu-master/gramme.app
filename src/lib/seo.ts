@@ -15,7 +15,7 @@ export const SUPPORT_EMAIL = "support@gramme.app";
  */
 export const EDITEUR = {
   raisonSociale: "YUFU CAPITAL",
-  formeJuridique: "SASU — société par actions simplifiée unipersonnelle",
+  formeJuridique: "SASU · société par actions simplifiée unipersonnelle",
   capital: "123 219,00 €",
   adresse: "172 avenue de Choisy, 75013 Paris, France",
   rue: "172 avenue de Choisy",
@@ -24,9 +24,9 @@ export const EDITEUR = {
   pays: "FR",
   siren: "824 411 375",
   siret: "824 411 375 00010",
-  rcs: "824 411 375 R.C.S. Paris — greffe de Paris, inscrit le 20 décembre 2016",
+  rcs: "824 411 375 R.C.S. Paris : greffe de Paris, inscrit le 20 décembre 2016",
   tva: "FR14824411375",
-  ape: "70.10Z — Activités des sièges sociaux",
+  ape: "70.10Z : Activités des sièges sociaux",
   directeurPublication: "Clermont Fu, président",
 } as const;
 
@@ -77,7 +77,38 @@ export const primaryKeywords = [
   "logiciel laboratoire pâtisserie",
   "digitalisation boulangerie",
   "outil gestion artisan boulanger",
+  "logiciel HACCP boulangerie",
+  "relevé de température boulangerie",
+  "plan de nettoyage boulangerie",
+  "registre HACCP numérique",
+  "étiquette DLC boulangerie",
+  "traçabilité des lots pâtisserie",
+  "logiciel allergènes boulangerie",
+  "valeurs nutritionnelles recette",
 ] as const;
+
+/**
+ * L'image sociale par défaut d'une page.
+ *
+ * Onze pages déclaraient un bloc `openGraph` SANS image. Or dans l'App Router
+ * un objet imbriqué de l'enfant REMPLACE celui du parent : ces pages n'avaient
+ * donc aucune image sociale du tout, pas même celle du gabarit — partagées sur
+ * LinkedIn ou WhatsApp, elles sortaient sans vignette. Parmi elles, les trois
+ * plus commerciales du site : les tarifs, le comparatif et la démonstration.
+ *
+ * `metadataBase` étant posé (`app/layout.tsx`), un chemin relatif suffit : il
+ * se résout en URL absolue sur notre domaine.
+ *
+ * Les dimensions annoncées ne sont pas décoratives. Facebook et LinkedIn
+ * recadrent d'après le RATIO déclaré : `hero-lifestyle.jpg` était annoncé
+ * 1200×630 alors qu'il fait 2400×1792, et l'aperçu sortait rogné.
+ */
+export function imageSociale(
+  src = "/images/app/mercuriale.png",
+  alt = "La mercuriale de Gramme : chaque matière première avec son prix de référence, son fournisseur et sa tendance",
+) {
+  return [{ url: src, width: 1920, height: 1200, alt }];
+}
 
 export const faqItems = [
   {
@@ -113,8 +144,12 @@ export const faqItems = [
     a: "Oui. L'interface est optimisée pour l'atelier et les déplacements, avec des actions simples et lisibles sur téléphone et tablette.",
   },
   {
+    q: "Gramme fait-il les relevés de températures et le plan de nettoyage ?",
+    a: "Oui, et c'est compris dans l'offre Pro sans module en supplément. Vous déclarez vos enceintes, les bornes que vous fixez et vos heures de relevé ; le relevé se prend en quelques secondes depuis le téléphone du laboratoire, et un écart hors bornes ne s'enregistre pas sans l'action corrective qui l'accompagne. Le plan de nettoyage se pointe par zone et par fréquence, les préparations sortent avec leur numéro de lot et leur date limite, et les registres s'impriment sur la période demandée. Gramme enregistre et horodate ; il ne rédige pas votre plan de maîtrise sanitaire et n'atteste d'aucune conformité.",
+  },
+  {
     q: "Combien coûte le logiciel Gramme pour une boulangerie ?",
-    a: "L'offre Starter est à 49 € HT/mois (ou 490 € HT/an), l'offre Pro à 89 € HT/mois (ou 890 € HT/an). L'installation accompagnée est facturée une seule fois : à partir de 300 € HT en Starter et de 500 € HT en Pro, payable en trois fois sans supplément. Pour une entreprise en cours de création, c'est un forfait ferme de 300 € HT quelle que soit l'offre — il n'y a ni historique de factures ni fiches à reprendre.",
+    a: "L'offre Starter est à 49 € HT/mois (ou 490 € HT/an), l'offre Pro à 89 € HT/mois (ou 890 € HT/an). L'installation accompagnée est facturée une seule fois : à partir de 300 € HT en Starter et de 500 € HT en Pro, payable en trois fois sans supplément. Pour une entreprise en cours de création, c'est un forfait ferme de 300 € HT quelle que soit l'offre : il n'y a ni historique de factures ni fiches à reprendre.",
   },
   {
     q: "Mes recettes et factures sont-elles confidentielles ?",
@@ -154,7 +189,7 @@ export const siteGraph = {
       },
       image: `${SITE_URL}/images/hero-lifestyle.jpg`,
       description:
-        "Logiciel de gestion et de production pour boulangeries, pâtisseries et chocolateries artisanales. Digitalisation des recettes et fiches techniques, coûts matière, planning de production, gestion de stocks, mercuriale, alertes de prix et pilotage des marges en temps réel. Tout est connecté.",
+        "Logiciel de gestion et de production pour boulangeries, pâtisseries et chocolateries artisanales. Digitalisation des recettes et fiches techniques, coûts matière, planning de production, gestion de stocks, mercuriale, alertes de prix et pilotage des marges en temps réel. Registres d'hygiène (relevés de températures, plan de nettoyage, traçabilité des lots) et étiquetage des allergènes compris. Tout est connecté.",
       email: SITE_EMAIL,
       foundingDate: "2025",
       sameAs: ["https://www.instagram.com/gramme.app/"],
@@ -183,6 +218,12 @@ export const siteGraph = {
         "gestion de stocks",
         "planning de production",
         "production atelier",
+        "HACCP boulangerie",
+        "relevé de température",
+        "plan de nettoyage",
+        "traçabilité des lots",
+        "étiquetage des allergènes",
+        "valeurs nutritionnelles",
       ],
     },
     {
@@ -221,6 +262,8 @@ export const siteGraph = {
         "Gestion de stocks et inventaires valorisés",
         "Gestion et planning de production",
         "Pilotage de la rentabilité et des marges en temps réel",
+        "Registres d'hygiène : relevés de températures, plan de nettoyage, traçabilité des lots",
+        "Étiquetage des allergènes et valeurs nutritionnelles",
       ],
       offers: [
         {
@@ -283,7 +326,7 @@ export const siteGraph = {
         },
         {
           "@type": "Offer",
-          name: "Installation accompagnée — entreprise en cours de création",
+          name: "Installation accompagnée · entreprise en cours de création",
           price: "300",
           priceCurrency: "EUR",
           availability: "https://schema.org/InStock",
@@ -306,7 +349,7 @@ export const siteGraph = {
       "@type": "Person",
       "@id": `${SITE_URL}/#jeremy`,
       name: "Jeremy",
-      jobTitle: "Chef pâtissier, responsable R&D — co-fondateur de Gramme",
+      jobTitle: "Chef pâtissier, responsable R&D, co-fondateur de Gramme",
       worksFor: { "@id": `${SITE_URL}/#organization` },
       description:
         "Chef pâtissier formé aux exigences des grandes maisons et responsable de la recherche et développement d'une entreprise du secteur. Co-fondateur de Gramme, il apporte l'expertise de laboratoire : fiches techniques, rendements, coût matière et contraintes réelles de production.",
@@ -324,7 +367,7 @@ export const siteGraph = {
       "@type": "Person",
       "@id": `${SITE_URL}/#clermont-fu`,
       name: "Clermont Fu",
-      jobTitle: "Entrepreneur — co-fondateur de Gramme",
+      jobTitle: "Entrepreneur · co-fondateur de Gramme",
       worksFor: { "@id": `${SITE_URL}/#organization` },
       description:
         "Entrepreneur, fondateur de plusieurs entreprises et président de YUFU CAPITAL. Il accompagne des sociétés dans le développement de leur chiffre d'affaires, leur stratégie commerciale, leur marketing et l'outillage de leur gestion. Co-fondateur de Gramme, il porte le volet rentabilité et pilotage.",

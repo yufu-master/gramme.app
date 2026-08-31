@@ -5,7 +5,7 @@ import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { publishedGuides } from "@/content/guides";
 import { formatGuideDate } from "@/lib/guides";
-import { breadcrumbSchema, webPageSchema } from "@/lib/seo";
+import { breadcrumbSchema, webPageSchema, imageSociale } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Guides boulangerie & pâtisserie",
@@ -13,6 +13,7 @@ export const metadata: Metadata = {
     "Guides pratiques Gramme pour artisans : logiciel conçu par un chef pâtissier, numérisation de fiches techniques, coûts de revient et marges.",
   alternates: { canonical: "https://gramme.app/guides" },
   openGraph: {
+    images: imageSociale("/images/app/recette-couts.png", "Le coût de revient d'une recette dans Gramme"),
     title: "Guides Gramme | Boulangerie & pâtisserie",
     description: "Articles pratiques pour piloter recettes, coûts et marges en laboratoire.",
     url: "https://gramme.app/guides",
@@ -40,7 +41,7 @@ export default function GuidesIndexPage() {
         <section className="mt-8 rounded-3xl border border-[#dcead2] bg-white p-6 shadow-sm sm:p-10">
           <h1 className="text-3xl font-black text-[#27421f] md:text-4xl">Guides pour le laboratoire</h1>
           <p className="mt-4 max-w-2xl text-lg text-[#4d6952]">
-            Des articles concrets sur les fiches techniques, le coût de revient et l&apos;organisation d&apos;atelier —
+            Des articles concrets sur les fiches techniques, le coût de revient et l&apos;organisation d&apos;atelier,
             écrits pour les artisans boulangers et pâtissiers.
           </p>
         </section>

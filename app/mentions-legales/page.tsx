@@ -8,7 +8,7 @@ import { EDITEUR, SITE_EMAIL, SITE_URL, SUPPORT_EMAIL, webPageSchema } from "@/l
 export const metadata: Metadata = {
   title: "Mentions légales",
   description:
-    "Mentions légales du site gramme.app : éditeur YUFU CAPITAL (SASU, RCS Paris 824 411 375), directeur de la publication, hébergement, propriété intellectuelle et contact.",
+    "Mentions légales de Gramme : éditeur, hébergeur, directeur de la publication et coordonnées de la société YUFU CAPITAL.",
   alternates: { canonical: `${SITE_URL}/mentions-legales` },
 };
 
@@ -86,17 +86,17 @@ export default function MentionsLegalesPage() {
             </h2>
             <div className="mt-4 space-y-4 text-[#4d6952]">
               <p>
-                <strong className="text-[#3e6134]">Site vitrine et application</strong> — Vercel Inc., 440 N Barranca
+                <strong className="text-[#3e6134]">Site vitrine et application</strong> : Vercel Inc., 440 N Barranca
                 Ave #4133, Covina, CA 91723, États-Unis. Diffusion depuis les points de présence européens du
                 réseau.
               </p>
               <p>
-                <strong className="text-[#3e6134]">Base de données et traitements applicatifs</strong> — Supabase,
+                <strong className="text-[#3e6134]">Base de données et traitements applicatifs</strong> : Supabase,
                 sur une infrastructure hébergée en Union européenne. Vos recettes, factures et prix fournisseurs sont
                 cloisonnés par établissement.
               </p>
               <p>
-                <strong className="text-[#3e6134]">Envoi des courriels transactionnels</strong> — Resend.
+                <strong className="text-[#3e6134]">Envoi des courriels transactionnels</strong> : Resend.
               </p>
               <p>
                 Le détail des mesures de sécurité et de la localisation des données figure sur la page{" "}
@@ -117,8 +117,8 @@ export default function MentionsLegalesPage() {
             </h2>
             <div className="mt-4 space-y-4 text-[#4d6952]">
               <p>
-                L&apos;ensemble des éléments du site et de l&apos;application — textes, visuels, photographies,
-                interfaces, marques, logos, bases de données et code source — est la propriété exclusive de{" "}
+                L&apos;ensemble des éléments du site et de l&apos;application : textes, visuels, photographies,
+                interfaces, marques, logos, bases de données et code source : est la propriété exclusive de{" "}
                 {EDITEUR.raisonSociale} ou fait l&apos;objet d&apos;une licence d&apos;utilisation. Toute
                 reproduction, représentation, adaptation ou extraction, totale ou partielle, par quelque procédé que
                 ce soit et sur quelque support que ce soit, est interdite sans autorisation écrite préalable.
@@ -164,7 +164,7 @@ export default function MentionsLegalesPage() {
             <div className="mt-4 space-y-4 text-[#4d6952]">
               <p>
                 Les informations publiées sur ce site sont fournies à titre indicatif et peuvent évoluer. Les
-                exemples chiffrés — coûts de revient, marges, coefficients — illustrent le fonctionnement de
+                exemples chiffrés (coûts de revient, marges, coefficients) illustrent le fonctionnement de
                 l&apos;outil et ne constituent ni un engagement de résultat, ni un conseil comptable ou fiscal.
               </p>
               <p>

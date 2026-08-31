@@ -5,12 +5,12 @@ import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { publishedArticles } from "@/content/articles";
 import { formatGuideDate } from "@/lib/guides";
-import { breadcrumbSchema, SITE_URL, webPageSchema } from "@/lib/seo";
+import { breadcrumbSchema, SITE_URL, webPageSchema, imageSociale } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Articles — gestion, coûts et marges en boulangerie",
+  title: "Articles · gestion, coûts et marges en boulangerie",
   description:
-    "Ce qu'on apprend en reprenant les chiffres de vrais ateliers : le pourcentage de perte qui fausse les marges, le prix réel d'un logiciel de gestion, et pourquoi un outil de bureau finit par ne plus être ouvert.",
+    "Marge, pertes, prix d'un logiciel, gestion depuis le téléphone : nos analyses de terrain pour les boulangeries et pâtisseries artisanales.",
   keywords: [
     "articles gestion boulangerie",
     "blog boulangerie pâtisserie gestion",
@@ -19,7 +19,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${SITE_URL}/articles` },
   openGraph: {
-    title: "Articles — gestion, coûts et marges en boulangerie",
+    images: imageSociale("/images/app/statistiques.png", "Les statistiques d'achats dans Gramme : dépense par mois et par fournisseur"),
+    title: "Articles · gestion, coûts et marges en boulangerie",
     description: "Ce qu'on apprend en reprenant les chiffres de vrais ateliers.",
     url: `${SITE_URL}/articles`,
   },
@@ -49,7 +50,7 @@ export default function ArticlesIndexPage() {
           </h1>
           <p className="mt-4 max-w-2xl text-lg text-[#4d6952]">
             Nous montons les comptes d&apos;ateliers artisanaux : leurs fiches, leurs factures, leurs marges. Ces
-            articles racontent ce qu&apos;on y trouve — les erreurs qui reviennent, les chiffres qui surprennent, et
+            articles racontent ce qu&apos;on y trouve : les erreurs qui reviennent, les chiffres qui surprennent, et
             ce qui distingue un outil qu&apos;on garde d&apos;un outil qu&apos;on abandonne.
           </p>
           <p className="mt-3 text-sm text-[#6e9f55]">

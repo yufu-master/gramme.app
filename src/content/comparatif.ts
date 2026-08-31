@@ -26,7 +26,7 @@
  * `RELEVE_LE` à jour — une page datée d'il y a deux ans est un mensonge lent.
  */
 
-export const RELEVE_LE = "26 août 2026";
+export const RELEVE_LE = "30 août 2026";
 
 export type Concurrent = {
   id: string;
@@ -58,14 +58,14 @@ export const concurrents: Concurrent[] = [
     site: "gramme.app",
     positionnement:
       "Le logiciel de gestion et de production des artisans boulangers et pâtissiers, conçu par un chef pâtissier en exercice.",
-    cible: "Boulangerie, pâtisserie, chocolaterie artisanales — de l'artisan seul à l'équipe d'une quinzaine.",
+    cible: "Boulangerie, pâtisserie, chocolaterie artisanales, de l'artisan seul à l'équipe d'une quinzaine.",
     tarif:
       "49 € HT/mois (490 €/an) en Starter, 89 € HT/mois (890 €/an) en Pro. Installation accompagnée à partir de 300 € HT, une seule fois.",
     tarifCourt: "49 à 89 € HT/mois",
     force:
-      "Le pourcentage de perte et les rendements traités comme des données de premier plan, les sous-recettes en cascade sur plusieurs niveaux, le volume de factures inclus sans surcoût, la reprise complète des données faite par l'éditeur avant le premier jour, et le planning de production compris dans l'offre Pro.",
+      "Le pourcentage de perte et les rendements traités comme des données de premier plan, les sous-recettes en cascade sur plusieurs niveaux, le volume de factures inclus sans surcoût, la reprise complète des données faite par l'éditeur avant le premier jour. L'offre Pro comprend, sans option ni supplément, le planning de production, l'étiquetage allergènes et nutritionnel, et l'hygiène : relevés de températures, plan de nettoyage, étiquettes de lot et registres imprimables.",
     reserve:
-      "La traçabilité HACCP (relevés de température, plans de nettoyage) et la connexion aux caisses et à la comptabilité restent en cours de développement, annoncées d'ici fin 2026 : nous ne les comptons pas comme acquises dans les tableaux ci-dessous. L'étiquetage allergènes et les valeurs nutritionnelles, eux, sont livrés depuis le 30 août 2026.",
+      "La connexion aux caisses et à la comptabilité reste en cours de développement, annoncée d'ici fin 2026 : nous ne la comptons pas comme acquise dans les tableaux ci-dessous. L'offre Pro est plafonnée à cinq utilisateurs, là où Otami et ChefsTouch en autorisent davantage. Et nous ne proposons pas d'essai gratuit en libre-service : nous faisons une démonstration sur vos propres fiches.",
   },
   {
     id: "otami",
@@ -75,27 +75,12 @@ export const concurrents: Concurrent[] = [
       "« La solution pour simplifier vos achats, vos marges et votre production. » Le concurrent le plus proche de Gramme sur le métier.",
     cible: "Boulangerie, pâtisserie et restauration, du commerce isolé au multi-site.",
     tarif:
-      "Avec engagement annuel : 59 € HT/mois (Access), 70 € (Essentiel, au lieu de 99 €), 100 € (Intégrale, au lieu de 159 €). Sans engagement : 69 €, 119 €, 179 €. Planning de production en option à 49 € HT/mois, module comptable à 49 € HT/mois.",
-    tarifCourt: "59 à 179 € HT/mois",
+      "Trois offres affichées : Access 59 € HT/mois (5 documents importés par mois), Essentiel 99 € (20 documents), Intégrale 159 € (40 documents), avec un mois offert en facturation annuelle. Deux modules se facturent en plus de l'abonnement, 49 € HT/mois chacun : Comptable (extraction de TVA, journal d'achats, ventilation analytique) et Planning de production. Devis sur mesure pour un besoin spécifique.",
+    tarifCourt: "59 à 159 € HT/mois, options à 49 €",
     force:
-      "Le réseau d'intégrations, de loin le plus fourni du marché : caisses (Zelty, CarrePOS, Cashpad, Connectill, Addictill), comptabilité (Pennylane, Synapsy, Evoliz), facturation (Libeo, Abill, Cashmag, Menlog). Utilisateurs et appareils illimités sur toutes les offres, et gestion multi-site native.",
+      "Le réseau d'intégrations, de loin le plus fourni du marché : caisses (Zelty, CarrePOS, Cashpad, Connectill, Addictill), comptabilité (Pennylane, Synapsy, Evoliz), facturation (Libeo, Abill, Cashmag, Menlog). Utilisateurs et écrans illimités sur toutes les offres, gestion multi-site native, et un module comptable qui va jusqu'à l'extraction de TVA et au journal d'achats, ce que nous ne faisons pas. Le dépôt de devis alerte automatiquement quand un tarif négocié n'est pas respecté sur une facture. Plus de 4 000 professionnels des métiers de bouche revendiqués, et une note publique de 4,9 sur les avis vérifiés.",
     reserve:
-      "Le nombre de documents traités par mois est la variable de facturation : 5 en Access, 20 en Essentiel, 40 en Intégrale. Une boulangerie qui reçoit une trentaine de factures par mois sort de l'offre d'entrée. Le planning de production se paie en plus, et les pages produit ne documentent pas la gestion des pertes ni des rendements.",
-  },
-  {
-    id: "logibake",
-    nom: "LogiBake",
-    site: "logibake.com",
-    positionnement:
-      "« La logique au service de votre boulangerie-pâtisserie. » Une couverture métier très large, HACCP et étiquetage compris.",
-    cible: "Fabrication à domicile, petits laboratoires, boulangeries en croissance, laboratoires centralisés.",
-    tarif:
-      "Offre unique « Tout inclus » à 399 € HT par an, soit 33,25 € HT par mois, avec deux mois offerts. Sans engagement. Essai gratuit de 14 jours sans carte bancaire.",
-    tarifCourt: "399 € HT/an, soit 33,25 €/mois",
-    force:
-      "Le tarif le plus bas du marché sur un périmètre complet — 399 € HT par an, tout inclus — et la couverture réglementaire que peu proposent : traçabilité HACCP, gestion des DLC, étiquettes allergènes, valeurs nutritionnelles. Le compte démarre pré-rempli avec 200 recettes professionnelles et 300 ingrédients déjà chiffrés, et un assistant IA (« Pastel ») interroge vos données.",
-    reserve:
-      "Application de bureau macOS et Windows ; les versions iOS, iPadOS et Android sont annoncées comme « bientôt » disponibles. Les pages produit ne documentent ni le pourcentage de perte, ni les rendements, ni les sous-recettes — trois mécaniques déterminantes pour un coût de revient juste en boulangerie.",
+      "Le nombre de documents importés par mois est la variable de facturation : 5 en Access, 20 en Essentiel, 40 en Intégrale. Une boulangerie qui reçoit une trentaine de factures par mois est donc sur l'offre à 159 €. Le planning de production n'entre dans aucune des trois offres : c'est un module à 49 € HT/mois, comme le module comptable. Et les pages produit ne documentent ni la gestion des pertes, ni les rendements.",
   },
   {
     id: "chefstouch",
@@ -125,9 +110,9 @@ export const concurrents: Concurrent[] = [
       "À partir de 49 € HT/mois et par module, sur cinq modules (Analyses, Opérations, Traçabilité, Multisite, IA). Crédits IA facturés à part. Aucun frais d'installation : « 0 installation requise — 100 % cloud ».",
     tarifCourt: "49 € HT/mois par module",
     force:
-      "La profondeur fonctionnelle d'un ERP : analyse des marges, anomalies de livraison, gestion des pertes, traçabilité complète avec relevés de température et étiquetage INCO, pilotage multisite centralisé, et plus de cent outils pilotables par IA.",
+      "La profondeur fonctionnelle d'un ERP : analyse des marges, anomalies de livraison, gestion des pertes, traçabilité complète avec relevés de températures et étiquetage INCO, pilotage multisite centralisé, et plus de cent outils pilotables par IA.",
     reserve:
-      "La facturation au module : le tarif d'entrée ne couvre qu'un module, et une couverture complète suppose de les additionner. L'outil est dimensionné pour des groupes multi-sites — sa richesse est un coût d'apprentissage pour un artisan seul.",
+      "La facturation au module : le tarif d'entrée ne couvre qu'un module, et une couverture complète suppose de les additionner. L'outil est dimensionné pour des groupes multi-sites : sa richesse est un coût d'apprentissage pour un artisan seul.",
   },
 ];
 
@@ -168,7 +153,6 @@ export const blocsComparatif: BlocComparatif[] = [
         valeurs: {
           gramme: { v: "oui" },
           otami: { v: "oui" },
-          logibake: { v: "oui" },
           chefstouch: { v: "oui" },
           melba: { v: "oui" },
         },
@@ -180,7 +164,6 @@ export const blocsComparatif: BlocComparatif[] = [
         valeurs: {
           gramme: { v: "oui", note: "Plusieurs niveaux, avec rendement réel de chaque sous-recette" },
           otami: { v: "oui" },
-          logibake: { v: "oui" },
           chefstouch: { v: "oui" },
           melba: { v: "oui" },
         },
@@ -191,7 +174,6 @@ export const blocsComparatif: BlocComparatif[] = [
         valeurs: {
           gramme: { v: "oui", note: "Fiches farinées, tachées ou anciennes comprises" },
           otami: { v: "partiel", note: "La lecture automatique porte sur les documents fournisseurs" },
-          logibake: { v: "partiel", note: "Compte pré-rempli de 200 recettes et 300 ingrédients" },
           chefstouch: { v: "partiel", note: "Base de recettes partagées à dupliquer et adapter" },
           melba: { v: "partiel" },
         },
@@ -206,7 +188,6 @@ export const blocsComparatif: BlocComparatif[] = [
             note: "Poids brut, poids net et taux de perte sur chaque fiche ; le coût est rapporté au produit vendable",
           },
           otami: { v: "partiel", note: "Non documenté sur les pages produit au moment du relevé" },
-          logibake: { v: "partiel", note: "Non documenté sur les pages Recettes et Production au moment du relevé" },
           chefstouch: { v: "partiel", note: "Approche restauration : coûts, ratios et portions" },
           melba: { v: "oui", note: "Gestion des pertes annoncée dans le module Analyses" },
         },
@@ -218,7 +199,6 @@ export const blocsComparatif: BlocComparatif[] = [
         valeurs: {
           gramme: { v: "oui" },
           otami: { v: "oui" },
-          logibake: { v: "oui" },
           chefstouch: { v: "partiel", note: "Coûts, ratios et portions ; approche restauration" },
           melba: { v: "oui" },
         },
@@ -235,7 +215,6 @@ export const blocsComparatif: BlocComparatif[] = [
         valeurs: {
           gramme: { v: "oui" },
           otami: { v: "oui", note: "Factures, devis et avoirs" },
-          logibake: { v: "oui" },
           chefstouch: { v: "option", note: "À partir de l'offre Business Pro (39,90 €/admin/site)" },
           melba: { v: "oui" },
         },
@@ -247,7 +226,6 @@ export const blocsComparatif: BlocComparatif[] = [
         valeurs: {
           gramme: { v: "oui", note: "30/mois en Starter, 150/mois en Pro" },
           otami: { v: "partiel", note: "5 en Access, 20 en Essentiel, 40 en Intégrale" },
-          logibake: { v: "partiel", note: "Non plafonné en documents ; 30 000 crédits IA par mois" },
           chefstouch: { v: "partiel", note: "Non communiqué" },
           melba: { v: "partiel", note: "Non communiqué" },
         },
@@ -258,7 +236,6 @@ export const blocsComparatif: BlocComparatif[] = [
         valeurs: {
           gramme: { v: "oui", note: "Notification téléphone et courriel, plage horaire réglable" },
           otami: { v: "oui" },
-          logibake: { v: "oui" },
           chefstouch: { v: "partiel" },
           melba: { v: "oui" },
         },
@@ -269,7 +246,6 @@ export const blocsComparatif: BlocComparatif[] = [
         valeurs: {
           gramme: { v: "oui" },
           otami: { v: "oui" },
-          logibake: { v: "oui" },
           chefstouch: { v: "option", note: "Offre Business Pro" },
           melba: { v: "oui" },
         },
@@ -280,7 +256,6 @@ export const blocsComparatif: BlocComparatif[] = [
         valeurs: {
           gramme: { v: "oui" },
           otami: { v: "oui", note: "Analyse d'achats par famille" },
-          logibake: { v: "oui" },
           chefstouch: { v: "partiel", note: "Un seul fournisseur sur les offres basses" },
           melba: { v: "oui" },
         },
@@ -292,7 +267,6 @@ export const blocsComparatif: BlocComparatif[] = [
         valeurs: {
           gramme: { v: "oui", note: "Optionnel : si vous ne renseignez rien, le calcul reste sur les matières" },
           otami: { v: "partiel", note: "Non documenté publiquement" },
-          logibake: { v: "partiel", note: "Non documenté publiquement" },
           chefstouch: { v: "non" },
           melba: { v: "partiel", note: "Non documenté publiquement" },
         },
@@ -307,9 +281,8 @@ export const blocsComparatif: BlocComparatif[] = [
         critere: "Planning de production",
         pourquoi: "Les quantités du jour, les besoins matières consolidés, le coût de la fournée.",
         valeurs: {
-          gramme: { v: "oui", note: "Inclus dans l'offre Pro, sans supplément" },
-          otami: { v: "option", note: "Option à 49 € HT/mois en plus de l'abonnement" },
-          logibake: { v: "oui" },
+          gramme: { v: "oui", note: "Compris dans l'offre Pro à 89 € HT/mois, sans supplément" },
+          otami: { v: "option", note: "Module facturé 49 € HT/mois en plus de l'abonnement, quelle que soit l'offre" },
           chefstouch: { v: "option", note: "À partir de Business Pro (39,90 €/admin/site)" },
           melba: { v: "oui", note: "Module Opérations" },
         },
@@ -320,7 +293,6 @@ export const blocsComparatif: BlocComparatif[] = [
         valeurs: {
           gramme: { v: "oui", note: "Offre Pro" },
           otami: { v: "oui" },
-          logibake: { v: "oui" },
           chefstouch: { v: "option", note: "À partir de Business+" },
           melba: { v: "oui", note: "Module Opérations" },
         },
@@ -331,7 +303,6 @@ export const blocsComparatif: BlocComparatif[] = [
         valeurs: {
           gramme: { v: "oui", note: "Chaque mouvement porte sa cause" },
           otami: { v: "oui" },
-          logibake: { v: "oui" },
           chefstouch: { v: "partiel" },
           melba: { v: "oui" },
         },
@@ -340,26 +311,62 @@ export const blocsComparatif: BlocComparatif[] = [
   },
   {
     id: "reglementaire",
-    titre: "Réglementaire — ce que nous n'avons pas encore",
+    titre: "Réglementaire & Intégrations",
     lignes: [
       {
-        critere: "Traçabilité HACCP, relevés, DLC",
-        pourquoi: "Obligatoire en production alimentaire, et opposable en cas de contrôle.",
+        critere: "Relevés de températures des enceintes",
+        pourquoi:
+          "Le geste d'hygiène le plus quotidien, et le premier qu'un contrôle demande à voir. Il se fait à la main sur un cahier dans la plupart des laboratoires, donc il se rattrape le dimanche soir, de mémoire.",
         valeurs: {
-          gramme: { v: "prevu", note: "En développement, annoncé d'ici fin 2026. En attendant, Gramme s'utilise en complément d'un outil HACCP" },
-          otami: { v: "non" },
-          logibake: { v: "oui", note: "Traçabilité HACCP et gestion des DLC" },
+          gramme: {
+            v: "oui",
+            note: "Vos enceintes, vos bornes, vos horaires de relevé. Un écart appelle son action corrective avant d'être enregistré, la courbe couvre quatre-vingt-dix jours, et le registre s'imprime. Compris dans l'offre Pro",
+          },
+          otami: { v: "partiel", note: "Non documenté sur les pages publiques au moment du relevé" },
+          chefstouch: { v: "non" },
+          melba: { v: "option", note: "Module Traçabilité, facturé à partir de 49 € HT/mois" },
+        },
+      },
+      {
+        critere: "Plan de nettoyage et pointage",
+        pourquoi:
+          "Ce qui se nettoie, à quelle fréquence, par qui. Sans trace nominative et datée, le plan de maîtrise sanitaire n'est qu'une intention.",
+        valeurs: {
+          gramme: {
+            v: "oui",
+            note: "Plan par zone et par fréquence, pointage d'un geste depuis le téléphone, retards remontés en tête, registre imprimable. Compris dans l'offre Pro",
+          },
+          otami: { v: "partiel", note: "Non documenté sur les pages publiques au moment du relevé" },
+          chefstouch: { v: "non" },
+          melba: { v: "option", note: "Module Traçabilité" },
+        },
+      },
+      {
+        critere: "Étiquettes de lot, DLC et contrôle à réception",
+        pourquoi:
+          "Une préparation qui sort du froid sans numéro de lot ni date limite n'est pas traçable. Et la marchandise se contrôle au moment où elle arrive, pas après.",
+        valeurs: {
+          gramme: {
+            v: "oui",
+            note: "Numéro de lot, date limite et prénom remplis seuls ; formats 57 × 40, 100 × 50 et planche A4 ; contrôle à réception repris de la facture déjà scannée. Le registre ne se réécrit pas, y compris par un administrateur",
+          },
+          otami: { v: "partiel", note: "Non documenté sur les pages publiques au moment du relevé" },
           chefstouch: { v: "partiel", note: "Étiquetage INCO" },
-          melba: { v: "oui", note: "Module Traçabilité, relevés de température compris" },
+          melba: { v: "option", note: "Module Traçabilité" },
         },
       },
       {
         critere: "Étiquetage allergènes réglementaire",
         pourquoi: "Obligatoire en vente non préemballée depuis le décret n° 2015-447.",
         valeurs: {
-          gramme: { v: "oui", note: "Les 14 allergènes de l'annexe II du règlement (UE) 1169/2011, propagés des matières aux sous-recettes puis aux produits finis. Affiche de vitrine et étiquette produit, avec archivage de chaque version imprimée" },
-          otami: { v: "non" },
-          logibake: { v: "oui" },
+          gramme: {
+            v: "oui",
+            note: "Les 14 allergènes de l'annexe II du règlement (UE) 1169/2011, propagés des matières aux sous-recettes puis aux produits finis. Affiche de vitrine et étiquette produit, avec archivage de chaque version imprimée",
+          },
+          otami: {
+            v: "partiel",
+            note: "Une rubrique « allergènes / composition » apparaît dans les avis clients publiés par l'éditeur ; les pages produit ne la décrivent pas au moment du relevé",
+          },
           chefstouch: { v: "oui" },
           melba: { v: "oui" },
         },
@@ -368,9 +375,11 @@ export const blocsComparatif: BlocComparatif[] = [
         critere: "Valeurs nutritionnelles",
         pourquoi: "Nécessaire pour la vente préemballée et la fourniture à des collectivités.",
         valeurs: {
-          gramme: { v: "oui", note: "Calcul pondéré depuis les fiches, table Ciqual de l'ANSES intégrée (3 484 aliments), ordre et arrondis du règlement (UE) 1169/2011" },
-          otami: { v: "non" },
-          logibake: { v: "oui" },
+          gramme: {
+            v: "oui",
+            note: "Calcul pondéré depuis les fiches, table Ciqual de l'ANSES intégrée (3 484 aliments), ordre et arrondis du règlement (UE) 1169/2011",
+          },
+          otami: { v: "partiel", note: "Non documenté sur les pages publiques au moment du relevé" },
           chefstouch: { v: "oui", note: "AW et PAC compris" },
           melba: { v: "oui" },
         },
@@ -379,9 +388,14 @@ export const blocsComparatif: BlocComparatif[] = [
         critere: "Connexion aux caisses et à la comptabilité",
         pourquoi: "Évite la double saisie entre le point de vente, la gestion et l'expert-comptable.",
         valeurs: {
-          gramme: { v: "prevu", note: "En développement, annoncé d'ici fin 2026 — tant que ce n'est pas livré, nous ne le comptons pas comme acquis" },
-          otami: { v: "oui", note: "Le réseau le plus fourni du marché" },
-          logibake: { v: "partiel", note: "Non documenté publiquement" },
+          gramme: {
+            v: "prevu",
+            note: "En développement, annoncé d'ici fin 2026, tant que ce n'est pas livré, nous ne le comptons pas comme acquis",
+          },
+          otami: {
+            v: "oui",
+            note: "Le réseau le plus fourni du marché. Le module comptable (extraction de TVA, journal d'achats, ventilation analytique) est facturé 49 € HT/mois en plus de l'abonnement",
+          },
           chefstouch: { v: "partiel" },
           melba: { v: "oui" },
         },
@@ -395,41 +409,35 @@ export const blocsComparatif: BlocComparatif[] = [
       {
         critere: "Utilisable sur téléphone dans le laboratoire",
         pourquoi:
-          "C'est le point de bascule. Un boulanger n'est pas devant un ordinateur : il est devant un four à quatre heures du matin, et le seul écran à portée est celui de sa poche. Un outil qui suppose un poste de bureau ne sera ouvert qu'une fois par semaine — donc jamais tenu à jour.",
+          "C'est le point de bascule. Un boulanger n'est pas devant un ordinateur : il est devant un four à quatre heures du matin, et le seul écran à portée est celui de sa poche. Un outil qui suppose un poste de bureau ne sera ouvert qu'une fois par semaine, donc jamais tenu à jour.",
         valeurs: {
           gramme: {
             v: "oui",
-            note: "Application web installable (PWA) : elle s'ajoute à l'écran d'accueil et se comporte comme une application native, notifications comprises",
+            note: "L'application s'ajoute à l'écran d'accueil de votre téléphone, sans passer par l'App Store et sans mise à jour à lancer. Elle s'ouvre comme n'importe quelle application, notifications comprises",
           },
           otami: { v: "oui", note: "Appareils illimités" },
-          logibake: {
-            v: "non",
-            note: "Application de bureau macOS et Windows ; iOS, iPadOS et Android annoncés « bientôt »",
-          },
           chefstouch: { v: "oui" },
           melba: { v: "oui", note: "100 % cloud" },
         },
       },
       {
-        critere: "Rien à installer, aucune mise à jour à lancer",
+        critere: "Utilisateurs inclus dans l'abonnement",
         pourquoi:
-          "Un logiciel de bureau, ce sont des installations poste par poste, des versions qui divergent entre l'ordinateur du bureau et celui du labo, et un informaticien à appeler. Une application web s'ouvre, et elle est déjà à jour.",
+          "Un tourier, un pâtissier, un apprenti et le patron : à quatre, une facturation par personne change tout. C'est la ligne où nous sommes le moins généreux du comparatif, et elle est ici pour cette raison.",
         valeurs: {
-          gramme: { v: "oui", note: "Le même compte, la même version, sur ordinateur, tablette et téléphone" },
-          otami: { v: "oui" },
-          logibake: { v: "non", note: "Installation sur chaque poste macOS ou Windows" },
-          chefstouch: { v: "oui" },
-          melba: { v: "oui", note: "« 0 installation requise — 100 % cloud »" },
+          gramme: { v: "partiel", note: "1 utilisateur en Starter, jusqu'à 5 en Pro" },
+          otami: { v: "oui", note: "Utilisateurs et écrans illimités sur les trois offres" },
+          chefstouch: { v: "partiel", note: "Facturation par administrateur et par site" },
+          melba: { v: "partiel", note: "Non communiqué" },
         },
       },
       {
         critere: "Interface pensée pour être utilisée en production",
         pourquoi:
-          "Des écrans lisibles à bout de bras, peu de champs, pas de vocabulaire de logiciel — parce qu'on s'en sert les mains farineuses, debout, entre deux fournées.",
+          "Des écrans lisibles à bout de bras, peu de champs, pas de vocabulaire de logiciel, parce qu'on s'en sert les mains farineuses, debout, entre deux fournées.",
         valeurs: {
           gramme: { v: "oui", note: "Chaque écran est validé en laboratoire avant d'exister" },
           otami: { v: "oui", note: "« Interface accessible sans technicité requise »" },
-          logibake: { v: "partiel", note: "Ergonomie de bureau, tant que les versions mobiles ne sont pas sorties" },
           chefstouch: { v: "partiel" },
           melba: { v: "partiel", note: "Profondeur d'un ERP : richesse fonctionnelle, donc apprentissage" },
         },
@@ -444,7 +452,6 @@ export const blocsComparatif: BlocComparatif[] = [
             note: "Plusieurs jours de travail : profils, fournisseurs, mercuriale complète, fiches, factures",
           },
           otami: { v: "partiel", note: "Intégration des anciens documents sur 1 à 2 mois selon l'offre" },
-          logibake: { v: "partiel", note: "Compte pré-rempli d'un fonds générique, pas de vos données" },
           chefstouch: { v: "non", note: "Prise en main en autonomie" },
           melba: { v: "partiel", note: "« 0 installation requise »" },
         },
@@ -458,7 +465,6 @@ export const blocsComparatif: BlocComparatif[] = [
             note: "Démonstration d'une heure sur vos propres fiches, et 30 jours satisfait ou remboursé sur l'annuel",
           },
           otami: { v: "partiel", note: "Non communiqué" },
-          logibake: { v: "oui", note: "14 jours, sans carte bancaire" },
           chefstouch: { v: "oui", note: "Offre gratuite jusqu'à 100 fiches" },
           melba: { v: "partiel", note: "Non communiqué" },
         },
@@ -469,7 +475,6 @@ export const blocsComparatif: BlocComparatif[] = [
         valeurs: {
           gramme: { v: "oui" },
           otami: { v: "oui" },
-          logibake: { v: "oui", note: "399 € HT/an, tout inclus" },
           chefstouch: { v: "oui" },
           melba: { v: "partiel", note: "« À partir de » par module" },
         },
@@ -480,7 +485,6 @@ export const blocsComparatif: BlocComparatif[] = [
         valeurs: {
           gramme: { v: "oui", note: "Forfait multi-établissement dédié, bascule entre les ateliers depuis le même compte" },
           otami: { v: "oui", note: "Partage de recettes et suivi par magasin" },
-          logibake: { v: "oui", note: "Laboratoires centralisés multi-points de vente" },
           chefstouch: { v: "oui", note: "Facturation par administrateur et par site" },
           melba: { v: "oui", note: "Module Multisite" },
         },
@@ -488,6 +492,117 @@ export const blocsComparatif: BlocComparatif[] = [
     ],
   },
 ];
+
+/**
+ * Ce qu'une même boulangerie paie réellement, chez chacun.
+ *
+ * Une grille d'abonnements ne se compare pas : elle se calcule. Le tarif
+ * d'entrée d'un éditeur ne dit rien tant qu'on ne sait pas combien de factures
+ * il accepte et ce qu'il facture en plus — et c'est exactement là que deux
+ * offres affichées 59 € et 89 € finissent à 208 € et 89 €.
+ *
+ * TENUE OBLIGATOIRE, au même titre que le reste du fichier :
+ *
+ * - Le scénario est UNIQUE, explicite, et le même pour tout le monde. Choisir
+ *   un cas taillé pour nous serait une comparaison truquée.
+ * - Chaque total est une ADDITION de prix publics affichés. Aucun devis, aucune
+ *   remise négociée, aucune estimation.
+ * - **Le moins cher n'est pas nous, et c'est écrit.** ChefsTouch sort devant sur
+ *   ce scénario. Un tableau de prix où l'auteur gagne ne se fait citer nulle
+ *   part — et le lecteur qui vérifie le premier chiffre ne lit pas le second.
+ */
+export const SCENARIO_PANIER =
+  "Une boulangerie-pâtisserie artisanale, un laboratoire, trois personnes qui se connectent, une trentaine de factures fournisseurs par mois, et le planning de production utilisé toutes les semaines.";
+
+export type LignePanier = {
+  id: string;
+  offre: string;
+  /** Le détail de l'addition, en clair. */
+  detail: string;
+  /** Total mensuel HT, hors frais d'installation. `null` = non calculable publiquement. */
+  totalMensuelHt: number | null;
+  /** Ce que le total ne dit pas — dans les deux sens. */
+  nuance: string;
+};
+
+export const panierCompare: LignePanier[] = [
+  {
+    id: "chefstouch",
+    offre: "ChefsTouch · offre Business Pro",
+    detail:
+      "39,90 € HT par administrateur et par site. La lecture des factures et le planning de production n'arrivent qu'à cette offre.",
+    totalMensuelHt: 39.9,
+    nuance:
+      "Le total dépend du nombre d'administrateurs et de sites, pas du nombre d'utilisateurs : sur un site avec un seul administrateur, c'est le prix le plus bas de ce comparatif. Il monte en revanche à chaque site et à chaque administrateur ajouté, et le volume de documents inclus n'est pas communiqué.",
+  },
+  {
+    id: "gramme",
+    offre: "Gramme · offre Pro",
+    detail:
+      "89 € HT/mois. 150 factures par mois, planning de production, stocks, allergènes, nutrition et hygiène compris. Jusqu'à cinq utilisateurs.",
+    totalMensuelHt: 89,
+    nuance:
+      "Aucun module à ajouter sur ce scénario. En face : l'installation accompagnée est facturée une seule fois, à partir de 500 € HT en Pro, et il n'y a pas d'essai gratuit en libre-service.",
+  },
+  {
+    id: "otami",
+    offre: "Otami · offre Intégrale + module Planning de production",
+    detail:
+      "159 € HT/mois pour 40 documents importés par mois, plus 49 € HT/mois pour le planning de production, soit 208 € HT/mois. Un mois offert en facturation annuelle.",
+    totalMensuelHt: 208,
+    nuance:
+      "L'offre Essentiel à 99 € s'arrête à 20 documents par mois : à trente factures, le scénario impose l'Intégrale. En face, ce total achète des utilisateurs et des écrans illimités, la gestion multi-site, et le réseau d'intégrations caisse et comptabilité le plus fourni du marché : trois choses qui peuvent valoir l'écart si vous en avez besoin. Le module comptable, à 49 € HT/mois de plus, va jusqu'à l'extraction de TVA et au journal d'achats : nous ne proposons pas d'équivalent.",
+  },
+  {
+    id: "melba",
+    offre: "Melba · à partir de 49 € HT/mois par module",
+    detail:
+      "Cinq modules : Analyses, Opérations, Traçabilité, Multisite, IA. Le périmètre de ce scénario en suppose plusieurs, et les crédits IA sont facturés à part.",
+    totalMensuelHt: null,
+    nuance:
+      "Nous ne calculons pas de total : l'éditeur affiche un « à partir de » par module et non le prix d'une combinaison. Demandez-lui le chiffre pour votre périmètre, et méfiez-vous de toute comparaison, y compris la nôtre, qui prétendrait le deviner.",
+  },
+];
+
+/**
+ * Les questions qu'on tape avant d'acheter.
+ *
+ * Elles ne sont pas là pour le balisage : quelqu'un qui cherche « avis Otami »
+ * ou « alternative à Otami » se pose une vraie question, et la seule façon
+ * d'être utile — donc cité — est d'y répondre franchement, y compris quand la
+ * réponse envoie ailleurs. Une page qui répond « nous, évidemment » à chaque
+ * question ne rend service à personne et ne se classe pas longtemps.
+ */
+export const questionsComparatif = [
+  {
+    q: "Quelle alternative à Otami pour une boulangerie ou une pâtisserie ?",
+    a: "Cela dépend de ce qui vous manque aujourd'hui. Si c'est le volume de factures : Otami facture au nombre de documents importés (5, 20 ou 40 par mois selon l'offre), là où Gramme inclut 30 factures en Starter et 150 en Pro. Si c'est le planning de production, facturé 49 € HT/mois en option chez Otami, il est compris dans notre offre Pro. Si c'est l'hygiène : relevés de températures, plan de nettoyage, étiquettes de lot), Gramme la comprend dans son offre Pro et Melba la propose dans son module Traçabilité, facturé à part. En revanche, si ce que vous cherchez est la connexion à votre caisse ou à votre expert-comptable, Otami reste devant : son réseau d'intégrations est le plus fourni du marché et le nôtre est encore en développement.",
+  },
+  {
+    q: "Combien coûte Otami par mois ?",
+    a: "Trois offres publiques au 30 août 2026 : Access à 59 € HT/mois pour 5 documents importés par mois, Essentiel à 99 € pour 20 documents, Intégrale à 159 € pour 40 documents, avec un mois offert en facturation annuelle. Deux modules se facturent en plus de l'abonnement, 49 € HT/mois chacun : le module Comptable et le module Planning de production. Une boulangerie qui reçoit une trentaine de factures par mois et qui veut le planning de production est donc à 208 € HT/mois. Vérifiez ces montants sur otami.fr avant de décider : les grilles bougent.",
+  },
+  {
+    q: "Otami ou Gramme : lequel choisir ?",
+    a: "Otami si votre priorité est de supprimer la double saisie avec la caisse et la comptabilité, si vous pilotez plusieurs points de vente, ou s'il vous faut un nombre illimité d'utilisateurs, trois points sur lesquels il est aujourd'hui devant nous. Gramme si votre priorité est le coût de revient au plus juste (pourcentage de perte, rendements, sous-recettes en cascade), le volume de factures sans surcoût, l'hygiène et l'étiquetage compris dans l'abonnement, et une reprise complète de vos données faite avant votre premier jour. Le vrai départage se fait sur vos propres fiches, en une heure, pas sur une grille.",
+  },
+  {
+    q: "Quel logiciel de gestion fait aussi le HACCP en boulangerie ?",
+    a: "Gramme le fait : relevés de températures avec vos bornes et vos horaires, plan de nettoyage pointé depuis le téléphone, étiquettes de lot et DLC, contrôle à réception, registres imprimables, le tout compris dans l'offre Pro à 89 € HT/mois. Chez les autres, sur les pages publiques relevées le 30 août 2026, seul Melba couvre ce terrain, dans un module Traçabilité facturé à partir de 49 € HT/mois en plus des autres modules. Une précision qui compte : aucun logiciel ne rend une exploitation conforme. Il enregistre vos relevés, les horodate et les rend imprimables ; la maîtrise sanitaire reste la vôtre.",
+  },
+  {
+    q: "Un logiciel de gestion peut-il remplacer mon cahier de relevés de températures ?",
+    a: "Oui, à condition qu'il enregistre la même chose qu'un cahier bien tenu : la valeur, l'heure, l'enceinte concernée et la personne qui a relevé. Dans Gramme, chaque relevé porte ces quatre informations, un écart hors des bornes que vous avez fixées ne s'enregistre pas sans l'action corrective qui va avec, et une erreur ne s'efface pas : elle s'annule avec un motif, les deux lignes restant visibles. C'est précisément ce qu'un registre papier ne permet pas de garantir, et c'est ce qui le rend opposable.",
+  },
+  {
+    q: "Faut-il un logiciel séparé pour l'étiquetage des allergènes ?",
+    a: "Ce n'est plus nécessaire si votre logiciel de recettes fait remonter les allergènes tout seuls. C'est le cas de Gramme, ChefsTouch et Melba : les 14 allergènes de l'annexe II du règlement (UE) 1169/2011 se propagent des matières aux sous-recettes puis aux produits finis. La question à poser à un éditeur est plutôt celle-ci : que se passe-t-il quand une matière n'a pas ses allergènes renseignés ? Chez nous, l'étiquette est bloquée et les matières manquantes sont nommées, une matière inconnue n'est pas une matière sans allergène.",
+  },
+  {
+    q: "Quel est le logiciel de gestion boulangerie le moins cher ?",
+    a: "Sur les tarifs publics relevés le 30 août 2026, c'est ChefsTouch : une offre gratuite jusqu'à 100 fiches, puis 1,99 € HT/mois, et 39,90 € HT par administrateur et par site pour l'offre Business Pro, la première qui lise vos factures et tienne un planning de production. Nous ne sommes pas les moins chers et nous ne cherchons pas à l'être. La question utile n'est pas le prix affiché mais ce qu'il faut ajouter pour couvrir votre besoin réel : un volume de factures suffisant, le planning de production, l'hygiène. C'est l'objet du tableau de facture réelle plus haut.",
+  },
+] as const;
 
 /** Les cas d'usage, pour dire franchement quand un autre outil convient mieux. */
 export const cheminsDeChoix = [
@@ -498,15 +613,21 @@ export const cheminsDeChoix = [
     verdict: "gramme" as const,
   },
   {
-    profil: "Votre priorité absolue est la conformité sanitaire et l'étiquetage",
+    profil: "Votre priorité absolue est l'hygiène et l'étiquetage",
     conseil:
-      "Séparons les deux sujets. Les allergènes et les valeurs nutritionnelles sont livrés chez nous depuis le 30 août 2026, et nous les tenons pour l'un de nos points forts : ils se propagent tout seuls des matières aux produits finis, ce que peu d'outils savent faire. La traçabilité HACCP — relevés de température, plans de nettoyage, contrôles à réception — ne l'est pas, et LogiBake comme Melba la proposent aujourd'hui. S'il vous la faut ce trimestre, prenez l'un d'eux, ou utilisez Gramme à côté d'un outil d'hygiène. Nous préférons le dire que vous le laisser découvrir.",
+      "C'est un de nos points forts. Gramme prend les relevés de températures avec vos enceintes, vos bornes et vos horaires, tient le plan de nettoyage, sort les étiquettes de lot et de DLC, enregistre les contrôles à réception, et imprime les registres. Les allergènes et les valeurs nutritionnelles remontent seuls des matières jusqu'aux produits finis. Le tout est compris dans l'offre Pro, sans module à ajouter, et ce que nous livrons ensuite y entre sans surcoût : le produit avance, votre abonnement ne bouge pas. Melba couvre aussi ce terrain, dans un module facturé à part : comparez sur le reste, pas sur cette ligne.",
+    verdict: "gramme" as const,
+  },
+  {
+    profil: "Vous hésitez entre deux abonnements et vous voulez savoir ce que vous paierez vraiment",
+    conseil:
+      "Additionnez avant de comparer. Le nombre de factures acceptées par mois et les modules facturés en plus font plus d'écart que le prix affiché : sur une boulangerie qui reçoit une trentaine de factures et se sert du planning de production, les tarifs publics vont de 33,25 € à 208 € HT par mois selon l'éditeur. Le tableau de facture réelle plus haut fait l'addition pour chacun, avec le détail, et ce n'est pas nous qui sortons le moins cher.",
     verdict: "nuance" as const,
   },
   {
     profil: "Vous voulez surtout supprimer la double saisie entre caisse, gestion et comptabilité",
     conseil:
-      "Otami a aujourd'hui le réseau d'intégrations le plus fourni du secteur, et c'est un vrai avantage si votre caisse ou votre logiciel comptable y figure. Nos connexions sont en développement, annoncées d'ici fin 2026 : tant qu'elles ne sont pas livrées, nous ne les comptons pas comme acquises — regardez la date à laquelle vous en avez besoin.",
+      "Otami a aujourd'hui le réseau d'intégrations le plus fourni du secteur, et c'est un vrai avantage si votre caisse ou votre logiciel comptable y figure. Son module comptable va jusqu'à l'extraction de TVA et au journal d'achats, pour 49 € HT/mois en plus de l'abonnement ; nous ne proposons pas d'équivalent. Nos connexions sont en développement, annoncées d'ici fin 2026 : tant qu'elles ne sont pas livrées, nous ne les comptons pas comme acquises, regardez la date à laquelle vous en avez besoin.",
     verdict: "nuance" as const,
   },
   {
@@ -518,19 +639,19 @@ export const cheminsDeChoix = [
   {
     profil: "Vous démarrez et vous cherchez d'abord à structurer vos fiches",
     conseil:
-      "L'offre gratuite de ChefsTouch permet de commencer sans rien engager. Vous y viendrez à la limite le jour où vous voudrez que vos factures mettent vos prix à jour toutes seules — c'est le moment où Gramme prend le relais, et où le forfait de mise en service à 300 € pour une entreprise en création prend son sens.",
+      "L'offre gratuite de ChefsTouch permet de commencer sans rien engager. Vous y viendrez à la limite le jour où vous voudrez que vos factures mettent vos prix à jour toutes seules, c'est le moment où Gramme prend le relais, et où le forfait de mise en service à 300 € pour une entreprise en création prend son sens.",
     verdict: "nuance" as const,
   },
   {
     profil: "Vous travaillez au four, pas au bureau",
     conseil:
-      "C'est la question qui décide de tout le reste, et elle est rarement posée. Gramme est une application web installable : elle s'ajoute à l'écran d'accueil du téléphone et s'ouvre comme une application, sans rien installer et sans mise à jour à lancer. Le même compte, la même version, sur le téléphone posé près du pétrin, sur la tablette du labo et sur l'ordinateur du bureau. LogiBake, à l'inverse, est aujourd'hui une application de bureau macOS et Windows — ses versions mobiles sont annoncées comme « bientôt » disponibles.",
+      "C'est la question qui décide de tout le reste, et elle est rarement posée. Gramme s'ajoute à l'écran d'accueil de votre téléphone et s'ouvre comme n'importe quelle application, sans passer par l'App Store, sans rien installer, et sans mise à jour à lancer. Le même compte, la même version, sur le téléphone posé près du pétrin, sur la tablette du labo et sur l'ordinateur du bureau. C'est la question à poser à tout éditeur avant de signer : demandez à voir l'écran de saisie sur un téléphone, pas sur une capture d'ordinateur.",
     verdict: "gramme" as const,
   },
   {
     profil: "Vos coûts de revient vous paraissent trop beaux pour être vrais",
     conseil:
-      "Regardez d'abord si votre outil actuel tient le pourcentage de perte. Une pâte qui perd 12 % à la cuisson, un fruit qui perd 30 % au parage : sans ce taux, le coût est calculé sur une matière qui n'arrive jamais en vitrine, et la marge affichée est systématiquement flatteuse. C'est le premier calcul que Gramme pose sur chaque fiche — poids brut, poids net, taux de perte — et c'est aussi ce que les pages produit d'Otami et de LogiBake ne documentent pas.",
+      "Regardez d'abord si votre outil actuel tient le pourcentage de perte. Une pâte qui perd 12 % à la cuisson, un fruit qui perd 30 % au parage : sans ce taux, le coût est calculé sur une matière qui n'arrive jamais en vitrine, et la marge affichée est systématiquement flatteuse. C'est le premier calcul que Gramme pose sur chaque fiche (poids brut, poids net, taux de perte) et c'est aussi ce que les pages produit d'Otami ne documentent pas.",
     verdict: "gramme" as const,
   },
   {
@@ -540,3 +661,149 @@ export const cheminsDeChoix = [
     verdict: "gramme" as const,
   },
 ];
+
+/**
+ * Les pages dédiées à un concurrent.
+ *
+ * Pourquoi elles existent : `/comparatif` répond à « quel logiciel choisir »,
+ * une intention large et disputée. Mais la requête qui convertit vraiment porte
+ * un NOM — « avis Otami », « Otami tarif », « alternative à Otami ». Celui qui
+ * la tape a déjà un outil en tête : il ne se documente plus, il vérifie. Une
+ * page par concurrent capte cette intention-là sans diluer la page pilier, et
+ * l'éditeur concerné ne se compare jamais lui-même : la place est libre.
+ *
+ * Ce fichier ne redit RIEN de ce qu'il sait déjà. La page se construit à partir
+ * de `concurrents`, de `blocsComparatif` filtré sur l'identifiant, et de
+ * `panierCompare` — un tableau qui recopierait ces données finirait par les
+ * contredire, et c'est exactement le défaut qu'on vient de corriger ailleurs.
+ *
+ * La tenue de `comparatif.ts` s'applique intégralement, et une de plus qui lui
+ * est propre : **une page « alternative à X » qui démolit X ne se fait citer
+ * nulle part.** Elle se lit comme un argumentaire, elle se partage comme un
+ * tract, et le lecteur qui connaît X y voit tout de suite ce qui manque. Le
+ * bloc `mieuxQueNous` n'est donc pas une concession polie — c'est ce qui rend
+ * le reste croyable.
+ */
+export type PageConcurrent = {
+  /** L'identifiant d'une entrée de `concurrents`. */
+  id: string;
+  metaTitle: string;
+  metaDescription: string;
+  keywords: string[];
+  h1: string;
+  /** Deux phrases sous le titre. */
+  chapeau: string;
+  /** Ce que cet éditeur fait mieux que nous, nommé sans détour. */
+  mieuxQueNous: { titre: string; texte: string }[];
+  /** Quand le choisir plutôt que nous, et quand c'est l'inverse. */
+  quandLuiQuandNous: { profil: string; verdict: "lui" | "nous"; texte: string }[];
+  faq: { q: string; a: string }[];
+};
+
+export const pagesConcurrent: PageConcurrent[] = [
+  {
+    id: "otami",
+    metaTitle: "Otami : avis, tarifs et alternative | Gramme",
+    metaDescription:
+      "Les trois offres d'Otami, le plafond de documents qui décide de la facture, les deux modules à 49 €, et ce que la même boulangerie paie chez nous.",
+    keywords: [
+      "avis Otami",
+      "Otami tarif",
+      "Otami prix",
+      "Otami avis boulangerie",
+      "alternative Otami",
+      "logiciel comme Otami",
+      "Otami ou Gramme",
+      "Otami boulangerie pâtisserie",
+      "concurrent Otami",
+    ],
+    h1: "Otami : ce qu'il fait bien, ce qu'il coûte vraiment, et quand nous sommes le meilleur choix",
+    chapeau:
+      "Otami est le logiciel dont les artisans nous parlent le plus, et le plus proche du nôtre sur le métier. Voici son tarif public, la variable qui fait vraiment monter la facture, et les trois points sur lesquels il nous dépasse.",
+    mieuxQueNous: [
+      {
+        titre: "Le réseau d'intégrations, et il n'y a pas photo",
+        texte:
+          "Caisses (Zelty, CarrePOS, Cashpad, Connectill, Addictill), comptabilité (Pennylane, Synapsy, Evoliz), facturation (Libeo, Abill, Cashmag, Menlog). Si votre caisse ou votre expert-comptable figure dans cette liste, c'est un argument que nous ne pouvons pas contrer aujourd'hui : nos connexions sont en développement, annoncées d'ici fin 2026, et tant qu'elles ne sont pas livrées nous ne les comptons pas.",
+      },
+      {
+        titre: "Utilisateurs et écrans illimités",
+        texte:
+          "Sur les trois offres, sans supplément. Notre offre Pro s'arrête à cinq utilisateurs. Pour une équipe de dix personnes qui doivent toutes se connecter, l'écart de prix se referme vite, et c'est la ligne où nous sommes les moins généreux de tout notre comparatif.",
+      },
+      {
+        titre: "Un vrai module comptable",
+        texte:
+          "Extraction de TVA sur les factures de matières premières, journal d'achats prêt à envoyer, ventilation par familles et codes analytiques. Facturé 49 € HT/mois en plus de l'abonnement. Nous ne proposons aucun équivalent : si votre besoin numéro un est de soulager votre comptable, regardez sérieusement de ce côté.",
+      },
+    ],
+    quandLuiQuandNous: [
+      {
+        profil: "Votre caisse ou votre comptabilité doit être connectée",
+        verdict: "lui",
+        texte:
+          "C'est le cas le plus net. Vérifiez d'abord que votre logiciel figure dans leur liste d'intégrations, puis prenez Otami. Nous vous ferons perdre du temps sur ce point précis.",
+      },
+      {
+        profil: "Vous avez plus de cinq personnes qui se connectent",
+        verdict: "lui",
+        texte:
+          "Utilisateurs illimités contre cinq chez nous : à dix comptes, la comparaison de prix change de sens. Écrivez-nous quand même votre organisation, il arrive que seules trois personnes aient réellement besoin d'un accès en écriture.",
+      },
+      {
+        profil: "Vous recevez plus de vingt factures par mois",
+        verdict: "nous",
+        texte:
+          "C'est la variable qui décide de la facture. L'offre Essentiel à 99 € s'arrête à 20 documents importés par mois ; au-delà, c'est l'Intégrale à 159 €. Nous incluons 30 factures en Starter et 150 en Pro, et une facture de plus ne change pas votre abonnement.",
+      },
+      {
+        profil: "Vous voulez le planning de production et les registres d'hygiène",
+        verdict: "nous",
+        texte:
+          "Chez Otami, le planning de production est un module à 49 € HT/mois, et le suivi sanitaire n'est pas documenté sur les pages publiques. Chez nous, planning, relevés de températures, plan de nettoyage, étiquettes de lot et registres imprimables sont dans l'offre Pro, sans module à ajouter.",
+      },
+      {
+        profil: "Vos coûts de revient vous paraissent trop beaux",
+        verdict: "nous",
+        texte:
+          "Regardez si votre outil tient le pourcentage de perte. Une pâte qui perd 12 % à la cuisson, un fruit qui perd 30 % au parage : sans ce taux, le coût porte sur une matière qui n'arrive jamais en vitrine, et la marge affichée est systématiquement flatteuse. C'est le premier calcul que nous posons sur chaque fiche, et les pages produit d'Otami ne le documentent pas.",
+      },
+      {
+        profil: "Vous démarrez et vos données sont éparpillées",
+        verdict: "nous",
+        texte:
+          "Otami reprend vos anciens documents sur un à deux mois selon l'offre. Nous montons le compte de bout en bout avant votre premier jour : profils, fournisseurs, mercuriale complète, fiches, factures. C'est facturé une seule fois, et c'est ce qui décide si un outil est adopté ou abandonné.",
+      },
+    ],
+    faq: [
+      {
+        q: "Otami, c'est bien pour une boulangerie ?",
+        a: "Oui, et c'est un outil sérieux : plus de 4 000 professionnels des métiers de bouche revendiqués, une note publique de 4,9 sur les avis vérifiés, et des retours clients qui citent le suivi des marges, l'inventaire et la réactivité du service client. Sa force la plus rare sur le marché est son réseau d'intégrations avec les caisses et les logiciels comptables. Ses limites, pour un artisan : le nombre de documents importés par mois est la variable de facturation, le planning de production est un module payant, et les pages produit ne documentent ni la gestion des pertes ni les rendements, trois mécaniques qui décident de la justesse d'un coût de revient en boulangerie.",
+      },
+      {
+        q: "Combien coûte Otami exactement ?",
+        a: "Trois offres publiques : Access à 59 € HT/mois pour 5 documents importés par mois, Essentiel à 99 € pour 20 documents, Intégrale à 159 € pour 40 documents, avec un mois offert en facturation annuelle. Deux modules se facturent en plus de l'abonnement, 49 € HT/mois chacun : Comptable et Planning de production. Une boulangerie qui reçoit une trentaine de factures par mois et veut le planning de production est donc à 208 € HT/mois. Vérifiez ces montants sur otami.fr avant de décider : les grilles bougent, et nous republions les nôtres avec la date du relevé.",
+      },
+      {
+        q: "Qu'est-ce qui compte dans « 5, 20 ou 40 documents par mois » ?",
+        a: "Les documents que vous importez pour être lus automatiquement, factures, devis et avoirs fournisseurs. C'est le chiffre à confronter à votre réalité avant toute comparaison de prix : une boulangerie de quartier qui travaille avec un meunier, un crémier, un chocolatier, un fruitier et deux grossistes dépasse couramment vingt documents par mois sans s'en rendre compte. C'est ce seuil, et non le tarif affiché, qui détermine l'offre dont vous relèverez.",
+      },
+      {
+        q: "Peut-on passer d'Otami à Gramme sans tout ressaisir ?",
+        a: "Oui. Vous exportez ce que vous pouvez de votre outil actuel, et nous reprenons le reste : fiches techniques, sous-recettes, mercuriale, fournisseurs, et vos factures des derniers mois pour que l'historique de prix existe dès le premier jour. C'est notre installation accompagnée, facturée une seule fois. Nous n'avons pas de connecteur automatique depuis Otami : ce serait vous mentir que de le prétendre.",
+      },
+      {
+        q: "Otami fait-il l'HACCP et les relevés de températures ?",
+        a: "Ce n'est pas documenté sur leurs pages publiques au moment de notre relevé, et nous ne comptons jamais une fonction que l'éditeur n'annonce pas, dans un sens comme dans l'autre. Posez-leur directement la question si c'est un critère pour vous. De notre côté, les relevés de températures, le plan de nettoyage, les étiquettes de lot et les registres imprimables sont dans l'offre Pro, sans module en supplément.",
+      },
+      {
+        q: "Otami gère-t-il les allergènes ?",
+        a: "Une rubrique « allergènes / composition » est évoquée dans les avis clients publiés par l'éditeur, mais les pages produit ne la décrivent pas au moment de notre relevé, nous la notons donc « partiel » plutôt que de trancher à leur place. Chez nous, les 14 allergènes de l'annexe II du règlement (UE) 1169/2011 se renseignent une fois par matière et remontent seuls aux sous-recettes puis aux produits finis, avec l'affiche de vitrine et l'étiquette produit qui vont avec.",
+      },
+    ],
+  },
+];
+
+export function pageConcurrent(id: string): PageConcurrent | undefined {
+  return pagesConcurrent.find((p) => p.id === id);
+}

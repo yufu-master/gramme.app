@@ -2,9 +2,9 @@ import type { Guide } from "@/content/guides/types";
 
 export const articlePrix: Guide = {
   slug: "prix-logiciel-gestion-boulangerie",
-  title: "Combien coûte vraiment un logiciel de gestion en boulangerie ?",
+  title: "Prix d'un logiciel de gestion boulangerie",
   description:
-    "Les tarifs publics du marché en août 2026, et surtout les quatre lignes qui font gonfler la facture après la signature : les documents plafonnés, les modules en option, la facturation par site et la reprise de vos données.",
+    "Les tarifs publics du marché, et les quatre lignes qui déplacent vraiment l'addition : documents inclus, modules, utilisateurs, installation.",
   keywords: [
     "prix logiciel gestion boulangerie",
     "tarif logiciel pâtisserie",
@@ -16,7 +16,7 @@ export const articlePrix: Guide = {
   updatedAt: "2026-08-26",
   ogImage: "/images/feature-prix.png",
   summary:
-    "Entre 33 € et plus de 240 € HT par mois selon les éditeurs — mais le prix affiché est rarement le prix payé. Les quatre variables qui décident de la facture réelle.",
+    "Entre 33 € et plus de 240 € HT par mois selon les éditeurs, mais le prix affiché est rarement le prix payé. Les quatre variables qui décident de la facture réelle.",
   intro:
     "La question arrive toujours en premier, et la réponse honnête tient en une phrase : le prix affiché sur une page de tarifs ne dit presque rien de ce que vous paierez. Non pas parce que les éditeurs cacheraient quelque chose, mais parce que la variable de facturation est rarement le nombre d'utilisateurs. Voici les tarifs publics du marché, relevés en août 2026, et les quatre lignes qui déplacent réellement l'addition.",
   blocks: [
@@ -27,19 +27,13 @@ export const articlePrix: Guide = {
     },
     {
       type: "p",
-      text: "Relevé sur les pages publiques des éditeurs le 26 août 2026. Ces montants changent : vérifiez-les avant de décider.",
+      text: "Relevé sur les pages publiques des éditeurs le 30 août 2026. Ces montants changent : vérifiez-les avant de décider.",
     },
     {
       type: "table",
       caption: "Tarifs publics des principaux logiciels de gestion pour boulangerie et pâtisserie, août 2026",
       headers: ["Éditeur", "Tarif d'entrée", "Haut de gamme", "Variable de facturation"],
       rows: [
-        [
-          "LogiBake",
-          "399 € HT/an, soit 33,25 €/mois",
-          "Offre unique, tout inclus",
-          "Aucune — un prix, toutes fonctions",
-        ],
         [
           "Gramme",
           "49 € HT/mois (490 €/an)",
@@ -48,9 +42,9 @@ export const articlePrix: Guide = {
         ],
         [
           "Otami",
-          "59 € HT/mois avec engagement annuel",
-          "179 € HT/mois sans engagement",
-          "Nombre de documents traités par mois",
+          "59 € HT/mois (5 documents/mois)",
+          "159 € HT/mois + options à 49 €",
+          "Nombre de documents importés par mois",
         ],
         [
           "ChefsTouch",
@@ -68,12 +62,12 @@ export const articlePrix: Guide = {
     },
     {
       type: "p",
-      text: "Premier constat : **l'écart entre le tarif d'entrée le plus bas et une couverture complète chez le plus cher dépasse un facteur sept.** Second constat, plus utile : les cinq éditeurs ne facturent pas la même chose. Comparer les prix d'entrée revient donc à comparer des choses différentes.",
+      text: "Premier constat : **l'écart entre le tarif d'entrée le plus bas et une couverture complète chez le plus cher dépasse un facteur cent.** Second constat, plus utile : ces éditeurs ne facturent pas la même chose. Comparer les prix d'entrée revient donc à comparer des choses différentes.",
     },
     {
       type: "h2",
       id: "documents",
-      text: "Ligne n° 1 — le nombre de documents traités",
+      text: "Ligne n° 1 · le nombre de documents traités",
     },
     {
       type: "p",
@@ -81,7 +75,7 @@ export const articlePrix: Guide = {
     },
     {
       type: "p",
-      text: "Or une boulangerie de quartier reçoit couramment **vingt à quarante factures par mois** : farine, beurre, œufs, chocolat, fruits, emballages, produits d'entretien, boissons, sans compter les livraisons fractionnées d'un même fournisseur. Une offre à cinq documents par mois ne couvre donc pas un atelier réel — elle couvre un atelier qui n'utiliserait la lecture automatique que pour ses trois plus gros fournisseurs.",
+      text: "Or une boulangerie de quartier reçoit couramment **vingt à quarante factures par mois** : farine, beurre, œufs, chocolat, fruits, emballages, produits d'entretien, boissons, sans compter les livraisons fractionnées d'un même fournisseur. Une offre à cinq documents par mois ne couvre donc pas un atelier réel : elle couvre un atelier qui n'utiliserait la lecture automatique que pour ses trois plus gros fournisseurs.",
     },
     {
       type: "p",
@@ -90,7 +84,7 @@ export const articlePrix: Guide = {
     {
       type: "h2",
       id: "modules",
-      text: "Ligne n° 2 — les modules en option",
+      text: "Ligne n° 2 · les modules en option",
     },
     {
       type: "p",
@@ -103,11 +97,11 @@ export const articlePrix: Guide = {
     {
       type: "h2",
       id: "sites",
-      text: "Ligne n° 3 — la facturation par site ou par administrateur",
+      text: "Ligne n° 3 · la facturation par site ou par administrateur",
     },
     {
       type: "p",
-      text: "Un tarif à 19,90 € par administrateur et par site paraît très bas. Avec deux laboratoires et deux responsables par site, il devient 79,60 € par mois — et il grandit avec l'équipe, ce que ne fait pas un abonnement forfaitaire.",
+      text: "Un tarif à 19,90 € par administrateur et par site paraît très bas. Avec deux laboratoires et deux responsables par site, il devient 79,60 € par mois, et il grandit avec l'équipe, ce que ne fait pas un abonnement forfaitaire.",
     },
     {
       type: "p",
@@ -116,7 +110,7 @@ export const articlePrix: Guide = {
     {
       type: "h2",
       id: "reprise",
-      text: "Ligne n° 4 — la reprise de vos données, la seule qui ne se voit pas",
+      text: "Ligne n° 4 · la reprise de vos données, la seule qui ne se voit pas",
     },
     {
       type: "p",
@@ -124,11 +118,11 @@ export const articlePrix: Guide = {
     },
     {
       type: "p",
-      text: "**Le modèle autonome** : essai gratuit, vous saisissez vos données vous-même. Coût affiché nul. Coût réel : plusieurs dizaines d'heures de votre temps, ou — beaucoup plus souvent — un compte rempli à moitié qui n'est jamais rattrapé, et un abonnement résilié au bout de trois mois. Le vrai coût, dans ce cas, est celui de l'échec.",
+      text: "**Le modèle autonome** : essai gratuit, vous saisissez vos données vous-même. Coût affiché nul. Coût réel : plusieurs dizaines d'heures de votre temps, ou (beaucoup plus souvent) un compte rempli à moitié qui n'est jamais rattrapé, et un abonnement résilié au bout de trois mois. Le vrai coût, dans ce cas, est celui de l'échec.",
     },
     {
       type: "p",
-      text: "**Le modèle accompagné** : l'éditeur monte votre compte. Coût affiché non nul, plusieurs centaines d'euros une seule fois. Coût réel : cette somme, et un outil utilisable au premier jour. Chez Gramme, l'installation accompagnée démarre à 300 € HT et couvre plusieurs jours de travail — profils et droits de l'équipe, carnet de fournisseurs, mercuriale complète avec unités, conditionnements et prix d'achat réels, reprise des fiches et des sous-recettes, traitement des factures des derniers mois, contrôles et formation. Pour une entreprise en cours de création, c'est un forfait ferme de 300 € HT : il n'y a rien à reprendre, la charge est connue d'avance.",
+      text: "**Le modèle accompagné** : l'éditeur monte votre compte. Coût affiché non nul, plusieurs centaines d'euros une seule fois. Coût réel : cette somme, et un outil utilisable au premier jour. Chez Gramme, l'installation accompagnée démarre à 300 € HT et couvre plusieurs jours de travail : profils et droits de l'équipe, carnet de fournisseurs, mercuriale complète avec unités, conditionnements et prix d'achat réels, reprise des fiches et des sous-recettes, traitement des factures des derniers mois, contrôles et formation. Pour une entreprise en cours de création, c'est un forfait ferme de 300 € HT : il n'y a rien à reprendre, la charge est connue d'avance.",
     },
     {
       type: "h2",
@@ -137,11 +131,11 @@ export const articlePrix: Guide = {
     },
     {
       type: "p",
-      text: "Un abonnement à 89 € HT par mois représente environ 1 070 € par an. Rapporté à un atelier qui fait 300 000 € de chiffre d'affaires, c'est 0,36 % — soit à peu près ce que coûte une hausse du beurre de quelques centimes non répercutée pendant un trimestre.",
+      text: "Un abonnement à 89 € HT par mois représente environ 1 070 € par an. Rapporté à un atelier qui fait 300 000 € de chiffre d'affaires, c'est 0,36 % : soit à peu près ce que coûte une hausse du beurre de quelques centimes non répercutée pendant un trimestre.",
     },
     {
       type: "p",
-      text: "La question utile n'est donc pas « combien ça coûte » mais **« à partir de quel gain c'est remboursé »**. Un point de ratio matière récupéré sur 300 000 € de chiffre d'affaires, c'est 3 000 €. Une hausse de prix fournisseur repérée le jour même plutôt qu'au bilan, c'est souvent davantage. Le calcul se fait vite, et il se fait sur vos chiffres — pas sur une moyenne du secteur.",
+      text: "La question utile n'est donc pas « combien ça coûte » mais **« à partir de quel gain c'est remboursé »**. Un point de ratio matière récupéré sur 300 000 € de chiffre d'affaires, c'est 3 000 €. Une hausse de prix fournisseur repérée le jour même plutôt qu'au bilan, c'est souvent davantage. Le calcul se fait vite, et il se fait sur vos chiffres : pas sur une moyenne du secteur.",
     },
     {
       type: "p",
@@ -151,11 +145,11 @@ export const articlePrix: Guide = {
   faqs: [
     {
       q: "Un logiciel gratuit peut-il suffire ?",
-      a: "Pour créer et stocker des fiches techniques, oui — certaines offres gratuites le permettent honorablement. Ce qui n'est jamais gratuit, c'est la remontée automatique des prix depuis vos factures : c'est la fonction qui demande le plus de traitement, et c'est aussi celle qui fait la différence entre un répertoire de recettes et un outil de pilotage.",
+      a: "Pour créer et stocker des fiches techniques, oui, certaines offres gratuites le permettent honorablement. Ce qui n'est jamais gratuit, c'est la remontée automatique des prix depuis vos factures : c'est la fonction qui demande le plus de traitement, et c'est aussi celle qui fait la différence entre un répertoire de recettes et un outil de pilotage.",
     },
     {
       q: "Mensuel ou annuel ?",
-      a: "L'annuel coûte généralement deux mois de moins, mais engage. La règle simple : prenez du mensuel si vous n'avez pas encore vu l'outil tourner sur vos données ; passez à l'annuel une fois le compte monté et l'usage installé. Vérifiez au passage s'il existe une garantie de remboursement sur l'annuel — chez Gramme, elle est de trente jours.",
+      a: "L'annuel coûte généralement deux mois de moins, mais engage. La règle simple : prenez du mensuel si vous n'avez pas encore vu l'outil tourner sur vos données ; passez à l'annuel une fois le compte monté et l'usage installé. Vérifiez au passage s'il existe une garantie de remboursement sur l'annuel : chez Gramme, elle est de trente jours.",
     },
     {
       q: "La TVA est-elle récupérable sur un abonnement logiciel ?",

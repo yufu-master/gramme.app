@@ -3,36 +3,65 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema, SITE_URL, webPageSchema } from "@/lib/seo";
+import { breadcrumbSchema, SITE_URL, webPageSchema, imageSociale } from "@/lib/seo";
 import {
   blocsComparatif,
   cheminsDeChoix,
   concurrents,
+  pagesConcurrent,
+  panierCompare,
+  questionsComparatif,
   RELEVE_LE,
+  SCENARIO_PANIER,
   type Valeur,
 } from "@/content/comparatif";
 
 export const metadata: Metadata = {
-  title: "Comparatif des logiciels de gestion boulangerie & pâtisserie",
+  /* Le titre nomme les concurrents et porte le mot « prix ».
+     Quelqu'un qui compare tape un NOM : « otami avis », « alternative otami »,
+     « logibake ou otami » : bien plus souvent qu'une catégorie. Un titre qui ne
+     contient que « comparatif logiciel boulangerie » ne peut pas répondre à ces
+     recherches-là, quel que soit le contenu de la page. */
+  title: "Comparatif logiciels gestion boulangerie 2026",
   description:
-    `Gramme, Otami, LogiBake, ChefsTouch et Melba comparés fonction par fonction et tarif public à l'appui : factures, mercuriale, coût de revient, production, stock, HACCP et allergènes. Relevé du ${RELEVE_LE}.`,
+    "Otami, ChefsTouch, Melba et Gramme comparés fonction par fonction, tarifs publics à l'appui, et ce que la même boulangerie paie chez chacun.",
+  /*
+   * Requêtes de CATÉGORIE seulement.
+   * Les six requêtes de marque Otami (« avis Otami », « alternative Otami »…)
+   * vivaient ici ET sur `/comparatif/otami` : les deux pages se disputaient les
+   * mêmes résultats, et Google en choisit une — souvent la moins précise. La
+   * page pilier répond à « quel logiciel choisir », la page dédiée répond à un
+   * nom. Chacune la sienne.
+   */
   keywords: [
     "comparatif logiciel boulangerie",
     "meilleur logiciel gestion boulangerie",
-    "alternative Otami",
-    "alternative LogiBake",
-    "logiciel pâtisserie comparaison",
-    "prix logiciel gestion boulangerie",
+    "comparatif logiciel pâtisserie",
+    "comparatif logiciel HACCP boulangerie",
+    "logiciel relevé de température boulangerie",
     "logiciel fiches techniques boulangerie comparatif",
+    "quel logiciel pour une boulangerie",
+    "logiciel gestion boulangerie comparaison",
   ],
   alternates: { canonical: `${SITE_URL}/comparatif` },
   openGraph: {
-    title: "Comparatif des logiciels de gestion boulangerie & pâtisserie",
+    images: imageSociale("/images/app/mercuriale.png", "La mercuriale de Gramme, comparée aux autres logiciels de gestion pour boulangerie"),
+    title: "Comparatif 2026 des logiciels de gestion boulangerie & pâtisserie",
     description:
-      "Cinq logiciels comparés fonction par fonction, tarifs publics à l'appui — y compris là où les autres font mieux que nous.",
+      "Quatre logiciels comparés fonction par fonction, tarifs publics à l'appui, avec la facture réelle d'une même boulangerie chez chacun : y compris là où les autres font mieux que nous.",
     url: `${SITE_URL}/comparatif`,
   },
 };
+
+const nuances = cheminsDeChoix.filter((c) => c.verdict === "nuance").length;
+
+/** Prix affiché sans décimale inutile : 89 € et non 89,00 €. */
+function euro(montant: number) {
+  return montant.toLocaleString("fr-FR", {
+    minimumFractionDigits: Number.isInteger(montant) ? 0 : 2,
+    maximumFractionDigits: 2,
+  });
+}
 
 const ORDRE = concurrents.map((c) => c.id);
 
@@ -81,13 +110,50 @@ export default function ComparatifPage() {
           webPageSchema({
             title: "Comparatif des logiciels de gestion boulangerie & pâtisserie",
             description:
-              "Comparaison fonction par fonction et tarif par tarif de Gramme, Otami, LogiBake, ChefsTouch et Melba.",
+              "Comparaison fonction par fonction et tarif par tarif de Gramme, Otami, ChefsTouch et Melba.",
             path: "/comparatif",
           }),
           breadcrumbSchema([
             { name: "Accueil", path: "/" },
             { name: "Comparatif", path: "/comparatif" },
           ]),
+          /* Les questions que les gens tapent réellement — « avis Otami »,
+             « combien coûte Otami », « quel logiciel fait aussi le HACCP ».
+             Une réponse balisée peut être reprise telle quelle par un moteur,
+             y compris génératif : c'est le seul format qui se cite sans lien. */
+          {
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "@id": `${SITE_URL}/comparatif#faq`,
+            mainEntity: questionsComparatif.map((item) => ({
+              "@type": "Question",
+              name: item.q,
+              acceptedAnswer: { "@type": "Answer", text: item.a },
+            })),
+          },
+          /* La liste des solutions comparées, dans l'ordre de la page. Elle dit
+             à un moteur que ce document EST un comparatif, et lesquels. */
+          {
+            "@context": "https://schema.org",
+            "@type": "ItemList",
+            "@id": `${SITE_URL}/comparatif#liste`,
+            name: "Logiciels de gestion pour boulangerie et pâtisserie comparés",
+            description: `Comparaison relevée le ${RELEVE_LE} sur les pages publiques de chaque éditeur.`,
+            numberOfItems: concurrents.length,
+            itemListElement: concurrents.map((c, index) => ({
+              "@type": "ListItem",
+              position: index + 1,
+              item: {
+                "@type": "SoftwareApplication",
+                name: c.nom,
+                applicationCategory: "BusinessApplication",
+                applicationSubCategory: "Bakery management software",
+                operatingSystem: "Web",
+                url: `https://${c.site}`,
+                description: c.positionnement,
+              },
+            })),
+          },
         ]}
       />
 
@@ -99,11 +165,12 @@ export default function ComparatifPage() {
             Quel logiciel de gestion pour une boulangerie ou une pâtisserie ?
           </h1>
           <p className="mt-5 max-w-3xl text-base leading-relaxed text-[#4d6952] md:text-lg">
-            Nous avons comparé Gramme aux quatre logiciels que les artisans nous citent le plus souvent :{" "}
-            <strong className="text-[#3e6134]">Otami</strong>, <strong className="text-[#3e6134]">LogiBake</strong>,{" "}
-            <strong className="text-[#3e6134]">ChefsTouch</strong> et <strong className="text-[#3e6134]">Melba</strong>.
-            Fonction par fonction, tarif public à l&apos;appui — et sans cacher les quatre lignes où ils livrent
-            aujourd&apos;hui ce que nous n&apos;avons pas encore.
+            Nous avons comparé Gramme aux logiciels que les artisans nous citent le plus souvent :{" "}
+            <strong className="text-[#3e6134]">Otami</strong>, <strong className="text-[#3e6134]">ChefsTouch</strong>{" "}
+            et <strong className="text-[#3e6134]">Melba</strong>.
+            Fonction par fonction, tarif public à l&apos;appui, et sans cacher les lignes où ils livrent
+            aujourd&apos;hui ce que nous n&apos;avons pas, ni celle où l&apos;abonnement le moins cher n&apos;est pas
+            le nôtre.
           </p>
 
           {/* La méthode AVANT le tableau. Un comparatif publié par un éditeur
@@ -122,8 +189,10 @@ export default function ComparatifPage() {
               </li>
               <li>
                 <strong className="text-[#3e6134]">Ce que les autres font mieux figure dans le tableau</strong>, au
-                même endroit que le reste — voyez la section « Réglementaire », où nous ne livrons aujourd&apos;hui
-                aucune des quatre lignes.
+                même endroit que le reste : la connexion aux caisses et à la comptabilité, où Otami est devant nous
+                et le restera un moment ; le nombre d&apos;utilisateurs inclus, où nous sommes les moins
+                généreux des quatre ; l&apos;essai gratuit ; et le prix, où ChefsTouch nous passe devant dans notre
+                propre tableau de facture réelle.
               </li>
               <li>
                 <strong className="text-[#3e6134]">Une fonction en développement n&apos;est pas une fonction</strong>{" "}
@@ -146,11 +215,11 @@ export default function ComparatifPage() {
             Qui fait quoi, et pour qui
           </h2>
           <p className="mt-3 max-w-3xl text-[#4d6952]">
-            Cinq fiches, dépliez celles qui vous intéressent.
+            Quatre fiches, dépliez celles qui vous intéressent.
           </p>
 
-          {/* Fiches repliées par défaut : cinq fiches ouvertes faisaient plus de
-              deux écrans avant le premier tableau, et personne ne lit cinq
+          {/* Fiches repliées par défaut : toutes ouvertes, elles faisaient plus
+              de deux écrans avant le premier tableau, et personne ne lit quatre
               descriptions d'affilée. `<details>` natif plutôt qu'un accordéon en
               JavaScript : le texte reste dans le HTML servi, donc lisible par un
               moteur, et la page fonctionne même sans JS. L'en-tête porte le nom
@@ -201,6 +270,19 @@ export default function ComparatifPage() {
                       <dd className="mt-0.5 leading-relaxed text-[#4d6952]">{c.reserve}</dd>
                     </div>
                   </dl>
+                  {/* Une fiche repliée ne peut pas tout dire. Quand un
+                      concurrent a sa page dédiée, c'est là qu'on envoie
+                      celui qui l'utilise déjà : il y trouvera son tarif
+                      détaillé et ce que l'outil fait mieux que nous. */}
+                  {pagesConcurrent.some((p) => p.id === c.id) ? (
+                    <Link
+                      href={`/comparatif/${c.id}`}
+                      className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[#355329] underline-offset-2 hover:underline"
+                    >
+                      Tout sur {c.nom} : avis, tarifs et alternative
+                      <span aria-hidden>→</span>
+                    </Link>
+                  ) : null}
                 </div>
               </details>
             ))}
@@ -212,13 +294,13 @@ export default function ComparatifPage() {
             <h2 id={`${bloc.id}-t`} className="text-2xl font-bold text-[#2f4f26] md:text-3xl">
               {bloc.titre}
             </h2>
-            {/* Le tableau défile dans son propre cadre : cinq colonnes ne tiennent
+            {/* Le tableau défile dans son propre cadre : autant de colonnes ne tiennent
                 pas sur un téléphone, et une page qui part en biais est pire
                 qu'un tableau qu'on fait glisser. */}
             <div className="mt-5 overflow-x-auto rounded-2xl border border-[#dcead2] bg-white shadow-sm">
               <table className="w-full min-w-[56rem] border-collapse text-left">
                 <caption className="sr-only">
-                  {bloc.titre} — comparaison de Gramme, Otami, LogiBake, ChefsTouch et Melba
+                  {bloc.titre} : comparaison de Gramme, Otami, ChefsTouch et Melba
                 </caption>
                 <thead>
                   <tr className="bg-[#f6fbf2]">
@@ -258,17 +340,89 @@ export default function ComparatifPage() {
                 </tbody>
               </table>
             </div>
+
+            {/* Appel à l'action à mi-page, et pas seulement en bas.
+                Le tableau des factures et des marges est l'endroit où le
+                lecteur se reconnaît le plus vite, c'est donc là qu'il faut
+                lui tendre la porte. Le bouton du bas ne sert qu'à ceux qui
+                lisent les six sections, c'est-à-dire à une minorité. */}
+            {bloc.id === "achats" ? (
+              <div className="mt-5 flex flex-col gap-3 rounded-2xl border border-[#a8cf8c]/60 bg-[#f6fbf2] p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
+                <p className="text-sm leading-relaxed text-[#4d6952]">
+                  <strong className="text-[#3e6134]">Ces lignes se jugent mieux sur vos propres factures.</strong>{" "}
+                  Une heure, une de vos factures importée en direct, et vous voyez le coût de revient de vos
+                  produits : pas une grille de fonctionnalités.
+                </p>
+                <Link
+                  href="/demo"
+                  className="inline-flex shrink-0 items-center justify-center rounded-xl bg-[#3e6134] px-5 py-3 font-semibold text-white transition-colors hover:bg-[#355329]"
+                >
+                  Voir à quoi ressemble une démonstration
+                </Link>
+              </div>
+            ) : null}
           </section>
         ))}
+
+        {/* La facture réelle, après les tableaux de fonctions et avant les
+            conseils. Les fonctions disent ce que fait un outil ; cette section
+            dit ce qu'il coûte une fois le besoin couvert, c'est la question
+            qui reste quand on a fini de lire. */}
+        <section className="mt-12 scroll-mt-24 md:mt-16" id="facture-reelle" aria-labelledby="facture-reelle-t">
+          <h2 id="facture-reelle-t" className="text-2xl font-bold text-[#2f4f26] md:text-3xl">
+            Ce qu&apos;une même boulangerie paie réellement, chez chacun
+          </h2>
+          <p className="mt-3 max-w-3xl leading-relaxed text-[#4d6952]">
+            Un prix d&apos;entrée ne se compare pas : il s&apos;additionne. Le nombre de factures acceptées par mois
+            et les modules facturés en plus font davantage d&apos;écart que le tarif affiché. Voici la même
+            boulangerie, chiffrée chez les quatre.
+          </p>
+          <p className="mt-4 rounded-2xl border border-[#dcead2] bg-white p-5 text-sm leading-relaxed text-[#4d6952] shadow-sm">
+            <strong className="text-[#3e6134]">Le scénario, le même pour tout le monde :</strong> {SCENARIO_PANIER}
+          </p>
+
+          <div className="mt-5 space-y-3">
+            {panierCompare.map((ligne) => (
+              <article
+                key={ligne.id}
+                className={`rounded-2xl border p-5 shadow-sm sm:p-6 ${
+                  ligne.id === "gramme" ? "border-[#a8cf8c] bg-[#f6fbf2]" : "border-[#dcead2] bg-white"
+                }`}
+              >
+                <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
+                  <h3 className="text-base font-bold text-[#27421f]">{ligne.offre}</h3>
+                  <p className="text-lg font-black tabular-nums text-[#3e6134]">
+                    {ligne.totalMensuelHt === null ? (
+                      <span className="text-base font-bold text-[#8a6a2f]">Non calculable publiquement</span>
+                    ) : (
+                      <>
+                        {euro(ligne.totalMensuelHt)} € HT
+                        <span className="text-sm font-semibold text-[#6e7c66]"> /mois</span>
+                      </>
+                    )}
+                  </p>
+                </div>
+                <p className="mt-2 text-sm leading-relaxed text-[#4d6952]">{ligne.detail}</p>
+                <p className="mt-2 text-sm leading-relaxed text-[#6e7c66]">{ligne.nuance}</p>
+              </article>
+            ))}
+          </div>
+
+          <p className="mt-4 text-xs leading-relaxed text-[#6e7c66]">
+            Additions faites à partir des tarifs publics affichés par chaque éditeur le {RELEVE_LE}, hors frais
+            d&apos;installation et hors remises négociées. Les offres annuelles et les mois offerts ne sont pas
+            décomptés. Vérifiez chez l&apos;éditeur avant de décider.
+          </p>
+        </section>
 
         <section className="mt-12 md:mt-16" aria-labelledby="choisir">
           <h2 id="choisir" className="text-2xl font-bold text-[#2f4f26] md:text-3xl">
             Lequel choisir, selon votre situation
           </h2>
           <p className="mt-3 max-w-3xl text-[#4d6952]">
-            Sur ces huit situations, la moitié appelle une réponse nuancée, et plusieurs peuvent vous mener
-            ailleurs que chez nous. C&apos;est volontaire : un outil qui ne convient pas se résilie au bout de trois
-            mois, ce qui n&apos;arrange personne.
+            Sur ces {cheminsDeChoix.length} situations, {nuances} appellent une réponse nuancée, et plusieurs
+            peuvent vous mener ailleurs que chez nous. C&apos;est volontaire : un outil qui ne convient pas se
+            résilie au bout de trois mois, ce qui n&apos;arrange personne.
           </p>
           <div className="mt-6 grid gap-4 md:grid-cols-2">
             {cheminsDeChoix.map((chemin) => (
@@ -287,13 +441,42 @@ export default function ComparatifPage() {
           </div>
         </section>
 
+        {/* Les questions écrites en toutes lettres dans la page, pas seulement
+            dans le balisage. Une réponse qu'un moteur peut citer doit d'abord
+            être une réponse qu'un lecteur peut lire, et celui qui arrive ici
+            depuis « avis Otami » cherche exactement ça. */}
+        <section className="mt-12 scroll-mt-24 md:mt-16" id="questions" aria-labelledby="questions-t">
+          <h2 id="questions-t" className="text-2xl font-bold text-[#2f4f26] md:text-3xl">
+            Les questions qu&apos;on se pose avant de choisir
+          </h2>
+          <div className="mt-5 space-y-3">
+            {questionsComparatif.map((item) => (
+              <details
+                key={item.q}
+                className="group overflow-hidden rounded-2xl border border-[#dcead2] bg-white shadow-sm"
+              >
+                <summary className="flex cursor-pointer list-none items-start gap-3 p-5">
+                  <h3 className="min-w-0 flex-1 text-base font-bold leading-snug text-[#27421f]">{item.q}</h3>
+                  <span
+                    aria-hidden
+                    className="shrink-0 text-xl font-black leading-none text-[#6e9f55] transition-transform group-open:rotate-45"
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="border-t border-[#eef5e8] px-5 py-4 leading-relaxed text-[#4d6952]">{item.a}</p>
+              </details>
+            ))}
+          </div>
+        </section>
+
         <section className="mt-12 rounded-3xl border border-[#dcead2] bg-[#264021] p-6 text-white sm:p-8 md:mt-16 md:p-12">
           <h2 className="text-2xl font-black md:text-3xl">
             Le seul comparatif qui tranche vraiment se fait sur vos fiches
           </h2>
           <p className="mt-4 max-w-3xl leading-relaxed text-white/85 md:text-lg">
             Une heure en visio, vos vraies fiches techniques et une de vos factures importées en direct. À la fin,
-            vous avez le coût de revient et la marge de vos propres produits — pas une grille de fonctionnalités.
+            vous avez le coût de revient et la marge de vos propres produits : pas une grille de fonctionnalités.
             C&apos;est la comparaison qui coûte le moins de temps et qui répond le mieux.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
@@ -313,7 +496,7 @@ export default function ComparatifPage() {
         </section>
 
         <p className="mt-8 text-xs leading-relaxed text-[#6e7c66]">
-          Otami, LogiBake, ChefsTouch et Melba sont des marques appartenant à leurs éditeurs respectifs, cités ici à
+          Otami, ChefsTouch et Melba sont des marques appartenant à leurs éditeurs respectifs, cités ici à
           des fins de comparaison objective. Les informations proviennent de leurs sites publics et ont été relevées
           le {RELEVE_LE} ; elles peuvent avoir changé depuis. Ce comparatif est publié par Gramme : vérifiez les
           éléments qui pèsent dans votre décision auprès de chaque éditeur.

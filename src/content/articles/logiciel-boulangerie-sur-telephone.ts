@@ -4,7 +4,7 @@ export const articleTelephone: Guide = {
   slug: "logiciel-boulangerie-sur-telephone",
   title: "Faut-il un ordinateur pour gérer sa boulangerie ?",
   description:
-    "Un boulanger travaille au four, pas au bureau. Pourquoi un logiciel de gestion qui suppose un poste fixe finit par ne plus être ouvert, et ce que change une application installable sur le téléphone.",
+    "Pourquoi un outil de gestion qui suppose un poste de bureau finit inutilisé, et ce qu'il faut vérifier avant de signer.",
   keywords: [
     "logiciel boulangerie mobile",
     "application boulangerie téléphone",
@@ -18,7 +18,7 @@ export const articleTelephone: Guide = {
   summary:
     "La question de l'appareil paraît secondaire. C'est en réalité celle qui décide si un outil de gestion est adopté ou abandonné dans les trois mois.",
   intro:
-    "Quand on compare des logiciels de gestion, on regarde les fonctions, les tarifs, les intégrations. Presque jamais l'appareil sur lequel on va s'en servir. C'est pourtant la question qui décide de tout le reste — parce qu'un outil qu'on n'ouvre pas ne sert à rien, quelles que soient ses fonctions.",
+    "Quand on compare des logiciels de gestion, on regarde les fonctions, les tarifs, les intégrations. Presque jamais l'appareil sur lequel on va s'en servir. C'est pourtant la question qui décide de tout le reste, parce qu'un outil qu'on n'ouvre pas ne sert à rien, quelles que soient ses fonctions.",
   blocks: [
     {
       type: "h2",
@@ -31,7 +31,7 @@ export const articleTelephone: Guide = {
     },
     {
       type: "p",
-      text: "L'ordinateur du bureau, quand il existe, sert le dimanche soir ou le mardi matin — au moment de la compta, des commandes, du planning. **Un outil de gestion qui ne vit que là devient un rendez-vous hebdomadaire.** Et une mercuriale mise à jour une fois par semaine est une mercuriale fausse six jours sur sept.",
+      text: "L'ordinateur du bureau, quand il existe, sert le dimanche soir ou le mardi matin, au moment de la compta, des commandes, du planning. **Un outil de gestion qui ne vit que là devient un rendez-vous hebdomadaire.** Et une mercuriale mise à jour une fois par semaine est une mercuriale fausse six jours sur sept.",
     },
     {
       type: "h2",
@@ -56,7 +56,7 @@ export const articleTelephone: Guide = {
     },
     {
       type: "p",
-      text: "Rien dans cette suite ne vient d'une fonction manquante. Tout vient d'un décalage de quelques secondes : le geste de traiter une facture doit coûter moins cher que celui de la poser sur une pile. Photographier un document en sortant de la réserve prend dix secondes. Le rapporter au bureau, l'empiler, y revenir, allumer un poste et saisir les lignes en prend dix minutes — et surtout demande un moment qui n'existe pas.",
+      text: "Rien dans cette suite ne vient d'une fonction manquante. Tout vient d'un décalage de quelques secondes : le geste de traiter une facture doit coûter moins cher que celui de la poser sur une pile. Photographier un document en sortant de la réserve prend dix secondes. Le rapporter au bureau, l'empiler, y revenir, allumer un poste et saisir les lignes en prend dix minutes, et surtout demande un moment qui n'existe pas.",
     },
     {
       type: "h2",
@@ -88,11 +88,11 @@ export const articleTelephone: Guide = {
     },
     {
       type: "p",
-      text: "Cette troisième forme est celle de Gramme, et c'est un choix, pas une contrainte technique. Elle supprime la question de l'appareil : vous photographiez une facture depuis la réserve, vous vérifiez une marge entre deux fournées, vous imprimez la fiche de production depuis l'ordinateur du bureau — c'est le même compte, à jour en permanence.",
+      text: "Cette troisième forme est celle de Gramme, et c'est un choix, pas une contrainte technique. Elle supprime la question de l'appareil : vous photographiez une facture depuis la réserve, vous vérifiez une marge entre deux fournées, vous imprimez la fiche de production depuis l'ordinateur du bureau, c'est le même compte, à jour en permanence.",
     },
     {
       type: "p",
-      text: "Il faut le dire honnêtement : plusieurs logiciels du secteur restent aujourd'hui des applications de bureau. Ce n'est pas un défaut de conception en soi — c'est un héritage, et leurs versions mobiles sont pour certaines annoncées. Mais tant qu'elles ne sont pas sorties, cela reste un facteur d'abandon qu'aucune fonction ne compense.",
+      text: "Il faut le dire honnêtement : plusieurs logiciels du secteur restent aujourd'hui des applications de bureau. Ce n'est pas un défaut de conception en soi, c'est un héritage, et leurs versions mobiles sont pour certaines annoncées. Mais tant qu'elles ne sont pas sorties, cela reste un facteur d'abandon qu'aucune fonction ne compense.",
     },
     {
       type: "h2",
@@ -109,7 +109,7 @@ export const articleTelephone: Guide = {
     },
     {
       type: "p",
-      text: "Ce qui reste plus confortable sur grand écran : monter une fiche complexe à dix ingrédients, faire un inventaire complet, éplucher les tableaux de bord. Personne ne prétend le contraire — l'intérêt est de ne pas avoir à choisir.",
+      text: "Ce qui reste plus confortable sur grand écran : monter une fiche complexe à dix ingrédients, faire un inventaire complet, éplucher les tableaux de bord. Personne ne prétend le contraire : l'intérêt est de ne pas avoir à choisir.",
     },
     {
       type: "h2",
@@ -132,7 +132,7 @@ export const articleTelephone: Guide = {
   faqs: [
     {
       q: "Qu'est-ce qu'une application web installable (PWA) ?",
-      a: "C'est un site web qui peut s'ajouter à l'écran d'accueil du téléphone et s'ouvrir comme une application : son icône, son plein écran, ses notifications. Techniquement, elle reste servie par le web — d'où l'absence d'installation, de mise à jour et de passage par un magasin d'applications. Pour l'utilisateur, la différence avec une application classique ne se voit pas.",
+      a: "C'est un site web qui peut s'ajouter à l'écran d'accueil du téléphone et s'ouvrir comme une application : son icône, son plein écran, ses notifications. Techniquement, elle reste servie par le web : d'où l'absence d'installation, de mise à jour et de passage par un magasin d'applications. Pour l'utilisateur, la différence avec une application classique ne se voit pas.",
     },
     {
       q: "Faut-il du réseau dans le laboratoire ?",
@@ -144,7 +144,7 @@ export const articleTelephone: Guide = {
     },
     {
       q: "Est-ce que ça marche sur une vieille tablette de labo ?",
-      a: "Sur un navigateur récent, oui. Une tablette dont le système n'est plus mis à jour depuis des années peut poser problème — dites-le-nous pendant la démonstration, nous testerons sur l'appareil réel plutôt que de vous laisser le découvrir après.",
+      a: "Sur un navigateur récent, oui. Une tablette dont le système n'est plus mis à jour depuis des années peut poser problème : dites-le-nous pendant la démonstration, nous testerons sur l'appareil réel plutôt que de vous laisser le découvrir après.",
     },
   ],
   draft: false,

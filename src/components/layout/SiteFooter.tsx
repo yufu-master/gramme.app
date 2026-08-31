@@ -24,7 +24,7 @@ export function SiteFooter() {
     <footer className="border-t border-[var(--border)] bg-white/90">
       <div className="mx-auto grid w-full max-w-6xl gap-8 px-4 py-10 sm:px-5 md:grid-cols-[1.2fr_1fr]">
         <div>
-          <Link href="/" className="inline-flex items-center gap-2" aria-label="Gramme — retour à l'accueil">
+          <Link href="/" className="inline-flex items-center gap-2" aria-label="Gramme, retour à l'accueil">
             <Image
               src="/logos/gramme-icon.png"
               alt=""
@@ -41,7 +41,7 @@ export function SiteFooter() {
             />
           </Link>
           <p className="mt-3 max-w-md text-sm leading-relaxed text-[var(--muted-foreground)]">
-            Logiciel de gestion pour boulangeries et pâtisseries : recettes, coûts matière, production, stock, mercuriale et marges — au gramme près.
+            Logiciel de gestion pour boulangeries et pâtisseries : recettes, coûts matière, production, stock, mercuriale et marges, au gramme près.
           </p>
         </div>
         <nav aria-label="Pied de page" className="grid grid-cols-2 gap-3 text-sm sm:justify-items-end">
@@ -54,7 +54,7 @@ export function SiteFooter() {
       </div>
       <div className="border-t border-[var(--border)]">
         <div className="mx-auto flex w-full max-w-6xl flex-col gap-3 px-4 py-5 text-sm text-[var(--muted-foreground)] sm:flex-row sm:items-center sm:justify-between sm:px-5">
-          <p>© {new Date().getFullYear()} Gramme — Logiciel gestion boulangerie &amp; pâtisserie</p>
+          <p>© {new Date().getFullYear()} Gramme · Logiciel gestion boulangerie &amp; pâtisserie</p>
           <a
             href="https://www.instagram.com/gramme.app/"
             target="_blank"

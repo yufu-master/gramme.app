@@ -3,12 +3,12 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema, SITE_URL, webPageSchema } from "@/lib/seo";
+import { breadcrumbSchema, SITE_URL, webPageSchema, imageSociale } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Démo logiciel boulangerie — 1 h sur vos fiches",
+  title: "Démo logiciel boulangerie · 1 h sur vos fiches",
   description:
-    "Une heure en visio pendant laquelle nous importons vos vraies fiches techniques et une de vos factures : vous repartez avec le coût de revient et la marge de vos propres produits. Appel de découverte de 20 minutes possible en amont.",
+    "Une heure en visio sur vos vraies fiches techniques et une de vos factures. À la fin, vous avez le coût de revient de vos propres produits.",
   keywords: [
     "démo logiciel boulangerie",
     "démonstration logiciel pâtisserie",
@@ -18,7 +18,8 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: `${SITE_URL}/demo` },
   openGraph: {
-    title: "Démo du logiciel boulangerie — une heure sur vos propres fiches",
+    images: imageSociale("/images/app/recette-couts.png", "Le coût de revient et la marge d'une recette dans Gramme"),
+    title: "Démo du logiciel boulangerie · une heure sur vos propres fiches",
     description:
       "Pas un diaporama : une heure sur vos vraies fiches techniques et vos vraies factures, en visio.",
     url: `${SITE_URL}/demo`,
@@ -36,13 +37,13 @@ const deroule = [
     minutes: "10 – 35 min",
     titre: "On importe vos vraies fiches",
     texte:
-      "Vous envoyez deux ou trois fiches techniques — manuscrites, tachées, peu importe — et une facture fournisseur récente. Nous les passons au scan en direct. À la fin de ce quart d'heure, vos produits sont dans l'outil.",
+      "Vous envoyez deux ou trois fiches techniques (manuscrites, tachées, peu importe) et une facture fournisseur récente. Nous les passons au scan en direct. À la fin de ce quart d'heure, vos produits sont dans l'outil.",
   },
   {
     minutes: "35 – 50 min",
     titre: "Vos chiffres, sur vos produits",
     texte:
-      "Coût de revient, marge, coefficient, ratio matière — sur vos recettes, pas sur un jeu de démonstration. Puis nous faisons bouger le prix d'une matière première et vous voyez la marge se recalculer partout.",
+      "Coût de revient, marge, coefficient, ratio matière : sur vos recettes, pas sur un jeu de démonstration. Puis nous faisons bouger le prix d'une matière première et vous voyez la marge se recalculer partout.",
   },
   {
     minutes: "50 – 60 min",
@@ -129,7 +130,7 @@ export default function DemoPage() {
           <p className="mt-4 max-w-3xl leading-relaxed text-[#4d6952] md:text-lg">
             Un appel de découverte de vingt minutes suffit à savoir si Gramme a sa place chez vous : votre
             organisation, votre volume, ce que vous cherchez à voir plus clair. Pas de partage d&apos;écran, pas
-            d&apos;import — juste une conversation. Si le sujet mérite la suite, nous posons la démonstration d&apos;une
+            d&apos;import : juste une conversation. Si le sujet mérite la suite, nous posons la démonstration d&apos;une
             heure ensuite.
           </p>
           <p className="mt-4 text-[#4d6952]">
