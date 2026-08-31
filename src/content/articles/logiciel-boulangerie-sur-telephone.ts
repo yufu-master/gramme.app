@@ -14,7 +14,7 @@ export const articleTelephone: Guide = {
   ],
   publishedAt: "2026-08-26",
   updatedAt: "2026-08-26",
-  ogImage: "/images/multi-device.png",
+  ogImage: "/images/app/accueil-atelier-telephone.png",
   summary:
     "La question de l'appareil paraît secondaire. C'est en réalité celle qui décide si un outil de gestion est adopté ou abandonné dans les trois mois.",
   intro:

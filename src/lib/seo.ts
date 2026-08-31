@@ -253,7 +253,9 @@ export const siteGraph = {
       description:
         "Logiciel de gestion et de production pour boulangeries et pâtisseries : digitalisation des recettes, fiches techniques, calculatrice de coût de revient, scan de factures IA, mercuriale et alertes de prix, gestion de stocks, planning de production et pilotage des marges en temps réel.",
       url: SITE_URL,
-      image: `${SITE_URL}/images/multi-device.png`,
+      // Une vraie capture, pas le rendu multi-appareils : son interface était
+      // du faux texte, et c'était l'image que les moteurs associaient au produit.
+      image: `${SITE_URL}/images/app/mercuriale.png`,
       featureList: [
         "Digitalisation des recettes et fiches techniques",
         "Calculatrice de coût de revient et de marge",
