@@ -21,6 +21,7 @@ type Payload = {
   structureStatus?: string;
   message?: string;
   website?: string;
+  vueId?: string;
 };
 
 export async function POST(request: Request) {
@@ -38,6 +39,10 @@ export async function POST(request: Request) {
     const structureName = String(body.structureName || "").trim();
     const structureStatus = String(body.structureStatus || "").trim();
     const message = String(body.message || "").trim();
+    // Validé ici plutôt que transmis tel quel : la valeur part vers une RPC, et
+    // une chaîne arbitraire n'a rien à y faire.
+    const vueIdBrut = String(body.vueId || "").trim();
+    const vueId = /^[0-9a-f-]{36}$/i.test(vueIdBrut) ? vueIdBrut : undefined;
 
     if (!fullName) {
       return NextResponse.json({ error: "Nom complet requis" }, { status: 400 });
@@ -77,6 +82,7 @@ export async function POST(request: Request) {
         structureName,
         structureStatus,
         message,
+        vueId,
       }),
     });
 

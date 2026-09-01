@@ -67,8 +67,13 @@ const sections: { title: string; body: ReactNode }[] = [
           message éventuel, saisis par vous.
         </li>
         <li>
-          <strong>Mesure d&apos;audience</strong> : statistiques agrégées de fréquentation (pages vues, pays
-          approximatif, source de trafic), sans cookie et sans identifiant persistant, lorsque l&apos;outil est activé.
+          <strong>Mesure d&apos;audience</strong> : pages consultées, temps de lecture, provenance, pays et ville
+          approximatifs, type d&apos;appareil et mesures techniques de performance. La mesure est <strong>interne</strong>,
+          hébergée sur notre propre infrastructure, et <strong>n&apos;écrit rien sur votre appareil</strong> : ni cookie,
+          ni stockage local. Les visites d&apos;une même personne sont rapprochées par un <strong>code calculé</strong> à
+          partir de votre adresse IP et de votre navigateur, au moyen d&apos;une clé secrète <strong>renouvelée chaque
+          jour et détruite au bout de trois jours</strong> : passé ce délai, le rapprochement n&apos;est plus possible,
+          y compris par nous. Ni votre adresse IP ni votre navigateur ne sont conservés.
         </li>
         <li>
           <strong>Journaux techniques</strong> : données minimales nécessaires au fonctionnement et à la sécurité du
@@ -106,7 +111,10 @@ const sections: { title: string; body: ReactNode }[] = [
         <li>Hébergeur du site (infrastructure européenne ou équivalente selon le prestataire).</li>
         <li>Supabase (backend CRM / application) : données de prospect issues du formulaire.</li>
         <li>Resend (envoi d&apos;e-mails transactionnels de notification).</li>
-        <li>Plausible Analytics (mesure d&apos;audience sans cookie), lorsque configuré.</li>
+        <li>
+          <strong>Aucun outil de mesure d&apos;audience tiers</strong> : les statistiques de fréquentation restent dans
+          notre propre infrastructure et ne sont transmises à personne.
+        </li>
       </ul>
     ),
   },
@@ -129,7 +137,10 @@ const sections: { title: string; body: ReactNode }[] = [
       <ul className="list-disc space-y-2 pl-5">
         <li>Demandes de contact / prospects : jusqu&apos;à 3 ans après le dernier échange, sauf opposition.</li>
         <li>Journaux techniques : durée courte nécessaire à la sécurité (en général quelques semaines à quelques mois).</li>
-        <li>Statistiques d&apos;audience : données agrégées, sans profil individu.</li>
+        <li>
+          Mesure d&apos;audience : détail des visites conservé <strong>90 jours</strong>, statistiques agrégées au-delà.
+          La clé qui permet de rapprocher deux visites est détruite au bout de <strong>trois jours</strong>.
+        </li>
       </ul>
     ),
   },
@@ -162,18 +173,31 @@ const sections: { title: string; body: ReactNode }[] = [
   {
     title: "9. Cookies et mesure d'audience",
     body: (
-      <p>
-        Le site vitrine n&apos;utilise <strong>pas de cookies publicitaires</strong> ni de traceurs nécessitant un
-        consentement. La mesure d&apos;audience éventuelle (Plausible) fonctionne sans cookie et sans identifiant
-        personnel : <strong>aucun bandeau de consentement n&apos;est affiché</strong>, conformément à cette approche.
-        Si un outil de suivi comportemental ou publicitaire était ajouté un jour, un bandeau conforme serait alors mis
-        en place avant tout dépôt.
-      </p>
+      <>
+        <p>
+          Le site vitrine <strong>ne dépose aucun cookie</strong> et n&apos;utilise aucun traceur publicitaire ou
+          comportemental. Notre mesure d&apos;audience n&apos;écrit rien sur votre appareil : elle ne lit ni cookie, ni
+          stockage local. <strong>Aucun bandeau de consentement n&apos;est donc affiché</strong>, et il n&apos;y a rien
+          à refuser.
+        </p>
+        <p className="mt-3">
+          Une seule fonction du site enregistre quelque chose localement : le bouton de vote de la page{" "}
+          <Link href="/integrations" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
+            Intégrations
+          </Link>{" "}
+          garde une marque dans votre navigateur pour ne pas vous reproposer un vote déjà exprimé. Cette marque reste sur
+          votre appareil, ne nous est jamais transmise, et disparaît si vous effacez les données du site.
+        </p>
+        <p className="mt-3">
+          Si un outil de suivi comportemental ou publicitaire était ajouté un jour, un bandeau conforme serait mis en
+          place avant tout dépôt.
+        </p>
+      </>
     ),
   },
   {
     title: "10. Mise à jour",
-    body: <p>Cette politique peut être mise à jour. La version publiée sur cette page fait foi. Dernière mise à jour : août 2026.</p>,
+    body: <p>Cette politique peut être mise à jour. La version publiée sur cette page fait foi. Dernière mise à jour : 31 août 2026.</p>,
   },
 ];
 

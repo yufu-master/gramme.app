@@ -4,6 +4,7 @@ import Link from "next/link";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FormEvent, useEffect, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { vueCourante } from "@/lib/mesure/collecteur";
 
 type SubjectOption = "Demande de démo" | "Question sur les tarifs" | "Support technique" | "Autre";
 type StructureStatus = "en_cours_de_creation" | "cree" | "plusieurs_structures";
@@ -77,6 +78,10 @@ export default function ContactPageContent() {
           structureStatus,
           message: message.trim(),
           website: honeypot,
+          // Identifiant de la page en cours, pour rattacher ce prospect au
+          // parcours qui l'a amené ici. C'est une variable en mémoire du
+          // collecteur : rien n'est lu sur l'appareil.
+          vueId: vueCourante(),
         }),
       });
 

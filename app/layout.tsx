@@ -1,6 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { SiteChrome } from "@/components/layout/SiteChrome";
-import { Analytics } from "@/components/seo/Analytics";
+import { MesureAudience } from "@/components/analytics/MesureAudience";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { primaryKeywords, siteGraph } from "@/lib/seo";
 import "./globals.css";
@@ -101,7 +101,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       </head>
       <body className="antialiased">
         <JsonLd data={siteGraph} />
-        <Analytics />
+        <MesureAudience />
         <SiteChrome>{children}</SiteChrome>
       </body>
     </html>

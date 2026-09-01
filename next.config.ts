@@ -26,11 +26,11 @@ const nextConfig: NextConfig = {
   async headers() {
     const csp = [
       "default-src 'self'",
-      "script-src 'self' 'unsafe-inline' https://plausible.io",
+      "script-src 'self' 'unsafe-inline'",
       "style-src 'self' 'unsafe-inline'",
       "img-src 'self' data: blob: https:",
       "font-src 'self' data:",
-      "connect-src 'self' https://plausible.io https://*.supabase.co https://api.web3forms.com",
+      "connect-src 'self' https://*.supabase.co https://api.web3forms.com",
       "frame-ancestors 'none'",
       "base-uri 'self'",
       "form-action 'self'",
