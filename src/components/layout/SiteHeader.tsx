@@ -14,6 +14,7 @@ type NavItem = {
 
 const navItems: NavItem[] = [
   { label: "Pâtisserie", href: "/logiciel-patisserie" },
+  { label: "Boulangerie", href: "/logiciel-boulangerie" },
   { label: "Tarifs", href: "/tarifs" },
   { label: "À propos", href: "/a-propos-de-gramme" },
   { label: "Contact", href: "/contact" },

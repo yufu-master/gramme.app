@@ -3,6 +3,7 @@ import { features, featurePath } from "@/content/features";
 import { publishedArticles } from "@/content/articles";
 import { publishedGuides } from "@/content/guides";
 import { pagesConcurrent } from "@/content/comparatif";
+import { pagesLogiciel } from "@/content/logiciels";
 import { SITE_URL } from "@/lib/seo";
 
 export type SiteRoute = {
@@ -39,6 +40,20 @@ export const siteRoutes: SiteRoute[] = [
     changeFrequency: "monthly",
     breadcrumb: true,
   },
+  /*
+    Les pages « quel logiciel pour… », en priorité 0,95 comme la pâtisserie.
+    Ce sont les pages d'intention d'achat : c'est sur elles que se joue la
+    présence dans les réponses des moteurs génératifs, qui ne citent Gramme que
+    lorsqu'une de nos pages figure dans les sources qu'ils ont récupérées.
+  */
+  ...pagesLogiciel.map((page) => ({
+    path: page.path,
+    title: page.nom,
+    sitemap: true,
+    priority: 0.95,
+    changeFrequency: "monthly" as const,
+    breadcrumb: true,
+  })),
   {
     path: "/tarifs",
     title: "Tarifs",

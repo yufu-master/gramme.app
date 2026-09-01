@@ -4,6 +4,11 @@ import Link from "next/link";
 const footerLinks = [
   { href: "/fonctionnalites", label: "Fonctionnalités" },
   { href: "/logiciel-patisserie", label: "Logiciel pâtisserie" },
+  { href: "/logiciel-boulangerie", label: "Logiciel boulangerie" },
+  { href: "/logiciel-cout-de-revient", label: "Calcul du coût de revient" },
+  { href: "/logiciel-fiches-techniques", label: "Fiches techniques" },
+  { href: "/logiciel-releves-temperature", label: "Relevés de température" },
+  { href: "/logiciel-scan-factures", label: "Scan des factures" },
   { href: "/tarifs", label: "Tarifs" },
   { href: "/comment-ca-marche", label: "Comment ça marche" },
   { href: "/guides", label: "Guides" },
