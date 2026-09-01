@@ -26,7 +26,7 @@
  * `RELEVE_LE` à jour — une page datée d'il y a deux ans est un mensonge lent.
  */
 
-export const RELEVE_LE = "30 août 2026";
+export const RELEVE_LE = "31 août 2026";
 
 export type Concurrent = {
   id: string;
@@ -49,6 +49,16 @@ export type Concurrent = {
   force: string;
   /** Ce qui, pour un artisan boulanger-pâtissier, peut coincer. Factuel. */
   reserve: string;
+  /**
+   * Le tableau du pilier rend UNE COLONNE PAR CONCURRENT. À quatre, il se lit ;
+   * à vingt-cinq, il fait vingt-six colonnes et ne se lit plus du tout. C'est
+   * le point qui casse en premier quand on couvre tout le secteur.
+   *
+   * Seuls les `principal` entrent dans le tableau. Les `secondaire` gardent
+   * leur page dédiée et son tableau à deux colonnes, qui lui ne souffre pas du
+   * nombre, et sont listés sous le tableau du pilier.
+   */
+  rang: "principal" | "secondaire";
 };
 
 export const concurrents: Concurrent[] = [
@@ -56,6 +66,7 @@ export const concurrents: Concurrent[] = [
     id: "gramme",
     nom: "Gramme",
     site: "gramme.app",
+    rang: "principal",
     positionnement:
       "Le logiciel de gestion et de production des artisans boulangers et pâtissiers, conçu par un chef pâtissier en exercice.",
     cible: "Boulangerie, pâtisserie, chocolaterie artisanales, de l'artisan seul à l'équipe d'une quinzaine.",
@@ -71,12 +82,13 @@ export const concurrents: Concurrent[] = [
     id: "otami",
     nom: "Otami",
     site: "otami.fr",
+    rang: "principal",
     positionnement:
       "« La solution pour simplifier vos achats, vos marges et votre production. » Le concurrent le plus proche de Gramme sur le métier.",
     cible: "Boulangerie, pâtisserie et restauration, du commerce isolé au multi-site.",
     tarif:
-      "Trois offres affichées : Access 59 € HT/mois (5 documents importés par mois), Essentiel 99 € (20 documents), Intégrale 159 € (40 documents), avec un mois offert en facturation annuelle. Deux modules se facturent en plus de l'abonnement, 49 € HT/mois chacun : Comptable (extraction de TVA, journal d'achats, ventilation analytique) et Planning de production. Devis sur mesure pour un besoin spécifique.",
-    tarifCourt: "59 à 159 € HT/mois, options à 49 €",
+      "Trois offres, à deux prix chacune selon l'engagement. Avec engagement annuel : Access 59 € HT/mois (5 documents importés par mois), Essentiel 99 € (20 documents), Intégrale 159 € (40 documents), plus un mois offert. Sans engagement : 69 €, 119 € et 179 € pour les mêmes périmètres. Deux modules se facturent en plus de l'abonnement, 49 € HT/mois chacun : Comptable (extraction de TVA, journal d'achats, ventilation analytique) et Planning de production. Devis sur mesure pour un besoin spécifique.",
+    tarifCourt: "59 à 179 € HT/mois, options à 49 €",
     force:
       "Le réseau d'intégrations, de loin le plus fourni du marché : caisses (Zelty, CarrePOS, Cashpad, Connectill, Addictill), comptabilité (Pennylane, Synapsy, Evoliz), facturation (Libeo, Abill, Cashmag, Menlog). Utilisateurs et écrans illimités sur toutes les offres, gestion multi-site native, et un module comptable qui va jusqu'à l'extraction de TVA et au journal d'achats, ce que nous ne faisons pas. Le dépôt de devis alerte automatiquement quand un tarif négocié n'est pas respecté sur une facture. Plus de 4 000 professionnels des métiers de bouche revendiqués, et une note publique de 4,9 sur les avis vérifiés.",
     reserve:
@@ -86,6 +98,7 @@ export const concurrents: Concurrent[] = [
     id: "chefstouch",
     nom: "ChefsTouch",
     site: "chefstouch.fr",
+    rang: "principal",
     positionnement:
       "Une plateforme de fiches techniques collaborative pour tous les métiers de bouche, avec une offre gratuite.",
     cible:
@@ -102,17 +115,18 @@ export const concurrents: Concurrent[] = [
     id: "melba",
     nom: "Melba",
     site: "melba.io",
+    rang: "principal",
     positionnement:
       "« L'ERP design et connecté des professionnels de la restauration. » Une logique d'ERP modulaire.",
     cible:
       "Chaînes et groupes, cuisines centrales, dark kitchens, traiteurs, hôtels-restaurants, et boulangers-pâtissiers parmi d'autres métiers.",
     tarif:
-      "À partir de 49 € HT/mois et par module, sur cinq modules (Analyses, Opérations, Traçabilité, Multisite, IA). Crédits IA facturés à part. Aucun frais d'installation : « 0 installation requise — 100 % cloud ».",
-    tarifCourt: "49 € HT/mois par module",
+      "Trois modules métier, chacun en Simple à 49 € HT/mois ou Premium à 99 € : Recettes & Ventes, Stocks & Commandes, Traçabilité. Deux compléments : Core à 49 € (5 à 10 utilisateurs par site, puis 15 € par utilisateur) et API à 49 € ou 99 €. Chaque module porte ses crédits IA, 20 en Simple et 40 en Premium. Facturation annuelle : 120 € de moins par an et par module. Essai gratuit sans carte bancaire, aucun frais d'installation.",
+    tarifCourt: "49 ou 99 € HT/mois par module",
     force:
       "La profondeur fonctionnelle d'un ERP : analyse des marges, anomalies de livraison, gestion des pertes, traçabilité complète avec relevés de températures et étiquetage INCO, pilotage multisite centralisé, et plus de cent outils pilotables par IA.",
     reserve:
-      "La facturation au module : le tarif d'entrée ne couvre qu'un module, et une couverture complète suppose de les additionner. L'outil est dimensionné pour des groupes multi-sites : sa richesse est un coût d'apprentissage pour un artisan seul.",
+      "La facturation au module : le tarif d'entrée ne couvre qu'un module, et le périmètre d'une boulangerie en demande plusieurs. Recettes et traçabilité font déjà 98 € HT/mois en Simple, 147 € avec les stocks, et le planning de production suppose le Premium du module Recettes. L'outil est par ailleurs dimensionné pour des groupes multi-sites : sa richesse est un coût d'apprentissage pour un artisan seul.",
   },
 ];
 
@@ -189,7 +203,7 @@ export const blocsComparatif: BlocComparatif[] = [
           },
           otami: { v: "partiel", note: "Non documenté sur les pages produit au moment du relevé" },
           chefstouch: { v: "partiel", note: "Approche restauration : coûts, ratios et portions" },
-          melba: { v: "oui", note: "Gestion des pertes annoncée dans le module Analyses" },
+          melba: { v: "option", note: "Module Recettes & Ventes, à partir de 49 € HT/mois" },
         },
       },
       {
@@ -284,7 +298,7 @@ export const blocsComparatif: BlocComparatif[] = [
           gramme: { v: "oui", note: "Compris dans l'offre Pro à 89 € HT/mois, sans supplément" },
           otami: { v: "option", note: "Module facturé 49 € HT/mois en plus de l'abonnement, quelle que soit l'offre" },
           chefstouch: { v: "option", note: "À partir de Business Pro (39,90 €/admin/site)" },
-          melba: { v: "oui", note: "Module Opérations" },
+          melba: { v: "option", note: "Module Recettes & Ventes Premium, 99 € HT/mois" },
         },
       },
       {
@@ -294,7 +308,7 @@ export const blocsComparatif: BlocComparatif[] = [
           gramme: { v: "oui", note: "Offre Pro" },
           otami: { v: "oui" },
           chefstouch: { v: "option", note: "À partir de Business+" },
-          melba: { v: "oui", note: "Module Opérations" },
+          melba: { v: "option", note: "Module Stocks & Commandes, à partir de 49 € HT/mois" },
         },
       },
       {
@@ -466,7 +480,7 @@ export const blocsComparatif: BlocComparatif[] = [
           },
           otami: { v: "partiel", note: "Non communiqué" },
           chefstouch: { v: "oui", note: "Offre gratuite jusqu'à 100 fiches" },
-          melba: { v: "partiel", note: "Non communiqué" },
+          melba: { v: "oui", note: "Essai gratuit annoncé sans carte bancaire" },
         },
       },
       {
@@ -486,7 +500,7 @@ export const blocsComparatif: BlocComparatif[] = [
           gramme: { v: "oui", note: "Forfait multi-établissement dédié, bascule entre les ateliers depuis le même compte" },
           otami: { v: "oui", note: "Partage de recettes et suivi par magasin" },
           chefstouch: { v: "oui", note: "Facturation par administrateur et par site" },
-          melba: { v: "oui", note: "Module Multisite" },
+          melba: { v: "partiel", note: "Le module Core compte de 5 à 10 utilisateurs par site ; aucun tarif multi-établissement n'est affiché" },
         },
       },
     ],
@@ -555,12 +569,12 @@ export const panierCompare: LignePanier[] = [
   },
   {
     id: "melba",
-    offre: "Melba · à partir de 49 € HT/mois par module",
+    offre: "Melba · modules Recettes & Ventes Premium, Stocks & Commandes et Traçabilité",
     detail:
-      "Cinq modules : Analyses, Opérations, Traçabilité, Multisite, IA. Le périmètre de ce scénario en suppose plusieurs, et les crédits IA sont facturés à part.",
-    totalMensuelHt: null,
+      "99 € HT/mois pour Recettes & Ventes Premium, seul niveau qui porte le planning de production, plus 49 € pour Stocks & Commandes et 49 € pour Traçabilité, soit 197 € HT/mois. Facturation annuelle : 120 € de moins par an et par module.",
+    totalMensuelHt: 197,
     nuance:
-      "Nous ne calculons pas de total : l'éditeur affiche un « à partir de » par module et non le prix d'une combinaison. Demandez-lui le chiffre pour votre périmètre, et méfiez-vous de toute comparaison, y compris la nôtre, qui prétendrait le deviner.",
+      "Le panier est écrit pour être contestable : trois modules, dont un en Premium parce que le planning de production du scénario n'existe pas en Simple. Sans le planning, les trois passent à 147 €, et recettes plus traçabilité seules à 98 €. Le module Core, à 49 € de plus, n'est PAS compté ici : l'éditeur le range dans « pour aller plus loin » et ne le présente pas comme obligatoire. Il devient nécessaire au-delà de cinq utilisateurs par site, et se facture ensuite 15 € par utilisateur.",
   },
 ];
 
@@ -621,7 +635,7 @@ export const cheminsDeChoix = [
   {
     profil: "Vous hésitez entre deux abonnements et vous voulez savoir ce que vous paierez vraiment",
     conseil:
-      "Additionnez avant de comparer. Le nombre de factures acceptées par mois et les modules facturés en plus font plus d'écart que le prix affiché : sur une boulangerie qui reçoit une trentaine de factures et se sert du planning de production, les tarifs publics vont de 33,25 € à 208 € HT par mois selon l'éditeur. Le tableau de facture réelle plus haut fait l'addition pour chacun, avec le détail, et ce n'est pas nous qui sortons le moins cher.",
+      "Additionnez avant de comparer. Le nombre de factures acceptées par mois et les modules facturés en plus font plus d'écart que le prix affiché : sur une boulangerie qui reçoit une trentaine de factures et se sert du planning de production, les tarifs publics vont de 39,90 € à 208 € HT par mois selon l'éditeur. Le tableau de facture réelle plus haut fait l'addition pour chacun, avec le détail, et ce n'est pas nous qui sortons le moins cher.",
     verdict: "nuance" as const,
   },
   {
@@ -693,8 +707,24 @@ export type PageConcurrent = {
   h1: string;
   /** Deux phrases sous le titre. */
   chapeau: string;
-  /** Ce que cet éditeur fait mieux que nous, nommé sans détour. */
+  /**
+   * Ce que cet éditeur fait mieux que nous, nommé sans détour.
+   * EXACTEMENT trois : le gabarit écrit « Trois points » en toutes lettres.
+   */
   mieuxQueNous: { titre: string; texte: string }[];
+  /**
+   * La phrase qui introduit les deux captures d'hygiène, et l'alt de l'image
+   * sociale.
+   *
+   * Elles étaient écrites en dur dans le gabarit sous la forme « ce que
+   * {concurrent} ne documente pas ». C'est vrai d'Otami, dont les pages
+   * publiques n'en parlent pas ; c'est FAUX de Melba, qui documente la
+   * traçabilité dans un module facturé à part. Une phrase de gabarit qui
+   * affirme quelque chose sur un tiers doit venir de la fiche de ce tiers,
+   * sinon elle devient fausse au deuxième concurrent, et personne ne s'en
+   * aperçoit avant que l'intéressé ne le fasse remarquer.
+   */
+  hygiene: { intro: string; altSociale: string };
   /** Quand le choisir plutôt que nous, et quand c'est l'inverse. */
   quandLuiQuandNous: { profil: string; verdict: "lui" | "nous"; texte: string }[];
   faq: { q: string; a: string }[];
@@ -720,6 +750,11 @@ export const pagesConcurrent: PageConcurrent[] = [
     h1: "Otami : ce qu'il fait bien, ce qu'il coûte vraiment, et quand nous sommes le meilleur choix",
     chapeau:
       "Otami est le logiciel dont les artisans nous parlent le plus, et le plus proche du nôtre sur le métier. Voici son tarif public, la variable qui fait vraiment monter la facture, et les trois points sur lesquels il nous dépasse.",
+    hygiene: {
+      intro:
+        "Les deux écrans qu'Otami ne documente pas sur ses pages publiques, et qui sont compris dans notre offre Pro : le relevé de températures et le plan de nettoyage, pris depuis le téléphone du laboratoire.",
+      altSociale: "Les relevés de températures dans Gramme, ce qu'Otami ne documente pas",
+    },
     mieuxQueNous: [
       {
         titre: "Le réseau d'intégrations, et il n'y a pas photo",
@@ -799,6 +834,213 @@ export const pagesConcurrent: PageConcurrent[] = [
       {
         q: "Otami gère-t-il les allergènes ?",
         a: "Une rubrique « allergènes / composition » est évoquée dans les avis clients publiés par l'éditeur, mais les pages produit ne la décrivent pas au moment de notre relevé, nous la notons donc « partiel » plutôt que de trancher à leur place. Chez nous, les 14 allergènes de l'annexe II du règlement (UE) 1169/2011 se renseignent une fois par matière et remontent seuls aux sous-recettes puis aux produits finis, avec l'affiche de vitrine et l'étiquette produit qui vont avec.",
+      },
+    ],
+  },
+  {
+    id: "melba",
+    metaTitle: "Melba : avis, tarifs et alternative | Gramme",
+    metaDescription:
+      "Le prix réel de Melba quand on additionne les modules dont une boulangerie a besoin, ce que l'ERP fait mieux que nous, et quand chacun est le bon choix.",
+    keywords: [
+      "avis Melba",
+      "Melba tarif",
+      "Melba prix",
+      "melba.io avis",
+      "alternative Melba",
+      "logiciel comme Melba",
+      "Melba ou Gramme",
+      "Melba boulangerie pâtisserie",
+    ],
+    h1: "Melba : ce qu'il fait mieux que nous, ce que coûtent ses modules, et quand nous sommes le bon choix",
+    chapeau:
+      "Melba est l'ERP le plus complet de ce comparatif, et fonctionnellement le plus proche de nous. Toute la question est le prix : il facture par module, et le périmètre d'une boulangerie en demande plusieurs.",
+    hygiene: {
+      intro:
+        "Melba couvre ce terrain, dans son module Traçabilité facturé à partir de 49 € HT/mois. Voici les mêmes écrans chez nous, compris dans l'offre Pro sans rien ajouter : le relevé de températures et le plan de nettoyage, pris depuis le téléphone du laboratoire.",
+      altSociale:
+        "Les relevés de températures dans Gramme, compris dans l'offre Pro là où Melba les facture en module",
+    },
+    mieuxQueNous: [
+      {
+        titre: "La profondeur d'un ERP, et le pilotage multi-sites",
+        texte:
+          "Anomalies de livraison, réclamations fournisseurs, tâches programmées, traçabilité intermédiaire, personnalisation illimitée des droits utilisateurs. Si vous pilotez plusieurs sites de production ou une cuisine centrale, cette profondeur est un vrai avantage, et nous ne l'avons pas à ce niveau.",
+      },
+      {
+        titre: "Les connexions à la caisse et à la comptabilité",
+        texte:
+          "Melba annonce ses intégrations et une API ouverte, facturée 49 € ou 99 € HT/mois selon le volume d'appels. Chez nous, les connexions sont en développement et annoncées d'ici fin 2026 : tant qu'elles ne sont pas livrées, nous ne les comptons pas. Sur ce point précis, ils sont devant.",
+      },
+      {
+        titre: "L'essai gratuit, que nous n'offrons pas du tout",
+        texte:
+          "Un essai gratuit sans carte bancaire, et aucun frais d'installation. Nous faisons l'inverse : pas d'essai en libre-service, une démonstration d'une heure sur vos propres fiches, et une installation accompagnée facturée une fois. C'est un choix, mais si vous voulez tester seul un dimanche soir, allez chez eux.",
+      },
+    ],
+    quandLuiQuandNous: [
+      {
+        profil: "Vous pilotez plusieurs sites ou une cuisine centrale",
+        verdict: "lui",
+        texte:
+          "C'est le cas le plus net. La profondeur d'ERP et la gestion fine des droits sont faites pour ça, et la facturation au module devient logique quand chaque site a des besoins différents. Nous avons un forfait multi-établissement, mais pas cette granularité.",
+      },
+      {
+        profil: "Vous voulez essayer avant de payer",
+        verdict: "lui",
+        texte:
+          "Essai gratuit sans carte chez eux, rien de tel chez nous. Nous ne proposons qu'une démonstration d'une heure, en direct, sur vos fiches. Si l'idée même d'un rendez-vous vous rebute, la question est réglée.",
+      },
+      {
+        profil: "Vous êtes un artisan, seul ou avec une petite équipe",
+        verdict: "nous",
+        texte:
+          "C'est là que l'addition des modules se retourne. Recettes et traçabilité font 98 € HT/mois en Simple ; avec les stocks, 147 € ; et le planning de production impose le Premium du module Recettes, ce qui porte l'ensemble à 197 €. Chez nous il y a deux tarifs, 49 € et 89 €, et tout est dans le second.",
+      },
+      {
+        profil: "Vous voulez que l'hygiène soit comprise, pas facturée à part",
+        verdict: "nous",
+        texte:
+          "Relevés de températures, plan de nettoyage, étiquettes de lot et contrôle à réception vivent chez eux dans le module Traçabilité, à partir de 49 € HT/mois. Chez nous ils sont dans l'offre Pro, sans supplément, et ce que nous livrons ensuite y entre sans que votre abonnement bouge.",
+      },
+      {
+        profil: "Vos fiches sont sur papier, dans un classeur",
+        verdict: "nous",
+        texte:
+          "C'est le seul point du tableau où nous sommes seuls à répondre oui. Une fiche manuscrite, même ancienne ou farinée, se photographie et se reconstruit, sous-recettes séparées des recettes finales. Chez Melba, la reprise n'est pas documentée au-delà du « 0 installation requise ».",
+      },
+      {
+        profil: "Vous voulez savoir ce que vous paierez avant d'appeler",
+        verdict: "nous",
+        texte:
+          "Melba affiche un prix par module, pas le prix d'une combinaison : le total de votre périmètre demande un échange commercial. Nos deux tarifs sont publics, et ce que chacun contient l'est aussi. Cela dit, prenez le temps de faire l'addition dans les deux sens : sur un périmètre restreint à un seul module, ils sont moins chers que nous.",
+      },
+    ],
+    faq: [
+      {
+        q: "Combien coûte Melba pour une boulangerie ?",
+        a: "Cela dépend des modules retenus, et c'est tout l'enjeu. Au relevé du 31 août 2026, les trois modules métier sont à 49 € HT/mois en Simple et 99 € en Premium : Recettes & Ventes, Stocks & Commandes, Traçabilité. Un périmètre de boulangerie réaliste en demande au moins deux, soit 98 € ; avec les stocks, 147 € ; et le planning de production n'existe qu'au Premium du module Recettes, ce qui porte l'ensemble à 197 € HT/mois. Le module Core, à 49 € de plus, n'est pas présenté comme obligatoire mais devient nécessaire au-delà de cinq utilisateurs par site. Vérifiez ces montants sur melba.io avant de décider : les grilles bougent, et nous republions les nôtres avec la date du relevé.",
+      },
+      {
+        q: "Melba ou Gramme : lequel choisir ?",
+        a: "Melba si vous pilotez plusieurs sites, si vous avez besoin de la profondeur d'un ERP, si les connexions à votre caisse et à votre comptable sont votre priorité, ou si vous voulez essayer seul avant de payer. Gramme si vous êtes un artisan boulanger ou pâtissier, si vos fiches sont sur papier, si vous voulez que l'hygiène et le planning soient compris plutôt que facturés en modules, et si vous préférez deux tarifs publics à une addition. Fonctionnellement nous sommes très proches : c'est le mode de facturation et la reprise de vos données qui départagent.",
+      },
+      {
+        q: "Melba fait-il le HACCP et les relevés de températures ?",
+        a: "Oui, dans son module Traçabilité, facturé à partir de 49 € HT/mois : étiquettes digitalisées, relevés de températures et plan de maîtrise sanitaire, avec la traçabilité intermédiaire et les tâches programmées au niveau Premium. C'est le seul concurrent de notre comparatif à couvrir sérieusement ce terrain, et il faut le dire. La différence n'est pas la fonction, c'est qu'elle se paie en plus chez eux et qu'elle est dans l'offre Pro chez nous.",
+      },
+      {
+        q: "Peut-on passer de Melba à Gramme sans tout ressaisir ?",
+        a: "Oui. Vous exportez ce que vous pouvez de votre outil actuel, et nous reprenons le reste pendant l'installation accompagnée : fiches techniques, sous-recettes, mercuriale, fournisseurs, et vos factures des derniers mois pour que l'historique de prix existe dès le premier jour. Nous n'avons pas de connecteur automatique depuis Melba, et prétendre le contraire serait vous mentir.",
+      },
+      {
+        q: "Melba est-il fait pour la boulangerie ou pour la restauration ?",
+        a: "Melba se présente comme l'outil des professionnels de la restauration et sert des chaînes, des cuisines centrales, des traiteurs et des hôtels autant que des boulangers. C'est une force pour un groupe, et une nuance pour un artisan : l'outil est dimensionné pour des organisations, et sa richesse fonctionnelle est un coût d'apprentissage quand on est seul au fournil. Gramme ne fait qu'un métier, celui de la boulangerie et de la pâtisserie, et a été conçu avec un chef pâtissier en exercice.",
+      },
+      {
+        q: "Qu'est-ce que le module Core de Melba ?",
+        a: "Un complément à 49 € HT/mois qui couvre de cinq à dix utilisateurs par site, cinquante modèles et la personnalisation illimitée des droits, puis 15 € par utilisateur supplémentaire. L'éditeur le range dans une section « pour aller plus loin » et ne le présente pas comme obligatoire : nous ne le comptons donc pas dans le prix plancher, alors que l'y ajouter gonflerait notre comparaison de moitié. Il devient nécessaire dès que l'équipe dépasse le nombre d'accès inclus.",
+      },
+    ],
+  },
+  {
+    id: "chefstouch",
+    metaTitle: "ChefsTouch : avis, tarifs et alternative | Gramme",
+    metaDescription:
+      "L'offre gratuite de ChefsTouch, ce qu'elle contient vraiment, à partir de quelle offre le scan des factures arrive, et quand chacun est le bon choix.",
+    keywords: [
+      "avis ChefsTouch",
+      "ChefsTouch tarif",
+      "ChefsTouch prix",
+      "ChefsTouch gratuit",
+      "alternative ChefsTouch",
+      "logiciel comme ChefsTouch",
+      "ChefsTouch ou Gramme",
+      "ChefsTouch boulangerie pâtisserie",
+    ],
+    h1: "ChefsTouch : l'offre gratuite, ce qu'elle couvre, et à partir de quand il faut payer",
+    chapeau:
+      "ChefsTouch a le ticket d'entrée le plus bas du marché et une offre gratuite réellement utilisable. La question n'est pas son prix, c'est le moment où votre besoin sort de ce que le prix bas contient.",
+    hygiene: {
+      intro:
+        "Les deux écrans que ChefsTouch ne documente pas sur ses pages publiques, et qui sont compris dans notre offre Pro : le relevé de températures et le plan de nettoyage, pris depuis le téléphone du laboratoire.",
+      altSociale: "Les relevés de températures dans Gramme, ce que ChefsTouch ne documente pas",
+    },
+    mieuxQueNous: [
+      {
+        titre: "Une offre gratuite qui sert vraiment à quelque chose",
+        texte:
+          "Jusqu'à cent fiches recettes, impression standard, calculs nutritionnels, sans limite de durée. Nous n'avons rien de gratuit, et pas même un essai en libre-service. Pour quelqu'un qui veut sortir ses recettes du papier ce soir sans parler à personne, c'est imbattable, et nous ne prétendrons pas le contraire.",
+      },
+      {
+        titre: "Le prix d'entrée le plus bas, de très loin",
+        texte:
+          "1,99 € HT/mois pour les fiches illimitées, 4,90 € avec le coût de revient sur un fournisseur, 9,90 € avec les fournisseurs illimités et l'étiquetage INCO. Notre premier tarif est à 49 €. Sur un besoin qui s'arrête aux fiches et aux allergènes, la comparaison n'est même pas discutable.",
+      },
+      {
+        titre: "Un fonds de recettes partagées, et le multi-métier",
+        texte:
+          "Une communauté qui publie ses fiches, la traduction assistée par IA, l'activité de l'eau et le pouvoir anticryoscopique pour les glaciers. Nous ne faisons qu'un métier et nous n'avons ni fonds partagé ni traduction. Si vous êtes glacier ou chocolatier autant que boulanger, regardez de ce côté.",
+      },
+    ],
+    quandLuiQuandNous: [
+      {
+        profil: "Vous voulez simplement numériser vos fiches, sans rien payer",
+        verdict: "lui",
+        texte:
+          "Cent fiches gratuites, sans durée limite. C'est le meilleur point de départ du marché pour ça, et nous n'avons aucune raison de vous en détourner. Revenez nous voir le jour où vous voudrez que vos prix se mettent à jour tout seuls.",
+      },
+      {
+        profil: "Votre budget logiciel est de quelques euros par mois",
+        verdict: "lui",
+        texte:
+          "À 4,90 € ou 9,90 € HT/mois, ChefsTouch fait des choses que personne d'autre ne fait à ce prix. Notre Starter est à 49 €. Si le budget est la contrainte première, la question est tranchée avant même de comparer les fonctions.",
+      },
+      {
+        profil: "Vous voulez que vos factures mettent vos prix à jour",
+        verdict: "nous",
+        texte:
+          "C'est le basculement. L'intégration automatique des prix depuis les factures n'arrive qu'à l'offre Business Pro, à 39,90 € HT/mois par administrateur et par site. À un administrateur sur un site, c'est moins cher que nous ; à deux administrateurs, l'écart se referme. Et le volume de documents accepté n'est pas communiqué, là où nous incluons 30 factures en Starter et 150 en Pro.",
+      },
+      {
+        profil: "Vous voulez le planning de production",
+        verdict: "nous",
+        texte:
+          "Même offre, même bascule : le planning de production arrive avec Business Pro. Chez nous il est dans l'offre Pro, avec le stock, l'hygiène et l'étiquetage, sans module à ajouter.",
+      },
+      {
+        profil: "Vous tenez des registres sanitaires",
+        verdict: "nous",
+        texte:
+          "Les relevés de températures et le plan de nettoyage ne sont pas documentés sur leurs pages publiques au moment de notre relevé, et nous ne comptons jamais une fonction qu'un éditeur n'annonce pas. Posez-leur la question si c'est un critère. Chez nous, registres, étiquettes de lot et contrôle à réception sont dans l'offre Pro.",
+      },
+      {
+        profil: "Vous voulez qu'on installe l'outil à votre place",
+        verdict: "nous",
+        texte:
+          "ChefsTouch est un outil en libre-service : vous montez votre base vous-même. Nous montons le compte de bout en bout avant votre premier jour, profils, fournisseurs, mercuriale, fiches et factures comprises. C'est facturé une fois, et c'est ce qui décide si un outil est adopté ou abandonné.",
+      },
+    ],
+    faq: [
+      {
+        q: "ChefsTouch est-il vraiment gratuit ?",
+        a: "Oui, dans une offre Starter sans limite de durée : jusqu'à cent fiches recettes, impression standard, messagerie et calculs nutritionnels. Ce qui n'y est pas : la marge et le coût de revient, qui commencent à l'offre Booster à 4,90 € HT/mois avec un seul fournisseur, puis les fournisseurs illimités à 9,90 €. C'est une offre gratuite honnête, pas une démonstration déguisée, et c'est assez rare pour être dit.",
+      },
+      {
+        q: "Combien coûte ChefsTouch exactement ?",
+        a: "Au relevé du 31 août 2026 : Starter gratuit, Essentiel 1,99 € HT/mois, Booster 4,90 €, Pro 9,90 €, puis deux offres facturées par administrateur et par établissement, Business+ à 19,90 € et Business Pro à 39,90 €. Des offres organisation existent à 120 € et 240 € HT/mois. La variable qui compte n'est pas le nombre d'utilisateurs mais le nombre d'administrateurs et de sites : sur un site avec un seul administrateur, c'est le prix le plus bas de notre comparatif.",
+      },
+      {
+        q: "À partir de quelle offre ChefsTouch lit-il les factures fournisseurs ?",
+        a: "L'intégration automatique des prix par photo ou par scan est annoncée à l'offre Business Pro, 39,90 € HT/mois par administrateur et par site. Le planning de production et les statistiques avancées arrivent au même palier. Le volume de documents accepté par mois n'est pas communiqué, et c'est le chiffre à leur demander avant de comparer : chez nous, 30 factures par mois en Starter et 150 en Pro, et une facture de plus ne change pas l'abonnement.",
+      },
+      {
+        q: "ChefsTouch ou Gramme : lequel choisir ?",
+        a: "ChefsTouch si votre besoin s'arrête aux fiches techniques, aux allergènes et aux valeurs nutritionnelles, si le budget est la contrainte première, ou si vous exercez plusieurs métiers de bouche. Gramme si vous voulez que vos factures mettent vos prix à jour toutes seules, que le planning et les registres sanitaires soient compris, et qu'on reprenne vos données à votre place. Beaucoup d'artisans commencent chez eux et viennent chez nous quand la mercuriale devient le sujet.",
+      },
+      {
+        q: "ChefsTouch gère-t-il les relevés de températures ?",
+        a: "Ce n'est pas documenté sur leurs pages publiques au moment de notre relevé, et nous ne comptons jamais une fonction qu'un éditeur n'annonce pas, dans un sens comme dans l'autre. L'étiquetage INCO, les allergènes et les valeurs nutritionnelles, eux, sont bien là et à un prix très bas. Chez nous, relevés de températures, plan de nettoyage, étiquettes de lot et registres imprimables sont dans l'offre Pro.",
       },
     ],
   },

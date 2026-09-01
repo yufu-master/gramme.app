@@ -63,7 +63,19 @@ function euro(montant: number) {
   });
 }
 
-const ORDRE = concurrents.map((c) => c.id);
+/**
+ * Le tableau rend UNE COLONNE PAR CONCURRENT. À quatre il se lit, à vingt-cinq
+ * il en fait vingt-six et ne se lit plus : c'est ce qui casse en premier quand
+ * on couvre tout le secteur. Seuls les concurrents `principal` y entrent ; les
+ * autres gardent leur page dédiée, dont le tableau à deux colonnes ne souffre
+ * pas du nombre, et sont listés juste sous le dernier bloc.
+ */
+const principaux = concurrents.filter((c) => c.rang === "principal");
+const ORDRE = principaux.map((c) => c.id);
+/** Les pages dédiées, hors des fiches repliées : c'est le hub du comparatif. */
+const pagesDediees = concurrents
+  .filter((c) => c.id !== "gramme" && pagesConcurrent.some((pc) => pc.id === c.id))
+  .map((c) => ({ id: c.id, nom: c.nom, tarifCourt: c.tarifCourt }));
 
 /**
  * Une case du tableau.
@@ -307,7 +319,7 @@ export default function ComparatifPage() {
                     <th scope="col" className="w-64 px-4 py-3 text-sm font-bold text-[#27421f]">
                       Critère
                     </th>
-                    {concurrents.map((c) => (
+                    {principaux.map((c) => (
                       <th
                         key={c.id}
                         scope="col"
@@ -363,6 +375,47 @@ export default function ComparatifPage() {
             ) : null}
           </section>
         ))}
+
+        {/*
+          Le hub des pages dédiées.
+
+          C'est le SEUL endroit du site où ces pages s'affichent en liste :
+          elles ne sont ni dans le menu, ni sur l'accueil, et c'est voulu. Une
+          rangée de noms de concurrents dans la navigation d'un éditeur ne fait
+          pas sérieux, elle fait bataille de cour d'école.
+
+          Elles étaient jusqu'ici cachées dans les fiches repliées plus haut :
+          atteignables, mais à trois clics d'un lien de pied de page. Un moteur
+          explore ce qui est lié en clair, et cette liste est ce qui remonte ces
+          pages à deux clics de l'accueil.
+        */}
+        {pagesDediees.length > 0 ? (
+          <section className="mt-10 scroll-mt-24 md:mt-14" aria-labelledby="pages-dediees">
+            <h2 id="pages-dediees" className="text-2xl font-bold text-[#2f4f26] md:text-3xl">
+              Vous en utilisez un en particulier ?
+            </h2>
+            <p className="mt-3 max-w-3xl leading-relaxed text-[#4d6952]">
+              Chaque page reprend le tarif public de l&apos;éditeur, ce qu&apos;il fait mieux que nous, et les
+              situations où c&apos;est lui qu&apos;il faut prendre. Relevés le {RELEVE_LE}.
+            </p>
+            <ul className="mt-6 grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
+              {pagesDediees.map((c) => (
+                <li key={c.id}>
+                  <Link
+                    href={`/comparatif/${c.id}`}
+                    className="flex h-full flex-col rounded-2xl border border-[#dcead2] bg-white p-5 shadow-sm transition hover:bg-[#f6fbf2]"
+                  >
+                    <span className="text-base font-bold text-[#355329]">{c.nom} face à Gramme</span>
+                    <span className="mt-1 text-sm text-[#4d6952]">{c.tarifCourt}</span>
+                    <span className="mt-3 text-sm font-semibold text-[#3e6134] underline-offset-2">
+                      Avis, tarifs et alternative →
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        ) : null}
 
         {/* La facture réelle, après les tableaux de fonctions et avant les
             conseils. Les fonctions disent ce que fait un outil ; cette section

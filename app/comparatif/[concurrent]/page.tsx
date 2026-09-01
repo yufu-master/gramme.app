@@ -43,7 +43,7 @@ export async function generateMetadata({
       url,
       images: imageSociale(
         "/images/app/haccp-temperatures.png",
-        `Les relevés de températures dans Gramme, ce que ${page.id} ne documente pas`,
+        page.hygiene.altSociale,
       ),
     },
   };
@@ -169,10 +169,11 @@ export default async function PageConcurrentPage({ params }: { params: Promise<P
           <h2 id="a-quoi-ca-ressemble" className="text-2xl font-bold text-[#2f4f26] md:text-3xl">
             À quoi ça ressemble, chez nous
           </h2>
-          <p className="mt-3 max-w-3xl leading-relaxed text-[#4d6952]">
-            Les deux écrans que {fiche.nom} ne documente pas sur ses pages publiques, et qui sont compris dans notre
-            offre Pro : le relevé de températures et le plan de nettoyage, pris depuis le téléphone du laboratoire.
-          </p>
+          {/* Cette phrase parle d'un TIERS : elle vient de sa fiche, jamais du
+              gabarit. Écrite ici en dur, elle affirmait « ce que {nom} ne
+              documente pas » — vrai d'Otami, faux de Melba qui documente la
+              traçabilité dans un module payant. */}
+          <p className="mt-3 max-w-3xl leading-relaxed text-[#4d6952]">{page.hygiene.intro}</p>
           <div className="mt-6 flex flex-wrap items-end justify-center gap-8 rounded-3xl border border-[#dcead2] bg-[#f6fbf2] p-6 sm:gap-12 sm:p-10">
             <div className="w-[168px] sm:w-[200px]">
               <CadreAppareil
