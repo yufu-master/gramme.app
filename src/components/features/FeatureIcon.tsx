@@ -2,10 +2,16 @@ import type { FeatureIcon as FeatureIconName } from "@/content/features";
 
 type Props = { name: FeatureIconName; className?: string };
 
-/** Icônes des fonctionnalités, partagées entre l'accueil, le hub et les pages dédiées. */
+/**
+ * Icônes des fonctionnalités, partagées entre l'accueil, le hub et les pages dédiées.
+ *
+ * La taille par défaut n'est pas décorative : un `<svg>` sans largeur ni hauteur
+ * prend TOUTE la place de son conteneur. Un appel sans `className` avait suffi
+ * pour transformer les quatre cartes de « Les modules concernés » en affiches.
+ */
 export function FeatureIcon({ name, className }: Props) {
   const Icon = icons[name];
-  return <Icon className={className} />;
+  return <Icon className={className ?? "size-4"} />;
 }
 
 const icons: Record<FeatureIconName, (props: { className?: string }) => React.ReactElement> = {

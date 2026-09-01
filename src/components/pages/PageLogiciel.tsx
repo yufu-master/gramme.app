@@ -159,13 +159,15 @@ export function PageLogicielVue({ page }: { page: PageLogiciel }) {
                 <Link
                   key={feature.slug}
                   href={featurePath(feature.slug)}
-                  className="group rounded-2xl border border-[#dcead2] bg-white p-5 shadow-sm transition hover:bg-[#f6fbf2] sm:p-6"
+                  className="group flex gap-3.5 rounded-2xl border border-[#dcead2] bg-white p-5 shadow-sm transition hover:bg-[#f6fbf2] sm:gap-4 sm:p-6"
                 >
-                  <div className="flex items-center gap-3">
-                    <FeatureIcon name={feature.icon} />
+                  <span className="mt-0.5 inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-[#a8cf8c]/25 text-[#355329]">
+                    <FeatureIcon name={feature.icon} className="size-[18px]" />
+                  </span>
+                  <span className="min-w-0">
                     <h3 className="text-lg font-bold text-[#355329] group-hover:underline">{feature.name}</h3>
-                  </div>
-                  <p className="mt-3 text-sm leading-relaxed text-[#4d6952]">{feature.summary}</p>
+                    <p className="mt-2 text-sm leading-relaxed text-[#4d6952]">{feature.summary}</p>
+                  </span>
                 </Link>
               ))}
             </div>
