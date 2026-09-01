@@ -308,8 +308,16 @@ export default function ComparatifPage() {
             </h2>
             {/* Le tableau défile dans son propre cadre : autant de colonnes ne tiennent
                 pas sur un téléphone, et une page qui part en biais est pire
-                qu'un tableau qu'on fait glisser. */}
-            <div className="mt-5 overflow-x-auto rounded-2xl border border-[#dcead2] bg-white shadow-sm">
+                qu'un tableau qu'on fait glisser.
+
+                `relative` n'est pas décoratif. Les mentions `sr-only` des
+                cellules sont en `position:absolute` : sans ancêtre positionné,
+                leur bloc conteneur est la page, pas ce cadre. Elles restaient
+                donc posées à leur place dans un tableau de 896 px — 81 boîtes
+                d'un pixel à x = 809 — et le téléphone dézoomait la page entière
+                pour les faire entrer. Invisibles, mais elles élargissaient le
+                document. */}
+            <div className="relative mt-5 overflow-x-auto rounded-2xl border border-[#dcead2] bg-white shadow-sm">
               <table className="w-full min-w-[56rem] border-collapse text-left">
                 <caption className="sr-only">
                   {bloc.titre} : comparaison de Gramme, Otami, ChefsTouch et Melba

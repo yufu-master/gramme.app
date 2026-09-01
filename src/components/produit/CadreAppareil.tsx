@@ -69,14 +69,26 @@ export function CadreAppareil({
         className={`relative overflow-hidden bg-white ${estTelephone ? "rounded-[1.5rem]" : "rounded-[0.75rem]"}`}
         style={{ aspectRatio: RATIOS[appareil] }}
       >
-        <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover object-top" />
+        {/* Le bandeau de la caméra frontale.
+            La pastille était dessinée PAR-DESSUS la capture : le titre de
+            l'écran passait dessous, et on lisait « TEMPÉRATURES » barré d'un
+            trait vert. Un téléphone ne fait pas ça — son écran commence sous la
+            caméra. On réserve donc la bande, en blanc, et la capture démarre
+            en dessous. En pourcentage : le cadre est rendu à des largeurs très
+            différentes selon les pages. */}
+        {estTelephone ? (
+          <div
+            aria-hidden
+            className="absolute inset-x-0 top-0 z-10 flex items-center justify-center bg-white"
+            style={{ height: "4.5%" }}
+          >
+            <span className="h-[3px] w-[18%] rounded-full bg-[#27421f]/70" />
+          </div>
+        ) : null}
+        <div className="absolute inset-x-0 bottom-0" style={{ top: estTelephone ? "4.5%" : 0 }}>
+          <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover object-top" />
+        </div>
       </div>
-      {estTelephone ? (
-        <span
-          aria-hidden
-          className="absolute left-1/2 top-3.5 h-1.5 w-16 -translate-x-1/2 rounded-full bg-[#27421f]"
-        />
-      ) : null}
     </figure>
   );
 }
