@@ -18,7 +18,21 @@ export type Field =
   | { kind: "users"; name: string; label: string; hint?: string }
   | { kind: "files"; name: string; label: string; categorie: FileCategory; hint?: string; accept?: string };
 
-export type FileCategory = "recettes" | "factures" | "mercuriale" | "produits_prix" | "logo" | "autre";
+/**
+ * Jumelle de `src/lib/onboarding-categories.ts` dans le dépôt de l'application
+ * (`DEV/gramme`), et de la liste blanche de l'Edge Function
+ * `onboarding-questionnaire`. Les trois doivent rester d'accord : une catégorie
+ * ajoutée d'un seul côté produit un dépôt refusé par le serveur, ou un fichier
+ * qui arrive sans libellé dans la console du superviseur.
+ */
+export type FileCategory =
+  | "recettes"
+  | "factures"
+  | "mercuriale"
+  | "produits_prix"
+  | "ventes"
+  | "logo"
+  | "autre";
 
 export type Step = {
   id: string;
@@ -236,6 +250,13 @@ export const ONBOARDING_STEPS: Step[] = [
         label: "Mercuriale / tarifs fournisseurs négociés",
         categorie: "mercuriale",
         hint: "Idéalement les références réellement commandées sur l'année écoulée, ou sur le plus de mois possible. C'est ce qui donne un historique de prix dès le premier jour.",
+      },
+      {
+        kind: "files",
+        name: "f_ventes",
+        label: "Tickets Z de caisse du dernier mois",
+        categorie: "ventes",
+        hint: "Les clôtures de caisse, en photo ou en PDF. Elles servent à préparer votre premier dossier comptable : sans elles, le journal des ventes part vide chez votre comptable. Un export de votre caisse en tableur convient aussi.",
       },
       {
         kind: "files",
