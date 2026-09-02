@@ -18,6 +18,21 @@ import Image from "next/image";
  */
 type Appareil = "telephone" | "tablette" | "navigateur";
 
+/**
+ * Bande réservée à la caméra frontale, en pourcentage de la hauteur de l'écran.
+ *
+ * L'écran GRANDIT d'autant au lieu de rogner la capture. Première version : la
+ * bande était prise SUR les 844 px de l'image, et `object-cover` rognait
+ * d'autant en bas — la barre de navigation du téléphone se retrouvait coupée.
+ * Le cadre est donc un peu plus haut que l'écran photographié, comme un vrai
+ * téléphone dont la dalle dépasse la zone d'affichage.
+ */
+const BANDE_CAMERA_PCT = 3;
+const BANDE_CAMERA = `${BANDE_CAMERA_PCT}%`;
+
+/** 844 px d'image sous une bande de 3 % : l'écran fait 844 / 0,97 de haut. */
+const RATIO_TELEPHONE_AVEC_BANDE = `390 / ${Math.round(844 / (1 - BANDE_CAMERA_PCT / 100))}`;
+
 const RATIOS: Record<Appareil, string> = {
   // 390 × 844 et 1024 × 768 : les tailles réelles de capture.
   telephone: "390 / 844",
@@ -67,7 +82,7 @@ export function CadreAppareil({
     >
       <div
         className={`relative overflow-hidden bg-white ${estTelephone ? "rounded-[1.5rem]" : "rounded-[0.75rem]"}`}
-        style={{ aspectRatio: RATIOS[appareil] }}
+        style={{ aspectRatio: estTelephone ? RATIO_TELEPHONE_AVEC_BANDE : RATIOS[appareil] }}
       >
         {/* Le bandeau de la caméra frontale.
             La pastille était dessinée PAR-DESSUS la capture : le titre de
@@ -80,12 +95,12 @@ export function CadreAppareil({
           <div
             aria-hidden
             className="absolute inset-x-0 top-0 z-10 flex items-center justify-center bg-white"
-            style={{ height: "4.5%" }}
+            style={{ height: BANDE_CAMERA }}
           >
             <span className="h-[3px] w-[18%] rounded-full bg-[#27421f]/70" />
           </div>
         ) : null}
-        <div className="absolute inset-x-0 bottom-0" style={{ top: estTelephone ? "4.5%" : 0 }}>
+        <div className="absolute inset-x-0 bottom-0" style={{ top: estTelephone ? BANDE_CAMERA : 0 }}>
           <Image src={src} alt={alt} fill sizes={sizes} priority={priority} className="object-cover object-top" />
         </div>
       </div>
