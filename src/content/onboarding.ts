@@ -66,10 +66,16 @@ export const ONBOARDING_STEPS: Step[] = [
         hint: "Plusieurs réponses possibles.",
         required: true,
         otherFor: "activite_autre",
+        // Ordre des quatre métiers du site, puis les activités voisines. La
+        // GLACERIE manquait alors qu'elle a sa page et que l'équilibrage la
+        // sert en premier ; le TRAITEUR est ajouté pour savoir combien ils
+        // sont avant de leur construire quoi que ce soit.
         choices: [
-          { value: "patisserie", label: "Pâtisserie" },
           { value: "boulangerie", label: "Boulangerie" },
+          { value: "patisserie", label: "Pâtisserie" },
           { value: "chocolaterie", label: "Chocolaterie" },
+          { value: "glacerie", label: "Glacerie" },
+          { value: "traiteur", label: "Traiteur / chef à domicile" },
           { value: "restaurant_hotel", label: "Restaurant / Hôtel" },
           { value: "autre", label: "Autre" },
         ],
@@ -228,7 +234,7 @@ export const ONBOARDING_STEPS: Step[] = [
     id: "fichiers",
     title: "Vos documents",
     intro:
-      "Facultatif, mais c'est ce qui change tout : si nous recevons vos documents avant le rendez-vous, votre compte sera déjà préparé quand nous arriverons. Vous pourrez aussi nous les remettre sur place.",
+      "Facultatif, mais c'est ce qui change tout : si nous recevons vos documents avant le rendez-vous, votre compte sera déjà préparé quand nous arriverons. Vous pourrez aussi nous les remettre sur place. Et si quelque chose ne rentre dans aucune case, la dernière est faite pour ça : nous préférons trop d'informations que pas assez.",
     fields: [
       {
         kind: "files",
@@ -265,6 +271,20 @@ export const ONBOARDING_STEPS: Step[] = [
         categorie: "produits_prix",
       },
       { kind: "files", name: "f_logo", label: "Logo et éléments d'identité visuelle", categorie: "logo" },
+      {
+        // Le fourre-tout, et il est volontaire. Les six cases au-dessus
+        // couvrent ce qu'on sait demander ; un atelier a toujours autre chose
+        // qui compte, et qui se perdait faute d'endroit où le mettre : un plan
+        // de nettoyage, un tableau de production, un contrat fournisseur, une
+        // liste d'allergènes tenue à la main. La catégorie `autre` existait
+        // déjà en base, dans l'Edge Function et dans la console du
+        // superviseur : seul le formulaire ne l'offrait pas.
+        kind: "files",
+        name: "f_autres",
+        label: "Tout le reste",
+        categorie: "autre",
+        hint: "Ce qui ne rentre dans aucune case au-dessus et qui compte quand même : plan de nettoyage, tableau de production, contrat fournisseur, liste d'allergènes, étiquettes actuelles, organigramme du laboratoire. Mieux vaut nous l'envoyer que de nous le décrire.",
+      },
     ],
   },
 ];
