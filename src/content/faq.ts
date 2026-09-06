@@ -37,11 +37,11 @@ export const faqSections: FaqSection[] = [
     entrees: [
       {
         q: "Qu'est-ce que Gramme, en une phrase ?",
-        a: "Gramme est un logiciel de gestion et de production pour les boulangeries, pâtisseries et chocolateries artisanales : il digitalise vos recettes et vos fiches techniques, tient votre mercuriale à jour à partir de vos factures fournisseurs, et recalcule automatiquement le coût de revient et la marge de chaque produit dès qu'un prix bouge.",
+        a: "Gramme est un logiciel de gestion et de production pour les boulangeries, pâtisseries, chocolateries et glaceries artisanales : il digitalise vos recettes et vos fiches techniques, tient votre mercuriale à jour à partir de vos factures fournisseurs, et recalcule automatiquement le coût de revient et la marge de chaque produit dès qu'un prix bouge.",
       },
       {
         q: "À quel type d'établissement Gramme s'adresse-t-il ?",
-        a: "Aux structures artisanales : boulangerie de quartier, pâtisserie de centre-ville, laboratoire qui livre des points de vente, chocolaterie, snacking. Cela va de l'artisan seul à l'équipe d'une quinzaine de personnes. Gramme n'est pas un ERP industriel multi-usines et n'essaie pas de l'être.",
+        a: "Aux structures artisanales : boulangerie de quartier, pâtisserie de centre-ville, laboratoire qui livre des points de vente, chocolaterie, glacerie, snacking. Cela va de l'artisan seul à l'équipe d'une quinzaine de personnes. Gramme n'est pas un ERP industriel multi-usines et n'essaie pas de l'être.",
       },
       {
         q: "Qu'est-ce que Gramme ne fait pas ?",

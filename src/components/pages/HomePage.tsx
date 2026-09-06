@@ -12,6 +12,9 @@ import { BillingPeriodToggle } from "@/components/pricing/BillingPeriodToggle";
 import { HOME_INTEGRATION_PREVIEWS, INTEGRATIONS } from "@/lib/integrations";
 import { formatEuro, pricingPlans, type BillingPeriod } from "@/lib/pricing";
 import { trackEvent } from "@/lib/analytics";
+import { publishedArticles } from "@/content/articles";
+import { publishedGuides } from "@/content/guides";
+import { formatGuideDate } from "@/lib/guides";
 
 const trustItems = [
   { label: "Digitalisation des recettes & fiches techniques", icon: BookIcon },
@@ -234,6 +237,68 @@ export default function HomePage() {
               </Link>
             </div>
           </div>
+        </section>
+
+        {/* Votre métier — placée ici, et pas plus haut : on vient de montrer
+            ce que l'outil FAIT, c'est le moment de dire à QUI il parle. Avant
+            le 06/09/2026, le corps de l'accueil ne nommait qu'un seul métier,
+            la pâtisserie, et ne menait à aucune des quatre pages. */}
+        <section
+          id="metiers"
+          className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-5 sm:py-16"
+          aria-labelledby="metiers-title"
+        >
+          <div className="max-w-3xl">
+            <h2 id="metiers-title" className="text-3xl font-bold md:text-4xl">
+              Le même outil, réglé sur ce que votre atelier compte.
+            </h2>
+            <p className="mt-4 text-[var(--muted-foreground)]">
+              Un boulanger règle des quantités et surveille une farine qui bouge, un pâtissier des
+              sous-recettes qui s&apos;emboîtent, un chocolatier la conservation d&apos;une ganache,
+              un glacier l&apos;équilibre d&apos;un mix. Les fiches techniques, la mercuriale et le
+              coût de revient sont les mêmes ; ce qui change, ce sont les indicateurs que Gramme
+              affiche, et il n&apos;affiche que les vôtres.
+            </p>
+          </div>
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+            {[
+              {
+                href: "/logiciel-boulangerie",
+                nom: "Boulangerie",
+                texte: "Le prix d'achat remonte jusqu'à la marge de chaque pain, et la fournée de demain se décide sur autre chose que la mémoire.",
+              },
+              {
+                href: "/logiciel-patisserie",
+                nom: "Pâtisserie",
+                texte: "Le coût descend jusqu'à la part vendue, pertes de cuisson et de parage comprises, à travers les sous-recettes.",
+              },
+              {
+                href: "/logiciel-chocolaterie",
+                nom: "Chocolaterie",
+                texte: "Le coût au bonbon emballage compris, l'activité de l'eau d'une ganache, l'étiquette à la taille de la boîte.",
+              },
+              {
+                href: "/logiciel-glacerie",
+                nom: "Glacerie",
+                texte: "Le pouvoir sucrant et anticryoscopique d'un mix, la courbe de congélation, et la température à laquelle il redevient boulable.",
+              },
+            ].map((m) => (
+              <li key={m.href}>
+                <Link
+                  href={m.href}
+                  className="flex h-full flex-col rounded-2xl border border-[#dcead2] bg-white p-5 transition hover:border-[#a8cf8c] hover:bg-[#f6fbf2]"
+                >
+                  <span className="text-lg font-bold text-[#27421f]">{m.nom}</span>
+                  <span className="mt-2 text-sm leading-relaxed text-[var(--muted-foreground)]">{m.texte}</span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-6 text-sm">
+            <Link href="/metiers" className="font-semibold text-[#355329] hover:underline">
+              Ce que les quatre métiers ont en commun, et ce qui les sépare
+            </Link>
+          </p>
         </section>
 
         <section id="fonctionnalites" className="mx-auto w-full max-w-4xl px-4 py-14 sm:px-5 sm:py-16">
@@ -478,12 +543,98 @@ export default function HomePage() {
           </Link>
         </section>
 
+        {/* Ce qu'on écrit — avant la FAQ, parce que c'est la section qui
+            retient quelqu'un qui n'est pas encore prêt à demander une
+            démonstration. Relevé du 06/09/2026 : l'accueil ne pointait vers
+            AUCUN article, et vers les guides seulement par une tuile en bas de
+            page, après mille sept cents mots. Onze contenus écrits, invisibles
+            depuis la porte d'entrée.
+
+            Les trois guides et les deux articles se prennent en tête de liste
+            plutôt que d'être choisis à la main : une liste écrite en dur se
+            périme au prochain guide publié. */}
+        <section
+          className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-5 sm:py-16"
+          aria-labelledby="lectures-title"
+        >
+          <div className="max-w-3xl">
+            <h2 id="lectures-title" className="text-3xl font-bold md:text-4xl">
+              Ce qu&apos;on écrit sur le métier.
+            </h2>
+            <p className="mt-4 text-[var(--muted-foreground)]">
+              Calculer un coût de revient, fixer un coefficient, tenir une fiche technique, afficher
+              les allergènes en vente à la coupe : les méthodes du métier, écrites avec des exemples
+              chiffrés que vous pouvez refaire à la calculatrice. Rien à laisser d&apos;adresse pour
+              les lire.
+            </p>
+          </div>
+
+          <ul className="mt-8 grid gap-4 md:grid-cols-3">
+            {publishedGuides.slice(0, 3).map((g) => (
+              <li key={g.slug}>
+                <Link
+                  href={`/guides/${g.slug}`}
+                  className="flex h-full flex-col rounded-2xl border border-[#dcead2] bg-white p-5 transition hover:border-[#a8cf8c] hover:bg-[#f6fbf2]"
+                >
+                  <span className="text-xs font-semibold uppercase tracking-[0.08em] text-[#6e9f55]">
+                    Guide · {formatGuideDate(g.publishedAt)}
+                  </span>
+                  <span className="mt-1 text-base font-bold text-[#27421f]">{g.title}</span>
+                  <span className="mt-2 text-sm leading-relaxed text-[var(--muted-foreground)]">
+                    {g.description}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <ul className="mt-4 grid gap-4 md:grid-cols-2">
+            {publishedArticles.slice(0, 2).map((a) => (
+              <li key={a.slug}>
+                <Link
+                  href={`/articles/${a.slug}`}
+                  className="flex h-full flex-col rounded-2xl border border-[#dcead2] bg-white p-5 transition hover:border-[#a8cf8c] hover:bg-[#f6fbf2]"
+                >
+                  <span className="text-xs font-semibold uppercase tracking-[0.08em] text-[#6e9f55]">
+                    Article · {formatGuideDate(a.publishedAt)}
+                  </span>
+                  <span className="mt-1 text-base font-bold text-[#27421f]">{a.title}</span>
+                  <span className="mt-2 text-sm leading-relaxed text-[var(--muted-foreground)]">
+                    {a.description}
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ul>
+
+          <p className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
+            <Link href="/guides" className="font-semibold text-[#355329] hover:underline">
+              Tous les guides
+            </Link>
+            <Link href="/articles" className="font-semibold text-[#355329] hover:underline">
+              Tous les articles
+            </Link>
+            <Link href="/comparatif" className="font-semibold text-[#355329] hover:underline">
+              Gramme face aux autres logiciels du métier
+            </Link>
+          </p>
+        </section>
+
         <section id="faq" className="mx-auto w-full max-w-6xl px-4 pb-16 sm:px-5" aria-labelledby="faq-title">
           <h2 id="faq-title" className="text-3xl font-bold md:text-4xl">Questions fréquentes</h2>
           <p className="mt-3 max-w-3xl text-[var(--muted-foreground)]">
-            Tout savoir sur le logiciel de gestion Gramme pour boulangeries et pâtisseries.
+            Tout savoir sur le logiciel de gestion Gramme pour les boulangeries, les pâtisseries,
+            les chocolateries et les glaceries artisanales.
           </p>
           <FaqAccordion />
+          {/* La page FAQ compte soixante-dix-sept questions et l'accueil n'y
+              menait pas : onze réponses ici, et rien pour dire qu'il y en a
+              soixante-six de plus. */}
+          <p className="mt-6 text-sm">
+            <Link href="/faq" className="font-semibold text-[#355329] hover:underline">
+              Les 77 questions, des coûts à la réglementation
+            </Link>
+          </p>
         </section>
 
         <section className="mx-auto w-full max-w-6xl px-4 pb-20 sm:px-5" aria-label="Liens utiles">
@@ -491,9 +642,9 @@ export default function HomePage() {
           <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {[
               { href: "/fonctionnalites", label: "Toutes les fonctionnalités" },
-              { href: "/logiciel-patisserie", label: "Vous êtes pâtissier ?" },
+              { href: "/metiers", label: "Quel est votre métier ?" },
               { href: "/guides/calcul-cout-de-revient-boulangerie", label: "Calculer son coût de revient" },
-              { href: "/guides", label: "Tous les guides" },
+              { href: "/articles", label: "Tous les articles" },
               { href: "/comment-ca-marche", label: "Comment marche le logiciel" },
               { href: "/a-propos-de-gramme", label: "À propos de Gramme" },
             ].map((link) => (

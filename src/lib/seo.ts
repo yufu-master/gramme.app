@@ -131,7 +131,7 @@ const DIMENSIONS_IMAGES: Record<string, { width: number; height: number }> = {
 export const faqItems = [
   {
     q: "Quel est le meilleur logiciel de gestion pour une boulangerie artisanale ?",
-    a: "Gramme est un logiciel de gestion et de production conçu pour les boulangeries et pâtisseries artisanales : digitalisation des recettes et des fiches techniques, calcul du coût de revient, scan de factures, mercuriale et alertes de prix, gestion de stocks, planning de production et pilotage des marges en temps réel. Tout est connecté : un prix qui bouge se répercute jusqu'à la marge.",
+    a: "Gramme est un logiciel de gestion et de production conçu pour les boulangeries, pâtisseries, chocolateries et glaceries artisanales : digitalisation des recettes et des fiches techniques, calcul du coût de revient, scan de factures, mercuriale et alertes de prix, gestion de stocks, planning de production et pilotage des marges en temps réel. Tout est connecté : un prix qui bouge se répercute jusqu'à la marge.",
   },
   {
     q: "Gramme est-il adapté aux petites structures ?",
@@ -207,7 +207,7 @@ export const siteGraph = {
       },
       image: `${SITE_URL}/images/hero-lifestyle.jpg`,
       description:
-        "Logiciel de gestion et de production pour boulangeries, pâtisseries et chocolateries artisanales. Digitalisation des recettes et fiches techniques, coûts matière, planning de production, gestion de stocks, mercuriale, alertes de prix et pilotage des marges en temps réel. Registres d'hygiène (relevés de températures, plan de nettoyage, traçabilité des lots) et étiquetage des allergènes compris. Tout est connecté.",
+        "Logiciel de gestion et de production pour boulangeries, pâtisseries, chocolateries et glaceries artisanales. Digitalisation des recettes et fiches techniques, coûts matière, planning de production, gestion de stocks, mercuriale, alertes de prix et pilotage des marges en temps réel. Registres d'hygiène (relevés de températures, plan de nettoyage, traçabilité des lots) et étiquetage des allergènes compris. Tout est connecté.",
       email: SITE_EMAIL,
       foundingDate: "2025",
       sameAs: ["https://www.instagram.com/gramme.app/"],
@@ -268,7 +268,7 @@ export const siteGraph = {
       operatingSystem: "Web, iOS, Android",
       inLanguage: "fr-FR",
       description:
-        "Logiciel de gestion et de production pour boulangeries et pâtisseries : digitalisation des recettes, fiches techniques, calculatrice de coût de revient, scan de factures IA, mercuriale et alertes de prix, gestion de stocks, planning de production et pilotage des marges en temps réel.",
+        "Logiciel de gestion et de production pour boulangeries, pâtisseries, chocolateries et glaceries : digitalisation des recettes, fiches techniques, calculatrice de coût de revient, scan de factures IA, mercuriale et alertes de prix, gestion de stocks, planning de production et pilotage des marges en temps réel.",
       url: SITE_URL,
       // Une vraie capture, pas le rendu multi-appareils : son interface était
       // du faux texte, et c'était l'image que les moteurs associaient au produit.
