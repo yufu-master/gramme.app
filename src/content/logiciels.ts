@@ -57,6 +57,27 @@ export type PageLogiciel = {
   problemes: { titre: string; texte: string }[];
   /** Ce que l'outil fait, précisément, pour chacun de ces problèmes. */
   reponses: { titre: string; texte: string }[];
+  /**
+   * Un exemple CHIFFRÉ, que le lecteur peut refaire à la calculatrice.
+   *
+   * C'est ce qui fait la force de `/logiciel-patisserie` depuis toujours : son
+   * entremets à quatre niveaux. Le gabarit ne savait pas le porter, et le
+   * commentaire de `PageLogiciel.tsx` en concluait qu'il fallait laisser cette
+   * page à part. Il vaut mieux que le gabarit apprenne : une page métier sans
+   * chiffre qu'on peut vérifier reste une brochure, et un lecteur qui pose sa
+   * calculatrice est exactement le client qu'on cherche.
+   *
+   * Facultatif : une page d'intention (« logiciel scan factures ») n'en a pas
+   * besoin.
+   */
+  exemple?: {
+    titre: string;
+    intro: string;
+    entetes: string[];
+    lignes: string[][];
+    /** Ce que le tableau ne dit pas, et qu'il faut dire. */
+    note: string;
+  };
   /** Modules à mettre en avant (slugs de `features`). */
   modules: string[];
   /** La FAQ alimente aussi le schéma FAQPage, très corrélé aux citations IA. */
@@ -66,6 +87,236 @@ export type PageLogiciel = {
 };
 
 export const pagesLogiciel: PageLogiciel[] = [
+  // ===========================================================================
+  {
+    path: "/logiciel-chocolaterie",
+    nom: "Logiciel chocolaterie",
+    metaTitle: "Logiciel chocolaterie · coûts, Aw et étiquettes",
+    metaDescription:
+      "Logiciel pour chocolaterie artisanale : coût de revient au bonbon, activité de l'eau d'une ganache, allergènes propagés et étiquettes à la taille de la boîte.",
+    keywords: [
+      "logiciel chocolaterie",
+      "logiciel gestion chocolaterie",
+      "logiciel chocolatier",
+      "coût de revient bonbon chocolat",
+      "activité de l'eau ganache",
+      "étiquette chocolat allergènes",
+      "gestion chocolaterie artisanale",
+    ],
+    h1: "Le logiciel qui compte au bonbon, pas à la plaque",
+    intro: [
+      "Une chocolaterie fabrique peu de masse et beaucoup de références. Une plaque de soixante-dix bonbons part en trois recettes de ganache, deux couvertures et un praliné maison, et le prix de la boîte de seize se décide au ressenti. Le beurre de cacao a doublé en deux ans, la boîte et le ruban coûtent parfois plus que ce qu'ils contiennent, et personne n'a le temps de refaire le calcul par pièce.",
+      "Gramme descend jusqu'à la pièce. Chaque sous-recette garde son rendement réel, chaque emballage entre dans le coût, et l'étiquette de la boîte sort avec la composition et les allergènes tels qu'ils remontent des matières.",
+    ],
+    image: {
+      src: "/images/app/recette-etiquetage.png",
+      alt: "Allergènes et valeurs nutritionnelles d'une recette dans le logiciel de chocolaterie Gramme",
+    },
+    problemes: [
+      {
+        titre: "Le coût d'un bonbon se perd entre la masse et la pièce",
+        texte:
+          "La ganache se pèse au kilo, la couverture au kilo, et le bonbon se vend à l'unité. Entre les deux il y a un rendement de moulage, des chutes, et une caissette. Sans ce chemin complet, le prix de la boîte de seize repose sur une intuition, et l'intuition ne suit pas la hausse du beurre de cacao.",
+      },
+      {
+        titre: "La conservation se décide au doigt mouillé",
+        texte:
+          "Une ganache à forte teneur en eau ne tient pas ce que tient un praliné. La question se joue sur l'activité de l'eau, que peu d'ateliers mesurent, et la durée annoncée sur l'étiquette finit par être celle du voisin.",
+      },
+      {
+        titre: "Les allergènes se recopient de boîte en boîte",
+        texte:
+          "Un praliné maison entre dans quatre ganaches, qui entrent dans huit boîtes. Quand la pâte de noisette change de fournisseur, il faut retrouver toutes les étiquettes concernées, et personne ne sait dire lesquelles sans rouvrir chaque fiche.",
+      },
+      {
+        titre: "Les étiquettes de boîte ne sont jamais à la bonne taille",
+        texte:
+          "Une boîte de huit, une boîte de seize, un ballotin, une tablette : quatre formats, quatre gabarits refaits à la main dans un traitement de texte, et vingt impressions séparées pour vingt références.",
+      },
+    ],
+    reponses: [
+      {
+        titre: "Le coût descend jusqu'à la pièce, emballage compris",
+        texte:
+          "Les sous-recettes s'emboîtent sur plusieurs niveaux et chacune garde son rendement réel : la ganache dans le bonbon, le praliné dans la ganache. L'emballage entre dans le coût de revient au même titre que la matière, et le prix de vente se lit en marge et en coefficient, pas seulement en euros.",
+      },
+      {
+        titre: "L'activité de l'eau, estimée depuis la composition",
+        texte:
+          "L'onglet Équilibrage calcule l'eau, l'extrait sec, la matière grasse dont le beurre de cacao, les sucres, et l'activité de l'eau par la formule de Grover. Il annonce son incertitude et il s'efface devant une mesure faite à l'appareil, qui se saisit et qui prime. La durée de conservation qui en découle est une estimation d'atelier, jamais une mention d'étiquette.",
+      },
+      {
+        titre: "Un allergène remonte tout seul, et il bloque quand il manque",
+        texte:
+          "Les allergènes se propagent à travers les sous-recettes jusqu'au produit fini. Une matière dont personne n'a renseigné les allergènes n'est pas traitée comme une matière sans allergène : elle est nommée, et elle bloque l'étiquette tant que la question n'est pas tranchée.",
+      },
+      {
+        titre: "Les étiquettes de la gamme, à la taille de la boîte",
+        texte:
+          "Les dimensions se donnent au millimètre, la planche se compose sur une feuille A4, et toute une gamme s'imprime en une seule fois avec le nombre d'exemplaires voulu par référence. Ce qui manque à une étiquette est signalé avant l'impression, pas après.",
+      },
+    ],
+    exemple: {
+      titre: "Une boîte de seize, du praliné au ruban",
+      intro:
+        "Les chiffres ci-dessous sont un exemple de lecture, pas une mesure prise chez quelqu'un. Ils montrent le chemin que suit un coût quand la fiche est complète : chaque ligne se déduit de la précédente, et vous pouvez la refaire à la calculatrice.",
+      entetes: ["Étage", "Base", "Coût", "Ce que Gramme en fait"],
+      lignes: [
+        ["Praliné noisette", "1 kg produit", "18,40 €", "sous-recette, rendement réel après torréfaction"],
+        ["Ganache praliné", "1 kg, dont 220 g de praliné", "14,90 €", "le praliné entre à son coût, pas à son prix d'achat"],
+        ["Bonbon moulé", "12 g de ganache, 6 g de couverture", "0,29 €", "coût matière à la pièce"],
+        ["Boîte de 16", "16 bonbons", "4,64 €", "matière seule"],
+        ["Emballage", "boîte, cavité, ruban", "1,35 €", "l'emballage compte dans le coût de revient"],
+        ["Coût de revient", "matière et emballage", "5,99 €", "hors main d'œuvre"],
+        ["Prix de vente", "22,00 € TTC, TVA 5,5 %", "20,85 € HT", "marge 14,86 €, coefficient 3,48"],
+      ],
+      note: "Ce que ce tableau ne dit pas : la main d'œuvre, que vous renseignez par un temps de préparation et un coût horaire chargé, et qui s'ajoute alors au coût de revient. Le ratio matière, lui, ne compte que les matières : c'est ce qui le rend comparable au repère du métier.",
+    },
+    modules: ["fiches-techniques", "allergenes-etiquetage", "marges-et-decisions", "scan-factures-mercuriale"],
+    faq: [
+      {
+        q: "Gramme gère-t-il le tempérage du chocolat ?",
+        a: "Non, et c'est délibéré. Il n'y a ni courbe de cristallisation, ni calcul d'ensemencement, ni rendement de moule. Le tempérage se joue à la tempéreuse et à la main, et un logiciel qui prétendrait le piloter depuis un tableau de bord se tromperait de métier. Gramme s'occupe de ce qui se compte : le coût, la composition, l'étiquette et la traçabilité.",
+      },
+      {
+        q: "L'activité de l'eau calculée peut-elle servir à fixer une DLC ?",
+        a: "Non. C'est une estimation à partir de la composition, avec une incertitude annoncée, et elle ne voit ni le pH, ni l'alcool, ni le conditionnement. Elle sert à comparer deux formulations et à savoir dans quelle direction pousser une recette. La durée de vie reste sous votre responsabilité, et un test microbiologique fait foi.",
+      },
+      {
+        q: "Peut-on imprimer une étiquette pour un ballotin de 250 g ?",
+        a: "Oui. Les dimensions se donnent au millimètre, entre 15 et 297, et la planche se compose ensuite sur une feuille A4 avec le décalage voulu. Une gamme entière s'imprime en une fois, avec le nombre d'exemplaires par référence.",
+      },
+      {
+        q: "Que se passe-t-il si les allergènes d'une matière ne sont pas renseignés ?",
+        a: "L'étiquette est bloquée et la matière est nommée. Une matière dont personne n'a renseigné les allergènes n'est pas une matière sans allergène : elle est inconnue. Le scan d'une étiquette fournisseur propose les allergènes qu'il a lus, mais il n'en coche aucun d'avance.",
+      },
+      {
+        q: "L'équilibrage est-il compris dans le premier forfait ?",
+        a: "Non, il fait partie de l'offre Pro, et il s'active ensuite dans vos réglages. Un boulanger qui ne coule ni glace ni bonbon n'a aucune raison de voir un onglet d'équilibrage sur chacune de ses fiches : c'est vous qui décidez de l'allumer.",
+      },
+    ],
+    liens: [
+      { href: "/logiciel-cout-de-revient", label: "Le coût de revient, calculé une fois pour toutes" },
+      { href: "/logiciel-patisserie", label: "Le logiciel pensé pour un laboratoire de pâtisserie" },
+      { href: "/tarifs", label: "Les tarifs et ce que chaque offre ouvre" },
+    ],
+  },
+
+  // ===========================================================================
+  {
+    path: "/logiciel-glacerie",
+    nom: "Logiciel glacerie",
+    metaTitle: "Logiciel glacerie · PAC, POD et dénominations",
+    metaDescription:
+      "Logiciel pour glacier artisan : équilibrage des mix, pouvoir sucrant et anticryoscopique, courbe de congélation et température de service de vos glaces.",
+    keywords: [
+      "logiciel glacerie",
+      "logiciel glacier artisan",
+      "équilibrage glace",
+      "calcul PAC POD glace",
+      "température de service glace",
+      "dénomination légale sorbet",
+      "logiciel gestion glacier",
+    ],
+    h1: "Le logiciel qui sait pourquoi votre glace sort dure",
+    intro: [
+      "Un mix se règle sur cinq chiffres qui se contredisent : plus de sucre adoucit et ramollit, plus de matière grasse enrobe et masque, plus d'extrait sec dégraissé du lait donne du corps et sable au-delà d'un seuil. La plupart des ateliers les tiennent sur un tableur hérité d'un stage, recopié d'année en année, dont plus personne ne sait d'où viennent les coefficients.",
+      "Gramme calcule ces chiffres depuis vos matières, trace la courbe de congélation du mix, et dit à quelle température il redevient boulable. Il dit aussi quelle dénomination la recette peut porter, et ce qui lui manque quand elle ne le peut pas.",
+    ],
+    image: {
+      src: "/images/app/production.png",
+      alt: "Planning de production et feuille d'atelier dans le logiciel de glacerie Gramme",
+    },
+    problemes: [
+      {
+        titre: "La glace sort dure, et on ne sait pas quoi changer",
+        texte:
+          "On ajoute du sucre inverti sans savoir combien, on retire du saccharose au jugé, et le résultat se juge trois heures plus tard, à la sortie de la vitrine. Entre deux essais il s'est écoulé une demi-journée et douze litres de mix.",
+      },
+      {
+        titre: "Les coefficients du tableur ne sont sourcés nulle part",
+        texte:
+          "Le pouvoir sucrant du sirop de glucose DE 40, l'anticryoscopique de la maltodextrine : les valeurs circulent de fichier en fichier, parfois fausses d'un facteur deux, et rien n'indique d'où elles viennent ni quand elles ont été relues.",
+      },
+      {
+        titre: "La dénomination se choisit d'après l'habitude",
+        texte:
+          "Crème glacée, glace au lait, glace aux fruits, sorbet, sorbet plein fruit : chacune a des seuils précis, et les manquer d'un demi-point change le nom qu'on a le droit d'écrire sur le bac. Personne ne rouvre le code des pratiques loyales à chaque recette.",
+      },
+      {
+        titre: "Le coût se calcule au litre, la vente se fait à la boule",
+        texte:
+          "Un mix se pèse au kilo, foisonne de trente à quarante pour cent selon la turbine, et se vend à la boule. Sans ce chemin, la marge de la boule est un chiffre qu'on répète sans l'avoir vérifié.",
+      },
+    ],
+    reponses: [
+      {
+        titre: "Les indicateurs du mix, calculés depuis vos matières",
+        texte:
+          "Eau, extrait sec total, matières grasses dont laitières, extrait sec dégraissé du lait, sucres, pouvoir sucrant et pouvoir anticryoscopique : tout se calcule pour cent grammes de produit fini, avec les fourchettes de métier en regard. La part de la recette dont la composition est connue s'affiche : une matière non renseignée n'est jamais comptée comme un zéro, elle est nommée.",
+      },
+      {
+        titre: "La courbe de congélation, et la température de service",
+        texte:
+          "Le point de premiers cristaux, la part d'eau gelée à la température de vitrine et à celle de conservation, et la température à laquelle la glace redevient boulable. Le calcul part de la loi de Raoult, et il se recoupe avec la règle publiée de Corvitto : les deux méthodes s'accordent à moins d'un demi-degré, et c'est cet accord qui les rend croyables.",
+      },
+      {
+        titre: "Chaque coefficient porte sa source",
+        texte:
+          "Les profils de composition sont des données, pas une boîte noire : chaque ligne dit d'où sa valeur vient, y compris quand elle s'écarte volontairement d'une table de référence. Une composition renseignée sur votre matière prime toujours sur le profil.",
+      },
+      {
+        titre: "Les dix dénominations, et ce qui manque à chacune",
+        texte:
+          "Le code des pratiques loyales des glaces alimentaires est appliqué recette par recette : matières grasses laitières, extrait sec, part de fruits, poids minimal au litre selon votre foisonnement. Gramme écrit « peut porter » et « il manque », jamais « conforme » : la désignation est réservée, et c'est vous qui la décidez.",
+      },
+    ],
+    exemple: {
+      titre: "Une vanille, lue chiffre par chiffre",
+      intro:
+        "Un exemple de lecture, pas une mesure prise chez quelqu'un. Il montre comment les indicateurs se lisent ensemble : un chiffre seul ne dit rien, c'est leur position dans les fourchettes qui indique dans quel sens pousser la recette.",
+      entetes: ["Indicateur", "Ce mix", "Repère du métier", "Ce que cela veut dire"],
+      lignes: [
+        ["Extrait sec total", "38,4 %", "36 à 42", "dans la fourchette, le mix a du corps"],
+        ["Matières grasses", "8,1 %", "6 à 12", "correct pour une crème glacée"],
+        ["Extrait sec dégraissé du lait", "10,2 %", "8 à 12", "sous le seuil de sablage au lactose"],
+        ["Sucres", "18,6 %", "16 à 22", "dans la fourchette"],
+        ["Pouvoir sucrant", "17,1", "14 à 20", "douceur maîtrisée"],
+        ["Pouvoir anticryoscopique", "26,3", "24 à 30", "légèrement bas"],
+        ["Température de service", "−12,4 °C", "autour de −11", "elle sortira un peu ferme de la vitrine"],
+      ],
+      note: "La lecture se termine sur la dernière ligne : un anticryoscopique bas donne une glace plus ferme. On le remonte en remplaçant une part de saccharose par du sucre inverti, à sucres constants pour ne pas changer la douceur, et l'écran montre la nouvelle courbe avant qu'on ait pesé quoi que ce soit. Le comportement réel dépend aussi de votre turbine et de votre vitrine.",
+    },
+    modules: ["fiches-techniques", "marges-et-decisions", "allergenes-etiquetage", "planning-production"],
+    faq: [
+      {
+        q: "Gramme calcule-t-il un barème de pasteurisation ?",
+        a: "Non. Il n'y a ni couple temps-température, ni suivi de cycle, ni gestion de la maturation. Ce sont des points de conduite d'atelier que Gramme n'aborde pas. Il tient en revanche les relevés de température des enceintes, avec leurs bornes et le rappel des relevés manquants.",
+      },
+      {
+        q: "D'où viennent les coefficients de pouvoir sucrant et anticryoscopique ?",
+        a: "D'une table de profils tenue comme une donnée et non comme une constante : chaque ligne porte sa source, et plusieurs ont été corrigées après relecture, notamment quatre sirops de glucose et la maltodextrine qui étaient environ deux fois trop bas. Le fil qui permet de les vérifier est simple : le pouvoir anticryoscopique d'un soluté vaut 342,3 divisé par sa masse molaire.",
+      },
+      {
+        q: "La température de service annoncée est-elle fiable ?",
+        a: "C'est une estimation d'atelier, et l'écran le dit. Elle suppose un comportement idéal de la solution, et le résultat réel dépend de votre turbine, de votre foisonnement et de votre vitrine. Sa valeur est surtout comparative : elle vous dit si une recette sortira plus ferme ou plus souple qu'une autre, et de combien.",
+      },
+      {
+        q: "Peut-on savoir si une recette a droit au nom de sorbet plein fruit ?",
+        a: "Oui, et surtout ce qui lui manque quand elle n'y a pas droit. Les dix dénominations du code des pratiques loyales sont vérifiées avec leurs seuils réels. Gramme n'écrit jamais qu'une recette est conforme : il indique la désignation qu'elle peut porter, et c'est vous qui décidez de l'employer.",
+      },
+      {
+        q: "Faut-il renseigner toutes les matières pour que cela fonctionne ?",
+        a: "Non, mais l'écran vous dit ce qui manque. La part de la recette dont la composition est connue s'affiche, et les matières non renseignées sont nommées avec leur masse. À couverture nulle, aucun chiffre n'est affiché : une estimation sur des données absentes vaudrait moins que rien.",
+      },
+    ],
+    liens: [
+      { href: "/logiciel-cout-de-revient", label: "Le coût de revient, calculé une fois pour toutes" },
+      { href: "/logiciel-fiches-techniques", label: "Vos fiches techniques, sans les retaper" },
+      { href: "/tarifs", label: "Les tarifs et ce que chaque offre ouvre" },
+    ],
+  },
+
   // ===========================================================================
   {
     path: "/logiciel-boulangerie",

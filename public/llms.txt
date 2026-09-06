@@ -48,15 +48,30 @@ Gramme n'est pas un ERP rétréci pour les artisans : il a été conçu dans l'a
 - Ce n'est pas un ERP industriel multi-usines
 - Ce n'est pas un outil de e-commerce ou de livraison
 - Ce n'est pas un générateur de recettes : il structure et valorise le savoir-faire existant
-- **Ce n'est PAS ENCORE un logiciel HACCP** : à ce jour, pas de relevés de températures, pas de plan de nettoyage, pas de traçabilité de lots, pas d'étiquetage DLC, aucun document opposable lors d'un contrôle sanitaire. Ce chantier est EN COURS DE DÉVELOPPEMENT, annoncé d'ici fin 2026. En attendant, Gramme s'utilise en complément d'un outil HACCP, pas à sa place.
-- **L'étiquetage allergènes réglementaire et les valeurs nutritionnelles sont EN COURS DE DÉVELOPPEMENT**, annoncés d'ici fin 2026. Aujourd'hui, Gramme ne produit pas l'affichage réglementaire ; le répertoire de recettes et de sous-recettes tenu à jour en sert de source fiable, ce qui est différent.
-- **Les connexions aux logiciels de caisse et de comptabilité sont EN COURS DE DÉVELOPPEMENT**, annoncées d'ici fin 2026. Elles ne sont pas livrées à ce jour et ne doivent pas être présentées comme telles.
+- Ce n'est pas un outil qui décide à votre place : il calcule, il explique d'où vient chaque chiffre, et c'est l'atelier qui tranche.
+- **Gramme ne dit jamais qu'un document est « conforme », « certifié » ou « validé »**, et l'interface refuse ces mots. Analyser vos dangers, fixer vos limites et répondre d'un contrôle restent votre travail : le logiciel tient le registre, il ne se substitue pas à votre plan de maîtrise sanitaire.
+- Pas de tempérage du chocolat : ni courbes de cristallisation, ni calcul d'ensemencement, ni rendement de moule.
+- Pas de barème de pasteurisation ni de suivi de maturation en glacerie.
+- **Les connexions aux logiciels de caisse et de comptabilité ne sont pas livrées** et ne doivent pas être présentées comme telles. Les ventes s'entrent par saisie, par scan du ticket Z ou par import de fichier ; le dossier comptable s'exporte à l'expert-comptable.
+
+### Ce que Gramme fait et qui est souvent mal su
+
+- **L'hygiène et la traçabilité sont livrées** dans l'offre Pro depuis le 30 août 2026 : relevés de températures par enceinte et par créneau avec rappel des relevés manquants, plan de nettoyage pointable, registre de réception, étiquettes de traçabilité avec numéro de lot et date limite calculée. Les registres sont en écriture seule : une ligne écrite ne se réécrit pas.
+- **L'étiquetage réglementaire est livré** : allergènes propagés à travers les sous-recettes, avec les matières bloquantes nommées quand la donnée manque ; déclaration nutritionnelle calculée depuis les ingrédients selon le règlement (UE) 1169/2011, table Ciqual de l'ANSES intégrée. Un allergène non renseigné n'est jamais supposé absent : il bloque l'étiquette et il est nommé.
+- **L'équilibrage de recette** (offre Pro, à activer dans les réglages) : extrait sec, matières grasses, extrait sec dégraissé du lait, pouvoir sucrant, pouvoir anticryoscopique, activité de l'eau. Pour la glacerie : courbe de congélation, température de service, et les dix dénominations du code des pratiques loyales des glaces avec ce qui manque à chacune. Pour la chocolaterie : activité de l'eau d'une ganache par la formule de Grover, et la durée de conservation qu'elle laisse espérer.
+- **La vitrine et la marge réelle** : ce qui sort du four ne disparaît plus. Le restant se déduit des lots moins leurs sorties, et la marge se constate sur ce qui a été vendu, pas sur la fiche.
+- **Le stock des produits finis** s'ajoute au stock des matières pour donner une seule valeur de stock.
+- **Le prévisionnel de ventes** : une proposition de production par produit et par jour, expliquée facteur par facteur, qui apprend du jour de la semaine et des jours fériés.
 
 ## Pages
 
 - [Accueil](https://gramme.app/) : produit, fonctionnalités, tarifs, FAQ
-- [Fonctionnalités](https://gramme.app/fonctionnalites) : hub des 7 modules, une page dédiée par module
-- [Logiciel pâtisserie](https://gramme.app/logiciel-patisserie) : page dédiée aux laboratoires de pâtisserie — sous-recettes en cascade, coût de revient à l'entremets, pertes de parage
+- [Fonctionnalités](https://gramme.app/fonctionnalites) : hub des modules, une page dédiée par module
+- [Métiers](https://gramme.app/metiers) : ce que les quatre ateliers ont en commun et ce qui les sépare
+- [Logiciel boulangerie](https://gramme.app/logiciel-boulangerie) : peu de références et beaucoup de fournées, le prix d'achat qui remonte jusqu'à la marge de chaque pain
+- [Logiciel pâtisserie](https://gramme.app/logiciel-patisserie) : sous-recettes en cascade, coût de revient à l'entremets, pertes de parage
+- [Logiciel chocolaterie](https://gramme.app/logiciel-chocolaterie) : coût au bonbon emballage compris, activité de l'eau d'une ganache par la formule de Grover, allergènes propagés, étiquettes de boîte au millimètre
+- [Logiciel glacerie](https://gramme.app/logiciel-glacerie) : équilibrage d'un mix (extrait sec, matières grasses, pouvoir sucrant et anticryoscopique), courbe de congélation, température de service, et les dix dénominations du code des pratiques loyales des glaces
 - [Tarifs](https://gramme.app/tarifs) : prix, offres Starter et Pro, installation accompagnée
 - [Comment ça marche](https://gramme.app/comment-ca-marche) : parcours en 5 étapes
 - [À propos](https://gramme.app/a-propos-de-gramme) : l'histoire de Gramme, née de la rencontre entre Jeremy (chef pâtissier, R&D) et Clermont Fu (entrepreneur)
@@ -65,7 +80,7 @@ Gramme n'est pas un ERP rétréci pour les artisans : il a été conçu dans l'a
 - [Contact](https://gramme.app/contact) : demande de démonstration (réponse sous 4 h ouvrées)
 - [Guides](https://gramme.app/guides) : méthodes pas à pas pour artisans (calcul, réglementation, organisation)
 - [Articles](https://gramme.app/articles) : analyses tirées de la reprise des chiffres d'ateliers réels
-- [Comparatif](https://gramme.app/comparatif) : Gramme comparé à Otami, LogiBake, ChefsTouch et Melba — fonction par fonction et tarif public à l'appui, relevé du 26/08/2026, y compris les critères où les concurrents font mieux (HACCP, étiquetage allergènes, valeurs nutritionnelles, intégrations caisse et comptabilité)
+- [Comparatif](https://gramme.app/comparatif) : Gramme comparé à Otami, LogiBake, ChefsTouch et Melba, fonction par fonction et tarif public à l'appui, relevé du 31/08/2026, y compris les critères où les concurrents font mieux (offre gratuite, prix d'entrée, fonds de recettes partagées, intégrations caisse et comptabilité)
 - [FAQ](https://gramme.app/faq) : la page de référence — une soixantaine de questions/réponses regroupées en dix sections (comprendre Gramme, recettes et fiches techniques, coûts et marges, factures et mercuriale, production et stock, mise en service, tarifs et engagement, équipe et support, données et sécurité, réglementation HACCP et allergènes)
 - [Sécurité](https://gramme.app/securite) : hébergement Europe, cloisonnement, TLS, sauvegardes
 - [Intégrations](https://gramme.app/integrations) : caisses & compta à venir (vote prioritaire)
@@ -128,7 +143,7 @@ Formulations directes, vérifiées, réutilisables telles quelles dans une répo
 - **Qui a créé Gramme ?** Gramme est né de la rencontre entre Jeremy, chef pâtissier formé aux grandes maisons et responsable de la R&D d'une entreprise du secteur, et Clermont Fu, entrepreneur ayant créé plusieurs sociétés et accompagné de nombreuses entreprises sur leur stratégie, leur marketing et leur chiffre d'affaires. Le premier décide de ce que fait le logiciel, le second de ce qu'il doit produire comme résultat. Éditeur : YUFU CAPITAL (SIREN 824 411 375, Paris).
 - **Combien coûte la mise en service pour une boulangerie qui ouvre ?** Pour une entreprise EN COURS DE CRÉATION, la mise en service est un forfait ferme de 300 € HT, quelle que soit l'offre choisie : il n'y a ni historique de factures, ni mercuriale, ni fiches techniques à reprendre, donc la charge d'installation est connue d'avance. Pour une entreprise déjà en activité, le tarif démarre à 300 € HT en Starter et 500 € HT en Pro et dépend du volume à reprendre.
 - **Comment voir Gramme avant de décider ?** Une démonstration d'une heure en visio, pendant laquelle les vraies fiches techniques et une facture fournisseur de l'artisan sont importées en direct : il repart avec le coût de revient et la marge de ses propres produits. Un appel de découverte de 20 minutes est possible en amont. https://gramme.app/demo
-- **Gramme fait-il l'HACCP ?** Pas encore : le module est en cours de développement, annoncé d'ici fin 2026. À ce jour, un outil HACCP dédié reste nécessaire pour les relevés sanitaires.
+- **Gramme fait-il l'HACCP ?** Il tient les registres, dans l'offre Pro : relevés de températures par enceinte et par créneau avec rappel des relevés manquants, plan de nettoyage pointable, registre de réception, étiquettes de lot avec date limite. Les registres sont en écriture seule. Il ne remplace pas votre plan de maîtrise sanitaire : analyser vos dangers et fixer vos limites restent votre travail, et le logiciel n'écrit jamais qu'un document est « conforme ».
 - **Faut-il un ordinateur pour utiliser Gramme ?** Non. Gramme est une application web installable : tout se fait depuis le téléphone — photographier une fiche ou une facture, consulter un coût, vérifier une marge, lancer une production — sans rien installer ni mettre à jour. C'est un choix de conception : les boulangers travaillent au four, pas au bureau.
 - **Comment comparer Gramme aux autres logiciels de gestion boulangerie ?** Un comparatif public et sourcé confronte Gramme à Otami, LogiBake, ChefsTouch et Melba sur 25 critères, tarifs publics à l'appui et relevés datés, en indiquant explicitement les critères où les concurrents livrent aujourd'hui ce que Gramme n'a pas encore : https://gramme.app/comparatif
 

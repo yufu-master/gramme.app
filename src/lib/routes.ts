@@ -55,6 +55,16 @@ export const siteRoutes: SiteRoute[] = [
     breadcrumb: true,
   })),
   {
+    // La page pilier des métiers : elle sert le maillage et la navigation, pas
+    // une intention d'achat. Les quatre pages plates portent le mot-clé.
+    path: "/metiers",
+    title: "Métiers",
+    sitemap: true,
+    priority: 0.8,
+    changeFrequency: "monthly" as const,
+    breadcrumb: true,
+  },
+  {
     path: "/tarifs",
     title: "Tarifs",
     sitemap: true,

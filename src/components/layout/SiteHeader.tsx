@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import type { RefObject } from "react";
 import { useEffect, useRef, useState } from "react";
 import { FeatureIcon } from "@/components/features/FeatureIcon";
 import { features, featurePath } from "@/content/features";
@@ -13,11 +14,46 @@ type NavItem = {
 };
 
 const navItems: NavItem[] = [
-  { label: "Pâtisserie", href: "/logiciel-patisserie" },
-  { label: "Boulangerie", href: "/logiciel-boulangerie" },
   { label: "Tarifs", href: "/tarifs" },
   { label: "À propos", href: "/a-propos-de-gramme" },
   { label: "Contact", href: "/contact" },
+];
+
+/**
+ * Métiers : les quatre ateliers auxquels Gramme s'adresse.
+ *
+ * Pâtisserie et boulangerie étaient deux entrées directes de la barre ; la
+ * chocolaterie et la glacerie n'existaient nulle part alors que l'équilibrage
+ * de recette, qui les sert d'abord, est ce qui distingue le plus l'outil.
+ * Regroupées, les quatre se trouvent, et la barre passe de sept entrées à
+ * cinq.
+ *
+ * Les ADRESSES NE BOUGENT PAS : `/logiciel-patisserie` et
+ * `/logiciel-boulangerie` portent le mot que les gens tapent, et déplacer une
+ * page déjà référencée sous `/metiers/…` aurait coûté ce mot pour un gain
+ * d'esthétique. La rubrique est une navigation, pas une arborescence.
+ */
+const metiersItems: { label: string; href: string; description: string }[] = [
+  {
+    label: "Boulangerie",
+    href: "/logiciel-boulangerie",
+    description: "Peu de références, beaucoup de fournées, et une farine qui bouge sans prévenir.",
+  },
+  {
+    label: "Pâtisserie",
+    href: "/logiciel-patisserie",
+    description: "Des sous-recettes en cascade, et un coût qui se perd entre l'entremets et la part.",
+  },
+  {
+    label: "Chocolaterie",
+    href: "/logiciel-chocolaterie",
+    description: "Le coût au bonbon, l'activité de l'eau d'une ganache, l'étiquette à la taille de la boîte.",
+  },
+  {
+    label: "Glacerie",
+    href: "/logiciel-glacerie",
+    description: "Le pouvoir anticryoscopique, la courbe de congélation, et la température de service.",
+  },
 ];
 
 /**
@@ -58,6 +94,29 @@ const ressourcesItems: { label: string; href: string; description: string; icone
 /** Rubriques secondaires : pied de page et menu mobile uniquement. */
 const secondaryNavItems: NavItem[] = [{ label: "Intégrations", href: "/integrations" }];
 
+/** Refermer un menu à l'Échappement et au clic hors de sa zone. */
+function useFermetureAuDehors(
+  ouvert: boolean,
+  fermer: (v: boolean) => void,
+  zone: RefObject<HTMLDivElement | null>,
+) {
+  useEffect(() => {
+    if (!ouvert) return;
+    const onKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") fermer(false);
+    };
+    const onPointerDown = (event: PointerEvent) => {
+      if (!zone.current?.contains(event.target as Node)) fermer(false);
+    };
+    document.addEventListener("keydown", onKeyDown);
+    document.addEventListener("pointerdown", onPointerDown);
+    return () => {
+      document.removeEventListener("keydown", onKeyDown);
+      document.removeEventListener("pointerdown", onPointerDown);
+    };
+  }, [ouvert, fermer, zone]);
+}
+
 export function SiteHeader() {
   const pathname = usePathname();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -65,9 +124,12 @@ export function SiteHeader() {
   const [isMobileFeaturesOpen, setIsMobileFeaturesOpen] = useState(false);
   const [isRessourcesOpen, setIsRessourcesOpen] = useState(false);
   const [isMobileRessourcesOpen, setIsMobileRessourcesOpen] = useState(false);
+  const [isMetiersOpen, setIsMetiersOpen] = useState(false);
+  const [isMobileMetiersOpen, setIsMobileMetiersOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const featuresRef = useRef<HTMLDivElement>(null);
   const ressourcesRef = useRef<HTMLDivElement>(null);
+  const metiersRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 12);
@@ -83,27 +145,27 @@ export function SiteHeader() {
     setIsMobileMenuOpen(false);
     setIsFeaturesOpen(false);
     setIsMobileFeaturesOpen(false);
+    // « Ressources » n'était pas refermé à la navigation, ni au clic dehors :
+    // il restait ouvert par-dessus la page suivante. Corrigé le 06/09/2026 en
+    // même temps qu'on ajoutait « Métiers », plutôt que d'ajouter un deuxième
+    // menu au même défaut.
+    setIsRessourcesOpen(false);
+    setIsMobileRessourcesOpen(false);
+    setIsMetiersOpen(false);
+    setIsMobileMetiersOpen(false);
   }
 
-  useEffect(() => {
-    if (!isFeaturesOpen) return;
-    const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setIsFeaturesOpen(false);
-    };
-    const onPointerDown = (event: PointerEvent) => {
-      if (!featuresRef.current?.contains(event.target as Node)) setIsFeaturesOpen(false);
-    };
-    document.addEventListener("keydown", onKeyDown);
-    document.addEventListener("pointerdown", onPointerDown);
-    return () => {
-      document.removeEventListener("keydown", onKeyDown);
-      document.removeEventListener("pointerdown", onPointerDown);
-    };
-  }, [isFeaturesOpen]);
+  // Échappement et clic dehors, pour les TROIS menus. L'effet n'existait que
+  // pour « Fonctionnalités » : « Ressources » ne se refermait ni à l'un ni à
+  // l'autre. Écrit une fois plutôt que recopié trois.
+  useFermetureAuDehors(isFeaturesOpen, setIsFeaturesOpen, featuresRef);
+  useFermetureAuDehors(isMetiersOpen, setIsMetiersOpen, metiersRef);
+  useFermetureAuDehors(isRessourcesOpen, setIsRessourcesOpen, ressourcesRef);
 
   const isActive = (href: string) => pathname === href || pathname.startsWith(`${href}/`);
   const isFeaturesActive = isActive("/fonctionnalites");
   const isRessourcesActive = ressourcesItems.some((item) => isActive(item.href));
+  const isMetiersActive = pathname === "/metiers" || metiersItems.some((item) => isActive(item.href));
 
   return (
     <header
@@ -194,6 +256,61 @@ export function SiteHeader() {
                   >
                     Voir toutes les fonctionnalités
                     <span aria-hidden>→</span>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div
+            ref={metiersRef}
+            className="relative"
+            onMouseEnter={() => setIsMetiersOpen(true)}
+            onMouseLeave={() => setIsMetiersOpen(false)}
+          >
+            <button
+              type="button"
+              aria-expanded={isMetiersOpen}
+              aria-haspopup="true"
+              aria-controls="metiers-menu"
+              onClick={() => setIsMetiersOpen((value) => !value)}
+              className={`inline-flex items-center gap-1.5 py-2 transition hover:text-[#355329] ${
+                isMetiersActive ? "font-semibold text-[#355329]" : ""
+              }`}
+            >
+              Métiers
+              <ChevronIcon className={`size-3 transition ${isMetiersOpen ? "rotate-180" : ""}`} />
+            </button>
+
+            <div
+              id="metiers-menu"
+              hidden={!isMetiersOpen}
+              className="absolute left-0 top-full z-50 w-[min(26rem,calc(100vw-2rem))] pt-3"
+            >
+              <div className="overflow-hidden rounded-2xl border border-[#dcead2] bg-white shadow-[0_24px_70px_rgba(38,64,33,0.16)]">
+                <ul className="grid gap-1 p-3">
+                  {metiersItems.map(({ label, href, description }) => (
+                    <li key={href}>
+                      <Link
+                        href={href}
+                        onClick={() => setIsMetiersOpen(false)}
+                        className="block rounded-xl p-3 transition hover:bg-[#f6fbf2]"
+                      >
+                        <span className="block text-sm font-bold text-[#1a2e14]">{label}</span>
+                        <span className="mt-0.5 block text-xs leading-snug text-[var(--muted-foreground)]">
+                          {description}
+                        </span>
+                      </Link>
+                    </li>
+                  ))}
+                </ul>
+                <div className="border-t border-[#dcead2] bg-[#f6fbf2] px-4 py-3">
+                  <Link
+                    href="/metiers"
+                    onClick={() => setIsMetiersOpen(false)}
+                    className="text-sm font-semibold text-[#355329] hover:underline"
+                  >
+                    Ce que les quatre métiers ont en commun
                   </Link>
                 </div>
               </div>
@@ -335,6 +452,50 @@ export function SiteHeader() {
                   >
                     <FeatureIcon name={feature.icon} className="size-4 shrink-0 text-[#6e9f55]" />
                     {feature.name}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+
+            {/* Métiers, avant Ressources : on cherche d'abord son propre
+                atelier, on lit ensuite. Le libellé est un LIEN vers la page
+                pilier, comme « Fonctionnalités », et non un texte inerte comme
+                « Ressources » : une rubrique qui a une page se rejoint en un
+                geste, pas en deux. */}
+            <div className="flex items-center gap-1">
+              <Link
+                href="/metiers"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`flex-1 rounded-lg px-3 py-3 text-sm ${
+                  isMetiersActive ? "bg-[#f6fbf2] font-semibold text-[#355329]" : "text-[#355329]"
+                }`}
+              >
+                Métiers
+              </Link>
+              <button
+                type="button"
+                aria-expanded={isMobileMetiersOpen}
+                aria-controls="mobile-metiers"
+                aria-label={isMobileMetiersOpen ? "Masquer les métiers" : "Afficher les métiers"}
+                onClick={() => setIsMobileMetiersOpen((value) => !value)}
+                className="inline-flex size-11 items-center justify-center rounded-lg text-[#355329] hover:bg-[#f6fbf2]"
+              >
+                <ChevronIcon className={`size-3.5 transition ${isMobileMetiersOpen ? "rotate-180" : ""}`} />
+              </button>
+            </div>
+            <ul
+              id="mobile-metiers"
+              hidden={!isMobileMetiersOpen}
+              className="mb-1 ml-3 border-l border-[#dcead2] pl-2"
+            >
+              {metiersItems.map(({ label, href }) => (
+                <li key={href}>
+                  <Link
+                    href={href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className="block rounded-lg px-3 py-2.5 text-sm text-[#355329] hover:bg-[#f6fbf2]"
+                  >
+                    {label}
                   </Link>
                 </li>
               ))}

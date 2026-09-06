@@ -17,9 +17,12 @@ import { SITE_URL, imageSociale, webPageSchema } from "@/lib/seo";
  * coût de recette avant qu'on les réunisse. Chaque route ne fait que désigner
  * son entrée de `pagesLogiciel` ; tout ce qui se voit est ici.
  *
- * `/logiciel-patisserie` reste à part : elle porte un exemple chiffré propre au
- * laboratoire (l'entremets à quatre niveaux) qui n'a d'équivalent nulle part
- * ailleurs. La ramener dans ce gabarit lui ferait perdre ce qui la rend bonne.
+ * `/logiciel-patisserie` restait à part parce qu'elle portait un exemple
+ * chiffré, l'entremets à quatre niveaux, que le gabarit ne savait pas rendre.
+ * Le 06/09/2026, c'est le gabarit qui a appris : le champ `exemple` porte
+ * désormais un tableau que le lecteur peut refaire à la calculatrice. Une page
+ * métier sans chiffre vérifiable reste une brochure, et il en fallait un pour
+ * la chocolaterie comme pour la glacerie.
  */
 
 export function metadonneesLogiciel(p: PageLogiciel): Metadata {
@@ -148,6 +151,45 @@ export function PageLogicielVue({ page }: { page: PageLogiciel }) {
             ))}
           </ol>
         </section>
+
+        {page.exemple ? (
+          <section className="mt-12 md:mt-16" aria-labelledby="exemple-title">
+            <h2 id="exemple-title" className="text-2xl font-bold text-[#27421f] md:text-3xl">
+              {page.exemple.titre}
+            </h2>
+            <p className="mt-3 max-w-3xl text-[#4d6952]">{page.exemple.intro}</p>
+            {/* Le tableau défile seul sous 640 px : la page, elle, ne défile
+                jamais à l'horizontale. */}
+            <div className="mt-6 overflow-x-auto rounded-2xl border border-[#dcead2]">
+              <table className="w-full min-w-[520px] text-sm">
+                <thead className="bg-[#f6fbf2]">
+                  <tr>
+                    {page.exemple.entetes.map((e) => (
+                      <th key={e} className="px-3 py-2 text-left font-semibold text-[#27421f]">
+                        {e}
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {page.exemple.lignes.map((ligne) => (
+                    <tr key={ligne.join("|")} className="border-t border-[#dcead2]">
+                      {ligne.map((cellule, i) => (
+                        <td
+                          key={`${ligne[0]}-${i}`}
+                          className={i === 0 ? "px-3 py-2 font-medium text-[#27421f]" : "px-3 py-2 tabular-nums text-[#4d6952]"}
+                        >
+                          {cellule}
+                        </td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+            <p className="mt-3 max-w-3xl text-sm text-[#4d6952]">{page.exemple.note}</p>
+          </section>
+        ) : null}
 
         {modules.length ? (
           <section className="mt-12 md:mt-16" aria-labelledby="modules-title">

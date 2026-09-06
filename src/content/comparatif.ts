@@ -394,7 +394,7 @@ export const blocsComparatif: BlocComparatif[] = [
             note: "Calcul pondéré depuis les fiches, table Ciqual de l'ANSES intégrée (3 484 aliments), ordre et arrondis du règlement (UE) 1169/2011",
           },
           otami: { v: "partiel", note: "Non documenté sur les pages publiques au moment du relevé" },
-          chefstouch: { v: "oui", note: "AW et PAC compris" },
+          chefstouch: { v: "oui", note: "Activité de l'eau et pouvoir anticryoscopique compris, comme chez nous" },
           melba: { v: "oui" },
         },
       },
@@ -978,9 +978,9 @@ export const pagesConcurrent: PageConcurrent[] = [
           "1,99 € HT/mois pour les fiches illimitées, 4,90 € avec le coût de revient sur un fournisseur, 9,90 € avec les fournisseurs illimités et l'étiquetage INCO. Notre premier tarif est à 49 €. Sur un besoin qui s'arrête aux fiches et aux allergènes, la comparaison n'est même pas discutable.",
       },
       {
-        titre: "Un fonds de recettes partagées, et le multi-métier",
+        titre: "Un fonds de recettes partagées, et la traduction",
         texte:
-          "Une communauté qui publie ses fiches, la traduction assistée par IA, l'activité de l'eau et le pouvoir anticryoscopique pour les glaciers. Nous ne faisons qu'un métier et nous n'avons ni fonds partagé ni traduction. Si vous êtes glacier ou chocolatier autant que boulanger, regardez de ce côté.",
+          "Une communauté qui publie ses fiches, consultables et reprenables, et la traduction assistée par intelligence artificielle pour travailler à plusieurs langues. Nous n'avons ni l'un ni l'autre, et nous n'en avons pas le projet : nos fiches restent celles de votre maison, et elles ne sortent pas de chez vous.",
       },
     ],
     quandLuiQuandNous: [

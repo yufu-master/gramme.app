@@ -59,7 +59,18 @@ export default function robots(): MetadataRoute.Robots {
           "/comparatif",
           "/articles",
           "/fonctionnalites",
+          // Les pages d'intention d'achat : ce sont elles qui décident de la
+          // présence dans une réponse générative, et quatre sur cinq
+          // manquaient à cette liste.
+          "/metiers",
+          "/logiciel-boulangerie",
           "/logiciel-patisserie",
+          "/logiciel-chocolaterie",
+          "/logiciel-glacerie",
+          "/logiciel-cout-de-revient",
+          "/logiciel-fiches-techniques",
+          "/logiciel-releves-temperature",
+          "/logiciel-scan-factures",
           "/tarifs",
           "/demo",
           "/cgv",
