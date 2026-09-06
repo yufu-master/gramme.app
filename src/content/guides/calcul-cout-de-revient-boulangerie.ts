@@ -44,6 +44,10 @@ export const guideCoutDeRevient: Guide = {
   intro:
     "Le coût de revient est le seul chiffre qui dit si un produit vous fait gagner ou perdre de l'argent. La plupart des artisans en ont une idée approximative, héritée d'un calcul fait une fois, il y a trois ans, avec des prix qui ont bougé depuis. Voici la méthode complète, avec ce qui est habituellement oublié.",
   draft: false,
+  liens: [
+    { href: "/logiciel-cout-de-revient", label: "Le coût de revient, calculé une fois pour toutes" },
+    { href: "/logiciel-boulangerie", label: "Le logiciel pensé pour un fournil" },
+  ],
   relatedSlug: "coefficient-cout-matiere-boulangerie",
   relatedLabel: "Quel pourcentage de coût matière viser en boulangerie",
   howTo: {

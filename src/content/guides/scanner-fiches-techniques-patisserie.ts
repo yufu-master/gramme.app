@@ -37,6 +37,10 @@ export const guideScannerFiches: Guide = {
   intro:
     "Un cahier de recettes se photographie en quelques minutes. Le transformer en fiches techniques exploitables, avec les sous-recettes reliées, les matières identifiées et les coûts calculés, c'est un autre travail. Voici comment il se fait, et ce qu'il demande de votre part.",
   draft: false,
+  liens: [
+    { href: "/logiciel-fiches-techniques", label: "Vos fiches techniques, sans les retaper" },
+    { href: "/logiciel-patisserie", label: "Le logiciel qui sait ce qu'est une sous-recette" },
+  ],
   relatedSlug: "logiciel-concu-par-un-chef-patissier",
   relatedLabel: "Un logiciel conçu par un chef pâtissier",
   howTo: {

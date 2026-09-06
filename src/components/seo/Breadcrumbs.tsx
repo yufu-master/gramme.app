@@ -15,6 +15,18 @@ export function Breadcrumbs({ currentLabel, items }: BreadcrumbsProps) {
     { name: currentLabel, path: "#" },
   ];
 
+  /*
+   * Le balisage `BreadcrumbList` sort d'ICI, et de nulle part ailleurs.
+   *
+   * Les pages de guide et d'article en émettaient un SECOND, différent : celui
+   * du composant s'arrêtait à « Accueil › Guides » parce que la dernière miette
+   * portait `path: "#"`, et celui de la page allait jusqu'à l'article. Deux
+   * `BreadcrumbList` dans le même document, dont un incomplet, vérifié sur la
+   * production le 06/09/2026.
+   *
+   * La dernière miette peut donc porter sa VRAIE adresse : elle se rend en
+   * texte de toute façon (`isLast`), et le balisage devient complet.
+   */
   const schemaItems = crumbs.filter((c) => c.path !== "#");
 
   return (

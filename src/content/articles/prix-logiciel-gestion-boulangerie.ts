@@ -164,6 +164,10 @@ export const articlePrix: Guide = {
     },
   ],
   draft: false,
+  liens: [
+    { href: "/tarifs", label: "Les tarifs, et ce que chaque offre ouvre" },
+    { href: "/comparatif", label: "Gramme face aux autres logiciels du métier" },
+  ],
   relatedSlug: "pourcentage-perte-marge-boulangerie",
   relatedLabel: "Le pourcentage de perte, l'erreur qui embellit toutes vos marges",
 };

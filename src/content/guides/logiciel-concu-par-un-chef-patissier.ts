@@ -21,6 +21,10 @@ export const guideLogicielChef: Guide = {
   intro:
     "La plupart des logiciels de gestion utilisés en pâtisserie viennent de la restauration. Ils savent additionner des ingrédients et calculer un coût matière. Ils ne savent pas ce qu'est une crème pâtissière qui sert dans quatre produits différents, ni une perte de cuisson qui change le poids net d'une pâte. Gramme a été conçu par un chef pâtissier en exercice, à partir de ces problèmes-là.",
   draft: false,
+  liens: [
+    { href: "/logiciel-patisserie", label: "Le logiciel qui sait ce qu'est une sous-recette" },
+    { href: "/a-propos-de-gramme", label: "Qui écrit Gramme, et pourquoi" },
+  ],
   relatedSlug: "scanner-fiches-techniques-patisserie",
   relatedLabel: "Photographier ses fiches techniques et les classer",
   blocks: [

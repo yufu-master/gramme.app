@@ -50,6 +50,10 @@ export const articleMarge: Guide = {
   intro:
     "Calculer sa marge en boulangerie-pâtisserie, c'est retirer du prix de vente hors taxes tout ce que le produit a coûté : la matière avec ses pertes, la main-d'œuvre au coût chargé réel, l'emballage et une part des charges d'atelier. La plupart des artisans s'arrêtent à la première soustraction, celle du coût matière, et appellent ça la marge. Ce n'est pas faux, c'est incomplet : cette marge-là ne paie ni le tourier, ni le four, ni le loyer, ni le Trésor public. Voici les cinq étages du calcul, chiffrés sur un produit que tout le monde vend.",
   draft: false,
+  liens: [
+    { href: "/logiciel-cout-de-revient", label: "Le coût de revient, calculé une fois pour toutes" },
+    { href: "/metiers", label: "Le même outil, réglé sur votre métier" },
+  ],
   relatedSlug: "pourcentage-perte-marge-boulangerie",
   relatedLabel: "Le pourcentage de perte, l'erreur qui embellit toutes vos marges",
   howTo: {

@@ -183,37 +183,30 @@ export function GuideArticle({
 
       <nav aria-label="Liens utiles" className="mt-10 max-w-[42rem] border-t border-[#dcead2] pt-8">
         <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#6e9f55]">Continuer</p>
+        {/* Les liens DÉCLARÉS d'abord : ils remontent vers la page pilier du
+            sujet, ce que ce bloc ne savait pas faire. Les deux liens
+            génériques restent en repli tant qu'un contenu n'a pas les siens,
+            pour qu'aucun des articles publiés ne perde sa fin de page. */}
         <ul className="mt-4 grid gap-3 sm:grid-cols-2">
-          <li>
-            <Link
-              href="/#fonctionnalites"
-              className="block rounded-2xl border border-[#dcead2] bg-white px-4 py-3 text-sm font-semibold text-[#355329] hover:bg-[#f6fbf2]"
-            >
-              Fonctionnalités logiciel boulangerie
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/tarifs"
-              className="block rounded-2xl border border-[#dcead2] bg-white px-4 py-3 text-sm font-semibold text-[#355329] hover:bg-[#f6fbf2]"
-            >
-              Tarifs logiciel pâtisserie
-            </Link>
-          </li>
+          {(guide.liens ?? [
+            { href: "/#fonctionnalites", label: "Fonctionnalités logiciel boulangerie" },
+            { href: "/tarifs", label: "Tarifs logiciel pâtisserie" },
+          ]).map((lien) => (
+            <li key={lien.href}>
+              <Link
+                href={lien.href}
+                className="block rounded-2xl border border-[#dcead2] bg-white px-4 py-3 text-sm font-semibold text-[#355329] hover:bg-[#f6fbf2]"
+              >
+                {lien.label}
+              </Link>
+            </li>
+          ))}
           <li>
             <Link
               href={`${base}/${guide.relatedSlug}`}
               className="block rounded-2xl border border-[#dcead2] bg-white px-4 py-3 text-sm font-semibold text-[#355329] hover:bg-[#f6fbf2]"
             >
               {guide.relatedLabel}
-            </Link>
-          </li>
-          <li>
-            <Link
-              href="/securite"
-              className="block rounded-2xl border border-[#dcead2] bg-white px-4 py-3 text-sm font-semibold text-[#355329] hover:bg-[#f6fbf2]"
-            >
-              Confidentialité des recettes
             </Link>
           </li>
         </ul>

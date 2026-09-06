@@ -78,6 +78,7 @@ export function PageLogicielVue({ page }: { page: PageLogiciel }) {
           currentLabel={page.nom}
           items={[
             { name: "Accueil", path: "/" },
+            ...(page.rubrique ? [{ name: page.rubrique.nom, path: page.rubrique.chemin }] : []),
             { name: page.nom, path: page.path },
           ]}
         />

@@ -20,6 +20,10 @@ export const guideHaccp: Guide = {
   intro:
     "« Logiciel HACCP » est une expression commode, et trompeuse : aucun logiciel ne rend une boulangerie conforme. Ce qu'un outil peut faire, c'est enregistrer vos relevés, les horodater, les rendre imprimables, et rendre impossible de les réécrire après coup. C'est déjà beaucoup, parce que c'est exactement ce qu'un cahier accroché au mur ne garantit pas. Cet article explique ce que la réglementation demande, ce qu'un outil enregistre à votre place, et où s'arrête sa responsabilité.",
   draft: false,
+  liens: [
+    { href: "/logiciel-releves-temperature", label: "Les relevés de température, faits au téléphone" },
+    { href: "/fonctionnalites/hygiene-haccp", label: "Les registres d'hygiène dans Gramme" },
+  ],
   relatedSlug: "etiquette-allergene-boulangerie-obligation",
   relatedLabel: "Allergènes en boulangerie : ce que la réglementation impose",
   blocks: [

@@ -33,6 +33,16 @@ export type PageLogiciel = {
   path: string;
   /** Libellé court : fil d'Ariane, navigation, liens connexes. */
   nom: string;
+  /**
+   * La rubrique dont la page dépend, pour le fil d'Ariane.
+   *
+   * Les quatre pages MÉTIER remontent vers `/metiers` ; les pages d'INTENTION
+   * (« logiciel coût de revient », « logiciel scan factures ») n'ont pas de
+   * rubrique, elles parlent d'une fonction et pas d'un atelier. Le fil disait
+   * « Accueil › Logiciel boulangerie » pour les quatre, et court-circuitait la
+   * page pilier qu'il venait de créer.
+   */
+  rubrique?: { nom: string; chemin: string };
   metaTitle: string;
   metaDescription: string;
   keywords: string[];
@@ -90,6 +100,7 @@ export const pagesLogiciel: PageLogiciel[] = [
   // ===========================================================================
   {
     path: "/logiciel-chocolaterie",
+    rubrique: { nom: "Métiers", chemin: "/metiers" },
     nom: "Logiciel chocolaterie",
     metaTitle: "Logiciel chocolaterie · coûts, Aw et étiquettes",
     metaDescription:
@@ -205,6 +216,7 @@ export const pagesLogiciel: PageLogiciel[] = [
   // ===========================================================================
   {
     path: "/logiciel-glacerie",
+    rubrique: { nom: "Métiers", chemin: "/metiers" },
     nom: "Logiciel glacerie",
     metaTitle: "Logiciel glacerie · PAC, POD et dénominations",
     metaDescription:
@@ -320,6 +332,7 @@ export const pagesLogiciel: PageLogiciel[] = [
   // ===========================================================================
   {
     path: "/logiciel-boulangerie",
+    rubrique: { nom: "Métiers", chemin: "/metiers" },
     nom: "Logiciel boulangerie",
     metaTitle: "Logiciel boulangerie · coûts, marges et production",
     metaDescription:

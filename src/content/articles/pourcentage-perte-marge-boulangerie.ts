@@ -190,6 +190,10 @@ export const articlePerte: Guide = {
       { name: "Commencez par vos dix plus gros volumes", text: "Ils corrigent l'essentiel de l'écart en une semaine." },
     ],
   },
+  liens: [
+    { href: "/logiciel-cout-de-revient", label: "Le coût de revient, calculé une fois pour toutes" },
+    { href: "/logiciel-patisserie", label: "Le logiciel qui sait ce qu'est une sous-recette" },
+  ],
   relatedSlug: "logiciel-boulangerie-sur-telephone",
   relatedLabel: "Faut-il un ordinateur pour gérer sa boulangerie ?",
 };

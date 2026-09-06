@@ -47,6 +47,10 @@ export const guideFicheTechniqueModele: Guide = {
   intro:
     "Une fiche technique n'est pas une recette mise au propre. C'est le document qui permet à quelqu'un d'autre de produire à l'identique, et qui vous dit ce que le produit vous coûte. Beaucoup de modèles qui circulent font l'un sans l'autre. Voici la structure complète, un gabarit à recopier, et un exemple chiffré de bout en bout.",
   draft: false,
+  liens: [
+    { href: "/logiciel-fiches-techniques", label: "Vos fiches techniques, sans les retaper" },
+    { href: "/logiciel-patisserie", label: "Le logiciel qui sait ce qu'est une sous-recette" },
+  ],
   relatedSlug: "calcul-cout-de-revient-boulangerie",
   relatedLabel: "Calculer le coût de revient d'un produit de boulangerie",
   howTo: {

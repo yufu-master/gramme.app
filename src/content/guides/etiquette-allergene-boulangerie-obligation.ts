@@ -20,6 +20,10 @@ export const guideAllergenes: Guide = {
   intro:
     "L'information sur les allergènes est l'une des rares obligations réglementaires qui touche directement le comptoir d'une boulangerie, et l'une des plus mal comprises. Beaucoup d'artisans pensent qu'elle ne concerne que les produits emballés. C'est l'inverse : c'est précisément la vente en vrac qui pose le plus de questions.",
   draft: false,
+  liens: [
+    { href: "/fonctionnalites/allergenes-etiquetage", label: "Allergènes et étiquetage dans Gramme" },
+    { href: "/logiciel-boulangerie", label: "Le logiciel pensé pour un fournil" },
+  ],
   relatedSlug: "fiche-technique-patisserie-modele",
   relatedLabel: "Modèle de fiche technique de pâtisserie",
   blocks: [

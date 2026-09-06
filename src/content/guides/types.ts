@@ -29,6 +29,20 @@ export type Guide = {
     description: string;
     steps: { name: string; text: string }[];
   };
+  /**
+   * Les liens de fin d'article, en plus du lien latéral `relatedSlug`.
+   *
+   * Le bloc « Continuer » était codé en dur — fonctionnalités, tarifs,
+   * sécurité — et `relatedSlug` se résout dans le MÊME dossier : un guide ne
+   * pouvait lier qu'un guide, un article qu'un article, et aucun ne remontait
+   * vers sa page pilier. Les pages métier descendaient vers les guides, jamais
+   * l'inverse : le maillage était à sens unique.
+   *
+   * Facultatif. Quand il est absent, les liens en dur d'avant s'affichent
+   * toujours : aucun des contenus publiés ne change tant qu'on ne l'a pas
+   * rempli.
+   */
+  liens?: { href: string; label: string }[];
   relatedSlug: string;
   relatedLabel: string;
 };

@@ -150,6 +150,10 @@ export const articleTelephone: Guide = {
     },
   ],
   draft: false,
+  liens: [
+    { href: "/logiciel-boulangerie", label: "Le logiciel pensé pour un fournil" },
+    { href: "/fonctionnalites", label: "Tous les modules, un par un" },
+  ],
   relatedSlug: "prix-logiciel-gestion-boulangerie",
   relatedLabel: "Combien coûte vraiment un logiciel de gestion en boulangerie ?",
 };

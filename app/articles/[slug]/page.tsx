@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getAllArticleSlugs, getArticleBySlug } from "@/content/articles";
 import { articleSchema, guideFaqSchema, howToSchema } from "@/lib/guides";
-import { breadcrumbSchema, imageSociale, SITE_URL } from "@/lib/seo";
+import { imageSociale, SITE_URL } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -57,11 +57,6 @@ export default async function ArticlePage({ params }: Props) {
     schemas.push(
       articleSchema(article, "/articles"),
       guideFaqSchema(article),
-      breadcrumbSchema([
-        { name: "Accueil", path: "/" },
-        { name: "Articles", path: "/articles" },
-        { name: article.title, path: `/articles/${article.slug}` },
-      ]),
     );
     const howto = howToSchema(article);
     if (howto) schemas.push(howto);
@@ -76,7 +71,7 @@ export default async function ArticlePage({ params }: Props) {
           items={[
             { name: "Accueil", path: "/" },
             { name: "Articles", path: "/articles" },
-            { name: article.title, path: "#" },
+            { name: article.title, path: `/articles/${article.slug}` },
           ]}
         />
         <GuideArticle guide={article} rubrique="Article" base="/articles" />

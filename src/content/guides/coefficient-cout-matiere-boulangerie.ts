@@ -20,6 +20,10 @@ export const guideCoefficientCoutMatiere: Guide = {
   intro:
     "« On doit être autour de 25 % de matière. » C'est la réponse la plus fréquente quand on demande à un artisan son ratio de coût matière, et c'est presque toujours une moyenne héritée d'une formation, pas une mesure. Voici ce que ce pourcentage veut dire, comment il se calcule, et pourquoi le regarder globalement masque l'essentiel.",
   draft: false,
+  liens: [
+    { href: "/logiciel-cout-de-revient", label: "Le coût de revient, calculé une fois pour toutes" },
+    { href: "/logiciel-boulangerie", label: "Le logiciel pensé pour un fournil" },
+  ],
   relatedSlug: "calcul-cout-de-revient-boulangerie",
   relatedLabel: "Calculer le coût de revient d'un produit de boulangerie",
   blocks: [

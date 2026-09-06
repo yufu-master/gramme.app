@@ -141,6 +141,9 @@ export default function LogicielPatisseriePage() {
           currentLabel="Logiciel pâtisserie"
           items={[
             { name: "Accueil", path: "/" },
+            // Comme les trois autres pages métier : le fil remonte vers la
+            // rubrique, il ne saute pas par-dessus.
+            { name: "Métiers", path: "/metiers" },
             { name: "Logiciel pâtisserie", path: PATH },
           ]}
         />
