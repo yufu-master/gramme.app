@@ -41,7 +41,7 @@ export const guideFicheTechniqueModele: Guide = {
   ],
   publishedAt: "2026-08-13",
   updatedAt: "2026-08-13",
-  ogImage: "/images/feature-recette-detail.png",
+  ogImage: "/images/app/recette-fiche.png",
   summary:
     "La structure d'une fiche technique de pâtisserie qui sert vraiment en production, avec un gabarit vierge à recopier et un exemple complet de tarte au citron meringuée chiffrée.",
   intro:

@@ -120,8 +120,8 @@ export const pagesLogiciel: PageLogiciel[] = [
       "Gramme descend jusqu'à la pièce. Chaque sous-recette garde son rendement réel, chaque emballage entre dans le coût, et l'étiquette de la boîte sort avec la composition et les allergènes tels qu'ils remontent des matières.",
     ],
     image: {
-      src: "/images/app/recette-etiquetage.png",
-      alt: "Allergènes et valeurs nutritionnelles d'une recette dans le logiciel de chocolaterie Gramme",
+      src: "/images/app/equilibrage-ganache.png",
+      alt: "Équilibrage d'une ganache dans le logiciel de chocolaterie Gramme : eau, sucres, matières grasses, activité de l'eau et conservation estimée",
     },
     problemes: [
       {
@@ -236,8 +236,8 @@ export const pagesLogiciel: PageLogiciel[] = [
       "Gramme calcule ces chiffres depuis vos matières, trace la courbe de congélation du mix, et dit à quelle température il redevient boulable. Il dit aussi quelle dénomination la recette peut porter, et ce qui lui manque quand elle ne le peut pas.",
     ],
     image: {
-      src: "/images/app/production.png",
-      alt: "Planning de production et feuille d'atelier dans le logiciel de glacerie Gramme",
+      src: "/images/app/equilibrage.png",
+      alt: "Équilibrage d'une crème glacée dans le logiciel de glacerie Gramme : sucres, extrait sec, POD, PAC et courbe de congélation",
     },
     problemes: [
       {

@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     description:
       "Sous-recettes en cascade, coût de revient à l'entremets, pertes de parage et marges en temps réel. Le logiciel de gestion pensé pour les laboratoires de pâtisserie.",
     url: `${SITE_URL}${PATH}`,
-    images: [{ url: "/images/feature-recette-detail.png", alt: "Fiche technique de pâtisserie dans le logiciel Gramme" }],
+    images: [{ url: "/images/app/recette-fiche.png", alt: "Fiche technique de pâtisserie dans le logiciel Gramme" }],
   },
 };
 
@@ -173,7 +173,7 @@ export default function LogicielPatisseriePage() {
 
         <figure className="relative mt-8 aspect-[16/10] w-full overflow-hidden rounded-3xl border border-[#dcead2] bg-[#f6fbf2] shadow-[0_20px_60px_rgba(34,60,23,0.16)] sm:aspect-[16/9]">
           <Image
-            src="/images/feature-recette-detail.png"
+            src="/images/app/recette-fiche.png"
             alt="Fiche technique de pâtisserie avec sous-recettes et coût de revient dans le logiciel Gramme"
             fill
             priority

@@ -7,6 +7,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaqAccordion } from "@/components/landing/FaqAccordion";
 import { FeatureAccordion } from "@/components/features/FeatureAccordion";
+import { nombreModules } from "@/content/features";
 import { IntegrationLogo } from "@/components/integrations/IntegrationCard";
 import { BillingPeriodToggle } from "@/components/pricing/BillingPeriodToggle";
 import { HOME_INTEGRATION_PREVIEWS, INTEGRATIONS } from "@/lib/integrations";
@@ -71,13 +72,18 @@ export default function HomePage() {
           className="relative isolate flex min-h-[34rem] w-full items-end overflow-hidden bg-[#1a2e14] sm:max-h-[44rem] sm:min-h-[78svh] sm:items-center"
           aria-label="Présentation Gramme"
         >
+          {/* Le cadrage suit le TÉLÉPHONE, qui est le sujet : le voile part de
+              la gauche et couvre près de six dixièmes de la largeur sur grand
+              écran, donc la main doit rester dans la moitié droite visible.
+              Sur téléphone le texte descend en bas, et le cadrage remonte pour
+              garder l'écran de l'application lisible. */}
           <Image
-            src="/images/hero-lifestyle.jpg"
-            alt="Logiciel gestion boulangerie Gramme sur smartphone : recettes, stock et mercuriale"
+            src="/images/hero_gramme_atelier_phone.png"
+            alt="Le logiciel Gramme ouvert sur un téléphone, tenu au-dessus d'un plan de travail avec des baguettes, de la farine et une balance"
             fill
             priority
             sizes="100vw"
-            className="object-cover object-[85%_center] sm:object-[80%_center] lg:object-[75%_center] xl:object-[70%_center]"
+            className="object-cover object-[58%_38%] sm:object-[62%_center] lg:object-[66%_center] xl:object-[68%_center]"
           />
           <div
             aria-hidden
@@ -305,9 +311,10 @@ export default function HomePage() {
           <div className="max-w-3xl">
             <h2 className="text-3xl font-bold md:text-4xl">Les fonctionnalités qui font gagner du temps et de la marge.</h2>
             <p className="mt-4 text-[var(--muted-foreground)]">
-              Neuf modules reliés entre eux : digitalisation des recettes, fiches techniques et calcul du coût de
-              revient, mercuriale et alertes de prix, gestion de stocks, planning de production et pilotage de la
-              rentabilité, sans complexité inutile. Tout est connecté : un prix qui bouge sur une facture se
+              {nombreModules.charAt(0).toUpperCase() + nombreModules.slice(1)} modules reliés entre eux :
+              digitalisation des recettes, fiches techniques et calcul du coût de revient, mercuriale et alertes de
+              prix, équilibrage de recette, gestion de stocks, planning de production et prévisionnel, suivi de la
+              vitrine et pilotage de la rentabilité, sans complexité inutile. Tout est connecté : un prix qui bouge sur une facture se
               répercute jusqu&apos;à la marge de chaque recette. Dépliez pour l&apos;essentiel, ouvrez la page dédiée
               pour le détail.
             </p>

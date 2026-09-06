@@ -15,7 +15,7 @@ export const articlePerte: Guide = {
   ],
   publishedAt: "2026-08-26",
   updatedAt: "2026-08-26",
-  ogImage: "/images/feature-recette-detail.png",
+  ogImage: "/images/app/recette-couts.png",
   summary:
     "Le taux de perte est le paramètre le plus souvent absent des calculs de coût de revient, et celui qui les fausse le plus. Explication chiffrée, et méthode pour le mesurer sans matériel.",
   intro:

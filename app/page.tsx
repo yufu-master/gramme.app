@@ -39,11 +39,11 @@ export const metadata: Metadata = {
     url: "https://gramme.app/",
     images: [
       {
-        url: "/images/hero-lifestyle.jpg",
+        url: "/images/hero_gramme_atelier_phone.png",
         // Dimensions réelles du fichier : le ratio déclaré décide du recadrage.
-        width: 2400,
-        height: 1792,
-        alt: "Gramme, application de gestion pour boulangers et pâtissiers",
+        width: 2752,
+        height: 1536,
+        alt: "Le logiciel Gramme ouvert sur un téléphone, au-dessus d'un plan de travail de fournil",
       },
     ],
   },

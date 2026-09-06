@@ -44,7 +44,7 @@ export const articleMarge: Guide = {
   ],
   publishedAt: "2026-08-27",
   updatedAt: "2026-08-27",
-  ogImage: "/images/feature-prix.png",
+  ogImage: "/images/app/recette-couts.png",
   summary:
     "La marge d'un produit ne se lit pas sur une seule ligne. Cinq étages de calcul, appliqués à une part de flan pâtissier : sous-recettes, pertes, main-d'œuvre au coût réel, charges d'atelier, et ce que l'impôt en laisse.",
   intro:

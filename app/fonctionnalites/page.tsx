@@ -5,13 +5,13 @@ import { FeatureIcon } from "@/components/features/FeatureIcon";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
-import { features, featurePath } from "@/content/features";
+import { features, featurePath, nombreModules } from "@/content/features";
 import { SITE_URL, webPageSchema, imageSociale } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Fonctionnalités du logiciel de gestion boulangerie",
   description:
-    "Les neuf modules de Gramme : recettes, fiches techniques, coût de revient, factures, mercuriale, production, stock, hygiène HACCP et étiquetage.",
+    `Les ${nombreModules} modules de Gramme : recettes, fiches techniques, coût de revient, factures, mercuriale, production, équilibrage, vitrine, stock, comptabilité, hygiène HACCP et étiquetage.`,
   keywords: [
     "fonctionnalités logiciel boulangerie",
     "logiciel gestion pâtisserie",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
     images: imageSociale("/images/app/recette-fiche.png", "Une fiche technique dans Gramme : ingrédients, quantités et rendement"),
     title: "Fonctionnalités | Gramme",
     description:
-      "Recettes, fiches techniques, factures, mercuriale, production, stock, fournisseurs, hygiène et étiquetage : neuf modules reliés entre eux.",
+      `Recettes, fiches techniques, factures, mercuriale, production, prévisionnel, vitrine, stock, comptabilité, hygiène et étiquetage : ${nombreModules} modules reliés entre eux.`,
     url: `${SITE_URL}/fonctionnalites`,
   },
 };
@@ -59,7 +59,7 @@ export default function FonctionnalitesPage() {
           webPageSchema({
             title: "Fonctionnalités du logiciel de gestion boulangerie | Gramme",
             description:
-              "Les neuf modules de Gramme pour les boulangeries et pâtisseries artisanales : recettes, fiches techniques et coûts, achats et alertes de prix, production, stock, fournisseurs, hygiène HACCP et étiquetage.",
+              `Les ${nombreModules} modules de Gramme pour les boulangeries, pâtisseries, chocolateries et glaceries artisanales : recettes, fiches techniques et coûts, achats et alertes de prix, équilibrage, production et prévisionnel, vitrine, stock, comptabilité, fournisseurs, hygiène HACCP et étiquetage.`,
             path: "/fonctionnalites",
           }),
           itemListSchema,
@@ -71,7 +71,7 @@ export default function FonctionnalitesPage() {
 
         <section className="mt-6 rounded-3xl border border-[#dcead2] bg-white/90 p-6 shadow-[0_20px_70px_rgba(58,92,39,0.08)] sm:p-8 md:p-12">
           <h1 className="text-3xl font-black leading-tight text-[#27421f] md:text-5xl">
-            Neuf modules, une seule application
+            {nombreModules.charAt(0).toUpperCase() + nombreModules.slice(1)} modules, une seule application
           </h1>
           <p className="mt-5 max-w-2xl text-base text-[#4d6952] md:text-lg">
             Gramme relie ce qui est habituellement éclaté entre un classeur de recettes, une pile de factures, un

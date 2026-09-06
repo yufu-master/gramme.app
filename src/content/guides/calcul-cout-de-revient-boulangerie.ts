@@ -38,7 +38,7 @@ export const guideCoutDeRevient: Guide = {
   ],
   publishedAt: "2026-08-13",
   updatedAt: "2026-08-13",
-  ogImage: "/images/feature-recette-detail.png",
+  ogImage: "/images/app/recette-couts.png",
   summary:
     "Méthode complète pour calculer le coût de revient d'un produit de boulangerie : prix d'achat réels, sous-recettes, pertes, rendement et marge, avec un exemple chiffré de baguette tradition.",
   intro:

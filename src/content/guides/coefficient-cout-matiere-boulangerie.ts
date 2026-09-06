@@ -14,7 +14,7 @@ export const guideCoefficientCoutMatiere: Guide = {
   ],
   publishedAt: "2026-08-13",
   updatedAt: "2026-08-13",
-  ogImage: "/images/feature-prix.png",
+  ogImage: "/images/app/recette-couts.png",
   summary:
     "Comment situer son ratio de coût matière en boulangerie-pâtisserie, par famille de produits, et pourquoi un ratio global ne dit presque rien sans le détail par gamme.",
   intro:

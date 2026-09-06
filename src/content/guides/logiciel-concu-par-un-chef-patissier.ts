@@ -15,7 +15,7 @@ export const guideLogicielChef: Guide = {
   updatedAt: "2026-08-11",
   // Pas le portrait de Jeremy (852 × 1280) : une vignette de partage est en
   // paysage, et le visage sortait coupé au front.
-  ogImage: "/images/feature-recette-detail.png",
+  ogImage: "/images/app/recette-fiche.png",
   summary:
     "Gramme a été conçu par un chef pâtissier en exercice : sous-recettes, montage et coût de revient réel pour les artisans.",
   intro:

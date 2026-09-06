@@ -121,10 +121,10 @@ export function imageSociale(
  */
 const DIMENSIONS_IMAGES: Record<string, { width: number; height: number }> = {
   "/images/hero-lifestyle.jpg": { width: 2400, height: 1792 },
-  "/images/feature-recette-detail.png": { width: 2880, height: 1620 },
-  "/images/feature-prix.png": { width: 2880, height: 1620 },
-  "/images/feature-stock.png": { width: 2880, height: 1620 },
-  "/images/feature-recettes-list.png": { width: 2880, height: 1620 },
+  // Le visuel de marque depuis le 06/09/2026. En 16/9, il est bien plus proche
+  // du 1,91:1 attendu par les réseaux que l'ancien en 4/3 : la vignette est
+  // recadrée d'après le RATIO DÉCLARÉ, pas d'après le fichier.
+  "/images/hero_gramme_atelier_phone.png": { width: 2752, height: 1536 },
   "/images/import-recettes-photo.jpg": { width: 2000, height: 1493 },
 };
 
@@ -205,7 +205,7 @@ export const siteGraph = {
         "@type": "ImageObject",
         url: `${SITE_URL}/logos/gramme-icon.svg`,
       },
-      image: `${SITE_URL}/images/hero-lifestyle.jpg`,
+      image: `${SITE_URL}/images/hero_gramme_atelier_phone.png`,
       description:
         "Logiciel de gestion et de production pour boulangeries, pâtisseries, chocolateries et glaceries artisanales. Digitalisation des recettes et fiches techniques, coûts matière, planning de production, gestion de stocks, mercuriale, alertes de prix et pilotage des marges en temps réel. Registres d'hygiène (relevés de températures, plan de nettoyage, traçabilité des lots) et étiquetage des allergènes compris. Tout est connecté.",
       email: SITE_EMAIL,

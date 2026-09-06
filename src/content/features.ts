@@ -13,7 +13,11 @@ export type FeatureIcon =
   | "users"
   | "tag"
   | "thermo"
-  | "spark";
+  | "spark"
+  | "flask"
+  | "calendar"
+  | "store"
+  | "euro";
 
 export type Feature = {
   slug: string;
@@ -34,6 +38,25 @@ export type Feature = {
   sections: { title: string; text: string }[];
   faq: { q: string; a: string }[];
 };
+
+/**
+ * Le nombre de modules, écrit en toutes lettres.
+ *
+ * Il était en dur — « Neuf modules » — dans un titre, deux descriptions et un
+ * schéma JSON-LD. Ajouter un module rendait donc quatre phrases fausses, sans
+ * qu'aucun contrôle ne bronche. Il se calcule maintenant, et un test refuse
+ * qu'on dépasse la table.
+ */
+const NOMBRES_EN_LETTRES = [
+  "zéro", "un", "deux", "trois", "quatre", "cinq", "six", "sept", "huit", "neuf", "dix",
+  "onze", "douze", "treize", "quatorze", "quinze", "seize", "dix-sept", "dix-huit", "dix-neuf", "vingt",
+];
+
+export function nombreEnLettres(n: number): string {
+  const mot = NOMBRES_EN_LETTRES[n];
+  if (!mot) throw new Error(`nombreEnLettres : ${n} dépasse la table. L'allonger avant d'ajouter un module.`);
+  return mot;
+}
 
 export const features: Feature[] = [
   {
@@ -406,6 +429,246 @@ export const features: Feature[] = [
     ],
   },
   {
+    slug: "equilibrage-recette",
+    name: "Équilibrage de recette",
+    icon: "flask",
+    summary:
+      "Glaces, sorbets, ganaches et bonbons : Gramme lit la composition de vos matières et vous dit si la recette tient, avant de la couler.",
+    bullets: [
+      "Sucres, matières grasses, extrait sec, POD et PAC calculés depuis vos matières premières",
+      "Une fourchette par indicateur, avec ce qu'un écart provoque en bouche ou en vitrine",
+      "Température de service et courbe de congélation estimées pour les glaces et les sorbets",
+      "Activité de l'eau et conservation indicative pour les ganaches et les bonbons",
+      "Un brouillon « et si » : on change une quantité, tout se recalcule sans toucher à la fiche",
+    ],
+    image: {
+      src: "/images/app/equilibrage.png",
+      alt: "Équilibrage d'une crème glacée dans Gramme : sucres, extrait sec, pouvoir sucrant, pouvoir anticongelant et courbe de congélation",
+    },
+    h1: "Équilibrage de recette pour la glacerie et la chocolaterie",
+    metaTitle: "Équilibrage de recette : glaces, sorbets, ganaches | Gramme",
+    metaDescription:
+      "Équilibrez vos glaces, sorbets, ganaches et bonbons : POD, PAC, extrait sec, activité de l'eau et courbe de congélation calculés à partir de vos matières premières.",
+    keywords: [
+      "équilibrage recette glace",
+      "calcul PAC POD glace",
+      "équilibrage ganache chocolat",
+      "activité de l'eau ganache",
+      "logiciel équilibrage glacier",
+    ],
+    intro:
+      "Une glace trop dure, une ganache qui tranche, un sorbet qui cristallise : ces défauts ne se voient pas sur une fiche technique, ils se lisent dans les rapports entre le sucre, l'eau et la matière grasse. L'équilibrage est le calcul que les glaciers et les chocolatiers font depuis toujours sur un carnet. Gramme le fait à partir de la composition réelle de vos matières, et le refait à chaque fois que vous changez une quantité.",
+    sections: [
+      {
+        title: "Les indicateurs de votre métier, pas des moyennes",
+        text: "Le type de produit change tout : une crème glacée se juge sur ses sucres, son extrait sec dégraissé du lait, son pouvoir sucrant et son pouvoir anticongelant ; une ganache se juge sur son eau, ses matières grasses et son activité de l'eau. Gramme propose le bon jeu de repères d'après la catégorie de la fiche, et affiche pour chacun la fourchette du métier et ce qu'un écart donne concrètement : « trop bas : glace dure et fade », « trop haut : molle et écœurante ».",
+      },
+      {
+        title: "Calculé depuis vos matières, pas depuis une table générique",
+        text: "Chaque matière première porte sa composition : sucres, dont saccharose, dextrose, glucose et inverti, matières grasses, dont beurre de cacao, protéines, extrait sec. Le calcul part de là. Changer de couverture ou passer d'un sucre à un autre déplace les indicateurs immédiatement, parce que c'est votre fiche qui a changé, pas une hypothèse. La part de couverture des matières renseignées est affichée : vous savez sur quoi le calcul s'appuie.",
+      },
+      {
+        title: "La tenue en vitrine se prévoit",
+        text: "Pour une glace ou un sorbet, Gramme estime la température de service, la part d'eau gelée à -11 °C et à -18 °C, et trace la courbe de congélation. Vous voyez tout de suite si le mix tiendra dans votre bac ou s'il sera dur à la sortie. Pour une ganache ou un bonbon, l'activité de l'eau estimée donne une conservation indicative, que vous pouvez corriger avec la mesure de votre appareil, si vous en avez un.",
+      },
+      {
+        title: "Essayer sans rien casser",
+        text: "Le brouillon « et si » recalcule tous les indicateurs pendant que vous déplacez des grammes, sans rien enregistrer. C'est la manière d'apprendre son mix : ajouter trente grammes de dextrose et voir le PAC monter dit plus qu'un tableau. Quand le réglage vous convient, vous l'appliquez à la fiche ; sinon vous fermez, et rien n'a bougé.",
+      },
+    ],
+    faq: [
+      {
+        q: "Comment calculer le PAC et le POD d'une glace ?",
+        a: "Le pouvoir anticongelant (PAC) et le pouvoir sucrant (POD) s'obtiennent en pondérant chaque sucre de la recette par son coefficient propre : le dextrose abaisse davantage le point de congélation que le saccharose, le glucose sucre moins. Gramme fait ce calcul à partir de la composition de vos matières premières et le compare aux repères de la profession, sans que vous ayez à tenir la table.",
+      },
+      {
+        q: "Gramme remplace-t-il un mesureur d'activité de l'eau ?",
+        a: "Non, et il ne le prétend pas. L'activité de l'eau affichée est une estimation calculée d'après les sucres dissous et l'eau de la recette : elle sert à situer une ganache avant de la produire. Si vous mesurez à l'appareil, vous enregistrez la valeur mesurée et c'est elle qui fait foi. La durée de vie d'un produit reste sous la responsabilité de l'atelier, et un test microbiologique tranche.",
+      },
+      {
+        q: "L'équilibrage est-il disponible pour tous les ateliers ?",
+        a: "C'est une fonction que l'on active quand elle sert : un boulanger n'a rien à faire d'une courbe de congélation. Elle s'allume dans les réglages de l'atelier, et l'onglet Équilibrage apparaît alors sur les fiches concernées.",
+      },
+    ],
+  },
+  {
+    slug: "previsionnel-production",
+    name: "Prévisionnel de production",
+    icon: "calendar",
+    summary:
+      "Gramme reconstitue ce que vous avez réellement vendu jour par jour, et propose les quantités de la semaine à venir.",
+    bullets: [
+      "La demande reconstituée à partir des ventes, des pertes et des invendus",
+      "Comparaison à jour de semaine égale, jours fériés et vacances repérés",
+      "Une rupture avant la fermeture ne compte pas comme une petite journée",
+      "Arrondi à votre unité de fabrication : plaques, bacs, moules",
+      "La semaine se prépare en un geste, et reste modifiable ligne par ligne",
+    ],
+    image: {
+      src: "/images/app/previsions.png",
+      alt: "Prévisions de production sur sept jours dans Gramme, produit par produit, avec l'explication de chaque quantité proposée",
+    },
+    h1: "Prévisionnel de production pour boulangerie et pâtisserie",
+    metaTitle: "Prévisionnel de production : quantités à produire | Gramme",
+    metaDescription:
+      "Prévoyez les quantités à produire jour par jour à partir de vos ventes réelles : jours comparables, fériés, ruptures et arrondi à votre unité de fabrication.",
+    keywords: [
+      "prévisionnel de production boulangerie",
+      "prévoir les quantités à produire",
+      "logiciel gestion de production boulangerie",
+      "réduire les invendus boulangerie",
+      "planification production pâtisserie",
+    ],
+    intro:
+      "Combien de baguettes demain ? La réponse se trouve dans ce que vous avez vendu, à condition de savoir la lire. Gramme reconstitue la demande réelle de chaque produit, jour par jour, et propose une quantité pour chacun des sept jours qui viennent, avec la phrase qui explique d'où elle sort.",
+    sections: [
+      {
+        title: "La demande, pas les ventes",
+        text: "Vendre douze pièces ne veut pas dire qu'on en demandait douze. Si le produit était épuisé à onze heures, la demande était plus haute et personne ne le sait. Gramme distingue ce qui a été vendu, ce qui a été perdu, ce qui est revenu et ce qui est resté invendu, et note l'heure d'épuisement quand il y en a une. Une journée écourtée par une rupture n'est plus comptée comme une petite journée : elle est signalée comme incomplète.",
+      },
+      {
+        title: "Un mardi se compare à des mardis",
+        text: "La proposition part des mêmes jours de semaine, sur les semaines précédentes, en écartant les valeurs extrêmes. Les jours fériés sont calculés, pas saisis : le lundi de Pâques, l'Ascension et le 15 août ne se comparent pas à un lundi ordinaire, et la veille d'un jour férié non plus. Les jours de fermeture de votre atelier sont retirés du calcul.",
+      },
+      {
+        title: "Arrondi à ce que vous fabriquez vraiment",
+        text: "On ne coule pas quarante-sept entremets : on remplit trois cadres de vingt. Chaque fiche peut déclarer son unité de fabrication (plaque, bac, moule, cadre), son pas, et une marge de sécurité. La proposition est alors exprimée dans cette unité, avec le détail du calcul en clair : « un besoin de 47 pièces deviendrait 60 (marge de 8, arrondi à 3 bacs de 20) ».",
+      },
+      {
+        title: "Une proposition, pas une décision",
+        text: "Rien n'est envoyé en production sans vous. « Préparer la semaine » crée des fournées prévisionnelles, reconnaissables et modifiables, que vous validez ou corrigez ligne par ligne. Reproposer la semaine ne touche jamais à ce que vous avez déjà planifié à la main : seules les fournées prévisionnelles sont remplacées.",
+      },
+    ],
+    faq: [
+      {
+        q: "Combien de temps faut-il avant que les prévisions soient utiles ?",
+        a: "Il faut de l'historique : quelques semaines de sorties de vitrine suffisent à comparer des jours semblables. Tant qu'un produit n'a pas assez de jours comparables, Gramme le dit au lieu d'inventer un chiffre : un produit sans historique n'a pas de proposition, il a une case vide.",
+      },
+      {
+        q: "Les jours fériés et les vacances sont-ils pris en compte ?",
+        a: "Les jours fériés français sont calculés, y compris ceux qui dépendent de Pâques, et signalés dans la proposition. Les jours d'ouverture de l'atelier sont paramétrables, et les journées de fermeture sont exclues des comparaisons au lieu d'être lues comme des ventes nulles.",
+      },
+      {
+        q: "Est-ce que cela réduit vraiment les invendus ?",
+        a: "Cela rend les invendus visibles et chiffrés, ce qui est la condition pour les réduire. Vous voyez ce qu'un produit a coûté en matière sans être vendu, et vous ajustez la quantité proposée. Gramme ne décide pas à votre place : il vous donne la mesure que le carnet ne donnait pas.",
+      },
+    ],
+  },
+  {
+    slug: "vitrine-ventes-produits",
+    name: "Vitrine & résultat par produit",
+    icon: "store",
+    summary:
+      "Ce que vous avez fabriqué, ce que vous en avez fait, ce que ça a rapporté : le chaînon entre la production et la caisse.",
+    bullets: [
+      "Sorties de vitrine : vendu, perdu, offert, retourné, invendu",
+      "Le stock de produits finis se tient tout seul, lot par lot",
+      "Marge réelle par produit, pas seulement par recette",
+      "Bilan de fin de journée, avec l'heure d'épuisement quand il y a rupture",
+      "Écart avec la caisse signalé, jamais corrigé en silence",
+    ],
+    image: {
+      src: "/images/app/vitrine.png",
+      alt: "Écran Vitrine de Gramme : les produits finis en vitrine, lot par lot, avec les sorties de la journée",
+    },
+    h1: "Vitrine, stock de produits finis et résultat par produit",
+    metaTitle: "Vitrine et marge réelle par produit | Gramme",
+    metaDescription:
+      "Suivez ce qui sort de votre vitrine (vendu, perdu, invendu), tenez le stock de produits finis et lisez la marge réellement dégagée par chaque produit.",
+    keywords: [
+      "suivi des ventes boulangerie",
+      "stock produits finis pâtisserie",
+      "marge réelle par produit",
+      "gestion des invendus boulangerie",
+      "logiciel rentabilité boulangerie",
+    ],
+    intro:
+      "Un logiciel qui sait ce que vous fabriquez et ce que vous encaissez, mais rien entre les deux, laisse passer l'essentiel : on peut vendre un produit à perte pendant six mois sans qu'aucun écran ne le dise. La vitrine est ce chaînon manquant.",
+    sections: [
+      {
+        title: "Ce qui sort, et pourquoi",
+        text: "Chaque sortie porte son motif : vendu, offert, perdu, retourné, invendu en fin de journée. Un produit cassé et un produit vendu ne racontent pas la même chose, et les mélanger fausse tout le reste. La saisie se fait sur le téléphone ou la tablette, au comptoir, en quelques touches.",
+      },
+      {
+        title: "Le stock de produits finis, sans inventaire du soir",
+        text: "Une fournée validée entre en vitrine, une sortie l'en retire : le stock de produits finis se tient de lui-même, lot par lot, avec sa date de fabrication. Vous savez ce qu'il reste, de quand cela date, et ce que cela représente en valeur.",
+      },
+      {
+        title: "La marge réelle, celle qui inclut ce qui n'a pas été vendu",
+        text: "La marge théorique d'une fiche suppose que tout part. Le résultat par produit, lui, rapporte ce qui a été encaissé au coût de tout ce qui a été fabriqué, pertes et invendus compris. C'est ce chiffre-là qui dit si un produit mérite sa place en vitrine.",
+      },
+      {
+        title: "L'écart avec la caisse se dit",
+        text: "Quand le total des sorties ne correspond pas à ce que la caisse a enregistré, Gramme l'affiche au lieu de choisir un chiffre. Un écart est une information : il vient d'une saisie oubliée, d'un produit non référencé ou d'une erreur de caisse, et c'est à vous de trancher.",
+      },
+    ],
+    faq: [
+      {
+        q: "Faut-il saisir chaque vente une par une ?",
+        a: "Non. La vitrine se tient par produit et par lot : on saisit ce qui sort, quand cela sort, en quelques touches, et le bilan de fin de journée solde le reste en invendus. Là où une caisse est connectée, les ventes remontent directement et la saisie ne sert plus qu'aux pertes et aux offerts.",
+      },
+      {
+        q: "Que devient un invendu dans les calculs ?",
+        a: "Il est compté comme fabriqué et non vendu : sa matière pèse sur le résultat du produit, et l'information nourrit le prévisionnel du même jour de la semaine suivante. Un invendu n'est jamais silencieux.",
+      },
+    ],
+  },
+  {
+    slug: "comptabilite-charges",
+    name: "Comptabilité & charges",
+    icon: "euro",
+    summary:
+      "Le journal d'achats, le journal de ventes, la TVA et les charges fixes, dans le format que votre comptable attend.",
+    bullets: [
+      "Journaux d'achats et de ventes par mois, pièces jointes comprises",
+      "Récapitulatif de TVA par taux",
+      "Charges fixes suivies (loyer, énergie, assurance) et reprises dans le coût de revient",
+      "Contrôles avant envoi : ce qui manque est listé, pas deviné",
+      "Le dossier du mois s'exporte d'un bloc",
+    ],
+    image: {
+      src: "/images/app/comptabilite.png",
+      alt: "Écran Comptabilité de Gramme : contrôles du mois, journaux d'achats et de ventes, charges fixes",
+    },
+    h1: "Comptabilité d'une boulangerie : journaux, TVA et charges",
+    metaTitle: "Comptabilité boulangerie : journaux, TVA, charges | Gramme",
+    metaDescription:
+      "Préparez le dossier de votre comptable : journal d'achats, journal de ventes, récapitulatif de TVA, charges fixes et contrôles de ce qui manque.",
+    keywords: [
+      "comptabilité boulangerie",
+      "journal des achats boulangerie",
+      "TVA boulangerie pâtisserie",
+      "charges fixes boulangerie",
+      "dossier comptable artisan",
+    ],
+    intro:
+      "Vos factures sont déjà dans Gramme : elles ont servi à mettre à jour vos prix. Les reprendre une seconde fois pour le comptable est un travail que personne ne devrait refaire. Le mois se ferme donc à partir de ce qui est déjà là.",
+    sections: [
+      {
+        title: "Les journaux se remplissent tout seuls",
+        text: "Chaque facture scannée alimente le journal d'achats du mois, avec son fournisseur, son montant, sa TVA et sa pièce. Les ventes remontent de la même façon. Le récapitulatif de TVA se ventile par taux, sans ressaisie.",
+      },
+      {
+        title: "Les charges fixes ne sont pas un réglage",
+        text: "Le loyer, l'électricité, l'assurance : ce sont des dépenses, elles se lisent à côté des factures qui les justifient, et elles entrent dans le coût de revient de chacune de vos fiches. Elles se saisissent ici, et la quittance se scanne au même endroit.",
+      },
+      {
+        title: "Ce qui manque est dit avant l'envoi",
+        text: "Une facture sans pièce jointe, un mois sans ventes, un fournisseur non rattaché : les contrôles listent ce qui manque avant que le dossier parte. C'est l'aller-retour avec le cabinet qu'on évite, pas la comptabilité qu'on remplace.",
+      },
+    ],
+    faq: [
+      {
+        q: "Gramme remplace-t-il mon logiciel de comptabilité ?",
+        a: "Non. Gramme prépare le dossier : journaux, ventilation de TVA, pièces justificatives et contrôles. Votre comptable garde son outil, et reçoit un mois complet au lieu d'une boîte à chaussures. Des exports vers les outils courants existent.",
+      },
+      {
+        q: "Les charges fixes changent-elles mes coûts de revient ?",
+        a: "Oui, si vous le voulez. Les charges saisies peuvent être réparties sur la production pour donner un coût de revient qui ne s'arrête pas à la matière. Sans elles, le calcul reste celui de la matière et de la main-d'œuvre.",
+      },
+    ],
+  },
+  {
     slug: "gestion-stock",
     name: "Stock & inventaire",
     icon: "box",
@@ -505,6 +768,14 @@ export const features: Feature[] = [
         q: "Puis-je comparer deux fournisseurs sur une même matière première ?",
         a: "Oui. Comme chaque prix d'achat scanné est rattaché à une matière première et à un fournisseur, l'écart et son évolution dans le temps sont visibles depuis la mercuriale.",
       },
+      {
+        q: "Faut-il ressaisir mes fournisseurs un par un ?",
+        a: "Non. Un fournisseur se crée tout seul à la première facture scannée : son nom, ses coordonnées et ses références sont repris de la pièce. Vous corrigez une fiche si elle est incomplète, vous ne la construisez pas.",
+      },
+      {
+        q: "Puis-je voir ce que je dépense chez chacun ?",
+        a: "Oui. Chaque fournisseur porte le détail de ce que vous lui achetez : montant par mois, matières concernées et évolution de ses prix. C'est la base d'une négociation, et de la décision de faire jouer la concurrence sur une matière précise.",
+      },
     ],
   },
   {
@@ -569,3 +840,6 @@ export function getFeature(slug: string): Feature | undefined {
 export function featurePath(slug: string): string {
   return `/fonctionnalites/${slug}`;
 }
+
+/** Le nombre de modules, en toutes lettres, pour les phrases qui l'annoncent. */
+export const nombreModules = nombreEnLettres(features.length);

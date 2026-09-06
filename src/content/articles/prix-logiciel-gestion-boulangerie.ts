@@ -17,7 +17,7 @@ export const articlePrix: Guide = {
   ],
   publishedAt: "2026-08-26",
   updatedAt: "2026-08-26",
-  ogImage: "/images/feature-prix.png",
+  ogImage: "/images/app/accueil-tableau-bord.png",
   summary:
     "Entre 33 € et plus de 240 € HT par mois selon les éditeurs, mais le prix affiché est rarement le prix payé. Les quatre variables qui décident de la facture réelle.",
   intro:

@@ -14,7 +14,7 @@ export const guideHaccp: Guide = {
   ],
   publishedAt: "2026-08-13",
   updatedAt: "2026-08-30",
-  ogImage: "/images/feature-stock.png",
+  ogImage: "/images/app/haccp-temperatures.png",
   summary:
     "Ce que recouvre réellement l'HACCP en boulangerie, ce qu'un logiciel enregistre à votre place, et la ligne que la loi ne laisse déplacer à aucun éditeur : la maîtrise sanitaire reste celle de l'exploitant.",
   intro:

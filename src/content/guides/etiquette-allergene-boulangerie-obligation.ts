@@ -14,7 +14,7 @@ export const guideAllergenes: Guide = {
   ],
   publishedAt: "2026-08-13",
   updatedAt: "2026-08-13",
-  ogImage: "/images/feature-recettes-list.png",
+  ogImage: "/images/app/recette-etiquetage.png",
   summary:
     "Ce que le règlement INCO et le décret français de 2015 imposent aux boulangeries en matière d'information sur les allergènes, pour les produits préemballés comme pour la vente à la coupe.",
   intro:
