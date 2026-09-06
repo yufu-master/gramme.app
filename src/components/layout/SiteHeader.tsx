@@ -130,6 +130,9 @@ export function SiteHeader() {
             alt="Gramme"
             width={2000}
             height={1879}
+            // Sans `sizes`, next/image suppose une image pleine largeur et
+            // demande la variante 3840 px pour un logo de 36 px de haut.
+            sizes="40px"
             className="h-8 w-auto sm:h-9"
             priority
           />

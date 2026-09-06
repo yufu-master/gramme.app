@@ -2,7 +2,10 @@ import type { Guide } from "@/content/guides/types";
 
 export const articlePrix: Guide = {
   slug: "prix-logiciel-gestion-boulangerie",
-  title: "Prix d'un logiciel de gestion boulangerie",
+  // Pas « Prix d'un logiciel de gestion boulangerie » : c'est le titre de
+  // /tarifs, et deux pages au même titre se disputent la même requête. La
+  // question, elle, est celle que tape quelqu'un qui compare avant d'acheter.
+  title: "Combien coûte un logiciel de gestion boulangerie ?",
   description:
     "Les tarifs publics du marché, et les quatre lignes qui déplacent vraiment l'addition : documents inclus, modules, utilisateurs, installation.",
   keywords: [

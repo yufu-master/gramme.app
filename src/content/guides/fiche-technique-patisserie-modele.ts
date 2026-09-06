@@ -31,7 +31,7 @@ export const guideFicheTechniqueModele: Guide = {
   slug: "fiche-technique-patisserie-modele",
   title: "Modèle de fiche technique de pâtisserie à copier",
   description:
-    "Un modèle de fiche technique de pâtisserie prêt à copier : rendement, composants, sous-recettes, pertes, procédé et bloc économique. Avec un exemple complet chiffré.",
+    "Un modèle de fiche technique de pâtisserie prêt à copier : rendement, composants, sous-recettes, pertes, procédé et bloc économique, avec un exemple chiffré.",
   keywords: [
     "fiche technique pâtisserie modèle",
     "modèle fiche technique cuisine",

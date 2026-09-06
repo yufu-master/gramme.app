@@ -29,7 +29,9 @@ export const guideScannerFiches: Guide = {
   ],
   publishedAt: "2026-08-11",
   updatedAt: "2026-08-11",
-  ogImage: "/images/boulangere_gramme_use.png",
+  // Pas `boulangere_gramme_use.png` : 6,4 Mo, au-dessus de ce que LinkedIn
+  // accepte pour une vignette, qui sortait donc sans image.
+  ogImage: "/images/feature-recettes-list.png",
   summary:
     "Méthode pour photographier un cahier de recettes et obtenir des fiches techniques classées, avec sous-recettes et coûts calculés.",
   intro:

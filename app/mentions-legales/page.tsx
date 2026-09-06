@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { EDITEUR, SITE_EMAIL, SITE_URL, SUPPORT_EMAIL, webPageSchema } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Mentions légales",
+  title: "Mentions légales et éditeur du site",
   description:
     "Mentions légales de Gramme : éditeur, hébergeur, directeur de la publication et coordonnées de la société YUFU CAPITAL.",
   alternates: { canonical: `${SITE_URL}/mentions-legales` },

@@ -107,8 +107,26 @@ export function imageSociale(
   src = "/images/app/mercuriale.png",
   alt = "La mercuriale de Gramme : chaque matière première avec son prix de référence, son fournisseur et sa tendance",
 ) {
-  return [{ url: src, width: 1920, height: 1200, alt }];
+  const { width, height } = DIMENSIONS_IMAGES[src] ?? { width: 1920, height: 1200 };
+  return [{ url: src, width, height, alt }];
 }
+
+/**
+ * Les dimensions réelles des images qui ne font pas 1920 × 1200.
+ *
+ * Les captures de `public/images/app/` sont toutes au même format ; les
+ * autres non, et c'est exactement pour elles que le ratio déclaré comptait.
+ * Une image absente d'ici est supposée 1920 × 1200 : ajouter ici toute
+ * nouvelle image sociale d'un autre format.
+ */
+const DIMENSIONS_IMAGES: Record<string, { width: number; height: number }> = {
+  "/images/hero-lifestyle.jpg": { width: 2400, height: 1792 },
+  "/images/feature-recette-detail.png": { width: 2880, height: 1620 },
+  "/images/feature-prix.png": { width: 2880, height: 1620 },
+  "/images/feature-stock.png": { width: 2880, height: 1620 },
+  "/images/feature-recettes-list.png": { width: 2880, height: 1620 },
+  "/images/import-recettes-photo.jpg": { width: 2000, height: 1493 },
+};
 
 export const faqItems = [
   {
@@ -236,11 +254,10 @@ export const siteGraph = {
       description:
         "Logiciel de gestion et de production boulangerie et pâtisserie : digitalisation des recettes, fiches techniques, factures, gestion de stocks, planning de production, alertes de prix et marges en temps réel, au gramme près.",
       publisher: { "@id": `${SITE_URL}/#organization` },
-      potentialAction: {
-        "@type": "SearchAction",
-        target: `${SITE_URL}/contact?q={search_term_string}`,
-        "query-input": "required name=search_term_string",
-      },
+      // Pas de `SearchAction` : le site n'a pas de recherche. Il en déclarait
+      // une qui menait au formulaire de contact avec le terme cherché en
+      // paramètre — Google teste ces cibles, et une action qui ne fait pas ce
+      // qu'elle annonce est le genre de balisage qui fait douter du reste.
     },
     {
       "@type": "SoftwareApplication",

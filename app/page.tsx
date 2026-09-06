@@ -40,8 +40,9 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/images/hero-lifestyle.jpg",
-        width: 1200,
-        height: 630,
+        // Dimensions réelles du fichier : le ratio déclaré décide du recadrage.
+        width: 2400,
+        height: 1792,
         alt: "Gramme, application de gestion pour boulangers et pâtissiers",
       },
     ],

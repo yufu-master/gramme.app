@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getAllGuideSlugs, getGuideBySlug } from "@/content/guides";
 import { articleSchema, guideFaqSchema, howToSchema } from "@/lib/guides";
-import { breadcrumbSchema } from "@/lib/seo";
+import { breadcrumbSchema, imageSociale } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       publishedTime: guide.publishedAt,
       modifiedTime: guide.updatedAt,
       authors: ["Jeremy"],
-      images: [{ url: guide.ogImage, alt: guide.title }],
+      images: imageSociale(guide.ogImage, guide.title),
     },
     twitter: {
       card: "summary_large_image",

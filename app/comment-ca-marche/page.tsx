@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, webPageSchema, imageSociale } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Comment ça marche",
+  title: "Comment ça marche : de la facture à la marge",
   description:
     "De vos recettes à vos marges en sept étapes : import, factures, production, stock, marges, registres d'hygiène et étiquettes.",
   alternates: {

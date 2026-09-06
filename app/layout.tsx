@@ -25,12 +25,14 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
+  // Pas de `languages` ici : dans l'App Router, une page qui redéfinit
+  // `canonical` REMPLACE tout le bloc `alternates`, donc le `hreflang` posé
+  // dans le gabarit ne sortait que sur les pages qui n'en avaient pas — soit
+  // aucune, mesuré le 03/09/2026 sur les 45 pages du sitemap. Un site
+  // monolingue n'en a pas besoin ; un hreflang présent sur deux pages sur
+  // quarante-cinq est pire qu'aucun.
   alternates: {
     canonical: "https://gramme.app",
-    languages: {
-      fr: "https://gramme.app",
-      "x-default": "https://gramme.app",
-    },
   },
   openGraph: {
     title: "Gramme | Logiciel gestion boulangerie & pâtisserie",
@@ -43,18 +45,24 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/images/hero-lifestyle.jpg",
-        width: 1200,
-        height: 630,
+        // Les dimensions réelles du fichier (2400 × 1792), pas celles qu'on
+        // aimerait : Facebook et LinkedIn recadrent d'après le ratio DÉCLARÉ.
+        // Annoncé 1200 × 630, l'aperçu sortait rogné.
+        width: 2400,
+        height: 1792,
         alt: "Gramme, logiciel de gestion pour boulangers et pâtissiers",
       },
     ],
   },
+  // Ni titre ni description ici : un bloc `twitter` du gabarit est hérité EN
+  // ENTIER par toute page qui n'en déclare pas, et la plupart n'en déclarent
+  // pas. Résultat mesuré : « Gramme | Logiciel gestion boulangerie » comme
+  // titre de partage sur la page des tarifs, sur chaque page de fonctionnalité
+  // et sur les trois comparatifs. Sans titre ici, Next reprend le titre et la
+  // description de la page. L'image, elle, est reprise de `openGraph` quand
+  // une page en déclare une.
   twitter: {
     card: "summary_large_image",
-    title: "Gramme | Logiciel gestion boulangerie",
-    description:
-      "Recettes digitalisées, fiches techniques, alertes de prix, stocks, planning de production et marges en temps réel, réunis dans un seul outil.",
-    images: ["/images/hero-lifestyle.jpg"],
   },
   robots: {
     index: true,

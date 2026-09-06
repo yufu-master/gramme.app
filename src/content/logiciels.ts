@@ -171,7 +171,7 @@ export const pagesLogiciel: PageLogiciel[] = [
     nom: "Logiciel coût de revient",
     metaTitle: "Logiciel de calcul du coût de revient",
     metaDescription:
-      "Calculer le coût de revient d'une recette de boulangerie ou de pâtisserie : sous-recettes en cascade, rendement réel, pertes et prix tenus par vos factures.",
+      "Calculer le coût de revient d'une recette de boulangerie ou de pâtisserie : sous-recettes en cascade, rendement réel, pertes, prix tenus par vos factures.",
     keywords: [
       "logiciel coût de revient",
       "logiciel calcul coût de revient recette",
@@ -465,7 +465,7 @@ export const pagesLogiciel: PageLogiciel[] = [
     nom: "Scan des factures",
     metaTitle: "Scanner ses factures fournisseurs",
     metaDescription:
-      "Photographier une facture fournisseur pour mettre à jour ses prix d'achat : lecture des lignes, rapprochement avec vos matières, historique daté par facture.",
+      "Photographier une facture fournisseur pour mettre à jour ses prix d'achat : lecture des lignes, rapprochement avec vos matières, historique daté.",
     keywords: [
       "scanner factures fournisseurs",
       "logiciel scan facture fournisseur",

@@ -6,7 +6,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, webPageSchema, SITE_URL } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Qui a créé Gramme",
+  title: "Qui a créé Gramme : un chef et un entrepreneur",
   description:
     "Gramme est né dans un laboratoire, pas dans un bureau. L'histoire, l'équipe et ce que nous refusons de faire dans un logiciel de gestion.",
   keywords: [

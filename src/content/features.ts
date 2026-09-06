@@ -117,7 +117,7 @@ export const features: Feature[] = [
     h1: "Fiches techniques et coût de revient",
     metaTitle: "Fiche technique et coût de revient | Gramme",
     metaDescription:
-      "Créez vos fiches techniques de boulangerie et pâtisserie dans Gramme : coût de revient, gestion des pertes, marges par recette et impression pour le laboratoire.",
+      "Créez vos fiches techniques de boulangerie et pâtisserie : coût de revient, gestion des pertes, marges par recette et impression pour le laboratoire.",
     keywords: [
       "fiche technique boulangerie",
       "fiche technique pâtisserie",
@@ -477,7 +477,7 @@ export const features: Feature[] = [
     h1: "Carnet fournisseurs pour boulangerie et pâtisserie",
     metaTitle: "Gestion des fournisseurs boulangerie | Gramme",
     metaDescription:
-      "Centralisez vos fournisseurs dans Gramme : coordonnées, produits affiliés, volume d'achat estimé et lien direct avec la mercuriale et les factures scannées.",
+      "Centralisez vos fournisseurs : coordonnées, produits affiliés, volume d'achat estimé et lien direct avec la mercuriale et les factures scannées.",
     keywords: [
       "gestion fournisseurs boulangerie",
       "carnet fournisseurs",

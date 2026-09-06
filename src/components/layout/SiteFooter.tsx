@@ -35,6 +35,7 @@ export function SiteFooter() {
               alt=""
               width={2000}
               height={1879}
+              sizes="30px"
               className="h-7 w-auto"
             />
             <Image
@@ -42,6 +43,7 @@ export function SiteFooter() {
               alt="Gramme"
               width={2000}
               height={371}
+              sizes="110px"
               className="h-5 w-auto"
             />
           </Link>

@@ -14,7 +14,9 @@ export const articleTelephone: Guide = {
   ],
   publishedAt: "2026-08-26",
   updatedAt: "2026-08-26",
-  ogImage: "/images/app/accueil-atelier-telephone.png",
+  // La capture téléphone (416 × 900) est en portrait : en vignette de partage,
+  // il n'en restait qu'une bande. La capture atelier est au bon format.
+  ogImage: "/images/app/accueil-atelier.png",
   summary:
     "La question de l'appareil paraît secondaire. C'est en réalité celle qui décide si un outil de gestion est adopté ou abandonné dans les trois mois.",
   intro:

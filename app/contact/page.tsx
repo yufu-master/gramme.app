@@ -47,6 +47,20 @@ export default function ContactPage() {
       />
       <main className="mx-auto w-full max-w-6xl flex-1 px-4 pb-24 pt-6 sm:px-5 sm:pt-8 lg:pb-16">
         <Breadcrumbs currentLabel="Contact" />
+        {/* Le titre est ICI, dans la page serveur, et pas dans le formulaire :
+            celui-ci lit `useSearchParams`, donc Next sert son repli Suspense
+            dans le HTML et tout ce qu'il contient, h1 compris, n'existait que
+            pour un navigateur. Mesuré le 03/09/2026 : la page était la seule du
+            site sans h1 pour un robot. */}
+        <header className="mt-6">
+          <h1 className="text-2xl font-black tracking-tight text-[#264021] sm:text-3xl">
+            Contact : demandez une démonstration
+          </h1>
+          <p className="mt-2 max-w-2xl text-sm text-[var(--muted-foreground)] sm:text-base">
+            Une heure en visio, avec vos propres fiches et une de vos factures. Réponse sous quatre
+            heures ouvrées.
+          </p>
+        </header>
         <div className="mt-6">
           <Suspense fallback={<div className="h-96 animate-pulse rounded-3xl bg-[#f6fbf2]" aria-hidden />}>
             <ContactPageContent />

@@ -179,8 +179,21 @@ export function getRouteByPath(path: string): SiteRoute | undefined {
   return siteRoutes.find((r) => r.path === normalized);
 }
 
+/**
+ * La date de dernière modification des pages fixes du site.
+ *
+ * Elle valait `new Date()` : chaque déploiement datait les 45 pages de
+ * l'instant du build, y compris les CGV ou les mentions légales qui n'avaient
+ * pas bougé depuis des mois. Un `lastmod` qui change à chaque build sans que
+ * le contenu change est un signal que Google apprend à ignorer, et il
+ * l'ignore alors aussi le jour où une page change vraiment. À avancer à la
+ * main quand une page fixe est réécrite ; les guides et les articles portent
+ * leur propre `updatedAt`.
+ */
+export const DERNIERE_MISE_A_JOUR_PAGES_FIXES = "2026-09-03";
+
 export function sitemapEntries(baseUrl: string = SITE_URL): MetadataRoute.Sitemap {
-  const lastModified = new Date();
+  const lastModified = new Date(DERNIERE_MISE_A_JOUR_PAGES_FIXES);
   const staticEntries = siteRoutes
     .filter((r) => r.sitemap)
     .map((r) => ({

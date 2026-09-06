@@ -109,7 +109,7 @@ export default function ContactPageContent() {
       <section className="overflow-hidden rounded-3xl border border-[#dcead2] bg-white shadow-[0_20px_70px_rgba(58,92,39,0.08)]">
         <div className="grid md:grid-cols-2">
           <div className="bg-[#264021] p-8 text-white sm:p-10 md:p-12">
-            <h1 className="text-3xl font-black md:text-4xl">Contactez l&apos;équipe GRAMME</h1>
+            <h2 className="text-3xl font-black md:text-4xl">Contactez l&apos;équipe GRAMME</h2>
             <p className="mt-5 text-white/85">
               Demandez une démonstration du logiciel de gestion boulangerie &amp; pâtisserie Gramme, ou posez vos questions sur les tarifs et le déploiement.
             </p>
