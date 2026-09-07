@@ -207,9 +207,10 @@ export const pagesLogiciel: PageLogiciel[] = [
       },
     ],
     liens: [
+      { href: "/guides/activite-eau-ganache-conservation", label: "L'activité de l'eau d'une ganache, et sa conservation" },
+      { href: "/guides/equilibrage-recette-comment-calculer", label: "Équilibrage de recette : comment le calculer" },
       { href: "/logiciel-cout-de-revient", label: "Le coût de revient, calculé une fois pour toutes" },
       { href: "/logiciel-patisserie", label: "Le logiciel pensé pour un laboratoire de pâtisserie" },
-      { href: "/tarifs", label: "Les tarifs et ce que chaque offre ouvre" },
     ],
   },
 
@@ -323,9 +324,10 @@ export const pagesLogiciel: PageLogiciel[] = [
       },
     ],
     liens: [
+      { href: "/guides/calcul-pac-pod-glace", label: "Calculer le PAC et le POD d'une glace" },
+      { href: "/guides/equilibrage-recette-comment-calculer", label: "Équilibrage de recette : comment le calculer" },
       { href: "/logiciel-cout-de-revient", label: "Le coût de revient, calculé une fois pour toutes" },
       { href: "/logiciel-fiches-techniques", label: "Vos fiches techniques, sans les retaper" },
-      { href: "/tarifs", label: "Les tarifs et ce que chaque offre ouvre" },
     ],
   },
 

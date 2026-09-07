@@ -1,8 +1,11 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { publishedArticles } from "@/content/articles";
 import { publishedGuides } from "@/content/guides";
 import { features } from "@/content/features";
 import { siteRoutes } from "@/lib/routes";
+import { pagesLogiciel } from "@/content/logiciels";
 
 /**
  * Le maillage interne, dans les deux sens.
@@ -77,5 +80,65 @@ describe("le maillage remonte, et il ne mène nulle part de faux", () => {
     for (const a of publishedArticles) {
       expect(SLUGS_ARTICLES.has(`/articles/${a.relatedSlug}`), `${a.slug} → ${a.relatedSlug}`).toBe(true);
     }
+  });
+});
+
+/**
+ * Une page métier mène toujours à un contenu qui l'approfondit.
+ *
+ * Relevé le 07/09/2026, après que Clermont a écrit « je vois pas les nouveaux
+ * articles sur l'équilibrage de recettes » : les guides existaient et étaient
+ * au sitemap, mais `/logiciel-chocolaterie` et `/logiciel-glacerie` étaient
+ * les DEUX SEULES pages métier à ne lier aucun guide ni aucun article. Or ce
+ * sont exactement les pages où atterrit quelqu'un qui cherche l'équilibrage :
+ * il lisait la page, ne trouvait rien à lire ensuite, et repartait.
+ *
+ * Une page qui vend un sujet doit mener à ce qu'on a écrit dessus. C'est vrai
+ * pour le lecteur, et c'est vrai pour un moteur qui mesure la profondeur d'un
+ * site à la façon dont ses pages se répondent.
+ */
+describe("chaque page métier mène à un contenu de fond", () => {
+  it("lie au moins un guide ou un article", () => {
+    const sansFond = pagesLogiciel
+      .filter((p) => !p.liens.some((l) => l.href.startsWith("/guides/") || l.href.startsWith("/articles/")))
+      .map((p) => p.path);
+    expect(
+      sansFond,
+      "pages métier qui ne mènent à aucun guide ni article : leur en écrire un, ou relier un existant",
+    ).toEqual([]);
+  });
+});
+
+/**
+ * `llms.txt` est une liste tenue à la main, et elle a déjà divergé.
+ *
+ * Ce fichier est ce que lisent les moteurs génératifs pour savoir ce que le
+ * site contient : il pèse plus qu'une page de plus. Le 07/09/2026, trois
+ * guides publiés n'y figuraient pas, ce qui les rendait invisibles là où ils
+ * comptaient le plus. C'est la même faute que le sitemap, un cran plus loin :
+ * un catalogue parallèle finit toujours par diverger.
+ */
+describe("llms.txt annonce ce que le site publie", () => {
+  const texte = readFileSync(join(__dirname, "..", "..", "public", "llms.txt"), "utf8");
+
+  it("cite chaque guide publié", () => {
+    const absents = publishedGuides.filter((g) => !texte.includes(`/guides/${g.slug}`)).map((g) => g.slug);
+    expect(absents, "guides publiés absents de public/llms.txt").toEqual([]);
+  });
+
+  it("cite chaque article publié", () => {
+    const absents = publishedArticles.filter((a) => !texte.includes(`/articles/${a.slug}`)).map((a) => a.slug);
+    expect(absents, "articles publiés absents de public/llms.txt").toEqual([]);
+  });
+
+  it("cite chaque page métier", () => {
+    const absents = pagesLogiciel.filter((p) => !texte.includes(p.path)).map((p) => p.path);
+    expect(absents, "pages métier absentes de public/llms.txt").toEqual([]);
+  });
+
+  it("ne cite aucun guide qui n'existe plus", () => {
+    const cites = [...texte.matchAll(/gramme\.app\/guides\/([a-z0-9-]+)/g)].map((m) => m[1]);
+    const connus = new Set(publishedGuides.map((g) => g.slug));
+    expect([...new Set(cites)].filter((c) => !connus.has(c)), "cités dans llms.txt sans page").toEqual([]);
   });
 });

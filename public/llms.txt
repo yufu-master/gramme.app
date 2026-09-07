@@ -72,6 +72,10 @@ Gramme n'est pas un ERP rétréci pour les artisans : il a été conçu dans l'a
 - [Logiciel pâtisserie](https://gramme.app/logiciel-patisserie) : sous-recettes en cascade, coût de revient à l'entremets, pertes de parage
 - [Logiciel chocolaterie](https://gramme.app/logiciel-chocolaterie) : coût au bonbon emballage compris, activité de l'eau d'une ganache par la formule de Grover, allergènes propagés, étiquettes de boîte au millimètre
 - [Logiciel glacerie](https://gramme.app/logiciel-glacerie) : équilibrage d'un mix (extrait sec, matières grasses, pouvoir sucrant et anticryoscopique), courbe de congélation, température de service, et les dix dénominations du code des pratiques loyales des glaces
+- [Logiciel de coût de revient](https://gramme.app/logiciel-cout-de-revient) : le coût d'une fiche recalculé à chaque facture, pertes et sous-recettes comprises, et la marge qui suit
+- [Logiciel de fiches techniques](https://gramme.app/logiciel-fiches-techniques) : un répertoire de fiches tenues à jour toutes seules, imprimables pour le laboratoire
+- [Logiciel de relevés de température](https://gramme.app/logiciel-releves-temperature) : relevés par enceinte, actions correctives, registre non réinscriptible
+- [Logiciel de scan de factures](https://gramme.app/logiciel-scan-factures) : lecture automatisée des factures fournisseurs, prix ramené au kilo, alerte sur les recettes touchées
 - [Tarifs](https://gramme.app/tarifs) : prix, offres Starter et Pro, installation accompagnée
 - [Comment ça marche](https://gramme.app/comment-ca-marche) : parcours en 5 étapes
 - [À propos](https://gramme.app/a-propos-de-gramme) : l'histoire de Gramme, née de la rencontre entre Jeremy (chef pâtissier, R&D) et Clermont Fu (entrepreneur)
@@ -96,6 +100,9 @@ Gramme n'est pas un ERP rétréci pour les artisans : il a été conçu dans l'a
 
 ## Guides publiés
 
+- [Équilibrage de recette : comment le calculer](https://gramme.app/guides/equilibrage-recette-comment-calculer) : ce que mesure l'équilibrage, les fourchettes d'une crème glacée, d'un sorbet, d'une ganache et d'un bonbon, la méthode complète sur un mix de 2 kg.
+- [Calculer le PAC et le POD d'une glace](https://gramme.app/guides/calcul-pac-pod-glace) : pouvoir anticongelant et pouvoir sucrant, table des coefficients par sucre (saccharose 100, dextrose 70/190, inverti 130/190…), calcul ligne à ligne, conversion du PAC en température de service.
+- [Activité de l'eau d'une ganache et durée de conservation](https://gramme.app/guides/activite-eau-ganache-conservation) : seuils de 0,70 à 0,90 et conservation indicative, les cinq leviers pour faire baisser l'Aw, ce qui ne s'écrit pas sur une étiquette.
 - [Calculer le coût de revient d'un produit de boulangerie](https://gramme.app/guides/calcul-cout-de-revient-boulangerie) : méthode en 5 étapes, exemple chiffré d'une baguette tradition, taux de marque, les 4 erreurs classiques.
 - [Modèle de fiche technique de pâtisserie](https://gramme.app/guides/fiche-technique-patisserie-modele) : les 6 blocs d'une fiche utilisable, gabarit à recopier, exemple complet chiffré (tarte au citron meringuée).
 - [Allergènes en boulangerie : ce que la réglementation impose](https://gramme.app/guides/etiquette-allergene-boulangerie-obligation) : règlement INCO 1169/2011, décret n° 2015-447, les 14 allergènes, règles pour la vente non préemballée.
