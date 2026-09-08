@@ -20,7 +20,7 @@ const SUPABASE_ANON_KEY =
   process.env.NEXT_PUBLIC_GRAMME_SUPABASE_ANON_KEY ||
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImZlYnlhaXh2d2ZweWl4a3d1YWp3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3Njk4MDI0NDksImV4cCI6MjA4NTM3ODQ0OX0.r7OLBEVsdgMQgc0gRd9R5g4pLttsnpylwWvZCbPbiXc";
 
-const PUBLIC_ACTIONS = ["resolve", "save", "upload-url", "delete-file", "submit"] as const;
+const PUBLIC_ACTIONS = ["resolve", "save", "upload-url", "delete-file", "submit", "terminer"] as const;
 type PublicAction = (typeof PUBLIC_ACTIONS)[number];
 
 export async function POST(request: Request) {

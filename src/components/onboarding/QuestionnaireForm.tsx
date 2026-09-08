@@ -24,6 +24,7 @@ type Fichier = {
 
 type ResolveResponse = {
   ok?: boolean;
+  termine?: boolean;
   error?: string;
   soumis?: boolean;
   expire_le?: string;
@@ -53,6 +54,11 @@ export function QuestionnaireForm({ token }: { token: string }) {
   const [loading, setLoading] = useState(true);
   const [fatal, setFatal] = useState<string | null>(null);
   const [submitted, setSubmitted] = useState(false);
+  /* Le client a déclaré avoir fini d'envoyer. Signal pour l'équipe, jamais un
+     verrou : il peut continuer à déposer, et le bouton se propose à nouveau. */
+  const [termine, setTermine] = useState(false);
+  const [envoiTermine, setEnvoiTermine] = useState(false);
+  const [erreurTermine, setErreurTermine] = useState<string | null>(null);
   const [stepIndex, setStepIndex] = useState(0);
   const [reponses, setReponses] = useState<Reponses>({});
   const [fichiers, setFichiers] = useState<Fichier[]>([]);
@@ -93,6 +99,11 @@ export function QuestionnaireForm({ token }: { token: string }) {
         if (cancelled) return;
         if (data.soumis) {
           setSubmitted(true);
+          setTermine(Boolean(data.termine));
+          /* Les documents restent listés APRÈS l'envoi : la page ne se ferme
+             plus, elle continue d'accepter des dépôts. Sans cette ligne, le
+             client revenait sur une page vide et croyait avoir tout perdu. */
+          setFichiers(data.fichiers ?? []);
         } else {
           const base: Reponses = { ...(data.reponses ?? {}) };
           const prefill = data.prefill ?? {};
@@ -212,18 +223,112 @@ export function QuestionnaireForm({ token }: { token: string }) {
   }
 
   if (submitted) {
+    /*
+     * Le questionnaire est envoyé, mais la page reste OUVERTE aux documents.
+     *
+     * Relevé le 08/09/2026 : une cliente a déposé vingt-cinq photos de
+     * recettes, cliqué « Envoyer », et s'est retrouvée devant un mur alors
+     * qu'elle photographiait encore ses classeurs. Son lien était pourtant
+     * vivant. « Envoyer » se lit « j'envoie ce lot », pas « je n'ai plus rien
+     * à envoyer » : une reprise de données dure des jours.
+     *
+     * Les réponses, elles, restent figées : c'est sur elles qu'on dimensionne
+     * la mise en service.
+     */
+    const etapeDocuments = ONBOARDING_STEPS.find((e) => e.id === "fichiers");
+    const champsDocuments = (etapeDocuments?.fields ?? []).filter(
+      (f): f is Extract<Field, { kind: "files" }> => f.kind === "files",
+    );
+
     return (
-      <div className="rounded-3xl border border-[#dcead2] bg-white p-6 sm:p-8">
-        <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#6e9f55]">C&apos;est envoyé</p>
-        <h2 className="mt-3 text-2xl font-bold text-[#27421f] md:text-3xl">Merci, tout est bien arrivé.</h2>
-        <p className="mt-4 leading-relaxed text-[#4d6952]">
-          Nous préparons votre compte avec ces éléments avant notre rendez-vous. Si un document manque ou
-          si un chiffre a changé, écrivez-nous simplement à{" "}
-          <a href="mailto:bonjour@gramme.app" className="font-semibold text-[#355329] underline">
-            bonjour@gramme.app
-          </a>
-          .
-        </p>
+      <div className="space-y-6">
+        <div className="rounded-3xl border border-[#dcead2] bg-white p-6 sm:p-8">
+          <p className="text-xs font-bold uppercase tracking-[0.14em] text-[#6e9f55]">C&apos;est envoyé</p>
+          <h2 className="mt-3 text-2xl font-bold text-[#27421f] md:text-3xl">Merci, tout est bien arrivé.</h2>
+          <p className="mt-4 leading-relaxed text-[#4d6952]">
+            Nous préparons votre compte avec ces éléments avant notre rendez-vous. Vos réponses sont
+            enregistrées, vous n&apos;avez plus à y revenir.
+          </p>
+          <p className="mt-3 leading-relaxed text-[#4d6952]">
+            <strong className="font-semibold text-[#355329]">
+              Ce lien reste le vôtre : vous pouvez continuer à ajouter des documents ci-dessous, autant de
+              fois que vous voulez.
+            </strong>{" "}
+            Prenez le temps qu&apos;il faut, photographiez vos classeurs au fur et à mesure. Rien ne se perd
+            entre deux visites.
+          </p>
+          <p className="mt-3 text-sm text-[#4d6952]">
+            Une question, un chiffre qui a changé ?{" "}
+            <a href="mailto:bonjour@gramme.app" className="font-semibold text-[#355329] underline">
+              bonjour@gramme.app
+            </a>
+          </p>
+        </div>
+
+        {champsDocuments.length ? (
+          <div className="space-y-4">
+            <h3 className="text-lg font-bold text-[#27421f]">Ajouter des documents</h3>
+            {champsDocuments.map((champ) => (
+              <FileField
+                key={champ.name}
+                field={champ}
+                token={token}
+                fichiers={fichiers.filter((f) => f.categorie === champ.categorie)}
+                setFichiers={setFichiers}
+              />
+            ))}
+          </div>
+        ) : null}
+
+        {/* « J'ai tout envoyé » ne ferme rien : il prévient l'équipe qu'elle
+            peut traiter. Le dépôt reste ouvert juste au-dessus, et le bouton
+            revient si le client ajoute autre chose. */}
+        <div className="rounded-3xl border border-[#dcead2] bg-[#f9fcf6] p-6 sm:p-8">
+          {termine ? (
+            <>
+              <p className="text-sm font-semibold text-[#355329]">
+                Merci, nous avons noté que vous aviez terminé.
+              </p>
+              <p className="mt-2 text-sm text-[#4d6952]">
+                Nous préparons votre compte. Si vous retrouvez un document, vous pouvez toujours
+                l&apos;ajouter ci-dessus : rien n&apos;est fermé.
+              </p>
+              <button
+                type="button"
+                onClick={() => setTermine(false)}
+                className="mt-3 text-sm font-semibold text-[#355329] underline underline-offset-2"
+              >
+                J&apos;ai encore quelque chose à envoyer
+              </button>
+            </>
+          ) : (
+            <>
+              <p className="text-sm text-[#4d6952]">
+                Prenez le temps qu&apos;il faut. Quand vous n&apos;avez plus rien à nous envoyer,
+                dites-le nous : nous saurons que nous pouvons commencer.
+              </p>
+              <button
+                type="button"
+                disabled={envoiTermine}
+                onClick={async () => {
+                  setEnvoiTermine(true);
+                  try {
+                    await api({ action: "terminer", token });
+                    setTermine(true);
+                  } catch (e) {
+                    setErreurTermine(e instanceof Error ? e.message : "Impossible d'enregistrer.");
+                  } finally {
+                    setEnvoiTermine(false);
+                  }
+                }}
+                className="mt-4 rounded-xl bg-[#264021] px-5 py-3 text-sm font-semibold text-white hover:bg-[#355329] disabled:opacity-60"
+              >
+                {envoiTermine ? "Enregistrement…" : "J'ai tout envoyé"}
+              </button>
+            </>
+          )}
+          {erreurTermine ? <p className="mt-3 text-sm text-[#b3261e]">{erreurTermine}</p> : null}
+        </div>
       </div>
     );
   }
