@@ -81,7 +81,16 @@ async function adresses() {
       .filter((e) => !depuis || !e.lastModified || new Date(e.lastModified) >= depuis)
       .map((e) => e.url);
   }
-  // Repli : le sitemap servi par le site construit.
+  // Repli : le sitemap servi par le site DÉJÀ EN LIGNE.
+  //
+  // Il est annoncé bruyamment, parce qu'il a une conséquence : ce sitemap est
+  // celui du déploiement PRÉCÉDENT. Une page toute neuve n'y figure pas encore,
+  // et elle ne sera donc annoncée qu'au déploiement suivant. Le repli sauve
+  // l'essentiel (les adresses existantes) mais il perd exactement ce à quoi
+  // sert IndexNow. La cause habituelle est une version de Node trop ancienne
+  // pour lire un fichier `.ts` : c'est réparable, et ça vaut la peine.
+  console.log("Attention : `src/lib/routes.ts` n'a pas pu être lu, repli sur le sitemap en ligne.");
+  console.log("Les pages créées par ce déploiement ne seront annoncées qu'au suivant.");
   const reponse = await fetch(`${SITE}/sitemap.xml`);
   if (!reponse.ok) throw new Error(`sitemap illisible (${reponse.status})`);
   const xml = await reponse.text();
@@ -89,6 +98,14 @@ async function adresses() {
 }
 
 async function principal() {
+  // Sur Vercel, une préversion ne doit RIEN annoncer : elle construit les mêmes
+  // adresses de production, donc elle annoncerait des pages qu'elle ne sert
+  // pas, et elle consommerait le quota du protocole à chaque branche poussée.
+  if (process.env.VERCEL && process.env.VERCEL_ENV !== "production") {
+    console.log(`Moteurs NON prévenus : déploiement de préversion (${process.env.VERCEL_ENV}).`);
+    return;
+  }
+
   const { valeur, raison } = cle();
   if (!valeur) {
     console.log(`Moteurs NON prévenus : ${raison}.`);

@@ -89,16 +89,40 @@ le partagent. Google ne le rejoint pas, mais **Bing alimente une partie des
 réponses de Copilot et de ChatGPT**, ce qui compte autant que le classement pour
 ce site.
 
-**Mise en service, une seule fois** (elle n'est pas faite, elle demande de
-poser une variable) :
+**Mise en service : faite le 10/09/2026.**
 
-1. Choisir une clé de 32 caractères hexadécimaux.
-2. Créer `public/<clé>.txt` dont le contenu est exactement cette clé.
-3. Poser la même valeur dans `INDEXNOW_CLE`, en local et dans les variables du
-   projet Vercel.
+- Clé : `41902de802fead9fcf7ecf644d75b898`. Elle n'est **pas** un secret : le
+  protocole exige qu'elle soit publiée à la racine du site, c'est même sa seule
+  preuve de propriété du domaine.
+- Fichier de preuve : `public/41902de802fead9fcf7ecf644d75b898.txt`, dont le
+  contenu est exactement la clé, sans retour à la ligne.
+- `INDEXNOW_CLE` posée dans `.env.local` et dans les variables Vercel du projet
+  `gramme.app`, environnement production.
 
-Sans clé, le script **ne fait rien et le dit**. Il n'échoue jamais : le
-référencement ne doit pas casser un déploiement.
+**C'est automatique depuis ce jour** : `postbuild` appelle le script après
+chaque `next build`. Deux gardes le tiennent :
+
+1. **Une préversion n'annonce rien.** `VERCEL_ENV !== "production"` sort tout de
+   suite : une branche poussée construit les mêmes adresses de production, donc
+   elle annoncerait des pages qu'elle ne sert pas, et elle mangerait le quota du
+   protocole à chaque essai.
+2. **Sans clé, le script ne fait rien et le dit.** Il n'échoue jamais, et il rend
+   toujours 0 : le référencement ne doit pas casser un déploiement.
+
+**Le seul cas dégradé à connaître** : si l'environnement de build ne sait pas
+lire un fichier `.ts`, le script se rabat sur le sitemap du site **déjà en
+ligne**, c'est-à-dire celui du déploiement précédent. Les pages créées par le
+déploiement en cours ne sont alors annoncées qu'au suivant. Le script l'écrit en
+clair dans le journal de build ; si ce message apparaît, il faut monter la
+version de Node du projet Vercel.
+
+Pour annoncer à la main, hors déploiement :
+
+```bash
+cd "/Users/clermontfu/Documents/GRAMME APP/DEV/gramme-website"
+npm run seo:prevenir -- --essai   # affiche sans envoyer
+npm run seo:prevenir              # envoie
+```
 
 ## Ce qui reste à la main, et qui ne dépend pas du code
 
