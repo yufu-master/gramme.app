@@ -35,11 +35,38 @@
  *   node scripts/prevenir-les-moteurs.mjs --depuis 2026-09-01   # celles modifiées depuis
  *   node scripts/prevenir-les-moteurs.mjs --essai    # affiche sans envoyer
  */
-import { existsSync, readdirSync } from "node:fs";
+import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 
 const RACINE = join(dirname(fileURLToPath(import.meta.url)), "..");
+
+/**
+ * Lire `.env.local` nous-mêmes.
+ *
+ * Next lit ce fichier, pas Node. Sans ce chargement, `npm run seo:prevenir`
+ * lancé à la main répondait « INDEXNOW_CLE n'est pas posée » alors qu'elle
+ * était bien dans `.env.local` : le message accusait la configuration, et la
+ * configuration était juste. Sur Vercel la variable est déjà dans
+ * l'environnement du build, donc ce chargement n'y sert à rien et ne gêne pas.
+ *
+ * Ce qui est déjà dans l'environnement gagne : une valeur passée en ligne de
+ * commande doit pouvoir écraser le fichier.
+ */
+function chargerEnvLocal() {
+  const fichier = join(RACINE, ".env.local");
+  if (!existsSync(fichier)) return;
+  for (const ligne of readFileSync(fichier, "utf8").split("\n")) {
+    const t = ligne.trim();
+    if (!t || t.startsWith("#")) continue;
+    const i = t.indexOf("=");
+    if (i <= 0) continue;
+    const nom = t.slice(0, i).trim();
+    if (process.env[nom] !== undefined) continue;
+    process.env[nom] = t.slice(i + 1).trim().replace(/^["']|["']$/g, "");
+  }
+}
+chargerEnvLocal();
 const SITE = process.env.SITE_URL || "https://gramme.app";
 const HOTE = new URL(SITE).host;
 
@@ -75,7 +102,22 @@ function cle() {
  * quatre fois.
  */
 async function adresses() {
-  const { sitemapEntries } = await import(join(RACINE, "src", "lib", "routes.ts")).catch(() => ({}));
+  // `routes.ts` importe `@/content` : sans ce crochet, Node ne sait pas
+  // résoudre l'alias et l'import échoue. Enveloppé, parce qu'une version de
+  // Node sans `register` doit dégrader vers le repli, pas s'arrêter.
+  try {
+    const { register } = await import("node:module");
+    register("./resoudre-alias.mjs", import.meta.url);
+  } catch {
+    /* repli plus bas */
+  }
+
+  const { sitemapEntries } = await import(join(RACINE, "src", "lib", "routes.ts")).catch(
+    (err) => {
+      console.log(`Lecture de src/lib/routes.ts impossible : ${err.message}`);
+      return {};
+    },
+  );
   if (typeof sitemapEntries === "function") {
     return sitemapEntries(SITE)
       .filter((e) => !depuis || !e.lastModified || new Date(e.lastModified) >= depuis)
@@ -126,31 +168,64 @@ async function principal() {
     return;
   }
 
-  // Un seul point d'entrée : le protocole se charge de relayer aux autres
-  // moteurs participants. Multiplier les appels ne ferait que multiplier les
-  // occasions d'être limité.
-  const reponse = await fetch("https://api.indexnow.org/IndexNow", {
-    method: "POST",
-    headers: { "Content-Type": "application/json; charset=utf-8" },
-    body: JSON.stringify({
-      host: HOTE,
-      key: valeur,
-      keyLocation: `${SITE}/${valeur}.txt`,
-      urlList: liste.slice(0, 10000),
-    }),
+  // On appelle CHAQUE moteur, et on dit ce que chacun répond.
+  //
+  // Le protocole promet qu'un seul point d'entrée relaie aux autres, et c'est
+  // sur cette promesse que ce script était écrit. Mesuré le 10/09/2026, elle ne
+  // tient pas : `api.indexnow.org` a répondu 403 quand Seznam acceptait en 200
+  // et Yandex en 202, sur exactement la même requête. Un seul appel donnait donc
+  // « Moteurs NON prévenus », alors que deux moteurs sur trois venaient
+  // d'accepter la liste. Un contrôle qui annonce un échec là où il y a un
+  // succès partiel est pire que pas de contrôle du tout.
+  const corps = JSON.stringify({
+    host: HOTE,
+    key: valeur,
+    keyLocation: `${SITE}/${valeur}.txt`,
+    urlList: liste.slice(0, 10000),
   });
 
-  // 200 et 202 valent acceptation. 422 dit que la clé ou l'hôte ne correspond
-  // pas, et c'est la seule erreur qui demande vraiment une action.
-  if (reponse.ok) {
-    console.log(`Moteurs prévenus (${reponse.status}).`);
-    return;
+  const MOTEURS = [
+    ["IndexNow", "https://api.indexnow.org/IndexNow"],
+    ["Bing", "https://www.bing.com/indexnow"],
+    ["Seznam", "https://search.seznam.cz/indexnow"],
+    ["Yandex", "https://yandex.com/indexnow"],
+  ];
+
+  let acceptes = 0;
+  for (const [nom, url] of MOTEURS) {
+    try {
+      const r = await fetch(url, {
+        method: "POST",
+        headers: { "Content-Type": "application/json; charset=utf-8" },
+        body: corps,
+      });
+      // 200 et 202 valent acceptation.
+      if (r.ok) {
+        acceptes += 1;
+        console.log(`  ${nom} : accepté (${r.status})`);
+        continue;
+      }
+      console.log(`  ${nom} : refusé (${r.status})`);
+      // 403 ne dit PAS que la clé est mauvaise. Vérifié : deux autres moteurs
+      // ont accepté la même clé au même instant. Il dit que ce moteur-là ne
+      // connaît pas encore le domaine, et cela se règle une fois, à la main.
+      if (r.status === 403) {
+        console.log(`    ${nom} ne connaît pas encore ${HOTE}. Déclarer le domaine dans ses outils webmaster.`);
+      }
+      if (r.status === 422) {
+        console.log("    422 : la clé publiée et INDEXNOW_CLE ne concordent pas, ou l'hôte ne correspond pas au domaine.");
+      }
+    } catch (err) {
+      console.log(`  ${nom} : injoignable (${err.message})`);
+    }
   }
-  console.log(`Moteurs NON prévenus : réponse ${reponse.status}.`);
-  if (reponse.status === 422) {
-    console.log("422 : la clé publiée et INDEXNOW_CLE ne concordent pas, ou l'hôte ne correspond pas au domaine.");
-  }
-  // On n'échoue pas : le référencement ne doit pas casser un déploiement.
+
+  console.log(
+    acceptes
+      ? `Moteurs prévenus : ${acceptes} sur ${MOTEURS.length}.`
+      : "Moteurs NON prévenus : aucun moteur n'a accepté la liste.",
+  );
+  // On n'échoue jamais : le référencement ne doit pas casser un déploiement.
 }
 
 principal().catch((err) => {

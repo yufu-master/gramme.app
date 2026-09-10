@@ -109,12 +109,44 @@ chaque `next build`. Deux gardes le tiennent :
 2. **Sans clé, le script ne fait rien et le dit.** Il n'échoue jamais, et il rend
    toujours 0 : le référencement ne doit pas casser un déploiement.
 
-**Le seul cas dégradé à connaître** : si l'environnement de build ne sait pas
-lire un fichier `.ts`, le script se rabat sur le sitemap du site **déjà en
-ligne**, c'est-à-dire celui du déploiement précédent. Les pages créées par le
-déploiement en cours ne sont alors annoncées qu'au suivant. Le script l'écrit en
-clair dans le journal de build ; si ce message apparaît, il faut monter la
-version de Node du projet Vercel.
+**Le seul cas dégradé à connaître** : si `src/lib/routes.ts` ne peut pas être
+lu, le script se rabat sur le sitemap du site **déjà en ligne**, c'est-à-dire
+celui du déploiement précédent. Les pages créées par le déploiement en cours ne
+sont alors annoncées qu'au suivant. Le script écrit la raison en clair dans le
+journal de build.
+
+C'est arrivé dès la mise en service, et **le repli l'avait caché** : le script
+affichait cinquante-cinq adresses, ce qui avait l'air parfaitement normal, et la
+seule chose qui manquait était précisément la page qu'on venait de publier.
+Deux causes, corrigées par `scripts/resoudre-alias.mjs` : `routes.ts` importe
+`@/content`, un alias de `tsconfig.json` que Node ignore, et les fichiers du
+catalogue s'importent entre eux sans extension, ce que TypeScript accepte et que
+l'ESM de Node refuse. **Le contrôle qui distingue les deux chemins** est
+`npm run seo:prevenir -- --essai --depuis <date>` : le repli ignore `--depuis`
+et rend toujours la liste entière, la lecture du catalogue rend moins.
+
+## Bing refuse, et ce n'est pas la clé
+
+Mesuré le 10/09/2026, sur exactement la même requête :
+
+| Moteur | Réponse |
+|---|---|
+| Seznam | **200, accepté** |
+| Yandex | **200, accepté** |
+| api.indexnow.org | 403 `UserForbiddedToAccessSite` |
+| Bing | 403 `UserForbiddedToAccessSite` |
+
+La clé est donc bonne : deux moteurs l'ont vérifiée et ont pris la liste. Bing
+refuse parce qu'il ne connaît pas encore le domaine, et cela se règle **une
+fois, à la main** : déclarer `gramme.app` dans Bing Webmaster Tools. C'est le
+moteur qui compte le plus ici, puisqu'il alimente une partie des réponses de
+Copilot et de ChatGPT.
+
+Le script appelle désormais **les quatre moteurs** et dit ce que chacun répond.
+La promesse du protocole (« un seul point d'entrée relaie aux autres ») ne tient
+pas : un appel unique rendait « Moteurs NON prévenus » alors que deux moteurs
+sur trois venaient d'accepter. Un contrôle qui annonce un échec là où il y a un
+succès partiel est pire que pas de contrôle.
 
 Pour annoncer à la main, hors déploiement :
 
