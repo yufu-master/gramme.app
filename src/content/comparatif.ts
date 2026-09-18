@@ -594,7 +594,7 @@ export const questionsComparatif = [
   },
   {
     q: "Combien coûte Otami par mois ?",
-    a: "Trois offres publiques au 30 août 2026 : Access à 59 € HT/mois pour 5 documents importés par mois, Essentiel à 99 € pour 20 documents, Intégrale à 159 € pour 40 documents, avec un mois offert en facturation annuelle. Deux modules se facturent en plus de l'abonnement, 49 € HT/mois chacun : le module Comptable et le module Planning de production. Une boulangerie qui reçoit une trentaine de factures par mois et qui veut le planning de production est donc à 208 € HT/mois. Vérifiez ces montants sur otami.fr avant de décider : les grilles bougent.",
+    a: `Trois offres publiques au ${RELEVE_LE} : Access à 59 € HT/mois pour 5 documents importés par mois, Essentiel à 99 € pour 20 documents, Intégrale à 159 € pour 40 documents, avec un mois offert en facturation annuelle. Deux modules se facturent en plus de l'abonnement, 49 € HT/mois chacun : le module Comptable et le module Planning de production. Une boulangerie qui reçoit une trentaine de factures par mois et qui veut le planning de production est donc à 208 € HT/mois. Vérifiez ces montants sur otami.fr avant de décider : les grilles bougent.`,
   },
   {
     q: "Otami ou Gramme : lequel choisir ?",
@@ -602,7 +602,7 @@ export const questionsComparatif = [
   },
   {
     q: "Quel logiciel de gestion fait aussi le HACCP en boulangerie ?",
-    a: "Gramme le fait : relevés de températures avec vos bornes et vos horaires, plan de nettoyage pointé depuis le téléphone, étiquettes de lot et DLC, contrôle à réception, registres imprimables, le tout compris dans l'offre Pro à 89 € HT/mois. Chez les autres, sur les pages publiques relevées le 30 août 2026, seul Melba couvre ce terrain, dans un module Traçabilité facturé à partir de 49 € HT/mois en plus des autres modules. Une précision qui compte : aucun logiciel ne rend une exploitation conforme. Il enregistre vos relevés, les horodate et les rend imprimables ; la maîtrise sanitaire reste la vôtre.",
+    a: `Gramme le fait : relevés de températures avec vos bornes et vos horaires, plan de nettoyage pointé depuis le téléphone, étiquettes de lot et DLC, contrôle à réception, registres imprimables, le tout compris dans l'offre Pro à 89 € HT/mois. Chez les autres, sur les pages publiques relevées le ${RELEVE_LE}, seul Melba couvre ce terrain, dans un module Traçabilité facturé à partir de 49 € HT/mois en plus des autres modules. Une précision qui compte : aucun logiciel ne rend une exploitation conforme. Il enregistre vos relevés, les horodate et les rend imprimables ; la maîtrise sanitaire reste la vôtre.`,
   },
   {
     q: "Un logiciel de gestion peut-il remplacer mon cahier de relevés de températures ?",
@@ -614,7 +614,7 @@ export const questionsComparatif = [
   },
   {
     q: "Quel est le logiciel de gestion boulangerie le moins cher ?",
-    a: "Sur les tarifs publics relevés le 30 août 2026, c'est ChefsTouch : une offre gratuite jusqu'à 100 fiches, puis 1,99 € HT/mois, et 39,90 € HT par administrateur et par site pour l'offre Business Pro, la première qui lise vos factures et tienne un planning de production. Nous ne sommes pas les moins chers et nous ne cherchons pas à l'être. La question utile n'est pas le prix affiché mais ce qu'il faut ajouter pour couvrir votre besoin réel : un volume de factures suffisant, le planning de production, l'hygiène. C'est l'objet du tableau de facture réelle plus haut.",
+    a: `Sur les tarifs publics relevés le ${RELEVE_LE}, c'est ChefsTouch : une offre gratuite jusqu'à 100 fiches, puis 1,99 € HT/mois, et 39,90 € HT par administrateur et par site pour l'offre Business Pro, la première qui lise vos factures et tienne un planning de production. Nous ne sommes pas les moins chers et nous ne cherchons pas à l'être. La question utile n'est pas le prix affiché mais ce qu'il faut ajouter pour couvrir votre besoin réel : un volume de factures suffisant, le planning de production, l'hygiène. C'est l'objet du tableau de facture réelle plus haut.`,
   },
 ] as const;
 
@@ -919,7 +919,7 @@ export const pagesConcurrent: PageConcurrent[] = [
     faq: [
       {
         q: "Combien coûte Melba pour une boulangerie ?",
-        a: "Cela dépend des modules retenus, et c'est tout l'enjeu. Au relevé du 31 août 2026, les trois modules métier sont à 49 € HT/mois en Simple et 99 € en Premium : Recettes & Ventes, Stocks & Commandes, Traçabilité. Un périmètre de boulangerie réaliste en demande au moins deux, soit 98 € ; avec les stocks, 147 € ; et le planning de production n'existe qu'au Premium du module Recettes, ce qui porte l'ensemble à 197 € HT/mois. Le module Core, à 49 € de plus, n'est pas présenté comme obligatoire mais devient nécessaire au-delà de cinq utilisateurs par site. Vérifiez ces montants sur melba.io avant de décider : les grilles bougent, et nous republions les nôtres avec la date du relevé.",
+        a: `Cela dépend des modules retenus, et c'est tout l'enjeu. Au relevé du ${RELEVE_LE}, les trois modules métier sont à 49 € HT/mois en Simple et 99 € en Premium : Recettes & Ventes, Stocks & Commandes, Traçabilité. Un périmètre de boulangerie réaliste en demande au moins deux, soit 98 € ; avec les stocks, 147 € ; et le planning de production n'existe qu'au Premium du module Recettes, ce qui porte l'ensemble à 197 € HT/mois. Le module Core, à 49 € de plus, n'est pas présenté comme obligatoire mais devient nécessaire au-delà de cinq utilisateurs par site. Vérifiez ces montants sur melba.io avant de décider : les grilles bougent, et nous republions les nôtres avec la date du relevé.`,
       },
       {
         q: "Melba ou Gramme : lequel choisir ?",
@@ -1028,7 +1028,7 @@ export const pagesConcurrent: PageConcurrent[] = [
       },
       {
         q: "Combien coûte ChefsTouch exactement ?",
-        a: "Au relevé du 31 août 2026 : Starter gratuit, Essentiel 1,99 € HT/mois, Booster 4,90 €, Pro 9,90 €, puis deux offres facturées par administrateur et par établissement, Business+ à 19,90 € et Business Pro à 39,90 €. Des offres organisation existent à 120 € et 240 € HT/mois. La variable qui compte n'est pas le nombre d'utilisateurs mais le nombre d'administrateurs et de sites : sur un site avec un seul administrateur, c'est le prix le plus bas de notre comparatif.",
+        a: `Au relevé du ${RELEVE_LE} : Starter gratuit, Essentiel 1,99 € HT/mois, Booster 4,90 €, Pro 9,90 €, puis deux offres facturées par administrateur et par établissement, Business+ à 19,90 € et Business Pro à 39,90 €. Des offres organisation existent à 120 € et 240 € HT/mois. La variable qui compte n'est pas le nombre d'utilisateurs mais le nombre d'administrateurs et de sites : sur un site avec un seul administrateur, c'est le prix le plus bas de notre comparatif.`,
       },
       {
         q: "À partir de quelle offre ChefsTouch lit-il les factures fournisseurs ?",

@@ -1,4 +1,5 @@
 import type { Guide } from "@/content/guides/types";
+import { RELEVE_LE } from "@/content/comparatif";
 
 export const articlePrix: Guide = {
   slug: "prix-logiciel-gestion-boulangerie",
@@ -19,7 +20,7 @@ export const articlePrix: Guide = {
   updatedAt: "2026-08-26",
   ogImage: "/images/app/accueil-tableau-bord.png",
   summary:
-    "Un logiciel de gestion pour boulangerie coûte entre 33 € et plus de 240 € HT par mois selon les éditeurs, mais le prix affiché est rarement le prix payé. La facture réelle dépend de quatre lignes : le nombre de documents traités, les modules en option, la facturation par site ou par administrateur, et la reprise de vos données.",
+    "Un logiciel de gestion pour boulangerie coûte de zéro, avec l'offre gratuite de ChefsTouch, à plus de 240 € HT par mois selon les éditeurs, mais le prix affiché est rarement le prix payé. La facture réelle dépend de quatre lignes : le nombre de documents traités, les modules en option, la facturation par site ou par administrateur, et la reprise de vos données.",
   intro:
     "La question arrive toujours en premier, et la réponse honnête tient en une phrase : le prix affiché sur une page de tarifs ne dit presque rien de ce que vous paierez. Non pas parce que les éditeurs cacheraient quelque chose, mais parce que la variable de facturation est rarement le nombre d'utilisateurs. Voici les tarifs publics du marché, relevés en août 2026, et les quatre lignes qui déplacent réellement l'addition.",
   blocks: [
@@ -30,7 +31,7 @@ export const articlePrix: Guide = {
     },
     {
       type: "p",
-      text: "Relevé sur les pages publiques des éditeurs le 30 août 2026. Ces montants changent : vérifiez-les avant de décider.",
+      text: `Relevé sur les pages publiques des éditeurs le ${RELEVE_LE}. Ces montants changent : vérifiez-les avant de décider.`,
     },
     {
       type: "table",
@@ -104,7 +105,7 @@ export const articlePrix: Guide = {
     },
     {
       type: "p",
-      text: "Un tarif à 19,90 € par administrateur et par site paraît très bas. Avec deux laboratoires et deux responsables par site, il devient 79,60 € par mois, et il grandit avec l'équipe, ce que ne fait pas un abonnement forfaitaire.",
+      text: "L'offre Business Pro de ChefsTouch, la première qui lise vos factures, coûte 39,90 € par administrateur et par site. Avec deux laboratoires et deux responsables, elle revient à 159,60 € par mois, et elle grandit avec l'équipe, ce que ne fait pas un abonnement forfaitaire.",
     },
     {
       type: "p",

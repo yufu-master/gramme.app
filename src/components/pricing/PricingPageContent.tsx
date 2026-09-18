@@ -4,6 +4,7 @@ import Link from "next/link";
 import { CadreAppareil } from "@/components/produit/CadreAppareil";
 import { useState } from "react";
 import { trackEvent } from "@/lib/analytics";
+import { RELEVE_LE } from "@/content/comparatif";
 import { BillingPeriodToggle } from "@/components/pricing/BillingPeriodToggle";
 import { MISE_EN_SERVICE_EN_CREATION, formatEuro, formatInstallation, pricingFaq, pricingPlans, type BillingPeriod } from "@/lib/pricing";
 
@@ -225,7 +226,7 @@ export function PricingPageContent() {
         <p className="mt-6 rounded-2xl border border-[#dcead2] bg-[#f6fbf2] p-4 text-sm leading-relaxed text-[#4d6952]">
           <strong className="text-[#3e6134]">Ce que cela change sur la facture.</strong> Chez plusieurs éditeurs,
           le planning de production et le suivi sanitaire sont des modules facturés à part : 49 € HT par mois
-          chacun sur les grilles publiques relevées le 30 août 2026. Une boulangerie qui reçoit une trentaine de
+          chacun sur les grilles publiques relevées le {RELEVE_LE}. Une boulangerie qui reçoit une trentaine de
           factures par mois et veut le planning de production paie ailleurs jusqu&apos;à 208 € HT par mois. Le
           détail, éditeur par éditeur, est dans notre{" "}
           <Link href="/comparatif" className="font-semibold text-[#355329] underline underline-offset-2">

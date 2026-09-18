@@ -1,3 +1,5 @@
+import { readFileSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import {
   RELEVE_LE,
@@ -173,6 +175,34 @@ describe("comparatif — les chiffres ne se contredisent pas", () => {
         expect(ligne.detail.length, `${ligne.id} : un total sans détail n'est pas vérifiable`).toBeGreaterThan(80);
       }
       expect(ligne.nuance.length, ligne.id).toBeGreaterThan(80);
+    }
+  });
+});
+
+
+/**
+ * UNE date de relevé, lue partout au même endroit.
+ *
+ * Relevé du 18/09/2026 : le comparatif disait « 30 août » dans trois réponses
+ * et « 31 août » dans deux autres, la constante disait le 31, l'article sur le
+ * prix des logiciels et la page tarifs disaient le 30. Le relevé s'était fait
+ * sur deux jours et chaque texte avait recopié la date du moment. Sur une page
+ * encadrée par le Code de la consommation (L122-1 et suivants), une date
+ * contradictoire est la première chose qu'un concurrent relève.
+ */
+describe("la date du relevé n'est écrite qu'une fois", () => {
+  const fichiers = [
+    "src/content/comparatif.ts",
+    "src/content/articles/prix-logiciel-gestion-boulangerie.ts",
+    "src/components/pricing/PricingPageContent.tsx",
+  ];
+  it("aucun texte ne recopie une date d'août 2026 à la main", () => {
+    for (const f of fichiers) {
+      const texte = readFileSync(join(process.cwd(), f), "utf8")
+        .split("\n")
+        .filter((l) => !l.includes("export const RELEVE_LE"))
+        .join("\n");
+      expect(texte.match(/\b\d{1,2} août 2026\b/g) ?? [], f).toEqual([]);
     }
   });
 });
