@@ -671,7 +671,7 @@ export const cheminsDeChoix = [
   {
     profil: "Vous êtes noyé dans un tableur que plus personne ne tient",
     conseil:
-      "C'est la situation la plus fréquente, et c'est celle où le gain est le plus net, quel que soit l'outil que vous choisirez. Prenez au moins une démonstration : une heure sur vos vraies fiches vous dira en une fois ce que six mois de comparaison de sites ne vous diront pas.",
+      "C'est la situation la plus fréquente, et c'est celle où le gain est le plus net, quel que soit l'outil que vous choisirez. Prenez au moins une démonstration : une heure sur un atelier en fonctionnement vous dira en une fois ce que six mois de comparaison de sites ne vous diront pas.",
     verdict: "gramme" as const,
   },
 ];
@@ -889,7 +889,7 @@ export const pagesConcurrent: PageConcurrent[] = [
         profil: "Vous voulez essayer avant de payer",
         verdict: "lui",
         texte:
-          "Essai gratuit sans carte chez eux, rien de tel chez nous. Nous ne proposons qu'une démonstration d'une heure, en direct, sur vos fiches. Si l'idée même d'un rendez-vous vous rebute, la question est réglée.",
+          "Essai gratuit sans carte chez eux, rien de tel chez nous. Nous ne proposons qu'une démonstration d'une heure, en direct, sur un atelier complet. Si l'idée même d'un rendez-vous vous rebute, la question est réglée.",
       },
       {
         profil: "Vous êtes un artisan, seul ou avec une petite équipe",

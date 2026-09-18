@@ -369,9 +369,9 @@ export default function ComparatifPage() {
             {bloc.id === "achats" ? (
               <div className="mt-5 flex flex-col gap-3 rounded-2xl border border-[#a8cf8c]/60 bg-[#f6fbf2] p-5 sm:flex-row sm:items-center sm:justify-between sm:p-6">
                 <p className="text-sm leading-relaxed text-[#4d6952]">
-                  <strong className="text-[#3e6134]">Ces lignes se jugent mieux sur vos propres factures.</strong>{" "}
-                  Une heure, une de vos factures importée en direct, et vous voyez le coût de revient de vos
-                  produits : pas une grille de fonctionnalités.
+                  <strong className="text-[#3e6134]">Ces lignes se jugent mieux à l&apos;écran.</strong>{" "}
+                  Une heure sur un atelier en fonctionnement, une facture scannée en direct, et vous voyez la marge
+                  d&apos;une recette se recalculer : pas une grille de fonctionnalités.
                 </p>
                 <Link
                   href="/demo"
@@ -536,9 +536,9 @@ export default function ComparatifPage() {
             Le seul comparatif qui tranche vraiment se fait sur vos fiches
           </h2>
           <p className="mt-4 max-w-3xl leading-relaxed text-white/85 md:text-lg">
-            Une heure en visio, vos vraies fiches techniques et une de vos factures importées en direct. À la fin,
-            vous avez le coût de revient et la marge de vos propres produits : pas une grille de fonctionnalités.
-            C&apos;est la comparaison qui coûte le moins de temps et qui répond le mieux.
+            Une heure en visio sur un atelier de démonstration complet, avec une facture scannée en direct et la
+            marge d&apos;une recette qui se recalcule sous vos yeux : pas une grille de fonctionnalités. C&apos;est la
+            comparaison qui coûte le moins de temps et qui répond le mieux.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link

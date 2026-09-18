@@ -352,9 +352,9 @@ export default async function PageConcurrentPage({ params }: { params: Promise<P
             La seule comparaison qui tranche se fait sur vos fiches
           </h2>
           <p className="mt-4 max-w-3xl leading-relaxed text-white/85 md:text-lg">
-            Une heure en visio, vos vraies fiches techniques et une de vos factures importées en direct. À la fin,
-            vous avez le coût de revient et la marge de vos propres produits, et vous saurez tout de suite lequel
-            des deux outils parle votre métier.
+            Une heure en visio sur un atelier de démonstration complet, avec une facture scannée en direct et la
+            marge d&apos;une recette qui se recalcule sous vos yeux. Vous saurez tout de suite lequel des deux
+            outils parle votre métier.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link

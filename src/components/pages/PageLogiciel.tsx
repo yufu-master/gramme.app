@@ -232,10 +232,10 @@ export function PageLogicielVue({ page }: { page: PageLogiciel }) {
         </section>
 
         <section className="mt-12 rounded-3xl border border-[#dcead2] bg-[#f6fbf2] p-6 sm:p-8 md:mt-16">
-          <h2 className="text-2xl font-bold text-[#27421f]">Le voir sur vos propres fiches</h2>
+          <h2 className="text-2xl font-bold text-[#27421f]">Le voir sur un vrai atelier</h2>
           <p className="mt-3 max-w-2xl text-[#4d6952]">
-            Une démonstration dure une heure, et on y importe vos recettes en direct plutôt que de
-            vous montrer les nôtres.
+            Une démonstration dure une heure, sur un atelier complet en fonctionnement : une facture scannée en
+            direct, et la marge d&apos;une recette qui se recalcule sous vos yeux.
           </p>
           <Link
             href="/demo"

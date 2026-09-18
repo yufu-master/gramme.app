@@ -6,9 +6,9 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { breadcrumbSchema, SITE_URL, webPageSchema, imageSociale, ogPage } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Démo logiciel boulangerie · 1 h sur vos fiches",
+  title: "Démo logiciel boulangerie · 1 h sur un vrai atelier",
   description:
-    "Une heure en visio sur vos vraies fiches techniques et une de vos factures. À la fin, vous avez le coût de revient de vos propres produits.",
+    "Une heure en visio sur un atelier de démonstration complet : une facture scannée en direct, et le coût de revient d'une recette qui se recalcule sous vos yeux.",
   keywords: [
     "démo logiciel boulangerie",
     "démonstration logiciel pâtisserie",
@@ -19,9 +19,9 @@ export const metadata: Metadata = {
   alternates: { canonical: `${SITE_URL}/demo` },
   openGraph: ogPage({
     images: imageSociale("/images/app/recette-couts.png", "Le coût de revient et la marge d'une recette dans Gramme"),
-    title: "Démo du logiciel boulangerie · une heure sur vos propres fiches",
+    title: "Démo du logiciel boulangerie · une heure sur un vrai atelier",
     description:
-      "Pas un diaporama : une heure sur vos vraies fiches techniques et vos vraies factures, en visio.",
+      "Pas un diaporama : une heure sur un atelier en fonctionnement, avec une facture scannée en direct, en visio.",
     url: `${SITE_URL}/demo`,
   }),
 };
@@ -35,15 +35,15 @@ const deroule = [
   },
   {
     minutes: "10 – 35 min",
-    titre: "On importe vos vraies fiches",
+    titre: "Un atelier complet, en fonctionnement",
     texte:
-      "Vous envoyez deux ou trois fiches techniques (manuscrites, tachées, peu importe) et une facture fournisseur récente. Nous les passons au scan en direct. À la fin de ce quart d'heure, vos produits sont dans l'outil.",
+      "Une boulangerie-pâtisserie de démonstration, avec une centaine de fiches, leurs sous-recettes, ses fournisseurs, sa mercuriale et son stock. Vous voyez les écrans tels qu'un artisan les ouvre chaque jour, pas des diapositives.",
   },
   {
     minutes: "35 – 50 min",
-    titre: "Vos chiffres, sur vos produits",
+    titre: "Une facture scannée sous vos yeux",
     texte:
-      "Coût de revient, marge, coefficient, ratio matière : sur vos recettes, pas sur un jeu de démonstration. Puis nous faisons bouger le prix d'une matière première et vous voyez la marge se recalculer partout.",
+      "Nous photographions une facture fournisseur pendant l'appel. Les prix entrent seuls, et vous voyez le coût de revient et la marge d'une recette se recalculer sans que personne n'ait rien saisi. Vous avez une fiche ou une facture sous la main ? Montrez-la, on la passe au scan aussi : c'est une option, jamais un préalable.",
   },
   {
     minutes: "50 – 60 min",
@@ -61,7 +61,7 @@ export default function DemoPage() {
           webPageSchema({
             title: "Démo du logiciel boulangerie Gramme",
             description:
-              "Une heure de démonstration en visio sur les propres fiches techniques et factures de l'artisan.",
+              "Une heure de démonstration en visio sur un atelier complet, avec une facture fournisseur scannée en direct.",
             path: "/demo",
           }),
           breadcrumbSchema([
@@ -75,12 +75,13 @@ export default function DemoPage() {
 
         <section className="mt-6 rounded-3xl border border-[#dcead2] bg-white/90 p-6 shadow-[0_20px_70px_rgba(58,92,39,0.08)] sm:p-8 md:p-12">
           <h1 className="text-3xl font-black leading-tight text-[#27421f] md:text-5xl">
-            Une heure sur vos fiches, pas sur un diaporama
+            Une heure sur un vrai atelier, pas sur un diaporama
           </h1>
           <p className="mt-5 max-w-3xl text-base text-[#4d6952] md:text-lg">
-            La démonstration de Gramme dure une heure et se fait en visio. Nous y importons vos vraies fiches
-            techniques et une de vos factures fournisseurs : vous repartez avec le coût de revient et la marge de vos
-            propres produits, pas avec une brochure.
+            La démonstration de Gramme dure une heure et se fait en visio, sur un atelier de démonstration complet.
+            Nous y scannons une facture fournisseur en direct et vous voyez la marge d&apos;une recette se recalculer
+            sous vos yeux. Rien à préparer de votre côté : si vous avez une fiche ou une facture sous la main, on la
+            passe au scan aussi.
           </p>
           <div className="mt-7 flex flex-wrap gap-3">
             <Link
@@ -145,9 +146,10 @@ export default function DemoPage() {
         </section>
 
         <section className="mt-10 rounded-3xl border border-[#dcead2] bg-white p-6 shadow-sm sm:p-8 md:mt-14 md:p-10">
-          <h2 className="text-2xl font-bold text-[#2f4f26] md:text-3xl">Et vos fiches, elles vont où ?</h2>
+          <h2 className="text-2xl font-bold text-[#2f4f26] md:text-3xl">Et si vous montrez une de vos fiches ?</h2>
           <p className="mt-4 max-w-3xl leading-relaxed text-[#4d6952] md:text-lg">
-            Les documents que vous nous confiez pendant la démonstration servent à la démonstration. Ils restent votre
+            C&apos;est facultatif. Si vous choisissez de nous montrer une fiche ou une facture pendant l&apos;appel,
+            elle sert à la démonstration et à rien d&apos;autre. Ils restent votre
             propriété, ne sont partagés avec personne, et sont supprimés à votre demande si vous ne donnez pas suite.
             Le détail se lit sur la page{" "}
             <Link href="/securite" className="font-semibold text-[#355329] underline-offset-2 hover:underline">

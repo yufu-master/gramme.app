@@ -299,7 +299,7 @@ export const faqSections: FaqSection[] = [
       },
       {
         q: "Y a-t-il un essai gratuit ?",
-        a: "Nous préférons une démonstration d'une heure sur vos propres fiches, ce qui est plus parlant qu'un compte de démonstration vide. Et sur l'abonnement annuel, vous disposez de trente jours satisfait ou remboursé.",
+        a: "Pas d'essai libre : nous préférons une démonstration d'une heure sur un atelier complet en fonctionnement, où une facture est scannée en direct, ce qui est plus parlant qu'un compte vide qu'on ouvre seul. Et sur l'abonnement annuel, vous disposez de trente jours satisfait ou remboursé.",
       },
       {
         q: "Que se passe-t-il si j'arrête ?",

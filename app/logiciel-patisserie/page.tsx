@@ -304,10 +304,11 @@ export default function LogicielPatisseriePage() {
         </section>
 
         <section className="mt-12 rounded-3xl bg-[#264021] p-6 text-white sm:p-8 md:mt-16 md:p-10">
-          <h2 className="text-2xl font-bold md:text-3xl">Voir Gramme sur vos propres recettes</h2>
+          <h2 className="text-2xl font-bold md:text-3xl">Voir Gramme sur un vrai atelier de pâtisserie</h2>
           <p className="mt-3 max-w-2xl text-white/85">
-            Apportez deux ou trois de vos fiches, même manuscrites. On les importe pendant la démonstration et
-            vous voyez le coût réel de vos entremets.
+            Une heure en visio sur un atelier de démonstration complet : sous-recettes en cascade, coût de revient
+            d&apos;un entremets, facture scannée en direct. Vous avez une fiche sous la main, même manuscrite ? On
+            la passe au scan aussi, si vous le souhaitez.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
             <Link href="/demo" className="rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]">

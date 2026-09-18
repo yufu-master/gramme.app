@@ -126,7 +126,7 @@ export default function HomePage() {
                 onClick={() => trackEvent("cta_demo_click", { source: "hero" })}
                 className="rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021] transition hover:bg-[#b8d99c]"
               >
-                Voir le coût de revient de mes produits
+                Voir une marge se calculer en direct
               </Link>
               <button
                 type="button"
@@ -501,7 +501,7 @@ export default function HomePage() {
                     plan.highlight ? "bg-[#a8cf8c] text-[#264021]" : "bg-[#264021] text-white"
                   }`}
                 >
-                  Essayer {plan.name} sur mes fiches
+                  Voir {plan.name} en démonstration
                 </Link>
               </article>
             ))}
