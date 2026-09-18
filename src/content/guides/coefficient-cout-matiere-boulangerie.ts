@@ -16,7 +16,7 @@ export const guideCoefficientCoutMatiere: Guide = {
   updatedAt: "2026-08-13",
   ogImage: "/images/app/recette-couts.png",
   summary:
-    "Comment situer son ratio de coût matière en boulangerie-pâtisserie, par famille de produits, et pourquoi un ratio global ne dit presque rien sans le détail par gamme.",
+    "Il n'existe pas de ratio de coût matière unique en boulangerie : les fourchettes usuelles vont de 15 à 25 % du prix de vente HT pour le pain à 30 à 40 % pour le snacking, et le coefficient multiplicateur n'est que l'inverse de ce ratio (25 % de matière, coefficient 4). Un ratio global ne dit presque rien : c'est le détail par famille, et son évolution dans le temps, qui permet de décider.",
   intro:
     "« On doit être autour de 25 % de matière. » C'est la réponse la plus fréquente quand on demande à un artisan son ratio de coût matière, et c'est presque toujours une moyenne héritée d'une formation, pas une mesure. Voici ce que ce pourcentage veut dire, comment il se calcule, et pourquoi le regarder globalement masque l'essentiel.",
   draft: false,
@@ -30,20 +30,20 @@ export const guideCoefficientCoutMatiere: Guide = {
     {
       type: "h2",
       id: "definition",
-      text: "Ce que mesure le ratio de coût matière",
+      text: "Que mesure le ratio de coût matière ?",
     },
     {
       type: "p",
-      text: "Le ratio de coût matière est la part des matières premières dans le chiffre d'affaires hors taxes. Il se calcule soit globalement, sur un exercice (achats consommés divisés par le chiffre d'affaires HT) soit produit par produit, en rapportant le coût matière unitaire au prix de vente HT. Les deux chiffres ne se ressemblent pas, et c'est normal : le premier inclut ce que vous avez jeté, le second non.",
+      text: "Le ratio de coût matière est la part des matières premières dans le chiffre d'affaires hors taxes. Il se calcule soit globalement, sur un exercice (achats consommés divisés par le chiffre d'affaires HT) soit produit par produit, en rapportant [le coût matière unitaire](/guides/calcul-cout-de-revient-boulangerie) au prix de vente HT. Les deux chiffres ne se ressemblent pas, et c'est normal : le premier inclut ce que vous avez jeté, le second non.",
     },
     {
       type: "p",
-      text: "Cet écart est d'ailleurs l'information la plus utile du calcul. Si votre ratio théorique, recette par recette, est à 26 % et que votre ratio comptable de fin d'exercice est à 33 %, les sept points de différence ne sont pas une erreur de calcul : ce sont des invendus, des pertes non comptées, du vol, ou des recettes qui ne sont pas produites comme elles sont écrites.",
+      text: "Cet écart est d'ailleurs l'information la plus utile du calcul. Si votre ratio théorique, recette par recette, est à 26 % et que votre ratio comptable de fin d'exercice est à 33 %, les sept points de différence ne sont pas une erreur de calcul : ce sont des invendus, [des pertes non comptées](/articles/pourcentage-perte-marge-boulangerie), du vol, ou des recettes qui ne sont pas produites comme elles sont écrites.",
     },
     {
       type: "h2",
       id: "ordres-de-grandeur",
-      text: "Des ordres de grandeur par famille",
+      text: "Quel coût matière viser par famille de produits ?",
     },
     {
       type: "p",
@@ -54,12 +54,12 @@ export const guideCoefficientCoutMatiere: Guide = {
       caption: "Fourchettes usuelles de coût matière rapporté au prix de vente HT",
       headers: ["Famille", "Coût matière", "Coefficient multiplicateur", "Ce qui fait varier"],
       rows: [
-        ["Pain courant et tradition", "15 – 25 %", "4 à 6,5", "Prix de la farine, taux de perte, prix de vente local"],
-        ["Viennoiserie pur beurre", "25 – 35 %", "3 à 4", "Cours du beurre, tourage maison ou surgelé"],
-        ["Pâtisserie individuelle", "20 – 30 %", "3,5 à 5", "Fruits, chocolat de couverture, parage"],
-        ["Entremets et pièces de fête", "25 – 35 %", "3 à 4", "Couverture, fruits hors saison, décor"],
-        ["Snacking et sandwicherie", "30 – 40 %", "2,5 à 3,5", "Charcuterie, crudités, invendus du jour"],
-        ["Chocolat et confiserie", "30 – 40 %", "2,5 à 3,5", "Cours du cacao, emballage"],
+        ["Pain courant et tradition", "15 à 25 %", "4 à 6,5", "Prix de la farine, taux de perte, prix de vente local"],
+        ["Viennoiserie pur beurre", "25 à 35 %", "3 à 4", "Cours du beurre, tourage maison ou surgelé"],
+        ["Pâtisserie individuelle", "20 à 30 %", "3,5 à 5", "Fruits, chocolat de couverture, parage"],
+        ["Entremets et pièces de fête", "25 à 35 %", "3 à 4", "Couverture, fruits hors saison, décor"],
+        ["Snacking et sandwicherie", "30 à 40 %", "2,5 à 3,5", "Charcuterie, crudités, invendus du jour"],
+        ["Chocolat et confiserie", "30 à 40 %", "2,5 à 3,5", "Cours du cacao, emballage"],
       ],
     },
     {
@@ -77,12 +77,12 @@ export const guideCoefficientCoutMatiere: Guide = {
     },
     {
       type: "p",
-      text: "C'est la limite du raisonnement en pourcentage seul. Le ratio sert à comparer des produits comparables et à détecter les dérives ; la marge en euros multipliée par le volume sert à décider ce qui reste dans la gamme. Il faut les deux, et c'est précisément pour cela qu'un ratio global unique ne permet aucune décision.",
+      text: "C'est la limite du raisonnement en pourcentage seul. Le ratio sert à comparer des produits comparables et à détecter les dérives ; [la marge en euros](/articles/calculer-sa-marge-boulangerie-patisserie) multipliée par le volume sert à décider ce qui reste dans la gamme. Il faut les deux, et c'est précisément pour cela qu'un ratio global unique ne permet aucune décision.",
     },
     {
       type: "h2",
       id: "situer",
-      text: "Comment situer sa propre gamme, concrètement",
+      text: "Comment situer sa propre gamme, concrètement ?",
     },
     {
       type: "p",
@@ -94,7 +94,7 @@ export const guideCoefficientCoutMatiere: Guide = {
     },
     {
       type: "p",
-      text: "C'est le suivi de cet écart que Gramme automatise : chaque facture fournisseur scannée met à jour les prix d'achat, les coûts et les ratios des recettes concernées se recalculent, et les fiches dont la marge se dégrade sont signalées avant la fin du mois plutôt qu'au bilan.",
+      text: "C'est le suivi de cet écart que Gramme automatise : chaque [facture fournisseur scannée](/fonctionnalites/scan-factures-mercuriale) met à jour les prix d'achat, les coûts et les ratios des recettes concernées se recalculent, et les fiches dont la marge se dégrade sont signalées avant la fin du mois plutôt qu'au bilan.",
     },
   ],
   faqs: [

@@ -34,6 +34,17 @@ export function GuideArticle({
           {guide.draft ? `${rubrique} · brouillon` : rubrique}
         </p>
         <h1 className="mt-3 text-3xl font-black leading-tight text-[#27421f] md:text-4xl">{guide.title}</h1>
+        {/* La réponse d'abord : deux phrases qui tiennent seules, pour le
+            lecteur pressé comme pour un moteur qui cherche un passage à citer. */}
+        <section
+          aria-labelledby="en-bref"
+          className="mt-6 max-w-[42rem] rounded-2xl border border-[#dcead2] bg-[#f6fbf2] px-5 py-4"
+        >
+          <h2 id="en-bref" className="text-sm font-semibold uppercase tracking-[0.08em] text-[#6e9f55]">
+            En bref
+          </h2>
+          <p className="mt-2 text-base leading-relaxed text-[#27421f]">{guide.summary}</p>
+        </section>
         <p className="mt-5 max-w-[42rem] text-base leading-relaxed text-[#4d6952] sm:text-lg">{guide.intro}</p>
         <div className="mt-6 flex flex-wrap gap-x-4 gap-y-2 text-sm text-[var(--muted-foreground)]">
           <time dateTime={guide.publishedAt}>Publié le {formatGuideDate(guide.publishedAt)}</time>
@@ -163,6 +174,28 @@ export function GuideArticle({
           ))}
         </dl>
       </section>
+
+      {guide.sources && guide.sources.length > 0 ? (
+        <section id="sources" className="mt-12 max-w-[42rem] scroll-mt-28" aria-labelledby="sources-heading">
+          <h2 id="sources-heading" className="text-2xl font-bold text-[#27421f]">
+            Sources
+          </h2>
+          <ul className="mt-4 space-y-2 text-sm text-[#4d6952]">
+            {guide.sources.map((source) => (
+              <li key={source.url}>
+                <a
+                  href={source.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="font-medium text-[#355329] underline underline-offset-2 hover:text-[#27421f]"
+                >
+                  {source.label}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </section>
+      ) : null}
 
       <aside className="mt-12 flex max-w-[42rem] gap-4 rounded-3xl border border-[#dcead2] bg-white p-5 sm:p-6">
         <div className="relative size-16 shrink-0 overflow-hidden rounded-2xl sm:size-20">

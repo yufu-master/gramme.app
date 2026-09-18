@@ -17,7 +17,7 @@ export const guideLogicielChef: Guide = {
   // paysage, et le visage sortait coupé au front.
   ogImage: "/images/app/recette-fiche.png",
   summary:
-    "Gramme a été conçu par un chef pâtissier en exercice : sous-recettes, montage et coût de revient réel pour les artisans.",
+    "Gramme a été conçu par un chef pâtissier en exercice pour représenter une recette comme au laboratoire : un assemblage de sous-recettes, chacune avec son rendement et son coût au kilo. Quand le prix d'une matière première change, tous les produits qui l'utilisent se recalculent seuls, perte de cuisson comprise, là où un outil qui traite les recettes à plat oblige à corriger partout à la main.",
   intro:
     "La plupart des logiciels de gestion utilisés en pâtisserie viennent de la restauration. Ils savent additionner des ingrédients et calculer un coût matière. Ils ne savent pas ce qu'est une crème pâtissière qui sert dans quatre produits différents, ni une perte de cuisson qui change le poids net d'une pâte. Gramme a été conçu par un chef pâtissier en exercice, à partir de ces problèmes-là.",
   draft: false,
@@ -31,7 +31,7 @@ export const guideLogicielChef: Guide = {
     {
       type: "h2",
       id: "ce-qui-change",
-      text: "Ce qui change quand celui qui conçoit l'outil a travaillé au fournil",
+      text: "Qu'est-ce qui change quand celui qui conçoit l'outil a travaillé au fournil ?",
     },
     {
       type: "p",
@@ -52,7 +52,7 @@ export const guideLogicielChef: Guide = {
     },
     {
       type: "p",
-      text: "**Les sous-recettes qui se propagent.** Vous créez votre crème pâtissière une fois, avec son rendement et son coût réel. Chaque produit qui l'utilise en hérite. Le jour où le prix des œufs monte, tous les produits concernés se recalculent seuls, y compris ceux auxquels vous n'aviez pas pensé.",
+      text: "**Les sous-recettes qui se propagent.** Vous créez [la fiche de votre crème pâtissière](/fonctionnalites/fiches-techniques) une fois, avec son rendement et son coût réel. Chaque produit qui l'utilise en hérite. Le jour où le prix des œufs monte, tous les produits concernés se recalculent seuls, y compris ceux auxquels vous n'aviez pas pensé.",
     },
     {
       type: "p",
@@ -60,7 +60,7 @@ export const guideLogicielChef: Guide = {
     },
     {
       type: "p",
-      text: "**Le poids réel plutôt que le poids théorique.** Une pâte qui perd du poids à la cuisson ne coûte pas le même prix au kilo à la sortie qu'à l'entrée. Sans la perte de cuisson, un coût de revient est systématiquement sous-estimé, et la marge affichée est fausse dans le sens qui rassure et qui ruine.",
+      text: "**Le poids réel plutôt que le poids théorique.** Une pâte qui perd du poids à la cuisson ne coûte pas le même prix au kilo à la sortie qu'à l'entrée. Sans [la perte de cuisson](/articles/pourcentage-perte-marge-boulangerie), un coût de revient est systématiquement sous-estimé, et la marge affichée est fausse dans le sens qui rassure et qui ruine.",
     },
     {
       type: "h2",
@@ -86,7 +86,7 @@ export const guideLogicielChef: Guide = {
     },
     {
       type: "p",
-      text: "Chacune de ces lignes est une sous-recette dont le coût vient lui-même de ses propres ingrédients, au prix réel de la dernière facture. Le jour où votre crémier change son tarif, les bases concernées bougent, et la marge du produit fini descend sans que personne n'ait rien saisi.",
+      text: "Chacune de ces lignes est une sous-recette dont le coût vient lui-même de ses propres ingrédients, au prix réel de [la dernière facture scannée](/fonctionnalites/scan-factures-mercuriale). Le jour où votre crémier change son tarif, les bases concernées bougent, et la marge du produit fini descend sans que personne n'ait rien saisi.",
     },
     {
       type: "p",
@@ -95,11 +95,11 @@ export const guideLogicielChef: Guide = {
     {
       type: "h2",
       id: "ce-que-gramme-ne-fait-pas",
-      text: "Ce que Gramme ne fait pas",
+      text: "Qu'est-ce que Gramme ne fait pas ?",
     },
     {
       type: "p",
-      text: "Par honnêteté, et parce que vous le découvririez de toute façon. Gramme n'est pas un logiciel de caisse et ne remplace pas votre encaissement. Il tient vos registres d'hygiène (relevés de températures, nettoyage, lots) mais il ne rédige pas votre plan de maîtrise sanitaire et n'atteste d'aucune conformité. Il ne fait pas votre comptabilité. Et il a besoin d'une connexion pour analyser vos documents.",
+      text: "Par honnêteté, et parce que vous le découvririez de toute façon. Gramme n'est pas un logiciel de caisse et ne remplace pas votre encaissement. Il tient [vos registres d'hygiène](/fonctionnalites/hygiene-haccp) (relevés de températures, nettoyage, lots) mais il ne rédige pas votre plan de maîtrise sanitaire et n'atteste d'aucune conformité. Il ne fait pas votre comptabilité. Et il a besoin d'une connexion pour analyser vos documents.",
     },
     {
       type: "p",

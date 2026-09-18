@@ -16,7 +16,7 @@ export const guideAllergenes: Guide = {
   updatedAt: "2026-08-13",
   ogImage: "/images/app/recette-etiquetage.png",
   summary:
-    "Ce que le règlement INCO et le décret français de 2015 imposent aux boulangeries en matière d'information sur les allergènes, pour les produits préemballés comme pour la vente à la coupe.",
+    "Une boulangerie doit signaler les quatorze allergènes de l'annexe II du règlement (UE) n° 1169/2011, dit règlement INCO, qu'elle vende ses produits préemballés ou en vrac. Pour la vente à la coupe, le décret n° 2015-447 impose une information écrite, lisible et visible depuis l'endroit où le client choisit, sans qu'il ait à la demander : la réponse orale de la vendeuse ne suffit pas.",
   intro:
     "L'information sur les allergènes est l'une des rares obligations réglementaires qui touche directement le comptoir d'une boulangerie, et l'une des plus mal comprises. Beaucoup d'artisans pensent qu'elle ne concerne que les produits emballés. C'est l'inverse : c'est précisément la vente en vrac qui pose le plus de questions.",
   draft: false,
@@ -24,13 +24,23 @@ export const guideAllergenes: Guide = {
     { href: "/fonctionnalites/allergenes-etiquetage", label: "Allergènes et étiquetage dans Gramme" },
     { href: "/logiciel-boulangerie", label: "Le logiciel pensé pour un fournil" },
   ],
+  sources: [
+    {
+      label: "Règlement (UE) n° 1169/2011 concernant l'information des consommateurs sur les denrées alimentaires (EUR-Lex)",
+      url: "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32011R1169",
+    },
+    {
+      label: "Décret n° 2015-447 du 17 avril 2015 relatif à l'information des consommateurs sur les allergènes et les denrées alimentaires non préemballées (Légifrance)",
+      url: "https://www.legifrance.gouv.fr/jorf/id/JORFTEXT000030491684",
+    },
+  ],
   relatedSlug: "fiche-technique-patisserie-modele",
   relatedLabel: "Modèle de fiche technique de pâtisserie",
   blocks: [
     {
       type: "h2",
       id: "textes",
-      text: "Les deux textes qui s'appliquent",
+      text: "Quels textes s'appliquent ?",
     },
     {
       type: "p",
@@ -38,12 +48,12 @@ export const guideAllergenes: Guide = {
     },
     {
       type: "p",
-      text: "Le second est français : le décret n° 2015-447 du 17 avril 2015, applicable depuis le 1er juillet 2015. Il précise, pour les denrées vendues non préemballées, ce qui est le cas de l'essentiel de la production d'une boulangerie), comment cette information doit être portée à la connaissance du consommateur. C'est ce décret qui concerne le plus directement le comptoir.",
+      text: "Le second est français : le décret n° 2015-447 du 17 avril 2015, applicable depuis le 1er juillet 2015. Il précise, pour les denrées vendues non préemballées (ce qui est le cas de l'essentiel de la production d'une boulangerie), comment cette information doit être portée à la connaissance du consommateur. C'est ce décret qui concerne le plus directement le comptoir.",
     },
     {
       type: "h2",
       id: "liste",
-      text: "Les quatorze allergènes à déclaration obligatoire",
+      text: "Quels sont les quatorze allergènes à déclarer ?",
     },
     {
       type: "table",
@@ -77,12 +87,12 @@ export const guideAllergenes: Guide = {
     },
     {
       type: "p",
-      text: "Pour une denrée préemballée, un pain de mie sous sachet, une boîte de macarons fermée avant la commande du client), l'allergène doit apparaître dans la liste des ingrédients et être mis en évidence par rapport au reste de la liste. La mise en évidence se fait par une différence de typographie : caractères gras, majuscules, italique, soulignement ou couleur de fond. Écrire l'ingrédient sans le distinguer ne suffit pas.",
+      text: "Pour une denrée préemballée (un pain de mie sous sachet, une boîte de macarons fermée avant la commande du client), l'allergène doit apparaître dans la liste des ingrédients et être mis en évidence par rapport au reste de la liste. La mise en évidence se fait par une différence de typographie : caractères gras, majuscules, italique, soulignement ou couleur de fond. Écrire l'ingrédient sans le distinguer ne suffit pas.",
     },
     {
       type: "h2",
       id: "vrac",
-      text: "Vente à la coupe et en vrac : le cas de la boulangerie",
+      text: "Comment informer en vente à la coupe et en vrac ?",
     },
     {
       type: "p",
@@ -121,11 +131,11 @@ export const guideAllergenes: Guide = {
     },
     {
       type: "p",
-      text: "L'information allergènes n'est pas un document à créer : c'est une lecture de vos recettes. Si vos fiches techniques listent réellement les composants utilisés, sous-recettes comprises, la liste des allergènes s'en déduit produit par produit. Si vos recettes sont dans un cahier ou dans la tête du chef, le travail est à refaire entièrement à chaque changement de gamme ou de fournisseur.",
+      text: "L'information allergènes n'est pas un document à créer : c'est une lecture de vos recettes. Si [vos fiches techniques](/guides/fiche-technique-patisserie-modele) listent réellement les composants utilisés, sous-recettes comprises, la liste des allergènes s'en déduit produit par produit. Si vos recettes sont dans un cahier ou dans la tête du chef, le travail est à refaire entièrement à chaque changement de gamme ou de fournisseur, à moins de [numériser ce cahier en photo](/guides/scanner-fiches-techniques-patisserie).",
     },
     {
       type: "p",
-      text: "C'est le lien direct entre cette obligation et la tenue de vos fiches techniques. Gramme produit l'affiche d'allergènes de votre vitrine et l'étiquette de vos produits emballés : vous renseignez chaque matière première une fois, et l'information remonte d'elle-même aux sous-recettes puis aux produits finis. Une limite que nous préférons dire clairement : Gramme n'est pas un outil de certification. Il rassemble et met en forme l'information à partir de ce que vous avez saisi, il ne garantit pas votre conformité : celle-ci dépend aussi de votre situation, et vous en restez l'exploitant responsable.",
+      text: "C'est le lien direct entre cette obligation et la tenue de vos fiches techniques. Gramme produit [l'affiche d'allergènes de votre vitrine et l'étiquette de vos produits emballés](/fonctionnalites/allergenes-etiquetage) : vous renseignez chaque matière première une fois, et l'information remonte d'elle-même aux sous-recettes puis aux produits finis. Une limite que nous préférons dire clairement : Gramme n'est pas un outil de certification. Il rassemble et met en forme l'information à partir de ce que vous avez saisi, il ne garantit pas votre conformité : celle-ci dépend aussi de votre situation, et vous en restez l'exploitant responsable.",
     },
     {
       type: "p",

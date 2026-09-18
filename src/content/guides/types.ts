@@ -43,6 +43,16 @@ export type Guide = {
    * rempli.
    */
   liens?: { href: string; label: string }[];
+  /**
+   * Les textes officiels sur lesquels l'article s'appuie, rendus en bas de
+   * page dans une section « Sources ».
+   *
+   * N'y entre qu'une adresse officielle VÉRIFIÉE (EUR-Lex, Légifrance…), et
+   * seulement pour un texte que l'article cite déjà : une source morte coûte
+   * plus qu'une source absente, et une source qui ne soutient rien de ce qui
+   * est écrit ne sert qu'à faire sérieux.
+   */
+  sources?: { label: string; url: string }[];
   relatedSlug: string;
   relatedLabel: string;
 };
@@ -137,6 +147,7 @@ export function assertPublishedGuidesHaveNoEmDash(guides: Guide[]): void {
       }
     }
     for (const faq of guide.faqs) morceaux.push(faq.q, faq.a);
+    for (const source of guide.sources ?? []) morceaux.push(source.label);
 
     const fautif = morceaux.find((m): m is string => typeof m === "string" && contientTiretCadratin(m));
     if (fautif) {

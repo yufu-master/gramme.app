@@ -16,7 +16,7 @@ export const guidePacPod: Guide = {
   updatedAt: "2026-09-07",
   ogImage: "/images/app/equilibrage.png",
   summary:
-    "Deux nombres décident de la tenue d'une glace en vitrine et de son goût sucré. Voici leurs coefficients par sucre, le calcul pas à pas, et comment lire un PAC en degrés.",
+    "Le PAC (pouvoir anticongelant) décide de la dureté d'une glace en vitrine, le POD (pouvoir sucrant) de la perception du sucré, et tous deux s'expriment en équivalents saccharose, le sucre de table valant 100. On les calcule en multipliant les sucres de chaque ingrédient par leur coefficient, en additionnant, puis en rapportant aux 100 g de mix ; environ deux points de PAC valent un degré de température de service.",
   intro:
     "Le pouvoir anticongelant et le pouvoir sucrant sont les deux indicateurs les plus mal compris de la glacerie, parce qu'ils portent tous les deux sur le sucre et qu'ils ne disent pas la même chose. L'un décide de la dureté, l'autre du goût. Les confondre, c'est corriger une glace trop dure en la rendant écœurante.",
   draft: false,
@@ -27,14 +27,14 @@ export const guidePacPod: Guide = {
   relatedSlug: "equilibrage-recette-comment-calculer",
   relatedLabel: "Équilibrage de recette : comment le calculer",
   blocks: [
-    { type: "h2", id: "definitions", text: "Deux nombres, deux questions différentes" },
+    { type: "h2", id: "definitions", text: "PAC et POD : quelle différence ?" },
     {
       type: "p",
       text: "Le POD, pour pouvoir sucrant, répond à la question « à quel point cela sucre ». Le PAC, pour pouvoir anticongelant, répond à « à quelle température cela gèle ». Les deux sont exprimés en équivalents saccharose : le sucre de table vaut 100 sur les deux échelles, par convention.",
     },
     {
       type: "p",
-      text: "Cette convention est ce qui rend le calcul utile. Le dextrose vaut 70 en POD et 190 en PAC : à poids égal, il sucre trente pour cent de moins que le sucre et abaisse le point de congélation presque deux fois plus. C'est le levier classique pour assouplir une glace sans la sucrer davantage.",
+      text: "Cette convention est ce qui rend le calcul utile. Le dextrose vaut 70 en POD et 190 en PAC : à poids égal, il sucre trente pour cent de moins que le sucre et abaisse le point de congélation presque deux fois plus. C'est le levier classique pour assouplir une glace sans la sucrer davantage, et [le logiciel pensé pour une glacerie](/logiciel-glacerie) en calcule l'effet depuis vos matières.",
     },
     { type: "h2", id: "table", text: "La table des coefficients" },
     {
@@ -65,7 +65,7 @@ export const guidePacPod: Guide = {
       type: "p",
       text: "Le lactose mérite une mention à part. Il n'est jamais ajouté volontairement, mais il arrive par le lait, la crème et surtout le lait écrémé en poudre. Sur une crème glacée classique, il représente facilement quatre à cinq points de sucres, et il compte dans le PAC comme du saccharose. L'oublier fausse le calcul de plusieurs degrés.",
     },
-    { type: "h2", id: "calcul", text: "Le calcul, ligne à ligne" },
+    { type: "h2", id: "calcul", text: "Comment calculer le PAC d'un mix, ligne à ligne ?" },
     {
       type: "p",
       text: "La formule est la même pour les deux indicateurs. Pour chaque ingrédient : poids de l'ingrédient, multiplié par sa part de sucres, multiplié par le coefficient, divisé par 100. On additionne, puis on rapporte au poids total du mix et on multiplie par 100 pour obtenir la valeur pour 100 g.",
@@ -85,9 +85,9 @@ export const guidePacPod: Guide = {
     },
     {
       type: "p",
-      text: "Le PAC pour 100 g vaut donc 536 divisé par 2 000, multiplié par 100, soit 26,8. Il est dans la fourchette de 24 à 30 d'une crème glacée. Le même tableau, avec les coefficients POD, donnerait environ 14,7 : la glace gèle bas sans être perçue très sucrée, ce qui est précisément l'effet recherché du dextrose.",
+      text: "Le PAC pour 100 g vaut donc 536 divisé par 2 000, multiplié par 100, soit 26,8. Il est dans la fourchette de 24 à 30 d'une crème glacée (voir [les repères d'équilibrage d'une crème glacée](/guides/equilibrage-recette-comment-calculer)). Le même tableau, avec les coefficients POD, donnerait environ 14,7 : la glace gèle bas sans être perçue très sucrée, ce qui est précisément l'effet recherché du dextrose.",
     },
-    { type: "h2", id: "temperature", text: "Du PAC à une température" },
+    { type: "h2", id: "temperature", text: "Comment passer du PAC à une température ?" },
     {
       type: "p",
       text: "Un PAC ne se lit pas en degrés directement, mais il s'y convertit. La référence de la profession, celle d'Angelo Corvitto, place 27,8 de PAC pour 100 g à une température de service de −11 °C, et retient qu'environ deux points de PAC valent un degré.",
@@ -117,7 +117,7 @@ export const guidePacPod: Guide = {
     },
     {
       type: "p",
-      text: "Toutes les trois viennent du même endroit : le calcul se fait à la main, sur un carnet, à partir de valeurs qu'on retient de mémoire. Le remède n'est pas de mieux retenir, c'est de faire porter la composition par la matière première elle-même, une fois pour toutes.",
+      text: "Toutes les trois viennent du même endroit : le calcul se fait à la main, sur un carnet, à partir de valeurs qu'on retient de mémoire. Le remède n'est pas de mieux retenir, c'est de faire porter la composition par la matière première elle-même, une fois pour toutes : c'est le principe de [l'équilibrage de recette dans Gramme](/fonctionnalites/equilibrage-recette).",
     },
   ],
   faqs: [

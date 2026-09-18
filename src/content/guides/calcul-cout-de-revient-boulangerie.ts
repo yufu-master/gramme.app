@@ -40,7 +40,7 @@ export const guideCoutDeRevient: Guide = {
   updatedAt: "2026-08-13",
   ogImage: "/images/app/recette-couts.png",
   summary:
-    "Méthode complète pour calculer le coût de revient d'un produit de boulangerie : prix d'achat réels, sous-recettes, pertes, rendement et marge, avec un exemple chiffré de baguette tradition.",
+    "Le coût matière d'un produit de boulangerie se calcule en additionnant ses composants au prix d'achat de la dernière facture, en divisant par (1 − taux de perte), puis par le nombre de pièces réellement vendables ; le coût de revient complet y ajoute la main-d'œuvre, l'énergie, l'emballage et une quote-part de charges fixes. Sur une baguette tradition, cela donne 0,238 € de coût matière pour un prix de vente de 1,232 € HT, soit un taux de marque de 80,7 %.",
   intro:
     "Le coût de revient est le seul chiffre qui dit si un produit vous fait gagner ou perdre de l'argent. La plupart des artisans en ont une idée approximative, héritée d'un calcul fait une fois, il y a trois ans, avec des prix qui ont bougé depuis. Voici la méthode complète, avec ce qui est habituellement oublié.",
   draft: false,
@@ -60,7 +60,7 @@ export const guideCoutDeRevient: Guide = {
     {
       type: "h2",
       id: "definition",
-      text: "Coût matière, coût de revient, marge : de quoi parle-t-on",
+      text: "Coût matière, coût de revient, marge : de quoi parle-t-on ?",
     },
     {
       type: "p",
@@ -68,7 +68,7 @@ export const guideCoutDeRevient: Guide = {
     },
     {
       type: "p",
-      text: "En boulangerie artisanale, la décision quotidienne (quel produit garder, lequel réajuster, lequel retirer de la gamme) se prend sur le coût matière et la marge brute. Le coût de revient complet sert à valider une gamme ou à préparer un plan de financement, pas à arbitrer entre deux viennoiseries un mardi matin. C'est pourquoi cet article part du coût matière, celui que vous pouvez tenir à jour sans comptable.",
+      text: "En boulangerie artisanale, la décision quotidienne (quel produit garder, lequel réajuster, lequel retirer de la gamme) se prend sur le coût matière et [la marge brute d'un produit](/articles/calculer-sa-marge-boulangerie-patisserie). Le coût de revient complet sert à valider une gamme ou à préparer un plan de financement, pas à arbitrer entre deux viennoiseries un mardi matin. C'est pourquoi cet article part du coût matière, celui que vous pouvez tenir à jour sans comptable.",
     },
     {
       type: "howto-steps",
@@ -122,15 +122,15 @@ export const guideCoutDeRevient: Guide = {
     {
       type: "h2",
       id: "erreurs",
-      text: "Les quatre erreurs qui faussent tous les calculs",
+      text: "Quelles erreurs faussent le coût de revient ?",
     },
     {
       type: "p",
-      text: "Première erreur : ignorer les pertes. C'est la plus répandue et la plus coûteuse. Un coût matière calculé sans perte est systématiquement sous-évalué, de 3 % sur une pétrissée bien tenue à plus de 15 % sur un entremets avec parage.",
+      text: "Première erreur : ignorer [le pourcentage de perte](/articles/pourcentage-perte-marge-boulangerie). C'est la plus répandue et la plus coûteuse. Un coût matière calculé sans perte est systématiquement sous-évalué, de 3 % sur une pétrissée bien tenue à plus de 15 % sur un entremets avec parage.",
     },
     {
       type: "p",
-      text: "Deuxième erreur : recopier les ingrédients d'une sous-recette dans la recette finale au lieu de la valoriser à son coût au kilo. Une crème pâtissière qui entre dans six produits doit être calculée une fois. Recopiée six fois, elle sera mise à jour zéro fois.",
+      text: "Deuxième erreur : recopier les ingrédients d'une sous-recette dans la recette finale au lieu de la valoriser à son coût au kilo, comme le fait [une fiche technique bien construite](/guides/fiche-technique-patisserie-modele). Une crème pâtissière qui entre dans six produits doit être calculée une fois. Recopiée six fois, elle sera mise à jour zéro fois.",
     },
     {
       type: "p",
@@ -143,11 +143,11 @@ export const guideCoutDeRevient: Guide = {
     {
       type: "h2",
       id: "frequence",
-      text: "À quelle fréquence refaire le calcul",
+      text: "À quelle fréquence refaire le calcul ?",
     },
     {
       type: "p",
-      text: "Le calcul lui-même n'a pas besoin d'être refait : ce sont les prix d'achat qui bougent. La bonne fréquence est donc celle de vos livraisons. Chaque facture qui modifie un prix devrait mettre à jour toutes les recettes qui contiennent cette matière première, sous-recettes comprises. À la main, c'est un travail impossible à tenir au-delà d'une vingtaine de références. C'est exactement ce que Gramme automatise : vous photographiez la facture, les coûts et les marges des recettes concernées se recalculent, et les fiches dont la marge se dégrade remontent.",
+      text: "Le calcul lui-même n'a pas besoin d'être refait : ce sont les prix d'achat qui bougent. La bonne fréquence est donc celle de vos livraisons. Chaque facture qui modifie un prix devrait mettre à jour toutes les recettes qui contiennent cette matière première, sous-recettes comprises. À la main, c'est un travail impossible à tenir au-delà d'une vingtaine de références. C'est exactement ce que Gramme automatise : vous [photographiez la facture fournisseur](/fonctionnalites/scan-factures-mercuriale), les coûts et les marges des recettes concernées se recalculent, et les fiches dont la marge se dégrade remontent.",
     },
   ],
   faqs: [

@@ -16,13 +16,19 @@ export const guideHaccp: Guide = {
   updatedAt: "2026-08-30",
   ogImage: "/images/app/haccp-temperatures.png",
   summary:
-    "Ce que recouvre réellement l'HACCP en boulangerie, ce qu'un logiciel enregistre à votre place, et la ligne que la loi ne laisse déplacer à aucun éditeur : la maîtrise sanitaire reste celle de l'exploitant.",
+    "Un logiciel HACCP enregistre, horodate et rend imprimables vos relevés de température, votre plan de nettoyage, la traçabilité des lots et les actions correctives, et un bon outil interdit de réécrire une ligne après coup. Il ne rend pas une boulangerie conforme : l'analyse des dangers, le choix des points critiques et le plan de maîtrise sanitaire restent la responsabilité de l'exploitant.",
   intro:
     "« Logiciel HACCP » est une expression commode, et trompeuse : aucun logiciel ne rend une boulangerie conforme. Ce qu'un outil peut faire, c'est enregistrer vos relevés, les horodater, les rendre imprimables, et rendre impossible de les réécrire après coup. C'est déjà beaucoup, parce que c'est exactement ce qu'un cahier accroché au mur ne garantit pas. Cet article explique ce que la réglementation demande, ce qu'un outil enregistre à votre place, et où s'arrête sa responsabilité.",
   draft: false,
   liens: [
     { href: "/logiciel-releves-temperature", label: "Les relevés de température, faits au téléphone" },
     { href: "/fonctionnalites/hygiene-haccp", label: "Les registres d'hygiène dans Gramme" },
+  ],
+  sources: [
+    {
+      label: "Règlement (CE) n° 852/2004 relatif à l'hygiène des denrées alimentaires (EUR-Lex)",
+      url: "https://eur-lex.europa.eu/legal-content/FR/TXT/?uri=CELEX:32004R0852",
+    },
   ],
   relatedSlug: "etiquette-allergene-boulangerie-obligation",
   relatedLabel: "Allergènes en boulangerie : ce que la réglementation impose",
@@ -43,7 +49,7 @@ export const guideHaccp: Guide = {
     {
       type: "h2",
       id: "ce-que-fait",
-      text: "Ce qu'un logiciel HACCP automatise réellement",
+      text: "Qu'automatise réellement un logiciel HACCP ?",
     },
     {
       type: "p",
@@ -65,11 +71,11 @@ export const guideHaccp: Guide = {
     {
       type: "h2",
       id: "frontiere",
-      text: "Où s'arrête un logiciel, et où commence l'exploitant",
+      text: "Où s'arrête un logiciel, et où commence l'exploitant ?",
     },
     {
       type: "p",
-      text: "Gramme tient les enregistrements du tableau ci-dessus : relevés de températures avec les bornes et les horaires que vous fixez, plan de nettoyage pointé par zone et par fréquence, étiquettes de lot et dates limites, contrôles à réception repris de la facture déjà scannée, et registres imprimables sur la période de votre choix. Une chose ne change pas pour autant, et elle est plus importante que la liste : cela ne vous rend pas conforme. L'analyse des dangers de votre atelier, vos bonnes pratiques d'hygiène, le choix de vos points critiques et de vos limites, la formation de votre équipe : rien de tout cela ne s'automatise. Un logiciel enregistre la preuve que la démarche est tenue ; il ne tient pas la démarche.",
+      text: "Gramme tient les enregistrements du tableau ci-dessus : [relevés de températures](/logiciel-releves-temperature) avec les bornes et les horaires que vous fixez, [plan de nettoyage pointé par zone et par fréquence](/fonctionnalites/hygiene-haccp), étiquettes de lot et dates limites, contrôles à réception repris de [la facture déjà scannée](/fonctionnalites/scan-factures-mercuriale), et registres imprimables sur la période de votre choix. Une chose ne change pas pour autant, et elle est plus importante que la liste : cela ne vous rend pas conforme. L'analyse des dangers de votre atelier, vos bonnes pratiques d'hygiène, le choix de vos points critiques et de vos limites, la formation de votre équipe : rien de tout cela ne s'automatise. Un logiciel enregistre la preuve que la démarche est tenue ; il ne tient pas la démarche.",
     },
     {
       type: "p",
@@ -92,7 +98,7 @@ export const guideHaccp: Guide = {
     {
       type: "h2",
       id: "choisir",
-      text: "Faut-il un logiciel HACCP quand on est une petite boulangerie",
+      text: "Faut-il un logiciel HACCP quand on est une petite boulangerie ?",
     },
     {
       type: "p",
@@ -100,7 +106,7 @@ export const guideHaccp: Guide = {
     },
     {
       type: "p",
-      text: "Si vous regardez un outil qui couvre à la fois l'hygiène et la gestion économique, la question à poser n'est pas « fait-il les deux ? » mais « à quel rythme chacun s'utilise-t-il ? ». Les relevés se prennent plusieurs fois par jour, debout, les mains occupées ; les coûts se consultent quand une facture arrive. Un outil qui traite l'hygiène comme un écran de bureau de plus sera rempli le dimanche soir, de mémoire, et il ne vaudra pas mieux que le cahier qu'il remplace. Demandez donc à voir l'écran de saisie sur un téléphone, et comptez les gestes qu'il faut pour noter une température. C'est ce chiffre-là qui dira si l'outil sera tenu.",
+      text: "Si vous regardez un outil qui couvre à la fois l'hygiène et la gestion économique, la question à poser n'est pas « fait-il les deux ? » mais « à quel rythme chacun s'utilise-t-il ? ». Les relevés se prennent plusieurs fois par jour, debout, les mains occupées ; les coûts se consultent quand une facture arrive. Un outil qui traite l'hygiène comme un écran de bureau de plus sera rempli le dimanche soir, de mémoire, et il ne vaudra pas mieux que le cahier qu'il remplace. Demandez donc à voir l'écran de saisie sur un téléphone (la question de l'appareil est traitée dans [faut-il un ordinateur pour gérer sa boulangerie](/articles/logiciel-boulangerie-sur-telephone)), et comptez les gestes qu'il faut pour noter une température. C'est ce chiffre-là qui dira si l'outil sera tenu.",
     },
     {
       type: "p",

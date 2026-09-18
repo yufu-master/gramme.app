@@ -18,14 +18,14 @@ export const articleTelephone: Guide = {
   // il n'en restait qu'une bande. La capture atelier est au bon format.
   ogImage: "/images/app/accueil-atelier.png",
   summary:
-    "La question de l'appareil paraît secondaire. C'est en réalité celle qui décide si un outil de gestion est adopté ou abandonné dans les trois mois.",
+    "Non, pas pour l'essentiel : les gestes les plus fréquents d'un atelier (photographier une facture, vérifier une marge, consulter une fiche technique) se font debout, loin du bureau, et un outil qui ne vit que sur un ordinateur devient un rendez-vous hebdomadaire, puis s'abandonne en quelques mois. Une application web installable, sans rien à installer ni à mettre à jour, donne le même compte sur le téléphone, la tablette et l'ordinateur.",
   intro:
     "Quand on compare des logiciels de gestion, on regarde les fonctions, les tarifs, les intégrations. Presque jamais l'appareil sur lequel on va s'en servir. C'est pourtant la question qui décide de tout le reste, parce qu'un outil qu'on n'ouvre pas ne sert à rien, quelles que soient ses fonctions.",
   blocks: [
     {
       type: "h2",
       id: "ou-est-le-boulanger",
-      text: "Où se trouve un boulanger à quatre heures du matin",
+      text: "Où se trouve un boulanger à quatre heures du matin ?",
     },
     {
       type: "p",
@@ -33,7 +33,7 @@ export const articleTelephone: Guide = {
     },
     {
       type: "p",
-      text: "L'ordinateur du bureau, quand il existe, sert le dimanche soir ou le mardi matin, au moment de la compta, des commandes, du planning. **Un outil de gestion qui ne vit que là devient un rendez-vous hebdomadaire.** Et une mercuriale mise à jour une fois par semaine est une mercuriale fausse six jours sur sept.",
+      text: "L'ordinateur du bureau, quand il existe, sert le dimanche soir ou le mardi matin, au moment de la compta, des commandes, du planning. **Un outil de gestion qui ne vit que là devient un rendez-vous hebdomadaire.** Et [une mercuriale](/fonctionnalites/scan-factures-mercuriale) mise à jour une fois par semaine est une mercuriale fausse six jours sur sept.",
     },
     {
       type: "h2",
@@ -58,12 +58,12 @@ export const articleTelephone: Guide = {
     },
     {
       type: "p",
-      text: "Rien dans cette suite ne vient d'une fonction manquante. Tout vient d'un décalage de quelques secondes : le geste de traiter une facture doit coûter moins cher que celui de la poser sur une pile. Photographier un document en sortant de la réserve prend dix secondes. Le rapporter au bureau, l'empiler, y revenir, allumer un poste et saisir les lignes en prend dix minutes, et surtout demande un moment qui n'existe pas.",
+      text: "Rien dans cette suite ne vient d'une fonction manquante. Tout vient d'un décalage de quelques secondes : le geste de traiter une facture doit coûter moins cher que celui de la poser sur une pile. [Photographier un document](/logiciel-scan-factures) en sortant de la réserve prend dix secondes. Le rapporter au bureau, l'empiler, y revenir, allumer un poste et saisir les lignes en prend dix minutes, et surtout demande un moment qui n'existe pas.",
     },
     {
       type: "h2",
       id: "web-vs-bureau",
-      text: "Application de bureau, site web, application installable",
+      text: "Application de bureau, site web ou application installable : quelle différence ?",
     },
     {
       type: "p",
@@ -99,7 +99,7 @@ export const articleTelephone: Guide = {
     {
       type: "h2",
       id: "ce-quon-fait-vraiment",
-      text: "Ce qu'on fait vraiment depuis un téléphone",
+      text: "Que fait-on vraiment depuis un téléphone ?",
     },
     {
       type: "p",
@@ -107,7 +107,7 @@ export const articleTelephone: Guide = {
     },
     {
       type: "p",
-      text: "**Photographier une facture** dès sa réception, avant qu'elle rejoigne une pile. **Photographier une fiche manuscrite** trouvée dans un classeur. **Vérifier une marge** avant de répondre à un client qui demande un prix pour vingt pièces. **Consulter une fiche technique** pendant la production, sans sortir un classeur plastifié. **Recevoir une alerte** quand le beurre augmente, au moment où elle est utile plutôt que le dimanche suivant.",
+      text: "**Photographier une facture** dès sa réception, avant qu'elle rejoigne une pile. **[Photographier une fiche manuscrite](/guides/scanner-fiches-techniques-patisserie)** trouvée dans un classeur. **[Vérifier une marge](/articles/calculer-sa-marge-boulangerie-patisserie)** avant de répondre à un client qui demande un prix pour vingt pièces. **Consulter une fiche technique** pendant la production, sans sortir un classeur plastifié. **Recevoir une alerte** quand le beurre augmente, au moment où elle est utile plutôt que le dimanche suivant.",
     },
     {
       type: "p",
@@ -128,7 +128,7 @@ export const articleTelephone: Guide = {
     },
     {
       type: "p",
-      text: "**« Combien de secondes entre le moment où je sors mon téléphone et celui où la facture est envoyée ? »** Demandez qu'on vous le montre en direct pendant la démonstration, chronomètre en main. C'est le seul test qui prédit vraiment si l'outil sera encore utilisé dans six mois.",
+      text: "**« Combien de secondes entre le moment où je sors mon téléphone et celui où la facture est envoyée ? »** Demandez qu'on vous le montre en direct pendant [la démonstration](/demo), chronomètre en main. C'est le seul test qui prédit vraiment si l'outil sera encore utilisé dans six mois.",
     },
   ],
   faqs: [

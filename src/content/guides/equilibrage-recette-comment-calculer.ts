@@ -16,7 +16,7 @@ export const guideEquilibrage: Guide = {
   updatedAt: "2026-09-07",
   ogImage: "/images/app/equilibrage.png",
   summary:
-    "L'équilibrage est le calcul qui dit si une recette tiendra avant de la couler. Voici les indicateurs, ce qu'un écart provoque en bouche et en vitrine, et la méthode complète sur une crème glacée vanille.",
+    "L'équilibrage est le calcul qui dit, avant de couler une recette, si ses sucres, son eau et sa matière grasse sont dans les proportions qui donneront la texture attendue. Il se calcule en additionnant la composition de chaque matière famille par famille, en pondérant les sucres par leur pouvoir sucrant (POD) et leur pouvoir anticongelant (PAC), puis en comparant chaque valeur aux fourchettes du type de produit.",
   intro:
     "Une glace dure comme du bois, une ganache qui tranche au deuxième jour, un sorbet plein de cristaux : ces défauts ne se voient sur aucune fiche technique. Ils se lisent dans les rapports entre le sucre, l'eau et la matière grasse, et ces rapports se calculent. C'est ce calcul qu'on appelle l'équilibrage, et les glaciers le font depuis toujours sur un carnet.",
   draft: false,
@@ -55,7 +55,7 @@ export const guideEquilibrage: Guide = {
     ],
   },
   blocks: [
-    { type: "h2", id: "definition", text: "Ce que l'équilibrage mesure vraiment" },
+    { type: "h2", id: "definition", text: "Que mesure vraiment l'équilibrage ?" },
     {
       type: "p",
       text: "Équilibrer, c'est vérifier que les grandes familles d'un mix sont dans des proportions qui donneront la texture attendue à la température de service. Le calcul ne regarde ni le goût ni la qualité des produits : il regarde des rapports. Une glace à la vanille et une glace au café peuvent avoir exactement le même équilibrage.",
@@ -64,7 +64,7 @@ export const guideEquilibrage: Guide = {
       type: "p",
       text: "Ce qui rend le calcul indispensable, c'est qu'aucun de ces rapports ne se devine à la lecture d'une recette. Remplacer 100 g de saccharose par 100 g de dextrose ne change ni le poids du mix, ni son extrait sec, ni presque son coût. Cela change le pouvoir anticongelant de près de moitié, et la glace passe de dure à impossible à tenir en vitrine.",
     },
-    { type: "h2", id: "indicateurs-glace", text: "Les indicateurs d'une crème glacée" },
+    { type: "h2", id: "indicateurs-glace", text: "Quels indicateurs pour une crème glacée ?" },
     {
       type: "p",
       text: "Voici les fourchettes usuelles de la glacerie artisanale, pour 100 g de mix. Ce sont des repères de métier, pas des normes : un atelier ajuste les siennes selon sa turbine, sa vitrine et sa clientèle.",
@@ -84,7 +84,7 @@ export const guideEquilibrage: Guide = {
     },
     {
       type: "p",
-      text: "Deux indicateurs méritent qu'on s'y arrête, parce qu'ils se confondent souvent. Le POD dit à quel point le mix sera perçu sucré ; le PAC dit à quelle température il gèlera. Un même poids de sucre peut donner un POD faible et un PAC fort, ou l'inverse : c'est précisément ce qui permet de rendre une glace plus souple sans la rendre plus sucrée.",
+      text: "Deux indicateurs méritent qu'on s'y arrête, parce qu'ils se confondent souvent (leur calcul détaillé est dans [le guide du PAC et du POD d'une glace](/guides/calcul-pac-pod-glace)). Le POD dit à quel point le mix sera perçu sucré ; le PAC dit à quelle température il gèlera. Un même poids de sucre peut donner un POD faible et un PAC fort, ou l'inverse : c'est précisément ce qui permet de rendre une glace plus souple sans la rendre plus sucrée.",
     },
     { type: "h2", id: "indicateurs-sorbet", text: "Les indicateurs d'un sorbet" },
     {
@@ -106,7 +106,7 @@ export const guideEquilibrage: Guide = {
     { type: "h2", id: "indicateurs-ganache", text: "Les indicateurs d'une ganache et d'un bonbon" },
     {
       type: "p",
-      text: "En chocolaterie, l'enjeu n'est plus la texture au froid mais la conservation. C'est l'eau libre qui décide, et elle se lit par l'activité de l'eau. Une ganache sous 0,85 d'activité de l'eau bloque le développement des bactéries pathogènes.",
+      text: "En chocolaterie, l'enjeu n'est plus la texture au froid mais la conservation. C'est l'eau libre qui décide, et elle se lit par [l'activité de l'eau d'une ganache](/guides/activite-eau-ganache-conservation). Une ganache sous 0,85 d'activité de l'eau bloque le développement des bactéries pathogènes.",
     },
     {
       type: "table",
@@ -151,16 +151,16 @@ export const guideEquilibrage: Guide = {
       type: "p",
       text: "Sur ce mix, les indicateurs tombent à 21,1 % de sucres, 10,1 % de matières grasses, 10,3 % d'extrait sec dégraissé du lait, 37,4 % d'extrait sec total, 14,7 de POD et 26,0 de PAC. Tout est dans les fourchettes, et le PAC de 26 place la température de service autour de −10 °C.",
     },
-    { type: "h2", id: "correction", text: "Corriger sans tout casser" },
+    { type: "h2", id: "correction", text: "Comment corriger sans tout casser ?" },
     {
       type: "p",
       text: "La difficulté de l'équilibrage n'est pas de calculer, c'est de corriger. Chaque ingrédient porte plusieurs familles à la fois : ajouter du lait en poudre monte l'extrait sec, mais aussi le lactose, donc le risque de sablage. Ajouter du dextrose fait tomber le point de congélation sans sucrer davantage, mais monte l'extrait sec.",
     },
     {
       type: "p",
-      text: "La règle pratique est de ne changer qu'une chose à la fois, et de regarder les six indicateurs après chaque changement. C'est fastidieux à la main, et c'est exactement ce qu'un outil doit faire à votre place : dans Gramme, un brouillon recalcule tout pendant que vous déplacez des grammes, sans rien enregistrer tant que le réglage ne vous convient pas.",
+      text: "La règle pratique est de ne changer qu'une chose à la fois, et de regarder les six indicateurs après chaque changement. C'est fastidieux à la main, et c'est exactement ce qu'un outil doit faire à votre place : dans Gramme, [le brouillon d'équilibrage](/fonctionnalites/equilibrage-recette) recalcule tout pendant que vous déplacez des grammes, sans rien enregistrer tant que le réglage ne vous convient pas.",
     },
-    { type: "h2", id: "limites", text: "Ce que l'équilibrage ne dit pas" },
+    { type: "h2", id: "limites", text: "Qu'est-ce que l'équilibrage ne dit pas ?" },
     {
       type: "p",
       text: "Un mix parfaitement équilibré peut donner une mauvaise glace. Le calcul ne voit ni la maturation, ni le foisonnement réel de votre turbine, ni la température de votre vitrine, ni la qualité de vos fruits. Il élimine une catégorie de défauts, celle qui vient des proportions, et laisse entière la part du métier.",

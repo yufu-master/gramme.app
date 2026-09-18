@@ -43,7 +43,7 @@ export const guideFicheTechniqueModele: Guide = {
   updatedAt: "2026-08-13",
   ogImage: "/images/app/recette-fiche.png",
   summary:
-    "La structure d'une fiche technique de pâtisserie qui sert vraiment en production, avec un gabarit vierge à recopier et un exemple complet de tarte au citron meringuée chiffrée.",
+    "Une fiche technique de pâtisserie utilisable tient en six blocs : identification, rendement, composants (sous-recettes comprises, valorisées à leur coût au kilo), pertes, procédé et bloc économique. C'est ce dernier bloc qui la distingue d'une recette mise au propre : sur une tarte au citron meringuée vendue 24 € TTC, il donne 3,56 € de coût matière par tarte et 84,3 % de taux de marque.",
   intro:
     "Une fiche technique n'est pas une recette mise au propre. C'est le document qui permet à quelqu'un d'autre de produire à l'identique, et qui vous dit ce que le produit vous coûte. Beaucoup de modèles qui circulent font l'un sans l'autre. Voici la structure complète, un gabarit à recopier, et un exemple chiffré de bout en bout.",
   draft: false,
@@ -63,11 +63,11 @@ export const guideFicheTechniqueModele: Guide = {
     {
       type: "h2",
       id: "structure",
-      text: "Les six blocs d'une fiche technique utilisable",
+      text: "Que contient une fiche technique utilisable ?",
     },
     {
       type: "p",
-      text: "Une fiche technique remplit deux fonctions qui n'ont rien à voir : reproduire et chiffrer. Les modèles trouvés en ligne privilégient presque toujours la première et traitent la seconde en ajoutant une colonne « prix » sans gestion des pertes ni des sous-recettes. C'est précisément là que le document cesse d'être fiable.",
+      text: "Une fiche technique remplit deux fonctions qui n'ont rien à voir : reproduire et chiffrer. Les modèles trouvés en ligne privilégient presque toujours la première et traitent la seconde en ajoutant une colonne « prix » sans [gestion des pertes](/articles/pourcentage-perte-marge-boulangerie) ni des sous-recettes. C'est précisément là que le document cesse d'être fiable.",
     },
     {
       type: "table",
@@ -95,7 +95,7 @@ export const guideFicheTechniqueModele: Guide = {
     },
     {
       type: "p",
-      text: "Voici le gabarit à reproduire dans un tableur ou sur papier. Les colonnes sont dans l'ordre où on les remplit en production. La colonne « coût unitaire » contient le prix d'achat ramené à l'unité de travail, relevé sur votre dernière facture : c'est la seule donnée qui demande un vrai travail de tenue à jour.",
+      text: "Voici le gabarit à reproduire dans un tableur ou sur papier. Les colonnes sont dans l'ordre où on les remplit en production. La colonne « coût unitaire » contient le prix d'achat ramené à l'unité de travail, relevé sur [votre dernière facture fournisseur](/logiciel-scan-factures) : c'est la seule donnée qui demande un vrai travail de tenue à jour.",
     },
     {
       type: "table",
@@ -117,7 +117,7 @@ export const guideFicheTechniqueModele: Guide = {
     },
     {
       type: "p",
-      text: "Cet exemple montre le point qui manque à la plupart des modèles : deux des composants sont des sous-recettes, valorisées à leur coût au kilo et non redétaillées. La pâte sucrée et la crème citron ont chacune leur propre fiche, avec leur propre rendement et leurs propres pertes.",
+      text: "Cet exemple montre le point qui manque à la plupart des modèles : deux des composants sont des sous-recettes, valorisées à leur coût au kilo et non redétaillées (la méthode est celle du [calcul du coût de revient en boulangerie](/guides/calcul-cout-de-revient-boulangerie)). La pâte sucrée et la crème citron ont chacune leur propre fiche, avec leur propre rendement et leurs propres pertes.",
     },
     {
       type: "table",
@@ -150,7 +150,7 @@ export const guideFicheTechniqueModele: Guide = {
     {
       type: "h2",
       id: "papier-ou-logiciel",
-      text: "Papier, tableur ou logiciel : ce qui change vraiment",
+      text: "Papier, tableur ou logiciel : qu'est-ce qui change vraiment ?",
     },
     {
       type: "p",
@@ -158,7 +158,7 @@ export const guideFicheTechniqueModele: Guide = {
     },
     {
       type: "p",
-      text: "La différence n'est donc pas dans le modèle de fiche, qui est le même partout, mais dans sa mise à jour. C'est ce que fait Gramme : chaque ligne de composant est rattachée à une matière première dont le prix vient de vos factures scannées, les sous-recettes sont des objets réutilisables, et le bloc économique se recalcule tout seul. Vous pouvez d'ailleurs partir de vos fiches existantes en les photographiant, sans les ressaisir.",
+      text: "La différence n'est donc pas dans le modèle de fiche, qui est le même partout, mais dans sa mise à jour. C'est ce que fait [la fiche technique dans Gramme](/fonctionnalites/fiches-techniques) : chaque ligne de composant est rattachée à une matière première dont le prix vient de vos factures scannées, les sous-recettes sont des objets réutilisables, et le bloc économique se recalcule tout seul. Vous pouvez d'ailleurs partir de vos fiches existantes en [les photographiant, sans les ressaisir](/guides/scanner-fiches-techniques-patisserie).",
     },
   ],
   faqs: [

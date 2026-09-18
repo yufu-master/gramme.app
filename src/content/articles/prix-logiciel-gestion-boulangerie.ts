@@ -19,14 +19,14 @@ export const articlePrix: Guide = {
   updatedAt: "2026-08-26",
   ogImage: "/images/app/accueil-tableau-bord.png",
   summary:
-    "Entre 33 € et plus de 240 € HT par mois selon les éditeurs, mais le prix affiché est rarement le prix payé. Les quatre variables qui décident de la facture réelle.",
+    "Un logiciel de gestion pour boulangerie coûte entre 33 € et plus de 240 € HT par mois selon les éditeurs, mais le prix affiché est rarement le prix payé. La facture réelle dépend de quatre lignes : le nombre de documents traités, les modules en option, la facturation par site ou par administrateur, et la reprise de vos données.",
   intro:
     "La question arrive toujours en premier, et la réponse honnête tient en une phrase : le prix affiché sur une page de tarifs ne dit presque rien de ce que vous paierez. Non pas parce que les éditeurs cacheraient quelque chose, mais parce que la variable de facturation est rarement le nombre d'utilisateurs. Voici les tarifs publics du marché, relevés en août 2026, et les quatre lignes qui déplacent réellement l'addition.",
   blocks: [
     {
       type: "h2",
       id: "les-tarifs",
-      text: "Ce qu'affichent les éditeurs",
+      text: "Quels tarifs affichent les éditeurs ?",
     },
     {
       type: "p",
@@ -74,7 +74,7 @@ export const articlePrix: Guide = {
     },
     {
       type: "p",
-      text: "C'est la variable la plus souvent sous-estimée, et la plus coûteuse. Plusieurs éditeurs facturent au volume de factures fournisseurs lues automatiquement chaque mois.",
+      text: "C'est la variable la plus souvent sous-estimée, et la plus coûteuse. Plusieurs éditeurs facturent au volume de [factures fournisseurs lues automatiquement](/logiciel-scan-factures) chaque mois.",
     },
     {
       type: "p",
@@ -82,7 +82,7 @@ export const articlePrix: Guide = {
     },
     {
       type: "p",
-      text: "**Comptez vos factures d'un mois réel avant de choisir une offre.** Prenez le mois de décembre plutôt que celui d'août : c'est le pic qui décide, pas la moyenne. Chez Gramme, le volume inclus est de 30 factures par mois en Starter et 150 en Pro, ce qui couvre la quasi-totalité des ateliers artisanaux sans changer d'offre.",
+      text: "**Comptez vos factures d'un mois réel avant de choisir une offre.** Prenez le mois de décembre plutôt que celui d'août : c'est le pic qui décide, pas la moyenne. Chez Gramme, [le volume inclus dans chaque offre](/tarifs) est de 30 factures par mois en Starter et 150 en Pro, ce qui couvre la quasi-totalité des ateliers artisanaux sans changer d'offre.",
     },
     {
       type: "h2",
@@ -91,7 +91,7 @@ export const articlePrix: Guide = {
     },
     {
       type: "p",
-      text: "Le planning de production est l'exemple type. Il figure dans la présentation de presque tous les éditeurs, mais pas toujours dans le prix affiché : chez l'un il est proposé en option à 49 € HT par mois, chez un autre il n'arrive qu'à une offre facturée par administrateur et par site, chez un troisième il constitue un module à part entière de la logique modulaire.",
+      text: "[Le planning de production](/fonctionnalites/planning-production) est l'exemple type. Il figure dans la présentation de presque tous les éditeurs, mais pas toujours dans le prix affiché : chez l'un il est proposé en option à 49 € HT par mois, chez un autre il n'arrive qu'à une offre facturée par administrateur et par site, chez un troisième il constitue un module à part entière de la logique modulaire.",
     },
     {
       type: "p",
@@ -130,7 +130,7 @@ export const articlePrix: Guide = {
     {
       type: "h2",
       id: "combien-ca-rapporte",
-      text: "L'autre moitié de la question",
+      text: "À partir de quel gain un logiciel est-il remboursé ?",
     },
     {
       type: "p",
@@ -138,11 +138,11 @@ export const articlePrix: Guide = {
     },
     {
       type: "p",
-      text: "La question utile n'est donc pas « combien ça coûte » mais **« à partir de quel gain c'est remboursé »**. Un point de ratio matière récupéré sur 300 000 € de chiffre d'affaires, c'est 3 000 €. Une hausse de prix fournisseur repérée le jour même plutôt qu'au bilan, c'est souvent davantage. Le calcul se fait vite, et il se fait sur vos chiffres : pas sur une moyenne du secteur.",
+      text: "La question utile n'est donc pas « combien ça coûte » mais **« à partir de quel gain c'est remboursé »**. Un point de [ratio matière](/guides/coefficient-cout-matiere-boulangerie) récupéré sur 300 000 € de chiffre d'affaires, c'est 3 000 €. Une hausse de prix fournisseur repérée le jour même plutôt qu'au bilan, c'est souvent davantage. Le calcul se fait vite, et il se fait sur vos chiffres : pas sur une moyenne du secteur.",
     },
     {
       type: "p",
-      text: "C'est aussi pour cela qu'une démonstration sur vos propres fiches vaut mieux qu'une comparaison de grilles tarifaires : elle vous donne le seul chiffre qui compte, celui de votre atelier.",
+      text: "C'est aussi pour cela qu'[une démonstration sur vos propres fiches](/demo) vaut mieux qu'une comparaison de grilles tarifaires : elle vous donne le seul chiffre qui compte, celui de votre atelier.",
     },
   ],
   faqs: [

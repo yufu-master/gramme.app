@@ -46,7 +46,7 @@ export const articleMarge: Guide = {
   updatedAt: "2026-08-27",
   ogImage: "/images/app/recette-couts.png",
   summary:
-    "La marge d'un produit ne se lit pas sur une seule ligne. Cinq étages de calcul, appliqués à une part de flan pâtissier : sous-recettes, pertes, main-d'œuvre au coût réel, charges d'atelier, et ce que l'impôt en laisse.",
+    "Calculer sa marge en boulangerie-pâtisserie, c'est retirer du prix de vente hors taxes, étage par étage, le coût matière avec ses pertes, la main-d'œuvre au coût horaire réel, l'emballage et les charges d'atelier, puis la structure et les invendus. Sur une part de flan vendue 3,20 € TTC, la marge passe ainsi de 84,8 % sur matière à 14,2 % de marge nette avant impôt, et il reste 26 centimes une fois l'impôt passé.",
   intro:
     "Calculer sa marge en boulangerie-pâtisserie, c'est retirer du prix de vente hors taxes tout ce que le produit a coûté : la matière avec ses pertes, la main-d'œuvre au coût chargé réel, l'emballage et une part des charges d'atelier. La plupart des artisans s'arrêtent à la première soustraction, celle du coût matière, et appellent ça la marge. Ce n'est pas faux, c'est incomplet : cette marge-là ne paie ni le tourier, ni le four, ni le loyer, ni le Trésor public. Voici les cinq étages du calcul, chiffrés sur un produit que tout le monde vend.",
   draft: false,
@@ -186,12 +186,12 @@ export const articleMarge: Guide = {
     },
     {
       type: "p",
-      text: "Une remarque au passage sur la perte à la cuisson, qui revient toujours dans cette discussion. Le flan perd de l'eau au four, mais il est vendu à la part, pas au poids : cette perte-là ne change pas le coût de la part. Les pertes qui comptent ici sont celles qui font disparaître de la matière payée avant le découpage : les chutes de fonçage et le fond de casserole. La règle générale : **une perte n'affecte le coût que si elle réduit le nombre d'unités vendables ou la quantité de matière qui y entre.**",
+      text: "Une remarque au passage sur [la perte à la cuisson](/articles/pourcentage-perte-marge-boulangerie), qui revient toujours dans cette discussion. Le flan perd de l'eau au four, mais il est vendu à la part, pas au poids : cette perte-là ne change pas le coût de la part. Les pertes qui comptent ici sont celles qui font disparaître de la matière payée avant le découpage : les chutes de fonçage et le fond de casserole. La règle générale : **une perte n'affecte le coût que si elle réduit le nombre d'unités vendables ou la quantité de matière qui y entre.**",
     },
     {
       type: "h2",
       id: "taux-de-marge",
-      text: "Taux de marge, taux de marque, coefficient : trois chiffres pour la même réalité",
+      text: "Taux de marge, taux de marque, coefficient : quelle différence ?",
     },
     {
       type: "p",
@@ -210,12 +210,12 @@ export const articleMarge: Guide = {
     },
     {
       type: "p",
-      text: "Dans le commerce alimentaire, la référence utile est le taux de marque, parce qu'il se rapporte au chiffre d'affaires et se compare donc directement à un compte de résultat. Le taux de marge, rapporté au coût, donne des nombres spectaculaires et incomparables. Quand un confrère annonce « 300 % de marge », il parle en taux de marge : cela correspond à 75 % de taux de marque. Et quand un fournisseur vous parle de coefficient, il parle encore d'autre chose.",
+      text: "Dans le commerce alimentaire, la référence utile est le taux de marque, parce qu'il se rapporte au chiffre d'affaires et se compare donc directement à un compte de résultat. Le taux de marge, rapporté au coût, donne des nombres spectaculaires et incomparables. Quand un confrère annonce « 300 % de marge », il parle en taux de marge : cela correspond à 75 % de taux de marque. Et quand un fournisseur vous parle de [coefficient multiplicateur](/guides/coefficient-cout-matiere-boulangerie), il parle encore d'autre chose.",
     },
     {
       type: "h2",
       id: "main-d-oeuvre",
-      text: "Étage 2 : la main-d'œuvre, et le taux horaire que personne n'utilise",
+      text: "Étage 2 : combien coûte vraiment une heure de main-d'œuvre ?",
     },
     {
       type: "p",
@@ -368,7 +368,7 @@ export const articleMarge: Guide = {
     {
       type: "h2",
       id: "marge-par-heure",
-      text: "L'indicateur que presque personne ne calcule : la marge par heure",
+      text: "Quel produit rapporte le plus par heure de laboratoire ?",
     },
     {
       type: "p",
@@ -399,7 +399,7 @@ export const articleMarge: Guide = {
     {
       type: "h2",
       id: "grosses-productions",
-      text: "Sur les grosses productions, le calcul se complique encore",
+      text: "Comment calculer la marge sur les grosses productions ?",
     },
     {
       type: "p",
@@ -411,7 +411,7 @@ export const articleMarge: Guide = {
     },
     {
       type: "p",
-      text: "**La consommation théorique n'est pas la consommation réelle.** À la fin du mois, deux chiffres existent. Le théorique : la somme de ce que les recettes produites auraient dû consommer. Le réel : stock de début, plus achats, moins stock de fin. Sur un mois, un atelier trouve 612 kg de beurre en théorique et 658 kg en réel : 46 kg d'écart, 7,5 %, **386 € qui ont disparu** entre le grammage annoncé et le grammage pratiqué, la casse, les essais et les retours. Cet écart est la seule mesure fiable de la fidélité entre les fiches et l'atelier, et il ne s'obtient qu'en tenant un inventaire.",
+      text: "**La consommation théorique n'est pas la consommation réelle.** À la fin du mois, deux chiffres existent. Le théorique : la somme de ce que les recettes produites auraient dû consommer. Le réel : stock de début, plus achats, moins stock de fin. Sur un mois, un atelier trouve 612 kg de beurre en théorique et 658 kg en réel : 46 kg d'écart, 7,5 %, **386 € qui ont disparu** entre le grammage annoncé et le grammage pratiqué, la casse, les essais et les retours. Cet écart est la seule mesure fiable de la fidélité entre les fiches et l'atelier, et il ne s'obtient qu'en [tenant un inventaire](/fonctionnalites/gestion-stock).",
     },
     {
       type: "p",
@@ -431,7 +431,7 @@ export const articleMarge: Guide = {
     {
       type: "h2",
       id: "pourquoi-ca-ne-tient-pas",
-      text: "Pourquoi ce calcul, une fois fait, ne tient pas six mois",
+      text: "Pourquoi ce calcul ne tient-il pas six mois ?",
     },
     {
       type: "p",
@@ -456,11 +456,11 @@ export const articleMarge: Guide = {
     },
     {
       type: "p",
-      text: "C'est exactement le problème que Gramme prend en charge. Vous photographiez la facture fournisseur ; les prix d'achat se mettent à jour ; les sous-recettes qui contiennent ces matières se recalculent ; les produits finis qui contiennent ces sous-recettes se recalculent à leur tour, y compris ceux auxquels vous n'auriez pas pensé ; et les fiches dont la marge s'est dégradée remontent. Le geste quotidien tient en une photo.",
+      text: "C'est exactement le problème que Gramme prend en charge. [Vous photographiez la facture fournisseur](/fonctionnalites/scan-factures-mercuriale) ; les prix d'achat se mettent à jour ; les sous-recettes qui contiennent ces matières se recalculent ; les produits finis qui contiennent ces sous-recettes se recalculent à leur tour, y compris ceux auxquels vous n'auriez pas pensé ; et les fiches dont la marge s'est dégradée remontent. Le geste quotidien tient en une photo.",
     },
     {
       type: "p",
-      text: "Le reste suit la même logique. Les taux de perte sont portés par la fiche et s'appliquent à tous les redimensionnements. Le temps de production et le taux horaire entrent dans le coût de revient, au même titre que les charges fixes de l'atelier : la marge affichée est celle qui reste une fois le tourier et le loyer payés, pas celle qui fait plaisir. Prix de vente hors taxes, ratio matière, marge et coefficient se lisent sur la même page que la recette, au moment où l'on décide de changer un grammage ou un prix.",
+      text: "Le reste suit la même logique. Les taux de perte sont portés par la fiche et s'appliquent à tous les redimensionnements. Le temps de production et le taux horaire entrent dans le coût de revient, au même titre que [les charges fixes de l'atelier](/fonctionnalites/comptabilite-charges) : la marge affichée est celle qui reste une fois le tourier et le loyer payés, pas celle qui fait plaisir. Prix de vente hors taxes, ratio matière, marge et coefficient se lisent sur la même page que la recette, au moment où l'on décide de changer un grammage ou un prix.",
     },
     {
       type: "p",

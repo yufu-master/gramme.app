@@ -17,14 +17,14 @@ export const articlePerte: Guide = {
   updatedAt: "2026-08-26",
   ogImage: "/images/app/recette-couts.png",
   summary:
-    "Le taux de perte est le paramètre le plus souvent absent des calculs de coût de revient, et celui qui les fausse le plus. Explication chiffrée, et méthode pour le mesurer sans matériel.",
+    "Le pourcentage de perte (cuisson, parage, chutes) est la part de matière payée qui n'arrive jamais en vitrine, et c'est le paramètre le plus souvent absent des calculs de coût de revient, toujours dans le sens qui embellit la marge. Il se mesure avec une simple balance, (poids entrant − poids sortant) ÷ poids entrant × 100, sur trois productions, et le coût se rapporte ensuite au produit vendable, pas à ce qui entre dans le pétrin.",
   intro:
     "C'est le premier écart que nous trouvons en reprenant le tableur d'un atelier, et de loin le plus coûteux. Pas une erreur de saisie, pas un prix oublié : un paramètre entier qui manque, et qui rend toutes les marges plus belles qu'elles ne sont. Il porte plusieurs noms selon les métiers (perte, freinte, rendement, taux de parage) et il désigne toujours la même chose : de la matière que vous avez payée et que vous ne vendrez jamais.",
   blocks: [
     {
       type: "h2",
       id: "ce-que-c-est",
-      text: "De la matière payée qui n'arrive pas en vitrine",
+      text: "Qu'est-ce que le pourcentage de perte ?",
     },
     {
       type: "p",
@@ -36,12 +36,12 @@ export const articlePerte: Guide = {
     },
     {
       type: "p",
-      text: "**Le coût de revient doit porter sur le produit vendable, pas sur ce qui entre dans le pétrin.** C'est toute la question, et elle se résume à une division qu'on oublie de faire.",
+      text: "**Le coût de revient doit porter sur le produit vendable, pas sur ce qui entre dans le pétrin.** C'est toute la question, et elle se résume à une division qu'on oublie de faire (voir [la méthode de calcul du coût de revient](/guides/calcul-cout-de-revient-boulangerie)).",
     },
     {
       type: "h2",
       id: "combien-ca-coute",
-      text: "Ce que ça change, en euros",
+      text: "Combien ça coûte, en euros ?",
     },
     {
       type: "p",
@@ -65,7 +65,7 @@ export const articlePerte: Guide = {
     },
     {
       type: "p",
-      text: "Et l'écart grandit avec le nombre d'étapes. Un entremets fait de trois sous-recettes qui perdent chacune à leur niveau accumule les erreurs en cascade : un biscuit qui perd 10 % à la cuisson, une crème qui perd 5 % au transfert, un montage qui perd 8 % à la découpe. Trois oublis de 5 à 10 % ne s'additionnent pas, ils se multiplient, et le coût réel peut dépasser de 20 à 25 % le coût affiché.",
+      text: "Et l'écart grandit avec le nombre d'étapes. Un entremets fait de trois [sous-recettes](/logiciel-patisserie) qui perdent chacune à leur niveau accumule les erreurs en cascade : un biscuit qui perd 10 % à la cuisson, une crème qui perd 5 % au transfert, un montage qui perd 8 % à la découpe. Trois oublis de 5 à 10 % ne s'additionnent pas, ils se multiplient, et le coût réel peut dépasser de 20 à 25 % le coût affiché.",
     },
     {
       type: "h2",
@@ -86,12 +86,12 @@ export const articlePerte: Guide = {
     },
     {
       type: "p",
-      text: "**L'erreur va dans le sens agréable.** Un coût sous-estimé donne une marge flatteuse. Rien n'alerte, aucun chiffre ne paraît suspect, et l'écart ne se voit qu'en fin d'exercice, dans le décalage entre le ratio matière théorique et le ratio comptable réel. À ce moment-là, on l'attribue au vol, à la casse ou aux invendus : rarement au calcul.",
+      text: "**L'erreur va dans le sens agréable.** Un coût sous-estimé donne une marge flatteuse. Rien n'alerte, aucun chiffre ne paraît suspect, et l'écart ne se voit qu'en fin d'exercice, dans le décalage entre [le ratio matière théorique et le ratio comptable réel](/guides/coefficient-cout-matiere-boulangerie). À ce moment-là, on l'attribue au vol, à la casse ou aux invendus : rarement au calcul.",
     },
     {
       type: "h2",
       id: "comment-mesurer",
-      text: "Comment mesurer vos taux, avec une balance et rien d'autre",
+      text: "Comment mesurer vos taux, avec une balance et rien d'autre ?",
     },
     {
       type: "howto-steps",
@@ -123,7 +123,7 @@ export const articlePerte: Guide = {
     {
       type: "h2",
       id: "reperes",
-      text: "Des ordres de grandeur pour vous situer",
+      text: "Quel taux de perte est normal ?",
     },
     {
       type: "p",
@@ -156,7 +156,7 @@ export const articlePerte: Guide = {
     },
     {
       type: "p",
-      text: "Dans Gramme, chaque fiche porte son poids brut, son poids net et son taux de perte, et le coût est rapporté au produit vendable, y compris à travers les sous-recettes, où l'effet cumulé se produit. Le taux se saisit une fois et suit la fiche pour toujours, quels que soient les redimensionnements.",
+      text: "Dans Gramme, [chaque fiche technique](/fonctionnalites/fiches-techniques) porte son poids brut, son poids net et son taux de perte, et le coût est rapporté au produit vendable, y compris à travers les sous-recettes, où l'effet cumulé se produit. Le taux se saisit une fois et suit la fiche pour toujours, quels que soient les redimensionnements.",
     },
   ],
   faqs: [

@@ -16,7 +16,7 @@ export const guideActiviteEau: Guide = {
   updatedAt: "2026-09-07",
   ogImage: "/images/app/equilibrage-ganache.png",
   summary:
-    "L'activité de l'eau décide de la durée de vie d'une ganache, bien plus que la quantité d'eau. Voici les seuils, les leviers pour la faire baisser, et la limite entre estimation et responsabilité de l'atelier.",
+    "La durée de conservation d'une ganache dépend de son activité de l'eau, c'est-à-dire de la part d'eau restée libre pour les micro-organismes, bien plus que de sa quantité d'eau totale. Sous 0,85, les bactéries pathogènes ne se développent plus, et on la fait baisser surtout par les sucres (inverti, sorbitol), mais la durée de vie annoncée reste sous la responsabilité de l'atelier, validée par un test microbiologique.",
   intro:
     "Deux ganaches contenant exactement la même quantité d'eau peuvent tenir trois semaines ou trois mois. Ce qui les sépare n'est pas la quantité d'eau, c'est la part d'eau restée LIBRE, disponible pour les micro-organismes. Cette part se mesure, et elle porte un nom : l'activité de l'eau.",
   draft: false,
@@ -27,7 +27,7 @@ export const guideActiviteEau: Guide = {
   relatedSlug: "equilibrage-recette-comment-calculer",
   relatedLabel: "Équilibrage de recette : comment le calculer",
   blocks: [
-    { type: "h2", id: "definition", text: "Eau totale et eau libre" },
+    { type: "h2", id: "definition", text: "Eau totale, eau libre : qu'est-ce que l'activité de l'eau ?" },
     {
       type: "p",
       text: "L'activité de l'eau, notée Aw, est un rapport compris entre 0 et 1. Elle vaut 1 pour de l'eau pure et diminue à mesure que des molécules dissoutes retiennent cette eau. Ce sont les sucres, principalement, qui la font baisser : chaque molécule dissoute mobilise de l'eau qui n'est plus disponible.",
@@ -36,7 +36,7 @@ export const guideActiviteEau: Guide = {
       type: "p",
       text: "C'est pourquoi le nombre de molécules compte plus que le poids. À poids égal, le sucre inverti et le sorbitol abaissent l'activité de l'eau nettement plus que le saccharose, parce qu'ils se décomposent en molécules plus petites et donc plus nombreuses. Un chocolatier qui remplace vingt grammes de sucre par vingt grammes d'inverti ne change presque rien au goût et gagne plusieurs semaines de conservation.",
     },
-    { type: "h2", id: "seuils", text: "Les seuils qui comptent" },
+    { type: "h2", id: "seuils", text: "Quels seuils d'activité de l'eau viser ?" },
     {
       type: "table",
       caption: "Activité de l'eau et conservation indicative d'une ganache",
@@ -54,7 +54,7 @@ export const guideActiviteEau: Guide = {
       type: "p",
       text: "Le seuil de 0,85 est le seul qui ne se négocie pas : c'est celui en dessous duquel les bactéries pathogènes cessent de se multiplier. Une ganache destinée à la vente doit passer sous cette valeur, et une ganache de vitrine gagne à viser 0,80 pour se donner de la marge.",
     },
-    { type: "h2", id: "leviers", text: "Les cinq leviers pour la faire baisser" },
+    { type: "h2", id: "leviers", text: "Comment faire baisser l'activité de l'eau ?" },
     {
       type: "p",
       text: "Faire baisser l'activité de l'eau ne veut pas dire assécher la ganache. Cinq leviers existent, et ils ne coûtent pas la même chose en texture.",
@@ -73,12 +73,12 @@ export const guideActiviteEau: Guide = {
     },
     {
       type: "p",
-      text: "Le levier le plus mal employé est le dernier de la liste des tentations : allonger la cuisson pour évaporer l'eau. Il fonctionne, mais il déstabilise l'émulsion et donne des ganaches qui tranchent. Mieux vaut jouer sur les sucres.",
+      text: "Le levier le plus mal employé est le dernier de la liste des tentations : allonger la cuisson pour évaporer l'eau. Il fonctionne, mais il déstabilise l'émulsion et donne des ganaches qui tranchent. Mieux vaut jouer sur les sucres, en suivant [l'équilibrage de la recette](/guides/equilibrage-recette-comment-calculer).",
     },
     { type: "h2", id: "estimer", text: "Estimer avant de produire" },
     {
       type: "p",
-      text: "Un mesureur d'activité de l'eau coûte quelques milliers d'euros et donne une mesure sur un produit déjà fabriqué. L'estimation, elle, se calcule sur la recette, avant de couler : elle part du rapport entre les solutés et l'eau du mix, en pondérant chaque sucre selon sa capacité à retenir l'eau.",
+      text: "Un mesureur d'activité de l'eau coûte quelques milliers d'euros et donne une mesure sur un produit déjà fabriqué. L'estimation, elle, se calcule sur la recette, avant de couler (c'est ce que fait [le module d'équilibrage de Gramme](/fonctionnalites/equilibrage-recette)) : elle part du rapport entre les solutés et l'eau du mix, en pondérant chaque sucre selon sa capacité à retenir l'eau.",
     },
     {
       type: "p",
@@ -91,7 +91,7 @@ export const guideActiviteEau: Guide = {
     },
     {
       type: "p",
-      text: "La durée de vie d'un produit reste sous la responsabilité de l'atelier qui le fabrique. Un logiciel peut vous aider à la préparer et à documenter votre raisonnement ; c'est le test en laboratoire qui la valide, et c'est votre plan de maîtrise sanitaire qui l'engage.",
+      text: "La durée de vie d'un produit reste sous la responsabilité de l'atelier qui le fabrique. Un logiciel peut vous aider à la préparer et à documenter votre raisonnement ; c'est le test en laboratoire qui la valide, et c'est votre [plan de maîtrise sanitaire](/guides/logiciel-haccp-boulangerie) qui l'engage.",
     },
   ],
   faqs: [

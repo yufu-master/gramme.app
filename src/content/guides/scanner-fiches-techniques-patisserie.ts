@@ -33,7 +33,7 @@ export const guideScannerFiches: Guide = {
   // accepte pour une vignette, qui sortait donc sans image.
   ogImage: "/images/app/recettes.png",
   summary:
-    "Méthode pour photographier un cahier de recettes et obtenir des fiches techniques classées, avec sous-recettes et coûts calculés.",
+    "Pour scanner ses fiches techniques de pâtisserie, on photographie chaque page posée à plat sous une lumière correcte, puis on vérifie et corrige ce que l'application a lu : rien n'est enregistré sans votre accord. Le rattachement aux matières premières, la liaison aux sous-recettes et le calcul des coûts se font ensuite sans intervention, et un cahier lisible d'une cinquantaine de recettes se reprend en moins de deux heures, à titre indicatif.",
   intro:
     "Un cahier de recettes se photographie en quelques minutes. Le transformer en fiches techniques exploitables, avec les sous-recettes reliées, les matières identifiées et les coûts calculés, c'est un autre travail. Voici comment il se fait, et ce qu'il demande de votre part.",
   draft: false,
@@ -65,12 +65,12 @@ export const guideScannerFiches: Guide = {
     },
     {
       type: "p",
-      text: "Numériser une recette, ce n'est donc pas transformer une image en texte. C'est reconstituer une structure que le papier n'a jamais eue.",
+      text: "Numériser une recette, ce n'est donc pas transformer une image en texte. C'est reconstituer [la structure d'une fiche technique](/guides/fiche-technique-patisserie-modele), que le papier n'a jamais eue.",
     },
     {
       type: "h2",
       id: "comment-ca-se-passe",
-      text: "Comment ça se passe, de votre côté",
+      text: "Comment ça se passe, de votre côté ?",
     },
     {
       type: "howto-steps",
@@ -85,7 +85,7 @@ export const guideScannerFiches: Guide = {
     },
     {
       type: "p",
-      text: "C'est le point que les outils venus de la restauration traitent mal, et c'est celui qui compte le plus en pâtisserie.",
+      text: "C'est le point que les outils venus de la restauration traitent mal, et c'est celui qui compte le plus en pâtisserie (c'est tout le propos d'[un logiciel conçu par un chef pâtissier](/guides/logiciel-concu-par-un-chef-patissier)).",
     },
     {
       type: "p",
@@ -110,7 +110,7 @@ export const guideScannerFiches: Guide = {
     },
     {
       type: "p",
-      text: "C'est pourquoi la numérisation des recettes ne va jamais seule. Les prix viennent de vos factures fournisseurs, photographiées elles aussi. Un sac de farine de 25 kilos facturé 22,40 euros donne un prix de référence de 0,896 euro le kilo, et c'est ce prix, pas celui du sac, qui sert à calculer vos recettes.",
+      text: "C'est pourquoi la numérisation des recettes ne va jamais seule. Les prix viennent de [vos factures fournisseurs, photographiées elles aussi](/logiciel-scan-factures). Un sac de farine de 25 kilos facturé 22,40 euros donne un prix de référence de 0,896 euro le kilo, et c'est ce prix, pas celui du sac, qui sert à calculer vos recettes.",
     },
     {
       type: "p",
@@ -119,7 +119,7 @@ export const guideScannerFiches: Guide = {
     {
       type: "h2",
       id: "oeil",
-      text: "Ce qui demande encore votre œil",
+      text: "Qu'est-ce qui demande encore votre œil ?",
     },
     {
       type: "p",
@@ -136,11 +136,11 @@ export const guideScannerFiches: Guide = {
     {
       type: "h2",
       id: "temps",
-      text: "Combien de temps pour un cahier entier",
+      text: "Combien de temps pour un cahier entier ?",
     },
     {
       type: "p",
-      text: "Sur une reprise d'un cahier lisible d'environ cinquante recettes, comptez de l'ordre de deux minutes par recette, vérification comprise, soit moins de deux heures. À affiner dès qu'une mise en service aura été chronométrée de bout en bout.",
+      text: "Sur [une reprise en photo](/fonctionnalites/import-recettes-photo) d'un cahier lisible d'environ cinquante recettes, comptez de l'ordre de deux minutes par recette, vérification comprise, soit moins de deux heures. À affiner dès qu'une mise en service aura été chronométrée de bout en bout.",
     },
     {
       type: "p",

@@ -1,5 +1,5 @@
 import type { Guide } from "@/content/guides/types";
-import { assertPublishedGuidesHaveNoPlaceholders } from "@/content/guides/types";
+import { assertPublishedGuidesHaveNoEmDash, assertPublishedGuidesHaveNoPlaceholders } from "@/content/guides/types";
 import { articleMarge } from "./calculer-sa-marge-boulangerie-patisserie";
 import { articlePerte } from "./pourcentage-perte-marge-boulangerie";
 import { articlePrix } from "./prix-logiciel-gestion-boulangerie";
@@ -21,6 +21,9 @@ import { articleTelephone } from "./logiciel-boulangerie-sur-telephone";
 export const articles: Guide[] = [articleMarge, articlePerte, articlePrix, articleTelephone];
 
 assertPublishedGuidesHaveNoPlaceholders(articles);
+// Les articles échappaient au contrôle du tiret cadratin : seuls les guides
+// le passaient. Même type, même rendu, même règle.
+assertPublishedGuidesHaveNoEmDash(articles);
 
 export const publishedArticles: Guide[] = articles.filter((a) => !a.draft);
 
