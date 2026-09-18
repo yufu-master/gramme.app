@@ -138,7 +138,7 @@ export default async function FeaturePage({ params }: { params: Promise<Params> 
             On échange sur votre laboratoire, vos recettes et vos priorités, sans engagement.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link href="/contact" className="rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]">
+            <Link href="/demo" className="rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]">
               Demander une démonstration
             </Link>
             <Link href="/tarifs" className="rounded-xl border border-white/30 px-5 py-3 font-semibold text-white">

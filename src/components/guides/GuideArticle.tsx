@@ -250,7 +250,7 @@ export function GuideArticle({
         <p className="mt-3 text-white/85">
           Demandez une démonstration : on part de vos recettes et de vos contraintes, sans engagement.
         </p>
-        <Link href="/contact" className="mt-6 inline-flex rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]">
+        <Link href="/demo" className="mt-6 inline-flex rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]">
           Demander une démonstration
         </Link>
       </section>

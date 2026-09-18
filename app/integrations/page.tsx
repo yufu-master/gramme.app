@@ -42,7 +42,7 @@ export default function IntegrationsPage() {
             utilisez déjà : caisse, comptabilité, facturation. Votez pour nous aider à prioriser la roadmap.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link href="/contact" className="rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]">
+            <Link href="/demo" className="rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]">
               Demander une démo
             </Link>
             <Link

@@ -53,7 +53,7 @@ export default function GuidesIndexPage() {
               comment marche le logiciel
             </Link>{" "}
             ou{" "}
-            <Link href="/contact" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
+            <Link href="/demo" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
               demandez une démonstration
             </Link>
             .

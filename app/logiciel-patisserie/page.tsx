@@ -162,7 +162,7 @@ export default function LogicielPatisseriePage() {
             Gramme a été conçu avec un chef pâtissier, à partir de ce problème-là.
           </p>
           <div className="mt-8 flex flex-wrap gap-3">
-            <Link href="/contact" className="rounded-xl bg-[#264021] px-5 py-3 font-semibold text-white transition hover:bg-[#355329]">
+            <Link href="/demo" className="rounded-xl bg-[#264021] px-5 py-3 font-semibold text-white transition hover:bg-[#355329]">
               Demander une démonstration
             </Link>
             <Link href="/tarifs" className="rounded-xl border border-[#d8e6cf] bg-white px-5 py-3 font-semibold text-[#355329] transition hover:bg-[#f6fbf2]">
@@ -310,7 +310,7 @@ export default function LogicielPatisseriePage() {
             vous voyez le coût réel de vos entremets.
           </p>
           <div className="mt-6 flex flex-wrap gap-3">
-            <Link href="/contact" className="rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]">
+            <Link href="/demo" className="rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]">
               Demander une démonstration
             </Link>
             <Link href="/fonctionnalites" className="rounded-xl border border-white/30 px-5 py-3 font-semibold text-white">

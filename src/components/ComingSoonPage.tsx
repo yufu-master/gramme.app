@@ -27,7 +27,7 @@ export function ComingSoonPage({ title, description, links }: ComingSoonProps) {
           <p className="mt-4 text-[#4d6952]">
             {description ?? "Cette page est en préparation. Revenez très bientôt pour la découvrir."}
           </p>
-          <Link href="/contact" className="mt-8 inline-flex rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]">
+          <Link href="/demo" className="mt-8 inline-flex rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]">
             Demander une démonstration
           </Link>
         </div>
