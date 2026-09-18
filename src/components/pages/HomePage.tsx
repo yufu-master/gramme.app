@@ -1,16 +1,13 @@
 "use client";
 
 import Image from "next/image";
-import { CadreAppareil } from "@/components/produit/CadreAppareil";
 import { NeDuTerrain } from "@/components/landing/NeDuTerrain";
+import { VisiteInteractive } from "@/components/landing/VisiteInteractive";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaqAccordion } from "@/components/landing/FaqAccordion";
-import { FeatureAccordion } from "@/components/features/FeatureAccordion";
 import { nombreModules } from "@/content/features";
-import { IntegrationLogo } from "@/components/integrations/IntegrationCard";
 import { BillingPeriodToggle } from "@/components/pricing/BillingPeriodToggle";
-import { HOME_INTEGRATION_PREVIEWS, INTEGRATIONS } from "@/lib/integrations";
 import { formatEuro, pricingPlans, type BillingPeriod } from "@/lib/pricing";
 import { trackEvent } from "@/lib/analytics";
 import { publishedArticles } from "@/content/articles";
@@ -150,6 +147,34 @@ export default function HomePage() {
               </p>
             ))}
           </div>
+        </section>
+
+        {/*
+          La visite remplace deux blocs qu'elle montre mieux qu'eux : l'accordéon
+          des fonctionnalités et « Sur ordinateur, tablette ou téléphone ».
+          Trois autres ont quitté l'accueil le 19/09/2026, qui devenait trop
+          long : les intégrations (annoncer ce qu'on n'a pas encore), la
+          confidentialité en quatre cartes (une phrase dans la FAQ suffit), et
+          les liens utiles, qui doublaient le pied de page.
+        */}
+        <section id="visite" className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-5 sm:py-16" aria-labelledby="visite-title">
+          <h2 id="visite-title" className="text-3xl font-bold md:text-4xl">
+            D&apos;une facture photographiée à la marge de chaque recette
+          </h2>
+          <div className="mt-6">
+            <VisiteInteractive />
+          </div>
+          <p className="mt-8 text-center text-sm text-[var(--muted-foreground)]">
+            {nombreModules.charAt(0).toUpperCase() + nombreModules.slice(1)} modules reliés entre eux, de la fiche
+            technique au prévisionnel.{" "}
+            <Link href="/fonctionnalites" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
+              Voir toutes les fonctionnalités
+            </Link>
+            {" · "}
+            <Link href="/logiciel-patisserie" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
+              la page des laboratoires de pâtisserie
+            </Link>
+          </p>
         </section>
 
         <NeDuTerrain />
@@ -311,114 +336,6 @@ export default function HomePage() {
           </p>
         </section>
 
-        <section id="fonctionnalites" className="mx-auto w-full max-w-4xl px-4 py-14 sm:px-5 sm:py-16">
-          <div className="max-w-3xl">
-            <h2 className="text-3xl font-bold md:text-4xl">Les fonctionnalités qui font gagner du temps et de la marge.</h2>
-            <p className="mt-4 text-[var(--muted-foreground)]">
-              {nombreModules.charAt(0).toUpperCase() + nombreModules.slice(1)} modules reliés entre eux :
-              digitalisation des recettes, fiches techniques et calcul du coût de revient, mercuriale et alertes de
-              prix, équilibrage de recette, gestion de stocks, planning de production et prévisionnel, suivi de la
-              vitrine et pilotage de la rentabilité, sans complexité inutile. Tout est connecté : un prix qui bouge sur une facture se
-              répercute jusqu&apos;à la marge de chaque recette. Dépliez pour l&apos;essentiel, ouvrez la page dédiée
-              pour le détail.
-            </p>
-            <p className="mt-3 text-sm text-[var(--muted-foreground)]">
-              Vous êtes pâtissier ?{" "}
-              <Link href="/logiciel-patisserie" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
-                Voir la page dédiée aux laboratoires de pâtisserie
-              </Link>{" "}
-              : sous-recettes en cascade, coût de revient à l&apos;entremets, pertes de parage.
-            </p>
-          </div>
-          <FeatureAccordion />
-          <Link
-            href="/fonctionnalites"
-            className="mt-6 inline-flex rounded-xl border border-[#d8e6cf] bg-white px-5 py-3 text-sm font-semibold text-[#355329] transition hover:bg-[#f6fbf2]"
-          >
-            Voir toutes les fonctionnalités en détail
-          </Link>
-        </section>
-
-        <section className="bg-[#264021] py-14 sm:py-16 lg:py-24" aria-labelledby="multidevice-title">
-          <div className="mx-auto w-full max-w-6xl px-4 sm:px-5">
-            <div className="mx-auto max-w-2xl text-center">
-              <h2 id="multidevice-title" className="text-3xl font-bold text-white md:text-4xl">Sur ordinateur, tablette ou téléphone.</h2>
-              <p className="mt-4 text-white/75">
-                Le même compte, la même version, sur l&apos;ordinateur du bureau, la tablette du labo et le téléphone
-                posé près du pétrin. Rien à installer, aucune mise à jour à lancer.
-              </p>
-            </div>
-            {/* De vraies captures, encadrées en CSS.
-                Le rendu qui occupait cette place était une image générée dont
-                le texte d'interface était du charabia (« Scanner une fecture »,
-                « Foundeboves », « Dormière mies à jour ») : visible à l'œil en
-                pleine largeur, sur la seule section du site qui montre le
-                produit sur plusieurs écrans. */}
-            <div className="mx-auto mt-10 flex max-w-5xl flex-col items-center gap-6 sm:mt-14 lg:flex-row lg:items-end lg:gap-8">
-              <div className="w-full lg:flex-[1.6]">
-                <CadreAppareil
-                  appareil="navigateur"
-                  src="/images/app/mercuriale.png"
-                  alt="La mercuriale de Gramme sur ordinateur : chaque matière première avec son prix de référence, son fournisseur et sa tendance"
-                  sizes="(max-width: 1024px) 92vw, 620px"
-                />
-              </div>
-              <div className="w-full max-w-[320px] lg:flex-1 lg:max-w-none">
-                <CadreAppareil
-                  appareil="tablette"
-                  src="/images/app/haccp-nettoyage-tablette.png"
-                  alt="Le plan de nettoyage de Gramme sur tablette, posé au laboratoire : douze tâches à jour, pointages par semaine et par zone"
-                  sizes="(max-width: 1024px) 60vw, 320px"
-                />
-              </div>
-              <div className="w-[168px] shrink-0 sm:w-[196px]">
-                <CadreAppareil
-                  appareil="telephone"
-                  src="/images/app/accueil-atelier-telephone.png"
-                  alt="L'accueil de Gramme sur téléphone en mode atelier : six grandes tuiles utilisables les mains farineuses"
-                  sizes="196px"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="confidentialite" className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-5 sm:py-16" aria-labelledby="confidentialite-title">
-          <div className="max-w-3xl">
-            <h2 id="confidentialite-title" className="text-3xl font-bold md:text-4xl">
-              Vos recettes ne quittent pas votre atelier.
-            </h2>
-            <p className="mt-4 text-[var(--muted-foreground)]">
-              Fiches techniques, factures fournisseurs, prix d&apos;achat et marges restent votre propriété.
-              Aucune revente, aucun partage avec d&apos;autres établissements, accès limité au support : dans un cadre RGPD.
-            </p>
-          </div>
-          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { title: "Propriété exclusive", text: "Vos données métier vous appartiennent." },
-              { title: "Pas de revente", text: "Aucune monétisation auprès de tiers." },
-              { title: "Cloisonnement", text: "Chaque structure est isolée des autres." },
-              { title: "Cadre RGPD", text: "Hébergement Europe, accès contrôlés." },
-            ].map((item) => (
-              <li key={item.title} className="rounded-2xl border border-[#dcead2] bg-white p-5">
-                <p className="font-bold text-[#355329]">{item.title}</p>
-                <p className="mt-2 text-sm text-[var(--muted-foreground)]">{item.text}</p>
-              </li>
-            ))}
-          </ul>
-          <p className="mt-6 text-sm text-[var(--muted-foreground)]">
-            En détail :{" "}
-            <Link href="/securite" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
-              sécurité &amp; confidentialité
-            </Link>
-            {" · "}
-            <Link href="/politique-de-confidentialite" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
-              politique de confidentialité
-            </Link>
-            .
-          </p>
-        </section>
-
         <section id="tarifs" className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-5 sm:py-16">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
@@ -522,52 +439,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="integrations" className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-5 sm:py-16" aria-labelledby="integrations-title">
-          <div className="max-w-3xl">
-            <p className="text-xs font-semibold uppercase tracking-[0.14em] text-[#6e9f55]">À venir</p>
-            <h2 id="integrations-title" className="mt-3 text-3xl font-bold md:text-4xl">
-              Intégrations caisse &amp; compta
-            </h2>
-            <p className="mt-4 text-[var(--muted-foreground)]">
-              Popina, Pennylane, Zettle et d&apos;autres outils du métier : votez pour prioriser les prochaines connexions Gramme.
-            </p>
-          </div>
-          <ul className="mt-8 flex flex-wrap gap-3">
-            {HOME_INTEGRATION_PREVIEWS.map((id) => {
-              const integration = INTEGRATIONS.find((item) => item.id === id);
-              if (!integration) return null;
-              return (
-                <li
-                  key={integration.id}
-                  className="inline-flex items-center gap-2 rounded-2xl border border-[#dcead2] bg-white px-4 py-3 text-sm font-semibold text-[#355329]"
-                >
-                  <IntegrationLogo integration={integration} size={32} />
-                  {integration.name}
-                  <span className="rounded-full bg-[#a8cf8c]/30 px-2 py-0.5 text-[10px] font-bold uppercase tracking-wide text-[#355329]">
-                    Bientôt
-                  </span>
-                </li>
-              );
-            })}
-          </ul>
-          <Link
-            href="/integrations"
-            className="mt-6 inline-flex rounded-xl border border-[#d8e6cf] bg-white px-5 py-3 text-sm font-semibold text-[#355329] transition hover:bg-[#f6fbf2]"
-          >
-            Voir toutes les intégrations et voter
-          </Link>
-        </section>
-
-        {/* Ce qu'on écrit — avant la FAQ, parce que c'est la section qui
-            retient quelqu'un qui n'est pas encore prêt à demander une
-            démonstration. Relevé du 06/09/2026 : l'accueil ne pointait vers
-            AUCUN article, et vers les guides seulement par une tuile en bas de
-            page, après mille sept cents mots. Onze contenus écrits, invisibles
-            depuis la porte d'entrée.
-
-            Les trois guides et les deux articles se prennent en tête de liste
-            plutôt que d'être choisis à la main : une liste écrite en dur se
-            périme au prochain guide publié. */}
         <section
           className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-5 sm:py-16"
           aria-labelledby="lectures-title"
@@ -639,7 +510,13 @@ export default function HomePage() {
           <h2 id="faq-title" className="text-3xl font-bold md:text-4xl">Questions fréquentes</h2>
           <p className="mt-3 max-w-3xl text-[var(--muted-foreground)]">
             Tout savoir sur le logiciel de gestion Gramme pour les boulangeries, les pâtisseries,
-            les chocolateries et les glaceries artisanales.
+            les chocolateries et les glaceries artisanales. Vos recettes, vos factures et vos marges
+            restent votre propriété : aucune revente, aucun partage entre ateliers, hébergement en
+            Europe (
+            <Link href="/securite" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
+              sécurité et confidentialité
+            </Link>
+            ).
           </p>
           <FaqAccordion />
           {/* La page FAQ compte soixante-dix-sept questions et l'accueil n'y
@@ -652,28 +529,6 @@ export default function HomePage() {
           </p>
         </section>
 
-        <section className="mx-auto w-full max-w-6xl px-4 pb-20 sm:px-5" aria-label="Liens utiles">
-          <p className="text-sm font-semibold uppercase tracking-[0.08em] text-[#6e9f55]">Continuer sur Gramme</p>
-          <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {[
-              { href: "/fonctionnalites", label: "Toutes les fonctionnalités" },
-              { href: "/metiers", label: "Quel est votre métier ?" },
-              { href: "/guides/calcul-cout-de-revient-boulangerie", label: "Calculer son coût de revient" },
-              { href: "/articles", label: "Tous les articles" },
-              { href: "/comment-ca-marche", label: "Comment marche le logiciel" },
-              { href: "/a-propos-de-gramme", label: "À propos de Gramme" },
-            ].map((link) => (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="block rounded-2xl border border-[#dcead2] bg-white px-4 py-3 text-sm font-semibold text-[#355329] transition hover:bg-[#f6fbf2]"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </section>
       </main>
     </>
   );

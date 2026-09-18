@@ -1,0 +1,169 @@
+/*
+ * La visite interactive de l'accueil. Validée par Clermont le 19/09/2026 sur un
+ * prototype à part, puis portée ici telle quelle.
+ */
+
+.bloc { display: grid; gap: 20px; }
+
+.entete { display: flex; flex-wrap: wrap; align-items: end; justify-content: space-between; gap: 16px; }
+
+/* Le choix de l'appareil : l'artisan veut voir SON écran, le téléphone du fournil. */
+.appareils {
+  display: inline-flex; padding: 4px; gap: 4px;
+  background: #fff; border: 1px solid #d8e6cf; border-radius: 12px;
+}
+.appareils button {
+  font: inherit; font-size: 13.5px; font-weight: 700; cursor: pointer;
+  border: 0; border-radius: 9px; padding: 8px 14px; background: transparent; color: #5b7353;
+  display: inline-flex; align-items: center; gap: 7px;
+}
+.appareils button svg { width: 16px; height: 16px; }
+.appareils button[aria-pressed="true"] { background: #264021; color: #fff; }
+.appareils button:focus-visible { outline: 3px solid #a8cf8c; outline-offset: 2px; }
+
+.scene { position: relative; display: grid; gap: 16px; justify-items: center; }
+.sceneTelephone {
+  grid-template-columns: minmax(0, 330px) minmax(0, 360px);
+  justify-content: center; align-items: center; gap: 32px;
+}
+
+.appareil { position: relative; width: 100%; max-width: 100%; }
+.vitre { position: relative; overflow: hidden; background: #fff; }
+/* L'image et le point vivent dans l'écran : les positions en % restent celles
+   de la capture, quoi qu'on ajoute autour (barre d'état, zone d'accueil). */
+.ecran { position: relative; overflow: hidden; }
+.ecran img {
+  display: block; width: 100%; height: auto; max-width: 100%;
+  transform-origin: var(--ox, 50%) var(--oy, 50%);
+  transform: scale(var(--zoom, 1));
+  transition: transform .9s cubic-bezier(.2, .7, .2, 1), opacity .3s ease;
+}
+.change { opacity: 0; }
+
+.ordinateur { max-width: 1120px; }
+.ordinateur .vitre {
+  border-radius: 14px; border: 10px solid #1d2a1a;
+  box-shadow: 0 30px 80px rgba(20, 35, 17, .22);
+}
+.ordinateur::after {
+  content: ""; display: block; height: 14px; margin: 0 auto; width: 22%;
+  background: linear-gradient(#1d2a1a, #33422f); border-radius: 0 0 10px 10px;
+}
+.tablette { max-width: 900px; }
+.tablette .vitre {
+  border-radius: 26px; border: 18px solid #1d2a1a;
+  box-shadow: 0 30px 80px rgba(20, 35, 17, .22);
+}
+.telephone { max-width: 340px; }
+.telephone .vitre {
+  border-radius: 42px; border: 12px solid #1d2a1a;
+  box-shadow: 0 30px 80px rgba(20, 35, 17, .25);
+}
+/* L'encoche se pose sur une barre d'état, comme sur un vrai téléphone : posée
+   directement sur la capture, elle mangeait le titre de l'écran. */
+.telephone .vitre::before {
+  content: ""; position: absolute; z-index: 4; top: 7px; left: 50%; transform: translateX(-50%);
+  width: 30%; height: 20px; border-radius: 999px; background: #1d2a1a;
+}
+.barreEtat {
+  display: flex; justify-content: space-between; align-items: center;
+  height: 34px; padding: 4px 24px 0; font-size: 12px; font-weight: 700; color: #27421f;
+  font-variant-numeric: tabular-nums; background: #fff;
+}
+.icones { display: inline-flex; gap: 5px; align-items: center; }
+.icones i { display: inline-block; background: #27421f; border-radius: 2px; }
+/* La zone d'accueil garde la barre de navigation hors des coins arrondis. */
+.accueil { display: grid; place-items: center; height: 22px; background: #fff; }
+.accueil::after { content: ""; width: 34%; height: 4px; border-radius: 999px; background: #1d2a1a; opacity: .85; }
+
+.point {
+  position: absolute; z-index: 2; width: 30px; height: 30px; margin: -15px 0 0 -15px;
+  border-radius: 50%; border: 0; padding: 0; cursor: pointer;
+  background: #a8cf8c; box-shadow: 0 0 0 4px rgba(255, 255, 255, .92), 0 6px 18px rgba(38, 64, 33, .35);
+}
+.point::after {
+  content: ""; position: absolute; inset: -10px; border-radius: 50%;
+  border: 2px solid #a8cf8c; animation: respire 1.8s ease-out infinite;
+}
+.point:focus-visible { outline: 3px solid #264021; outline-offset: 4px; }
+@keyframes respire { from { transform: scale(.6); opacity: .9; } to { transform: scale(1.6); opacity: 0; } }
+
+.bulle {
+  width: min(340px, 44%);
+  background: #264021; color: #fff; border-radius: 14px;
+  padding: 16px 18px 14px; box-shadow: 0 18px 50px rgba(20, 35, 17, .35);
+  display: grid; gap: 8px; z-index: 3; text-align: left;
+}
+.flottante { position: absolute; }
+/* À côté d'un téléphone, la bulle devient une colonne : sur un écran si étroit,
+   une bulle posée dessus en cacherait la moitié. */
+.colonne { position: static; width: 100%; }
+.num { font-size: 11px; letter-spacing: .12em; text-transform: uppercase; color: #a8cf8c; font-weight: 700; font-variant-numeric: tabular-nums; }
+.bulle h3 { margin: 0; font-size: 18px; line-height: 1.25; font-weight: 700; text-wrap: balance; }
+.bulle p { margin: 0; color: rgba(255, 255, 255, .88); font-size: 14px; line-height: 1.55; }
+.actions { display: flex; gap: 8px; margin-top: 4px; flex-wrap: wrap; }
+
+.bouton {
+  font: inherit; font-weight: 700; font-size: 14px; cursor: pointer;
+  border-radius: 10px; padding: 9px 14px; border: 1px solid transparent; text-decoration: none;
+  display: inline-flex; align-items: center; gap: 6px;
+}
+.plein { background: #a8cf8c; color: #264021; }
+.plein:hover { background: #b9da9f; }
+.discret { background: transparent; color: #fff; border-color: rgba(255, 255, 255, .3); }
+.discret:hover { background: rgba(255, 255, 255, .08); }
+.bouton:focus-visible { outline: 3px solid #a8cf8c; outline-offset: 2px; }
+.bouton:disabled { opacity: .4; cursor: default; }
+
+/* Fin de visite : l'invitation, posée sur la dernière capture. */
+.fin {
+  position: absolute; inset: 0; z-index: 5;
+  display: grid; place-items: center; padding: 16px;
+  background: rgba(243, 247, 239, .9); backdrop-filter: blur(3px);
+}
+.carte {
+  max-width: 480px; text-align: center; display: grid; gap: 12px; justify-items: center;
+  background: #fff; border: 1px solid #d8e6cf; border-radius: 18px; padding: 26px 22px;
+  box-shadow: 0 20px 60px rgba(38, 64, 33, .14);
+}
+.carte h3 { margin: 0; font-size: 22px; line-height: 1.2; font-weight: 800; color: #264021; text-wrap: balance; }
+.carte p { margin: 0; color: #5b7353; }
+.rangee { display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-top: 4px; }
+.carte .plein { background: #264021; color: #fff; }
+.carte .plein:hover { background: #355329; }
+.contour { color: #355329; border-color: #a8cf8c; background: transparent; }
+
+/* Le fil des étapes : on voit où l'on est et on peut y sauter. */
+.fil { display: flex; flex-wrap: wrap; justify-content: center; gap: 8px; list-style: none; margin: 0; padding: 0; }
+.fil button {
+  font: inherit; font-size: 13px; font-weight: 600; cursor: pointer;
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 7px 12px 7px 8px; border-radius: 999px;
+  border: 1px solid #d8e6cf; background: #fff; color: #5b7353;
+}
+.fil button b {
+  width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center;
+  font-size: 11px; background: #e6f1dd; color: #355329; font-variant-numeric: tabular-nums;
+}
+.fil button[aria-current="step"] { border-color: #355329; color: #264021; background: #e6f1dd; }
+.fil button[aria-current="step"] b { background: #264021; color: #fff; }
+.fil .vu b { background: #a8cf8c; color: #264021; }
+.fil button:focus-visible { outline: 3px solid #355329; outline-offset: 2px; }
+
+/* Sous 900 px, le téléphone et sa bulle ne tiennent plus côte à côte. */
+@media (max-width: 900px) {
+  .sceneTelephone { grid-template-columns: minmax(0, 1fr); gap: 16px; justify-items: center; }
+  .sceneTelephone .colonne { max-width: 380px; }
+}
+@media (max-width: 760px) {
+  .telephone { max-width: 300px; }
+  .flottante { position: static; width: 100%; }
+  .ordinateur .vitre { border-width: 6px; border-radius: 10px; }
+  .tablette .vitre { border-width: 10px; border-radius: 16px; }
+  .point { width: 24px; height: 24px; margin: -12px 0 0 -12px; }
+  .appareils button { padding: 8px 10px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ecran img { transition: none; }
+  .point::after { animation: none; }
+}
