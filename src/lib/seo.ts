@@ -112,6 +112,20 @@ export function imageSociale(
 }
 
 /**
+ * Le bloc `openGraph` complet d'une page.
+ *
+ * Dans l'App Router, un `openGraph` déclaré par une page REMPLACE celui du
+ * gabarit, il ne le complète pas. Relevé du 17/09/2026 : dix-sept pages en
+ * déclaraient un partiel, et perdaient donc `og:site_name` et `og:locale`
+ * (l'accueil compris), quinze perdaient `og:type`. La règle était appliquée
+ * dans `PageLogiciel` et nulle part ailleurs. Une page passe désormais par
+ * ici, et ce qu'elle précise (un `type: "article"`) l'emporte sur les défauts.
+ */
+export function ogPage<T extends Record<string, unknown>>(og: T) {
+  return { siteName: "Gramme", locale: "fr_FR", type: "website" as const, ...og };
+}
+
+/**
  * Les dimensions réelles des images qui ne font pas 1920 × 1200.
  *
  * Les captures de `public/images/app/` sont toutes au même format ; les
@@ -125,6 +139,11 @@ const DIMENSIONS_IMAGES: Record<string, { width: number; height: number }> = {
   // du 1,91:1 attendu par les réseaux que l'ancien en 4/3 : la vignette est
   // recadrée d'après le RATIO DÉCLARÉ, pas d'après le fichier.
   "/images/hero_gramme_atelier_phone.png": { width: 2752, height: 1536 },
+  // L'image SOCIALE du site depuis le 18/09/2026 : le même visuel recadré au
+  // 1,91:1 exact, 136 Ko. L'original pesait 4,8 Mo, et les robots des réseaux
+  // prennent le fichier brut, jamais la version optimisée de next/image :
+  // WhatsApp renonce à la vignette bien avant ce poids.
+  "/images/og-gramme.jpg": { width: 1200, height: 630 },
   "/images/import-recettes-photo.jpg": { width: 2000, height: 1493 },
 };
 
@@ -205,7 +224,7 @@ export const siteGraph = {
         "@type": "ImageObject",
         url: `${SITE_URL}/logos/gramme-icon.svg`,
       },
-      image: `${SITE_URL}/images/hero_gramme_atelier_phone.png`,
+      image: `${SITE_URL}/images/og-gramme.jpg`,
       description:
         "Logiciel de gestion et de production pour boulangeries, pâtisseries, chocolateries et glaceries artisanales. Digitalisation des recettes et fiches techniques, coûts matière, planning de production, gestion de stocks, mercuriale, alertes de prix et pilotage des marges en temps réel. Registres d'hygiène (relevés de températures, plan de nettoyage, traçabilité des lots) et étiquetage des allergènes compris. Tout est connecté.",
       email: SITE_EMAIL,

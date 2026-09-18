@@ -392,7 +392,7 @@ export function SiteHeader() {
             <InstagramIcon className="size-5" />
           </a>
           <Link
-            href="/contact"
+            href="/demo"
             className="whitespace-nowrap rounded-xl bg-[#264021] px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-[#1f341a]"
           >
             Demander une démo
@@ -552,7 +552,7 @@ export function SiteHeader() {
               </Link>
             ))}
             <Link
-              href="/contact"
+              href="/demo"
               onClick={() => setIsMobileMenuOpen(false)}
               className="mt-2 rounded-xl bg-[#264021] px-3 py-3 text-center text-sm font-semibold text-white"
             >

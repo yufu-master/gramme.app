@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema, SITE_URL, webPageSchema, imageSociale } from "@/lib/seo";
+import { breadcrumbSchema, SITE_URL, webPageSchema, imageSociale, ogPage } from "@/lib/seo";
 import {
   blocsComparatif,
   cheminsDeChoix,
@@ -44,13 +44,13 @@ export const metadata: Metadata = {
     "logiciel gestion boulangerie comparaison",
   ],
   alternates: { canonical: `${SITE_URL}/comparatif` },
-  openGraph: {
+  openGraph: ogPage({
     images: imageSociale("/images/app/mercuriale.png", "La mercuriale de Gramme, comparée aux autres logiciels de gestion pour boulangerie"),
     title: "Comparatif 2026 des logiciels de gestion boulangerie & pâtisserie",
     description:
       "Quatre logiciels comparés fonction par fonction, tarifs publics à l'appui, avec la facture réelle d'une même boulangerie chez chacun : y compris là où les autres font mieux que nous.",
     url: `${SITE_URL}/comparatif`,
-  },
+  }),
 };
 
 const nuances = cheminsDeChoix.filter((c) => c.verdict === "nuance").length;

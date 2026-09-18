@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema, SITE_URL, webPageSchema, imageSociale } from "@/lib/seo";
+import { breadcrumbSchema, SITE_URL, webPageSchema, imageSociale, ogPage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Démo logiciel boulangerie · 1 h sur vos fiches",
@@ -17,13 +17,13 @@ export const metadata: Metadata = {
     "logiciel boulangerie test",
   ],
   alternates: { canonical: `${SITE_URL}/demo` },
-  openGraph: {
+  openGraph: ogPage({
     images: imageSociale("/images/app/recette-couts.png", "Le coût de revient et la marge d'une recette dans Gramme"),
     title: "Démo du logiciel boulangerie · une heure sur vos propres fiches",
     description:
       "Pas un diaporama : une heure sur vos vraies fiches techniques et vos vraies factures, en visio.",
     url: `${SITE_URL}/demo`,
-  },
+  }),
 };
 
 const deroule = [

@@ -5,7 +5,7 @@ import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { publishedArticles } from "@/content/articles";
 import { formatGuideDate } from "@/lib/guides";
-import { breadcrumbSchema, SITE_URL, webPageSchema, imageSociale } from "@/lib/seo";
+import { breadcrumbSchema, SITE_URL, webPageSchema, imageSociale, ogPage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Articles · gestion, coûts et marges en boulangerie",
@@ -18,12 +18,12 @@ export const metadata: Metadata = {
     "marges pâtisserie conseils",
   ],
   alternates: { canonical: `${SITE_URL}/articles` },
-  openGraph: {
+  openGraph: ogPage({
     images: imageSociale("/images/app/statistiques.png", "Les statistiques d'achats dans Gramme : dépense par mois et par fournisseur"),
     title: "Articles · gestion, coûts et marges en boulangerie",
     description: "Ce qu'on apprend en reprenant les chiffres de vrais ateliers.",
     url: `${SITE_URL}/articles`,
-  },
+  }),
 };
 
 export default function ArticlesIndexPage() {

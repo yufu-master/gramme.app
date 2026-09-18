@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { MISE_EN_SERVICE_EN_CREATION, formatEuro, formatInstallation, pricingFaq, pricingPlans } from "@/lib/pricing";
-import { SITE_URL, breadcrumbSchema, webPageSchema, imageSociale } from "@/lib/seo";
+import { SITE_URL, breadcrumbSchema, webPageSchema, imageSociale, ogPage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Prix d'un logiciel de gestion boulangerie",
@@ -26,13 +26,13 @@ export const metadata: Metadata = {
     "logiciel boulangerie sans option payante",
   ],
   alternates: { canonical: "https://gramme.app/tarifs" },
-  openGraph: {
+  openGraph: ogPage({
     images: imageSociale("/images/app/haccp-temperatures.png", "Les relevés de températures dans Gramme, compris dans l'offre Pro"),
     title: "Prix d'un logiciel de gestion boulangerie | Gramme",
     description:
       "Starter 49 € HT/mois, Pro 89 € HT/mois : hygiène, étiquetage et planning de production compris, aucun module en supplément. Sans engagement en mensuel, deux mois offerts en annuel. Installation accompagnée facturée une seule fois : à partir de 300 € HT en Starter, 500 € HT en Pro.",
     url: "https://gramme.app/tarifs",
-  },
+  }),
 };
 
 function pricingOffersSchema() {
@@ -99,6 +99,12 @@ function pricingOffersSchema() {
   return {
     "@context": "https://schema.org",
     "@type": "Product",
+    // Le même produit que le `SoftwareApplication` du graphe du site (#app) :
+    // sans ce lien, la page décrivait deux entités qui ne se reconnaissaient
+    // pas. Et un `Product` sans image est invalide pour Google.
+    "@id": `${SITE_URL}/tarifs#produit`,
+    isRelatedTo: { "@id": `${SITE_URL}/#app` },
+    image: `${SITE_URL}/images/og-gramme.jpg`,
     name: "Gramme · logiciel de gestion boulangerie & pâtisserie",
     description:
       "Abonnements Starter et Pro, mensuel ou annuel, avec installation accompagnée.",

@@ -44,14 +44,9 @@ export const metadata: Metadata = {
     type: "website",
     images: [
       {
-        url: "/images/hero_gramme_atelier_phone.png",
-        // Les dimensions RÉELLES du fichier, pas celles qu'on aimerait :
-        // Facebook et LinkedIn recadrent d'après le ratio DÉCLARÉ. Annoncé
-        // 1200 × 630, l'aperçu sortait rogné. (Le visuel a changé le
-        // 06/09/2026 : 2752 × 1536, et ce 16/9 tombe bien plus près du
-        // 1,91:1 qu'attendent les réseaux que le 4/3 d'avant.)
-        width: 2752,
-        height: 1536,
+        url: "/images/og-gramme.jpg",
+        width: 1200,
+        height: 630,
         alt: "Gramme, logiciel de gestion pour boulangers, pâtissiers, chocolatiers et glaciers",
       },
     ],

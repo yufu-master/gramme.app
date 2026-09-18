@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { CadreAppareil } from "@/components/produit/CadreAppareil";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { SITE_URL, imageSociale, webPageSchema } from "@/lib/seo";
+import { SITE_URL, imageSociale, webPageSchema, ogPage } from "@/lib/seo";
 import {
   blocsComparatif,
   concurrents,
@@ -37,7 +37,7 @@ export async function generateMetadata({
     description: page.metaDescription,
     keywords: page.keywords,
     alternates: { canonical: url },
-    openGraph: {
+    openGraph: ogPage({
       title: page.metaTitle,
       description: page.metaDescription,
       url,
@@ -45,7 +45,7 @@ export async function generateMetadata({
         "/images/app/haccp-temperatures.png",
         page.hygiene.altSociale,
       ),
-    },
+    }),
   };
 }
 

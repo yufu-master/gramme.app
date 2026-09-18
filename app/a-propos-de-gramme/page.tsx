@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema, webPageSchema, SITE_URL } from "@/lib/seo";
+import { breadcrumbSchema, webPageSchema, SITE_URL, ogPage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Qui a créé Gramme : un chef et un entrepreneur",
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: `${SITE_URL}/a-propos-de-gramme`,
   },
-  openGraph: {
+  openGraph: ogPage({
     title: "Qui est derrière Gramme · un chef pâtissier et un entrepreneur",
     description:
       "Un chef pâtissier qui connaît le laboratoire, un entrepreneur qui sait faire tenir des chiffres. Gramme est né de cette rencontre.",
@@ -40,7 +40,7 @@ export const metadata: Metadata = {
         alt: "Clermont Fu, entrepreneur et co-fondateur de Gramme",
       },
     ],
-  },
+  }),
 };
 
 const sections = [

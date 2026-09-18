@@ -20,6 +20,7 @@ const footerLinks = [
   { href: "/faq", label: "FAQ" },
   { href: "/integrations", label: "Intégrations" },
   { href: "/a-propos-de-gramme", label: "À propos" },
+  { href: "/demo", label: "Démonstration" },
   { href: "/contact", label: "Contact" },
   { href: "/securite", label: "Sécurité" },
   { href: "/politique-de-confidentialite", label: "Confidentialité" },

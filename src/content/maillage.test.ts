@@ -6,6 +6,7 @@ import { publishedGuides } from "@/content/guides";
 import { features } from "@/content/features";
 import { siteRoutes } from "@/lib/routes";
 import { pagesLogiciel } from "@/content/logiciels";
+import { concurrents, pagesConcurrent } from "@/content/comparatif";
 
 /**
  * Le maillage interne, dans les deux sens.
@@ -134,6 +135,37 @@ describe("llms.txt annonce ce que le site publie", () => {
   it("cite chaque page métier", () => {
     const absents = pagesLogiciel.filter((p) => !texte.includes(p.path)).map((p) => p.path);
     expect(absents, "pages métier absentes de public/llms.txt").toEqual([]);
+  });
+
+  /**
+   * Les modules et les concurrents manquaient à ce contrôle, et le fichier a
+   * redivergé : relevé du 17/09/2026, CINQ modules sur treize n'y figuraient
+   * pas, dont `allergenes-etiquetage` et `hygiene-haccp`, c'est à dire les deux
+   * seuls sujets où la sonde nous place au premier rang. Le fichier annonçait
+   * par ailleurs un comparatif couvrant LogiBake, marque qui n'a pas de page.
+   * Un catalogue tenu à la main diverge toujours : ce qui n'est pas testé
+   * finit faux.
+   */
+  it("cite chacun des modules livrés", () => {
+    const absents = features.filter((f) => !texte.includes(`\`${f.slug}\``)).map((f) => f.slug);
+    expect(absents, "modules absents de public/llms.txt").toEqual([]);
+  });
+
+  it("n'annonce un face-à-face qu'avec les concurrents qui ont une page", () => {
+    const avecPage = new Set(pagesConcurrent.map((p) => p.id));
+    const promis = concurrents
+      .filter((c) => c.id !== "gramme" && !avecPage.has(c.id))
+      .filter((c) => texte.includes(`comparé à`) && texte.includes(c.nom));
+    // Un concurrent cité ailleurs (un tarif de marché, un argument) reste
+    // permis : ce qui est interdit, c'est de promettre une page qui n'existe pas.
+    const phrases = texte.split("\n").filter((l) => l.includes("comparé à") || l.includes("confronte Gramme à"));
+    for (const phrase of phrases) {
+      for (const c of concurrents) {
+        if (c.id === "gramme" || avecPage.has(c.id)) continue;
+        expect(phrase.includes(c.nom), `llms.txt promet un comparatif ${c.nom} sans page`).toBe(false);
+      }
+    }
+    expect(promis.map((c) => c.nom), "comparatifs promis sans page").toEqual([]);
   });
 
   it("ne cite aucun guide qui n'existe plus", () => {

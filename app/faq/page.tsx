@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema, SITE_EMAIL, SITE_URL, webPageSchema, imageSociale } from "@/lib/seo";
+import { breadcrumbSchema, SITE_EMAIL, SITE_URL, webPageSchema, imageSociale, ogPage } from "@/lib/seo";
 import { faqSections, toutesLesQuestions } from "@/content/faq";
 
 export const metadata: Metadata = {
@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     "mercuriale boulangerie",
   ],
   alternates: { canonical: `${SITE_URL}/faq` },
-  openGraph: {
+  openGraph: ogPage({
     images: imageSociale("/images/app/mercuriale.png", "La mercuriale de Gramme, prix de référence et tendance par matière"),
     title: "FAQ · logiciel de gestion boulangerie & pâtisserie",
     description:
       "Coûts, marges, sous-recettes, factures, stocks, tarifs, données, réglementation : les réponses en clair.",
     url: `${SITE_URL}/faq`,
-  },
+  }),
 };
 
 /**

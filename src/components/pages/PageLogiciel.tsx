@@ -92,7 +92,7 @@ export function PageLogicielVue({ page }: { page: PageLogiciel }) {
           ))}
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
-              href="/contact"
+              href="/demo"
               className="rounded-xl bg-[#264021] px-5 py-3 font-semibold text-white transition hover:bg-[#355329]"
             >
               Demander une démonstration
@@ -238,7 +238,7 @@ export function PageLogicielVue({ page }: { page: PageLogiciel }) {
             vous montrer les nôtres.
           </p>
           <Link
-            href="/contact"
+            href="/demo"
             className="mt-6 inline-block rounded-xl bg-[#264021] px-5 py-3 font-semibold text-white transition hover:bg-[#355329]"
           >
             Demander une démonstration

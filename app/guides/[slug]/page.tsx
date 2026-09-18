@@ -5,7 +5,7 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { getAllGuideSlugs, getGuideBySlug } from "@/content/guides";
 import { articleSchema, guideFaqSchema, howToSchema } from "@/lib/guides";
-import { imageSociale } from "@/lib/seo";
+import { imageSociale, ogPage } from "@/lib/seo";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -25,7 +25,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     keywords: guide.keywords,
     alternates: { canonical: url },
     robots: guide.draft ? { index: false, follow: false } : { index: true, follow: true },
-    openGraph: {
+    openGraph: ogPage({
       title: guide.title,
       description: guide.description,
       url,
@@ -34,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       modifiedTime: guide.updatedAt,
       authors: ["Jeremy"],
       images: imageSociale(guide.ogImage, guide.title),
-    },
+    }),
     twitter: {
       card: "summary_large_image",
       title: guide.title,

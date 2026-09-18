@@ -3,7 +3,7 @@ import Link from "next/link";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema, webPageSchema, imageSociale } from "@/lib/seo";
+import { breadcrumbSchema, webPageSchema, imageSociale, ogPage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Comment ça marche : de la facture à la marge",
@@ -12,13 +12,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://gramme.app/comment-ca-marche",
   },
-  openGraph: {
+  openGraph: ogPage({
     images: imageSociale("/images/app/production.png", "Le planning de production dans Gramme"),
     title: "Comment ça marche | Gramme",
     description:
       "Un parcours clair : recettes, factures, production, stock, marges, hygiène et étiquetage, sans complexité inutile.",
     url: "https://gramme.app/comment-ca-marche",
-  },
+  }),
 };
 
 const steps = [

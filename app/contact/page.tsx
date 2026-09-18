@@ -4,10 +4,14 @@ import ContactPageContent from "@/components/pages/Contact";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { breadcrumbSchema, webPageSchema, imageSociale } from "@/lib/seo";
+import { breadcrumbSchema, webPageSchema, imageSociale, ogPage } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Contact · Démo logiciel boulangerie",
+  // « Démo » quitte ce titre (18/09/2026) : /contact et /demo revendiquaient
+  // la même requête, et le site envoyait 38 liens au formulaire contre 4 à la
+  // page qui explique la démonstration. C'est la plus pauvre qui recevait le
+  // signal. La démonstration a sa page, le contact garde le sien.
+  title: "Contact · Écrire à l'équipe Gramme",
   description:
     "Contactez Gramme pour une démonstration du logiciel de gestion boulangerie et pâtisserie. Réponse sous 4 heures ouvrées.",
   keywords: [
@@ -19,13 +23,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://gramme.app/contact",
   },
-  openGraph: {
+  openGraph: ogPage({
     images: imageSociale("/images/app/recette-fiche.png", "Une fiche technique dans Gramme"),
     title: "Contact | Gramme · Logiciel boulangerie",
     description:
       "Échangez avec l'équipe Gramme pour piloter recettes, coûts et marges dans votre laboratoire.",
     url: "https://gramme.app/contact",
-  },
+  }),
 };
 
 export default function ContactPage() {

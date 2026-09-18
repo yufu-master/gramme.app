@@ -200,7 +200,7 @@ export function getRouteByPath(path: string): SiteRoute | undefined {
  * main quand une page fixe est réécrite ; les guides et les articles portent
  * leur propre `updatedAt`.
  */
-export const DERNIERE_MISE_A_JOUR_PAGES_FIXES = "2026-09-03";
+export const DERNIERE_MISE_A_JOUR_PAGES_FIXES = "2026-09-18";
 
 export function sitemapEntries(baseUrl: string = SITE_URL): MetadataRoute.Sitemap {
   const lastModified = new Date(DERNIERE_MISE_A_JOUR_PAGES_FIXES);

@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import HomePage from "@/components/pages/HomePage";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { faqPageSchema, webPageSchema } from "@/lib/seo";
+import { faqPageSchema, webPageSchema, ogPage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: {
@@ -32,21 +32,20 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://gramme.app/",
   },
-  openGraph: {
+  openGraph: ogPage({
     title: "Gramme | Logiciel gestion boulangerie & pâtisserie",
     description:
       "Recettes digitalisées, fiches techniques, alertes de prix, gestion de stocks, planning de production et marges en temps réel : tout est connecté pour sécuriser votre rentabilité.",
     url: "https://gramme.app/",
     images: [
       {
-        url: "/images/hero_gramme_atelier_phone.png",
-        // Dimensions réelles du fichier : le ratio déclaré décide du recadrage.
-        width: 2752,
-        height: 1536,
+        url: "/images/og-gramme.jpg",
+        width: 1200,
+        height: 630,
         alt: "Le logiciel Gramme ouvert sur un téléphone, au-dessus d'un plan de travail de fournil",
       },
     ],
-  },
+  }),
 };
 
 export default function Home() {

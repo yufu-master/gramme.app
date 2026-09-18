@@ -6,7 +6,7 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { features, featurePath, nombreModules } from "@/content/features";
-import { SITE_URL, webPageSchema, imageSociale } from "@/lib/seo";
+import { SITE_URL, webPageSchema, imageSociale, ogPage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Fonctionnalités du logiciel de gestion boulangerie",
@@ -27,13 +27,13 @@ export const metadata: Metadata = {
     "gestion stock pâtisserie",
   ],
   alternates: { canonical: `${SITE_URL}/fonctionnalites` },
-  openGraph: {
+  openGraph: ogPage({
     images: imageSociale("/images/app/recette-fiche.png", "Une fiche technique dans Gramme : ingrédients, quantités et rendement"),
     title: "Fonctionnalités | Gramme",
     description:
       `Recettes, fiches techniques, factures, mercuriale, production, prévisionnel, vitrine, stock, comptabilité, hygiène et étiquetage : ${nombreModules} modules reliés entre eux.`,
     url: `${SITE_URL}/fonctionnalites`,
-  },
+  }),
 };
 
 const itemListSchema = {

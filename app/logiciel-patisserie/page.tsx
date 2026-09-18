@@ -7,7 +7,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { features, featurePath } from "@/content/features";
 import { formatEuro, pricingPlans } from "@/lib/pricing";
-import { SITE_URL, webPageSchema } from "@/lib/seo";
+import { SITE_URL, webPageSchema, ogPage } from "@/lib/seo";
 
 const PATH = "/logiciel-patisserie";
 
@@ -25,13 +25,13 @@ export const metadata: Metadata = {
     "calcul marge pâtisserie",
   ],
   alternates: { canonical: `${SITE_URL}${PATH}` },
-  openGraph: {
+  openGraph: ogPage({
     title: "Logiciel pâtisserie | Gramme",
     description:
       "Sous-recettes en cascade, coût de revient à l'entremets, pertes de parage et marges en temps réel. Le logiciel de gestion pensé pour les laboratoires de pâtisserie.",
     url: `${SITE_URL}${PATH}`,
     images: [{ url: "/images/app/recette-fiche.png", alt: "Fiche technique de pâtisserie dans le logiciel Gramme" }],
-  },
+  }),
 };
 
 const painPoints = [

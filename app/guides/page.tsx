@@ -5,19 +5,19 @@ import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { publishedGuides } from "@/content/guides";
 import { formatGuideDate } from "@/lib/guides";
-import { breadcrumbSchema, webPageSchema, imageSociale } from "@/lib/seo";
+import { breadcrumbSchema, webPageSchema, imageSociale, ogPage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Guides boulangerie & pâtisserie",
   description:
     "Guides pratiques Gramme pour artisans : logiciel conçu par un chef pâtissier, numérisation de fiches techniques, coûts de revient et marges.",
   alternates: { canonical: "https://gramme.app/guides" },
-  openGraph: {
+  openGraph: ogPage({
     images: imageSociale("/images/app/recette-couts.png", "Le coût de revient d'une recette dans Gramme"),
     title: "Guides Gramme | Boulangerie & pâtisserie",
     description: "Articles pratiques pour piloter recettes, coûts et marges en laboratoire.",
     url: "https://gramme.app/guides",
-  },
+  }),
 };
 
 export default function GuidesIndexPage() {

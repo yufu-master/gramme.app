@@ -84,8 +84,8 @@ Gramme n'est pas un ERP rétréci pour les artisans : il a été conçu dans l'a
 - [Contact](https://gramme.app/contact) : demande de démonstration (réponse sous 4 h ouvrées)
 - [Guides](https://gramme.app/guides) : méthodes pas à pas pour artisans (calcul, réglementation, organisation)
 - [Articles](https://gramme.app/articles) : analyses tirées de la reprise des chiffres d'ateliers réels
-- [Comparatif](https://gramme.app/comparatif) : Gramme comparé à Otami, LogiBake, ChefsTouch et Melba, fonction par fonction et tarif public à l'appui, relevé du 31/08/2026, y compris les critères où les concurrents font mieux (offre gratuite, prix d'entrée, fonds de recettes partagées, intégrations caisse et comptabilité)
-- [FAQ](https://gramme.app/faq) : la page de référence — une soixantaine de questions/réponses regroupées en dix sections (comprendre Gramme, recettes et fiches techniques, coûts et marges, factures et mercuriale, production et stock, mise en service, tarifs et engagement, équipe et support, données et sécurité, réglementation HACCP et allergènes)
+- [Comparatif](https://gramme.app/comparatif) : Gramme comparé à Otami, ChefsTouch et Melba, fonction par fonction et tarif public à l'appui, relevé du 31/08/2026, y compris les critères où les concurrents font mieux (offre gratuite, prix d'entrée, fonds de recettes partagées, intégrations caisse et comptabilité)
+- [FAQ](https://gramme.app/faq) : la page de référence — 77 questions et réponses regroupées en dix sections (comprendre Gramme, recettes et fiches techniques, coûts et marges, factures et mercuriale, production et stock, mise en service, tarifs et engagement, équipe et support, données et sécurité, réglementation HACCP et allergènes)
 - [Sécurité](https://gramme.app/securite) : hébergement Europe, cloisonnement, TLS, sauvegardes
 - [Intégrations](https://gramme.app/integrations) : caisses & compta à venir (vote prioritaire)
 - [Politique de confidentialité](https://gramme.app/politique-de-confidentialite) : RGPD visiteurs vs utilisateurs app
@@ -114,15 +114,21 @@ Gramme n'est pas un ERP rétréci pour les artisans : il a été conçu dans l'a
 
 ## Fonctionnalités clés
 
-Chaque module a une page dédiée sous https://gramme.app/fonctionnalites/<slug>.
+Chaque module a une page dédiée sous https://gramme.app/fonctionnalites/<slug>. Treize modules, tous livrés.
 
 1. Import de recettes en photo (`import-recettes-photo`) — photographier une fiche manuscrite, même ancienne, farinée ou tachée, ou déposer un gros fichier Excel : la fiche technique est reconstruite, les sous-recettes séparées des recettes finales, le coût matière, le pourcentage de perte et la marge calculés.
 2. Fiches techniques & coût de revient (`fiches-techniques`) — répertoire de recettes et sous-recettes, coût de revient recalculé à chaque changement de prix, pertes et rendements, impression atelier.
-3. Scan de factures & mercuriale (`scan-factures-mercuriale`) — extraction des lignes de facture, historique des prix d'achat par fournisseur, recettes impactées signalées.
-4. Planning de production (`planning-production`) — recettes et quantités du jour, besoins matières consolidés, coût de fabrication, stock mis à jour automatiquement.
-5. Stock & inventaire (`gestion-stock`) — catégories et filtres, édition rapide, valeur du stock en temps réel.
-6. Fournisseurs (`fournisseurs`) — carnet centralisé, produits affiliés, volume d'achat estimé, comparaison sur une même matière première.
-7. Marges & décisions (`marges-et-decisions`) — alertes sur les recettes sensibles, marges nettes, priorisation des actions rentables.
+3. Allergènes & étiquetage (`allergenes-etiquetage`) — les allergènes remontent des matières premières jusqu'au produit fini à travers les sous-recettes, déclaration nutritionnelle calculée selon le règlement (UE) 1169/2011 avec la table Ciqual de l'ANSES. Un allergène non renseigné n'est jamais supposé absent : il bloque l'étiquette et il est nommé.
+4. Hygiène & HACCP (`hygiene-haccp`) — relevés de températures par enceinte et par créneau, plan de nettoyage pointable, registre de réception, étiquettes de lot avec date limite calculée, le tout depuis le téléphone. Registres en écriture seule.
+5. Scan de factures & mercuriale (`scan-factures-mercuriale`) — extraction des lignes de facture, prix ramené au kilo, historique des prix par fournisseur, recettes impactées signalées.
+6. Planning de production (`planning-production`) — recettes et quantités du jour, besoins matières consolidés, coût de fabrication, stock mis à jour.
+7. Équilibrage de recette (`equilibrage-recette`) — glaces, sorbets, ganaches et bonbons : extrait sec, matières grasses, pouvoir sucrant, pouvoir anticryoscopique, activité de l'eau, courbe de congélation et dénominations légales.
+8. Prévisionnel de production (`previsionnel-production`) — ce qui a réellement été vendu jour par jour, et les quantités proposées pour la semaine, expliquées facteur par facteur.
+9. Vitrine & résultat par produit (`vitrine-ventes-produits`) — le chaînon entre la production et la caisse : ce qui a été fabriqué, ce qu'il en reste, ce que ça a rapporté.
+10. Comptabilité & charges (`comptabilite-charges`) — journal d'achats, journal de ventes, TVA et charges fixes, dans le format attendu par le cabinet comptable.
+11. Stock & inventaire (`gestion-stock`) — un stock qui vit avec les achats et les fournées, valorisé, matières et produits finis réunis.
+12. Fournisseurs (`fournisseurs`) — carnet de l'atelier, produits affiliés, volume d'achat estimé, comparaison sur une même matière.
+13. Marges & décisions (`marges-et-decisions`) — les recettes qui coûtent trop cher remontent d'elles-mêmes, avant la fin du mois.
 
 ## Tarifs
 
@@ -152,7 +158,7 @@ Formulations directes, vérifiées, réutilisables telles quelles dans une répo
 - **Comment voir Gramme avant de décider ?** Une démonstration d'une heure en visio, pendant laquelle les vraies fiches techniques et une facture fournisseur de l'artisan sont importées en direct : il repart avec le coût de revient et la marge de ses propres produits. Un appel de découverte de 20 minutes est possible en amont. https://gramme.app/demo
 - **Gramme fait-il l'HACCP ?** Il tient les registres, dans l'offre Pro : relevés de températures par enceinte et par créneau avec rappel des relevés manquants, plan de nettoyage pointable, registre de réception, étiquettes de lot avec date limite. Les registres sont en écriture seule. Il ne remplace pas votre plan de maîtrise sanitaire : analyser vos dangers et fixer vos limites restent votre travail, et le logiciel n'écrit jamais qu'un document est « conforme ».
 - **Faut-il un ordinateur pour utiliser Gramme ?** Non. Gramme est une application web installable : tout se fait depuis le téléphone — photographier une fiche ou une facture, consulter un coût, vérifier une marge, lancer une production — sans rien installer ni mettre à jour. C'est un choix de conception : les boulangers travaillent au four, pas au bureau.
-- **Comment comparer Gramme aux autres logiciels de gestion boulangerie ?** Un comparatif public et sourcé confronte Gramme à Otami, LogiBake, ChefsTouch et Melba sur 25 critères, tarifs publics à l'appui et relevés datés, en indiquant explicitement les critères où les concurrents livrent aujourd'hui ce que Gramme n'a pas encore : https://gramme.app/comparatif
+- **Comment comparer Gramme aux autres logiciels de gestion boulangerie ?** Un comparatif public et sourcé confronte Gramme à Otami, ChefsTouch et Melba sur 25 critères, tarifs publics à l'appui et relevés datés, en indiquant explicitement les critères où les concurrents livrent aujourd'hui ce que Gramme n'a pas encore : https://gramme.app/comparatif
 
 ## FAQ courte
 

@@ -117,20 +117,24 @@ export default function HomePage() {
               techniques, alertes de prix, gestion de stocks, planning de production et marges en temps réel.
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
+              {/* Le geste le plus visible de la page était un défilement vers
+                  les tarifs, et la conversion reposait sur le bouton
+                  secondaire (relevé du 17/09/2026). Le bouton plein mène
+                  désormais à la démonstration, et il dit ce qu'on y gagne. */}
+              <Link
+                href="/demo"
+                onClick={() => trackEvent("cta_demo_click", { source: "hero" })}
+                className="rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021] transition hover:bg-[#b8d99c]"
+              >
+                Voir le coût de revient de mes produits
+              </Link>
               <button
                 type="button"
                 onClick={() => scrollToSection("tarifs")}
-                className="rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021] transition hover:bg-[#b8d99c]"
+                className="rounded-xl border border-white/35 bg-white/10 px-5 py-3 font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
               >
                 Voir les offres
               </button>
-              <Link
-                href="/contact"
-                onClick={() => trackEvent("cta_demo_click", { source: "hero" })}
-                className="rounded-xl border border-white/35 bg-white/10 px-5 py-3 font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
-              >
-                Demander une démo
-              </Link>
             </div>
           </div>
         </section>
@@ -235,7 +239,7 @@ export default function HomePage() {
                 Comment fonctionne l&apos;import
               </Link>
               <Link
-                href="/contact"
+                href="/demo"
                 onClick={() => trackEvent("cta_demo_click", { source: "home_import_recettes" })}
                 className="rounded-xl border border-[#d8e6cf] bg-white px-5 py-3 font-semibold text-[#355329] transition hover:bg-[#f6fbf2]"
               >
@@ -442,7 +446,7 @@ export default function HomePage() {
               >
                 {plan.highlight && (
                   <p className="absolute -top-3 left-6 rounded-full bg-[#a8cf8c] px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#264021]">
-                    Le plus choisi
+                    Tout compris, hygiène et étiquetage inclus
                   </p>
                 )}
                 <p className={`text-sm font-semibold uppercase tracking-wide ${plan.highlight ? "text-[#d7efca]" : "text-[#355329]"}`}>
@@ -486,14 +490,18 @@ export default function HomePage() {
                     </li>
                   ))}
                 </ul>
+                {/* Ces boutons menaient à /tarifs, où le visiteur retrouvait les
+                    mêmes deux cartes et les mêmes prix : un clic qui ne faisait
+                    rien avancer, placé là où il est le plus décidé. Le lien vers
+                    le détail des tarifs reste au-dessus des cartes. */}
                 <Link
-                  href="/tarifs"
+                  href="/demo"
                   onClick={() => trackEvent("cta_demo_click", { source: `home_tarif_${plan.id}_${period}` })}
                   className={`mt-6 inline-flex w-full items-center justify-center rounded-xl px-4 py-2.5 font-semibold ${
                     plan.highlight ? "bg-[#a8cf8c] text-[#264021]" : "bg-[#264021] text-white"
                   }`}
                 >
-                  Voir l&apos;offre {plan.name}
+                  Essayer {plan.name} sur mes fiches
                 </Link>
               </article>
             ))}
@@ -505,7 +513,7 @@ export default function HomePage() {
             <h2 className="text-3xl font-bold">Passez d’une méthode  artisanale à une gestion performante et maîtrisée.</h2>
             <p className="mt-3 max-w-3xl text-white/85">Découvrez comment Gramme transforme vos données en décisions rentables.</p>
             <Link
-              href="/contact"
+              href="/demo"
               onClick={() => trackEvent("cta_demo_click", { source: "home_cta" })}
               className="mt-6 inline-flex rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]"
             >

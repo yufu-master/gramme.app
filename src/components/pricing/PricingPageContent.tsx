@@ -19,8 +19,13 @@ export function PricingPageContent() {
       <div className="mt-10 grid gap-5 lg:grid-cols-2">
         {pricingPlans.map((plan) => {
           const isYearly = period === "yearly";
-          const bigPrice = isYearly ? plan.yearlyPrice : plan.monthlyPrice;
-          const unitLabel = isYearly ? "HT / an" : "HT / mois";
+          // Le chiffre en gros est TOUJOURS un prix par mois, comme le prescrit
+          // la grille tarifaire (section 7). Il affichait 890 € HT / an : avec
+          // l'installation lue juste après, un artisan additionnait jusqu'à
+          // 1 390 € avant d'avoir compris qu'il s'agissait de 74 € par mois.
+          const bigPrice = isYearly ? plan.yearlyMonthlyEquivalent : plan.monthlyPrice;
+          const bigDecimals = isYearly ? 2 : 0;
+          const unitLabel = "HT / mois";
 
           return (
             <article
@@ -31,9 +36,12 @@ export function PricingPageContent() {
                   : "border-[#dcead2] bg-white"
               }`}
             >
+              {/* « Le plus choisi » n'était adossé à aucun chiffre, sur la page
+                  où la crédibilité compte le plus. L'étiquette dit désormais un
+                  fait vérifiable dans le produit. */}
               {plan.highlight ? (
                 <p className="absolute -top-3 left-6 rounded-full bg-[#a8cf8c] px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#264021]">
-                  Le plus choisi
+                  Tout compris, hygiène et étiquetage inclus
                 </p>
               ) : null}
               <p
@@ -44,7 +52,7 @@ export function PricingPageContent() {
                 {plan.name}
               </p>
               <p className="mt-4 tabular-nums text-4xl font-black tracking-tight sm:text-5xl">
-                {formatEuro(bigPrice)}
+                {formatEuro(bigPrice, bigDecimals)}
                 <span
                   className={`ml-1 text-base font-semibold ${
                     plan.highlight ? "text-white/80" : "text-[var(--muted-foreground)]"
@@ -60,7 +68,7 @@ export function PricingPageContent() {
               >
                 {isYearly ? (
                   <>
-                    soit {formatEuro(plan.yearlyMonthlyEquivalent, 2)} HT / mois
+                    facturé {formatEuro(plan.yearlyPrice)} HT par an
                     <span className="mt-1 block font-semibold text-[#a8cf8c]">
                       Économisez {formatEuro(plan.yearlySavings)}
                     </span>
@@ -96,7 +104,7 @@ export function PricingPageContent() {
                 ))}
               </ul>
               <Link
-                href="/contact"
+                href="/demo"
                 onClick={() =>
                   trackEvent("cta_demo_click", { source: `tarif_${plan.id}_${period}` })
                 }
@@ -108,6 +116,19 @@ export function PricingPageContent() {
               >
                 Demander une démonstration
               </Link>
+              {/* La garantie était enterrée en petits caractères après les
+                  cartes. Elle se lit maintenant là où l'on décide, avec sa
+                  portée exacte : l'abonnement annuel, pas l'installation
+                  (voir les CGV). */}
+              <p
+                className={`mt-3 text-center text-xs ${
+                  plan.highlight ? "text-white/80" : "text-[#4d6952]"
+                }`}
+              >
+                {isYearly
+                  ? "30 jours satisfait ou remboursé sur l'abonnement annuel"
+                  : "Sans engagement, résiliable chaque mois"}
+              </p>
             </article>
           );
         })}

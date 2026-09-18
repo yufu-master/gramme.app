@@ -5,19 +5,19 @@ import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { IntegrationCard } from "@/components/integrations/IntegrationCard";
 import { INTEGRATIONS, INTEGRATION_CATEGORIES } from "@/lib/integrations";
-import { webPageSchema, imageSociale } from "@/lib/seo";
+import { webPageSchema, imageSociale, ogPage } from "@/lib/seo";
 
 export const metadata: Metadata = {
   title: "Intégrations à venir · caisse & compta",
   description:
     "Gramme prépare des connexions avec les caisses et outils comptables des boulangers-pâtissiers. Votez pour prioriser Popina, Pennylane, Zettle et d'autres.",
   alternates: { canonical: "https://gramme.app/integrations" },
-  openGraph: {
+  openGraph: ogPage({
     images: imageSociale("/images/app/factures.png", "Les factures fournisseurs reprises dans Gramme"),
     title: "Intégrations Gramme | À venir",
     description: "Votez pour les prochaines connexions caisse, comptabilité et facturation.",
     url: "https://gramme.app/integrations",
-  },
+  }),
 };
 
 export default function IntegrationsPage() {

@@ -6,7 +6,7 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { features, featurePath, getFeature } from "@/content/features";
-import { SITE_URL, webPageSchema } from "@/lib/seo";
+import { SITE_URL, webPageSchema, ogPage, imageSociale } from "@/lib/seo";
 
 type Params = { slug: string };
 
@@ -36,12 +36,14 @@ export async function generateMetadata({
     description: feature.metaDescription,
     keywords: feature.keywords,
     alternates: { canonical: url },
-    openGraph: {
+    openGraph: ogPage({
       title: `${feature.name} | Gramme`,
       description: feature.metaDescription,
       url,
-      images: [{ url: feature.image.src, alt: feature.image.alt }],
-    },
+      // Dimensions déclarées : sans elles, les réseaux recadrent sur un ratio
+      // supposé. `imageSociale` les connaît.
+      images: imageSociale(feature.image.src, feature.image.alt),
+    }),
   };
 }
 
