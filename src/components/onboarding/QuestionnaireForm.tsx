@@ -12,6 +12,7 @@ import {
   type UserRow,
   USER_ROLES,
 } from "@/content/onboarding";
+import { ImageIllisibleError, convertirEnJpegSiBesoin } from "@/lib/image-questionnaire";
 
 type Reponses = Record<string, unknown>;
 
@@ -780,7 +781,28 @@ function FileField({
    * Ne jette jamais : un fichier en échec ne doit pas emporter les autres —
    * c'est ce qui faisait qu'une seule pièce par section arrivait.
    */
-  const uploadUn = async (file: File): Promise<string | null> => {
+  const uploadUn = async (brut: File): Promise<string | null> => {
+    /**
+     * Convertir AVANT tout le reste (tâche DEV #165).
+     *
+     * Une photo d'iPhone arrive en HEIC, et le HEIC n'est refusé qu'à la toute
+     * fin de la chaîne, au moment de l'analyse : le chef finissait son
+     * questionnaire sans rien voir, et l'échec tombait chez nous, des jours
+     * plus tard. La conversion a lieu ici, avant le premier octet envoyé, donc
+     * tout ce qui suit — contrôle de taille, stockage, copie vers l'atelier,
+     * scan — ne voit plus que du JPEG.
+     *
+     * Le contrôle de taille vient APRÈS pour la même raison : une photo
+     * d'iPhone de 14 Mo passe sous les 25 Mo une fois réencodée, et la refuser
+     * avant la conversion refuserait une pièce parfaitement transmissible.
+     */
+    let file: File;
+    try {
+      file = await convertirEnJpegSiBesoin(brut);
+    } catch (e) {
+      return e instanceof ImageIllisibleError ? e.message : `${brut.name} : format illisible`;
+    }
+
     if (file.size > MAX_UPLOAD_BYTES) return `${file.name} : dépasse 25 Mo`;
     if (file.type && !ACCEPTED_MIME.includes(file.type)) {
       return `${file.name} : format non accepté`;

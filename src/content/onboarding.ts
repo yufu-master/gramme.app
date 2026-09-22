@@ -289,11 +289,21 @@ export const ONBOARDING_STEPS: Step[] = [
   },
 ];
 
+/**
+ * Les formats acceptés à l'arrivée, et ce qui alimente l'`accept` du champ.
+ *
+ * `image/heic` en est VOLONTAIREMENT absent (tâche DEV #165). Tant qu'on ne le
+ * nomme pas, iOS transcode lui-même la photo en JPEG au moment de la choisir ;
+ * dès qu'on le nomme, il livre le HEIC natif — que les fonctions de scan
+ * refusent, tout au bout de la chaîne, après que le chef a tout envoyé. Ce qui
+ * arriverait quand même en HEIC (fichier exporté à la main, glissé depuis un
+ * ordinateur) est converti avant l'envoi par
+ * `src/lib/image-questionnaire.ts`, donc rien n'est perdu.
+ */
 export const ACCEPTED_MIME = [
   "application/pdf",
   "image/jpeg",
   "image/png",
-  "image/heic",
   "image/webp",
   "text/csv",
   "application/vnd.ms-excel",
