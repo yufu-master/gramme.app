@@ -77,6 +77,12 @@ const gains = [
       "Une photo du ticket de caisse, et Gramme Chef retient le prix de chaque produit dans chaque magasin : l'hypermarché du samedi, la supérette au plus près, le primeur du marché. Vous savez où la crème et le beurre sont les moins chers, sans avoir à vous en souvenir.",
   },
   {
+    chiffre: "0 %",
+    titre: "Vos clients réservent chez vous, sans commission",
+    texte:
+      "Votre page de réservation, sur votre site et en lien sur Instagram. Sur un dîner de 640 €, une commission de 20 % coûte 128 € : plus de six mois d'abonnement. Un client fidèle revient en direct, et il reste le vôtre.",
+  },
+  {
     chiffre: "0 oubli",
     titre: "Des factures qui partent, et des relances qui suivent",
     texte:
@@ -85,14 +91,22 @@ const gains = [
 ];
 
 const gestion = [
+  { titre: "Réservations en ligne", texte: "Une page à votre nom, en lien sur Instagram, et un module à coller sur votre site : date, convives, occasion. La demande arrive déjà rangée." },
+  { titre: "Questionnaire automatique", texte: "Dès la demande, le client reçoit un questionnaire : allergies et régimes de chaque convive, goûts, équipement de la cuisine, accès. Les réponses remplissent la prestation." },
+  { titre: "Menus proposés", texte: "Vous proposez deux ou trois menus, déjà chiffrés. Le client choisit en ligne, et le devis se prépare tout seul." },
+  { titre: "Agenda", texte: "Vos prestations, vos demandes et vos courses, synchronisées avec Google Agenda et le calendrier de l'iPhone, y compris les dates prises ailleurs." },
   { titre: "Menus et fiches", texte: "Vos recettes chiffrées, vos menus composés, le coût par convive et la marge de chaque prestation." },
   { titre: "Convives et allergènes", texte: "Les restrictions de chaque invité, et les plats qui posent problème à qui, avant le service." },
   { titre: "Liste de courses", texte: "Tirée du menu et du nombre d'invités, quantités ajustées quand huit deviennent douze." },
   { titre: "Devis signés en ligne", texte: "Générés depuis le menu, envoyés par e-mail, acceptés par le client en un clic." },
-  { titre: "Acomptes et factures", texte: "Acompte à la signature, solde après la prestation, numérotation suivie, relances des factures échues." },
+  { titre: "Paiement en ligne", texte: "Le client paie l'acompte puis le solde par carte, Apple Pay ou virement, directement sur votre compte, via Stripe. Aucune commission Gramme." },
+  { titre: "Factures et relances", texte: "Facture d'acompte, facture de solde, avoirs, numérotation suivie, et relances qui partent toutes seules." },
+  { titre: "Espace client", texte: "Un lien unique pour votre client : son menu, son devis, ses factures, ses paiements. Plus de pièces jointes perdues." },
   { titre: "Fichier clients", texte: "L'historique de chaque client : menus servis, préférences, allergies de la famille, ce qu'il a rapporté." },
   { titre: "Tableau de bord", texte: "Chiffre d'affaires du mois, ce qui reste après les courses, devis en attente et sommes à encaisser." },
   { titre: "Courses et prix par magasin", texte: "La liste de courses du menu, et une photo du ticket qui garde le prix de chaque produit, magasin par magasin. Vos menus se recalculent aux prix payés." },
+  { titre: "Micro-entreprise", texte: "Le livre des recettes tenu tout seul, le chiffre à déclarer à l'Urssaf, et une alerte avant le plafond." },
+  { titre: "Relié à vos outils", texte: "Une API et des notifications pour relier vos réservations à votre propre site ou application, avec l'offre Chef Pro." },
 ];
 
 const faq = [
@@ -110,7 +124,7 @@ const faq = [
   },
   {
     q: "Combien coûtera Gramme Chef ?",
-    a: "Trois offres. Le Carnet est gratuit pour toujours : recettes, coût matière, menus, courses, allergènes et 2 devis par mois. L'offre Chef coûte 19 € TTC par mois et ajoute la lecture de vos tickets et factures, les devis illimités signés en ligne, les acomptes, les factures et le tableau de bord. Chef Pro, à 39 € HT par mois, ajoute la TVA sur les factures, l'export comptable et le travail à plusieurs. Un seul menu sous-évalué de 5 € par convive pour huit invités fait perdre 40 €, plus de deux mois d'abonnement.",
+    a: "Trois offres. Le Carnet est gratuit pour toujours : recettes, coût matière, menus, courses, allergènes, page de réservation, agenda et 3 devis par mois. L'offre Chef coûte 19 € TTC par mois et ajoute les réservations sur votre site, le questionnaire automatique, les menus proposés, le paiement en ligne sans commission, les factures, la lecture de vos tickets et le tableau de bord. Chef Pro, à 39 € HT par mois, ajoute l'API, votre nom de domaine, la TVA sur les factures, l'export comptable et le travail à plusieurs. Un seul menu sous-évalué de 5 € par convive pour huit invités fait perdre 40 €, plus de deux mois d'abonnement.",
   },
   {
     q: "Comment fonctionne l'essai de deux mois ?",
@@ -125,8 +139,16 @@ const faq = [
     a: "Parce que la plupart des chefs à domicile sont en franchise de TVA et ne la récupèrent pas : 19 € TTC, c'est ce que vous payez vraiment, sans surprise. Chef Pro, pensée pour les chefs qui facturent la TVA, s'affiche hors taxes.",
   },
   {
-    q: "Mes clients pourront-ils payer l'acompte en ligne ?",
-    a: "Le suivi des acomptes et des factures est prévu au lancement : vous voyez ce qui est demandé, reçu et restant dû. Le paiement en ligne par carte, directement depuis le devis, suivra dans le courant de 2027 ; les chefs de la bêta participeront à ce choix.",
+    q: "Comment mes clients paient-ils l'acompte ?",
+    a: "En ligne, depuis le devis signé : par carte, Apple Pay, Google Pay ou virement. L'argent arrive directement sur votre compte, par Stripe, sans passer par Gramme et sans commission de notre part ; seuls les frais de Stripe s'appliquent, par exemple 1,5 % + 0,25 € pour une carte européenne. Le devis précise clairement s'il s'agit d'arrhes ou d'un acompte, parce que la loi ne les traite pas de la même façon en cas d'annulation.",
+  },
+  {
+    q: "Puis-je relier les réservations à mon site ?",
+    a: "Oui. Avec l'offre Chef, votre page de réservation se met en lien sur Instagram, et un module se colle sur votre site en une ligne : les demandes arrivent dans Gramme Chef, le questionnaire part tout seul au client, et la date s'inscrit dans votre agenda. Avec Chef Pro, une API et des notifications relient les réservations à votre propre site ou à votre application.",
+  },
+  {
+    q: "Mes clients choisissent-ils leur menu ?",
+    a: "Oui, si vous le souhaitez. Vous proposez deux ou trois menus déjà chiffrés, le client choisit en ligne après avoir rempli le questionnaire de ses convives, et le devis se prépare à partir de son choix, allergies comprises.",
   },
   {
     q: "Gramme Chef est-il une autre application que Gramme ?",
@@ -134,7 +156,7 @@ const faq = [
   },
   {
     q: "Gramme Chef remplace-t-il une plateforme de réservation ?",
-    a: "Non, il la complète. Les plateformes vous apportent des clients ; Gramme Chef vous aide à chiffrer, organiser, facturer et fidéliser ces clients, quel que soit le canal par lequel ils sont arrivés, y compris le bouche-à-oreille.",
+    a: "Non, il la complète. Les plateformes vous apportent des clients ; Gramme Chef vous aide à chiffrer, organiser, facturer et fidéliser ces clients, quel que soit le canal par lequel ils sont arrivés. Et les clients qui reviennent en direct réservent sur votre propre page, sans commission.",
   },
   {
     q: "Mes recettes et mes clients restent-ils à moi ?",
@@ -199,10 +221,11 @@ export default function GrammeChefPage() {
               Gramme Chef, le logiciel du chef à domicile qui vous fait gagner sur chaque dîner
             </h1>
             <p className="mt-5 text-base text-[#e3efdb] md:text-lg">
-              Le menu chiffré par convive avant d&apos;annoncer un prix. La liste de courses, avec les prix de chaque magasin en mémoire. Le devis signé en ligne. L&apos;acompte, la
-              facture et la relance au bon moment. Le fichier de vos clients et ce que chacun vous rapporte. Tout ce
-              qu&apos;un chef privé gère aujourd&apos;hui entre un carnet, un tableur et trois applications, réuni
-              dans une seule, sur votre téléphone.
+              La demande qui arrive de votre site ou de votre Instagram. Le questionnaire des convives, envoyé tout
+              seul. Les menus proposés au client, chiffrés par convive avant d&apos;annoncer un prix. Les courses, avec
+              les prix de chaque magasin en mémoire. Le devis signé et l&apos;acompte payé en ligne, la facture et la
+              relance au bon moment. Tout ce qu&apos;un chef privé gère aujourd&apos;hui entre un carnet, un tableur, un
+              agenda et trois applications, réuni dans une seule, sur votre téléphone.
             </p>
             <div className="mt-7 flex flex-wrap gap-3">
               <a
@@ -291,8 +314,8 @@ export default function GrammeChefPage() {
             Toute votre gestion, du premier appel à la facture payée
           </h2>
           <p className="mt-3 max-w-3xl leading-relaxed text-[#4d6952] md:text-lg">
-            De la première demande du client jusqu&apos;à la facture payée, chaque prestation suit le même fil, et
-            chaque chiffre vient de vos vraies recettes et de vos vrais prix.
+            De la demande qui arrive de votre site jusqu&apos;à la facture payée, chaque prestation suit le même fil,
+            sans rien ressaisir, et chaque chiffre vient de vos vraies recettes et de vos vrais prix.
           </p>
           <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {gestion.map((f) => (
