@@ -40,8 +40,8 @@ const piliers = [
   },
   {
     icone: Layers,
-    titre: "Boulangerie, pas « restauration »",
-    texte: "Sous-recettes en cascade, rendement en pièces, fournées. Pas des plats.",
+    titre: "Le métier de bouche, pas la salle",
+    texte: "Sous-recettes en cascade, rendement en pièces, fournées. Pas un logiciel de restaurant.",
   },
   {
     icone: Calculator,

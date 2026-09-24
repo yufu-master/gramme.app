@@ -67,6 +67,8 @@ export default function robots(): MetadataRoute.Robots {
           "/logiciel-patisserie",
           "/logiciel-chocolaterie",
           "/logiciel-glacerie",
+          "/logiciel-chef-a-domicile",
+          "/gramme-chef",
           "/logiciel-cout-de-revient",
           "/logiciel-fiches-techniques",
           "/logiciel-releves-temperature",

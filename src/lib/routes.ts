@@ -65,6 +65,16 @@ export const siteRoutes: SiteRoute[] = [
     breadcrumb: true,
   },
   {
+    // Gramme Chef : page de marque publiée avant le produit (lancement en
+    // janvier 2027), avec la liste d'attente et la candidature à la bêta.
+    path: "/gramme-chef",
+    title: "Gramme Chef",
+    sitemap: true,
+    priority: 0.9,
+    changeFrequency: "monthly",
+    breadcrumb: true,
+  },
+  {
     path: "/tarifs",
     title: "Tarifs",
     sitemap: true,
@@ -200,7 +210,7 @@ export function getRouteByPath(path: string): SiteRoute | undefined {
  * main quand une page fixe est réécrite ; les guides et les articles portent
  * leur propre `updatedAt`.
  */
-export const DERNIERE_MISE_A_JOUR_PAGES_FIXES = "2026-09-18";
+export const DERNIERE_MISE_A_JOUR_PAGES_FIXES = "2026-09-24";
 
 export function sitemapEntries(baseUrl: string = SITE_URL): MetadataRoute.Sitemap {
   const lastModified = new Date(DERNIERE_MISE_A_JOUR_PAGES_FIXES);

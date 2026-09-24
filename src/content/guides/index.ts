@@ -10,6 +10,7 @@ import { guideFicheTechniqueModele } from "./fiche-technique-patisserie-modele";
 import { guideHaccp } from "./logiciel-haccp-boulangerie";
 import { guideLogicielChef } from "./logiciel-concu-par-un-chef-patissier";
 import { guideScannerFiches } from "./scanner-fiches-techniques-patisserie";
+import { guidePrixMenuChefADomicile } from "./prix-menu-chef-a-domicile";
 
 /** Tous les guides (brouillons inclus). Ordre = ordre d'affichage sur /guides. */
 export const guides: Guide[] = [
@@ -25,6 +26,7 @@ export const guides: Guide[] = [
   guideHaccp,
   guideScannerFiches,
   guideLogicielChef,
+  guidePrixMenuChefADomicile,
 ];
 
 assertPublishedGuidesHaveNoPlaceholders(guides);

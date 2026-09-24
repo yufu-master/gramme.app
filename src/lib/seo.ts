@@ -337,6 +337,16 @@ export const siteGraph = {
           description: "890 € HT / an, soit 74,17 € HT / mois",
         },
         {
+          // Gramme Chef n'est pas encore en vente : PreOrder, jamais InStock.
+          "@type": "Offer",
+          name: "Gramme Chef mensuel",
+          price: "19",
+          priceCurrency: "EUR",
+          availability: "https://schema.org/PreOrder",
+          availabilityStarts: "2027-01-01",
+          description: "Pour chefs à domicile et chefs privés, 19 € HT / mois, lancement en janvier 2027",
+        },
+        {
           "@type": "Offer",
           name: "Installation accompagnée Starter",
           priceSpecification: {

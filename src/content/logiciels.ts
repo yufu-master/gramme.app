@@ -94,6 +94,16 @@ export type PageLogiciel = {
   faq: { q: string; a: string }[];
   /** Guides et articles à relier : le maillage interne fait remonter les deux. */
   liens: { href: string; label: string }[];
+  /**
+   * L'appel à l'action, quand ce n'est pas la démonstration. Gramme Chef n'est
+   * pas encore en vente : sa page mène à la liste d'attente et à la bêta, pas à
+   * une démonstration d'un atelier de boulangerie.
+   */
+  appel?: {
+    principal: { href: string; label: string };
+    secondaire: { href: string; label: string };
+    encart: { titre: string; texte: string };
+  };
 };
 
 export const pagesLogiciel: PageLogiciel[] = [
@@ -820,6 +830,144 @@ export const pagesLogiciel: PageLogiciel[] = [
       { href: "/fonctionnalites/scan-factures-mercuriale", label: "Le module scan et mercuriale" },
       { href: "/logiciel-cout-de-revient", label: "Ce que la mercuriale change au coût de revient" },
       { href: "/articles/pourcentage-perte-marge-boulangerie", label: "Ce que les hausses coûtent" },
+    ],
+  },
+
+  // ===========================================================================
+  // Chef à domicile : la page est publiée AVANT le produit (lancement en
+  // janvier 2027), pour qu'elle ait le temps de se classer. Tout ce qui est
+  // propre au chef s'écrit donc au futur, et seul ce qui existe déjà dans
+  // Gramme (coût des fiches, allergènes, mercuriale) s'écrit au présent.
+  {
+    path: "/logiciel-chef-a-domicile",
+    rubrique: { nom: "Métiers", chemin: "/metiers" },
+    nom: "Logiciel chef à domicile",
+    metaTitle: "Logiciel chef à domicile · menus, devis, marges",
+    metaDescription:
+      "Gramme Chef, le logiciel du chef à domicile et du chef privé : coût de chaque menu par convive, devis, liste de courses, allergènes. Bêta ouverte cet automne.",
+    keywords: [
+      "logiciel chef à domicile",
+      "application chef à domicile",
+      "logiciel chef privé",
+      "prix menu chef à domicile",
+      "devis chef à domicile",
+      "coût de revient menu",
+      "gestion chef à domicile",
+      "facturation chef à domicile",
+      "suivi prix courses",
+    ],
+    h1: "Le logiciel qui chiffre votre menu avant que vous fassiez les courses",
+    intro: [
+      "Un chef à domicile vend un menu à un prix par convive, fixé au moment du devis, et découvre son coût réel au retour des courses. Entre les deux, il y a un nombre d'invités qui change, un allergène annoncé la veille, un fournisseur qui a augmenté la crème, et une marge qu'on ne recalcule jamais parce qu'on est seul et qu'on cuisine déjà le lendemain.",
+      "Gramme Chef reprend ce que Gramme fait pour les pâtissiers depuis 2026, le coût exact de chaque recette à partir de vos vrais prix d'achat, et l'organise autour de la prestation : un menu, un nombre de convives, une liste de courses, un devis, un acompte, une facture, un client suivi. Le mini-ERP du chef à domicile, sur téléphone. Lancement en janvier 2027, bêta gratuite ouverte à quelques chefs dès cet automne.",
+    ],
+    image: {
+      src: "/images/app/gramme-chef-menu.png",
+      alt: "Aperçu de Gramme Chef : un dîner pour huit convives chiffré plat par plat, suprême de volaille purée jus, allergènes des invités et liste de courses",
+    },
+    problemes: [
+      {
+        titre: "Le prix par convive se décide avant de connaître le coût",
+        texte:
+          "Le client demande un tarif pour huit personnes, et il faut répondre dans la journée. On reprend le prix du dernier dîner, on ajoute un peu pour le homard, et la marge réelle se découvre au ticket de caisse, quand il est trop tard pour la corriger.",
+      },
+      {
+        titre: "Le nombre d'invités change, et tout est à refaire",
+        texte:
+          "Huit convives deviennent douze la veille. Les quantités, la liste de courses et le devis doivent suivre, et on refait les calculs sur un coin de carnet entre deux services.",
+      },
+      {
+        titre: "Les allergènes arrivent par message, la veille",
+        texte:
+          "Un invité ne mange pas de fruits à coque, un autre est intolérant au lactose. Il faut savoir quels plats du menu posent problème et le dire au client, alors que la recette du jus ou de la sauce n'est écrite nulle part.",
+      },
+      {
+        titre: "Les devis se font dans un traitement de texte",
+        texte:
+          "Un modèle recopié, des prix saisis à la main, un acompte qu'on oublie de demander, et aucun lien entre le devis envoyé et ce que le menu coûte vraiment. Au bout de l'année, personne ne sait quelles prestations ont vraiment rapporté.",
+      },
+    ],
+    reponses: [
+      {
+        titre: "Le coût de chaque plat, à partir de vos vrais prix",
+        texte:
+          "Chaque recette est chiffrée à partir des prix de vos fournisseurs, sous-recettes comprises : le fond, la sauce, la pâte. Une photo de facture met les prix à jour. C'est le cœur de Gramme depuis 2026, et c'est ce que Gramme Chef reprend tel quel.",
+      },
+      {
+        titre: "Le menu recalculé pour le nombre de convives",
+        texte:
+          "Gramme Chef partira du menu et du nombre d'invités pour donner le coût par convive, la marge de la prestation et la liste de courses, quantités ajustées. Si huit convives deviennent douze, le devis et les courses suivent.",
+      },
+      {
+        titre: "Les allergènes de chaque plat, avant le service",
+        texte:
+          "Les allergènes remontent des matières jusqu'au plat, à travers les sous-recettes : c'est déjà le cas dans Gramme. Gramme Chef y ajoutera les restrictions de chaque convive, pour voir d'un coup d'œil quel plat pose problème à qui.",
+      },
+      {
+        titre: "Vos courses, avec la mémoire des prix",
+        texte:
+          "La liste de courses sortira du menu, quantités ajustées au nombre d'invités. Une photo du ticket de caisse gardera le prix de chaque produit, magasin par magasin : l'hypermarché, la supérette au plus près, le primeur. Vous saurez où acheter, sans avoir à vous souvenir des prix.",
+      },
+      {
+        titre: "Du devis à la facture, et le suivi des clients",
+        texte:
+          "Le devis partira du menu chiffré et se signera en ligne, avec l'acompte demandé ; il deviendra la facture une fois la prestation faite, et une facture échue se verra. Chaque client gardera son historique : menus servis, préférences, allergies de la famille. En fin de mois, chaque prestation dira ce qu'elle a rapporté.",
+      },
+    ],
+    exemple: {
+      titre: "Un dîner pour huit, lu ligne par ligne",
+      intro:
+        "Un exemple de lecture, pas une mesure prise chez un chef. Il montre ce qu'il reste d'une prestation une fois les matières et le déplacement payés, et ce que cela représente par heure de travail. Vous pouvez le refaire à la calculatrice avec vos propres chiffres.",
+      entetes: ["Poste", "Base", "Montant", "Ce que Gramme Chef en fera"],
+      lignes: [
+        ["Entrée, velouté de potimarron et noisettes", "8 convives", "8,80 €", "coût par convive : 1,10 €"],
+        ["Plat, suprême de volaille, purée, jus", "8 convives", "36,80 €", "coût par convive : 4,60 €"],
+        ["Dessert, tarte fine aux pommes", "8 convives", "11,20 €", "coût par convive : 1,40 €"],
+        ["Pain et mignardises", "8 convives", "4,80 €", "coût par convive : 0,60 €"],
+        ["Total des matières", "menu complet", "61,60 €", "7,70 € par convive"],
+        ["Prix de la prestation", "8 × 65 €", "520,00 €", "matières à 11,8 % du prix"],
+        ["Déplacement", "aller-retour", "20,00 €", "compté dans la prestation"],
+        ["Reste après matières et déplacement", "", "438,40 €", "avant charges et cotisations"],
+        ["Temps passé", "courses, préparation, service", "8 h 30", "soit 51,58 € par heure"],
+      ],
+      note: "Ce que ce tableau ne dit pas : les cotisations sociales, l'assurance, le matériel et les heures passées à répondre aux demandes. C'est pourquoi la ligne qui compte n'est pas le prix par convive mais ce qui reste par heure de travail, et c'est elle qui dit si un menu est trop bon marché.",
+    },
+    modules: ["fiches-techniques", "allergenes-etiquetage", "marges-et-decisions", "scan-factures-mercuriale"],
+    faq: [
+      {
+        q: "Quand Gramme Chef sera-t-il disponible ?",
+        a: "Le lancement est prévu en janvier 2027. Avant cela, une bêta est ouverte à un petit nombre de chefs à domicile, gratuitement pendant plusieurs mois, en échange de leurs retours. L'inscription à la liste d'attente et la candidature à la bêta se font sur la page Gramme Chef.",
+      },
+      {
+        q: "Combien coûtera Gramme Chef ?",
+        a: "19 € hors taxes par mois, sans installation à payer : l'outil se prend en main seul, depuis un téléphone. Les chefs bêta-testeurs l'utilisent gratuitement pendant la période de test, et c'est seulement ensuite qu'ils choisissent de s'abonner.",
+      },
+      {
+        q: "Faut-il un ordinateur pour l'utiliser ?",
+        a: "Non. Gramme est une application web qui s'installe sur un téléphone depuis le navigateur, sans passer par un magasin d'applications. Un chef à domicile travaille en déplacement : le menu, les courses et le devis doivent tenir dans la poche.",
+      },
+      {
+        q: "Mes recettes restent-elles à moi ?",
+        a: "Oui. Vos recettes sont votre propriété, elles ne sont ni partagées ni réutilisées, et vous pouvez les exporter en entier à tout moment, y compris si vous arrêtez l'abonnement.",
+      },
+      {
+        q: "Gramme Chef remplace-t-il une plateforme de réservation ?",
+        a: "Non. Les plateformes vous apportent des clients ; Gramme Chef vous aide à chiffrer, organiser et facturer ce que vous vendez, quel que soit le canal par lequel le client est arrivé. Les deux se complètent.",
+      },
+    ],
+    appel: {
+      principal: { href: "/gramme-chef#inscription", label: "Devenir chef bêta-testeur" },
+      secondaire: { href: "/gramme-chef", label: "Découvrir Gramme Chef" },
+      encart: {
+        titre: "Tester Gramme Chef avant tout le monde",
+        texte:
+          "Une bêta gratuite est ouverte à quelques chefs à domicile avant le lancement de janvier 2027, en échange de leurs retours. Les places sont limitées.",
+      },
+    },
+    liens: [
+      { href: "/gramme-chef", label: "Gramme Chef : liste d'attente et bêta" },
+      { href: "/guides/prix-menu-chef-a-domicile", label: "Calculer le prix d'un menu de chef à domicile" },
+      { href: "/logiciel-cout-de-revient", label: "Le coût de revient, calculé une fois pour toutes" },
     ],
   },
 ];

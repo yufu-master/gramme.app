@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="fr"><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1920px;height:1200px;font-family:-apple-system,"SF Pro Text","Inter","Helvetica Neue",Arial,sans-serif;color:#2f4a2c;background:#fff;overflow:hidden}
+.bandeau{height:300px;background:linear-gradient(180deg,#d6ead0 0%,#e2f0dc 55%,#ffffff 100%);position:relative}
+.retour{position:absolute;left:24px;top:22px;width:62px;height:62px;border-radius:16px;background:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 2px 10px rgba(40,70,30,.08);font-size:28px;color:#3d5a3a}
+.fil{position:absolute;left:104px;top:26px}
+.pastille{display:inline-block;background:#7f8f7a;color:#fff;font-size:13px;font-weight:700;letter-spacing:.14em;padding:5px 12px;border-radius:999px}
+.fil h2{margin-top:10px;font-size:26px;color:#fff;text-shadow:0 1px 3px rgba(0,0,0,.25);font-weight:700}
+.marque{position:absolute;left:50%;top:92px;transform:translateX(-50%);text-align:center;color:#5d7a58;font-size:14px;font-weight:700;letter-spacing:.08em}
+.marque .rond{width:66px;height:66px;border-radius:50%;background:#f3f8ef;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:30px}
+.page{position:absolute;left:0;right:0;top:230px;padding:0 230px}
+.titre{display:flex;justify-content:space-between;align-items:flex-end}
+h1{font-size:46px;font-weight:800;color:#2f5a2a;letter-spacing:-.01em}
+.sous{margin-top:8px;font-size:19px;color:#6a8566}
+.badge{background:#2f6b2a;color:#fff;font-weight:700;border-radius:999px;padding:7px 16px;font-size:18px}
+.actions{display:flex;gap:12px;margin-top:22px;align-items:center}
+.btn{border:1.5px solid #d9e6d2;border-radius:14px;padding:13px 20px;font-size:18px;color:#355329;background:#fff;font-weight:600}
+.btn.plein{background:#2f5a2a;color:#fff;border-color:#2f5a2a}
+.convives{display:flex;align-items:center;gap:14px;border:1.5px solid #d9e6d2;border-radius:14px;padding:8px 10px 8px 18px;font-size:18px;color:#355329;font-weight:600}
+.convives span.pm{width:36px;height:36px;border-radius:10px;background:#f1f7ec;display:flex;align-items:center;justify-content:center;font-size:22px;color:#2f5a2a}
+.convives b{font-size:22px;color:#2f5a2a;min-width:26px;text-align:center}
+.grille{display:grid;grid-template-columns:1.55fr 1fr;gap:26px;margin-top:26px}
+.carte{border:1.5px solid #e1ecdb;border-radius:22px;background:#fff;padding:24px 26px;box-shadow:0 10px 40px rgba(58,92,39,.06)}
+.chiffres{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.chiffres .l{font-size:13px;letter-spacing:.08em;color:#7a9376;font-weight:600}
+.chiffres .v{margin-top:6px;font-size:28px;font-weight:700;color:#2f4a2c}
+.chiffres .v.vert{color:#2f6b2a}
+.barre{margin-top:18px;height:10px;border-radius:99px;background:#eef4ea;overflow:hidden}
+.barre i{display:block;height:100%;width:88%;background:#a8cf8c;border-radius:99px}
+.note{margin-top:10px;font-size:14px;color:#7a9376}
+.menu h3,.cote h3{font-size:14px;letter-spacing:.12em;color:#8ab373;font-weight:700;margin-bottom:10px}
+.plat{display:grid;grid-template-columns:118px 1fr 120px 110px;align-items:center;padding:15px 0;border-top:1px solid #edf3e9}
+.plat:first-of-type{border-top:0}
+.temps{font-size:13px;font-weight:700;letter-spacing:.08em;color:#6e9f55}
+.nom{font-size:20px;font-weight:600;color:#2f4a2c}
+.alg{margin-top:6px;display:flex;gap:6px;flex-wrap:wrap}
+.alg span{font-size:12.5px;padding:3px 9px;border-radius:99px;background:#f4f7f1;color:#5d7a58;border:1px solid #e3ecdc}
+.alg span.att{background:#fdf1e7;color:#a0582a;border-color:#f3d9c4}
+.num{text-align:right;font-size:19px;color:#3d5a3a;font-variant-numeric:tabular-nums}
+.num small{display:block;font-size:12px;color:#8aa086}
+.total{display:grid;grid-template-columns:118px 1fr 120px 110px;padding:16px 0 4px;border-top:2px solid #dcead2;font-weight:700;font-size:20px;color:#2f5a2a}
+.cote{display:grid;gap:22px}
+.inv{display:flex;justify-content:space-between;align-items:center;padding:11px 0;border-top:1px solid #edf3e9;font-size:17px}
+.inv:first-of-type{border-top:0}
+.inv .q{font-size:13.5px;padding:4px 10px;border-radius:99px;background:#fdf1e7;color:#a0582a;font-weight:600}
+.inv .ok{font-size:13.5px;padding:4px 10px;border-radius:99px;background:#eef6e9;color:#3f7a33;font-weight:600}
+.course{display:flex;justify-content:space-between;padding:9px 0;border-top:1px solid #edf3e9;font-size:17px}
+.course:first-of-type{border-top:0}
+.course b{font-weight:600;color:#3d5a3a;font-variant-numeric:tabular-nums}
+.apercu{position:absolute;right:28px;bottom:22px;font-size:13px;color:#8aa086;letter-spacing:.04em}
+</style></head><body>
+<div class="bandeau">
+  <div class="retour">←</div>
+  <div class="fil"><span class="pastille">PRESTATION</span><h2>Dîner chez les Laurent</h2></div>
+  <div class="marque"><div class="rond">👨‍🍳</div>GRAMME CHEF</div>
+</div>
+<div class="page">
+  <div class="titre">
+    <div><h1>Dîner chez les Laurent</h1><p class="sous">Samedi 18 octobre · 20 h · Neuilly-sur-Seine · menu en trois temps</p></div>
+    <div style="text-align:right"><span class="badge">Devis signé · acompte reçu</span><p class="sous" style="margin-top:10px">Acompte de 156,00 € reçu le 2 octobre · solde 364,00 € à facturer</p></div>
+  </div>
+  <div class="actions">
+    <div class="convives">Convives <span class="pm">−</span><b>8</b><span class="pm">+</span></div>
+    <span class="btn plein">Envoyer la facture</span>
+    <span class="btn">Liste de courses</span>
+    <span class="btn">Dupliquer le menu</span>
+  </div>
+  <div class="grille">
+    <div style="display:grid;gap:22px">
+      <div class="carte">
+        <div class="chiffres">
+          <div><p class="l">PRIX PAR CONVIVE</p><p class="v">65,00 €</p></div>
+          <div><p class="l">COÛT MATIÈRE / CONVIVE</p><p class="v">7,70 €</p></div>
+          <div><p class="l">PRESTATION</p><p class="v">520,00 €</p></div>
+          <div><p class="l">RESTE APRÈS COURSES</p><p class="v vert">438,40 €</p></div>
+        </div>
+        <div class="barre"><i></i></div>
+        <p class="note">Matières 11,8 % du prix · déplacement 20 € compris · 51,58 € par heure travaillée (8 h 30)</p>
+      </div>
+      <div class="carte menu">
+        <h3>LE MENU, CHIFFRÉ POUR 8</h3>
+        <div class="plat"><span class="temps">ENTRÉE</span><div><p class="nom">Velouté de potimarron, noisettes torréfiées</p><div class="alg"><span class="att">Fruits à coque · 1 invité</span><span class="att">Lait · 1 invité</span></div></div><p class="num">1,10 €<small>par convive</small></p><p class="num">8,80 €</p></div>
+        <div class="plat"><span class="temps">PLAT</span><div><p class="nom">Suprême de volaille, purée au beurre, jus corsé</p><div class="alg"><span class="att">Lait · 1 invité</span><span>Céleri</span></div></div><p class="num">4,60 €<small>par convive</small></p><p class="num">36,80 €</p></div>
+        <div class="plat"><span class="temps">DESSERT</span><div><p class="nom">Tarte fine aux pommes, crème crue</p><div class="alg"><span>Gluten</span><span class="att">Lait · 1 invité</span><span>Œufs</span></div></div><p class="num">1,40 €<small>par convive</small></p><p class="num">11,20 €</p></div>
+        <div class="plat"><span class="temps">EN PLUS</span><div><p class="nom">Pain et mignardises</p><div class="alg"><span>Gluten</span><span>Œufs</span></div></div><p class="num">0,60 €<small>par convive</small></p><p class="num">4,80 €</p></div>
+        <div class="total"><span></span><span>Total des matières</span><span class="num" style="font-weight:700">7,70 €</span><span class="num" style="font-weight:700">61,60 €</span></div>
+      </div>
+    </div>
+    <div class="cote">
+      <div class="carte">
+        <h3>LES CONVIVES</h3>
+        <div class="inv"><span>Claire</span><span class="q">Sans fruits à coque · velouté</span></div>
+        <div class="inv"><span>Marc</span><span class="q">Sans lactose · 3 plats</span></div>
+        <div class="inv"><span>6 autres convives</span><span class="ok">Aucune restriction</span></div>
+      </div>
+      <div class="carte">
+        <h3>LISTE DE COURSES · 8 CONVIVES</h3>
+        <div class="course"><span>Suprêmes de volaille fermière</span><b>8 pièces</b></div>
+        <div class="course"><span>Potimarron</span><b>2,4 kg</b></div>
+        <div class="course"><span>Pommes de terre à purée</span><b>1,6 kg</b></div>
+        <div class="course"><span>Beurre doux</span><b>450 g</b></div>
+        <div class="course"><span>Pommes Chanteclerc</span><b>1,2 kg</b></div>
+        <div class="course"><span>Crème crue</span><b>50 cl</b></div>
+        <div class="course"><span>Noisettes</span><b>80 g</b></div>
+      </div>
+    </div>
+  </div>
+</div>
+<p class="apercu">Aperçu de Gramme Chef · lancement en janvier 2027</p>
+</body></html>

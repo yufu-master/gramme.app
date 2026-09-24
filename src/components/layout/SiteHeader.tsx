@@ -54,6 +54,11 @@ const metiersItems: { label: string; href: string; description: string }[] = [
     href: "/logiciel-glacerie",
     description: "Le pouvoir anticryoscopique, la courbe de congélation, et la température de service.",
   },
+  {
+    label: "Chef à domicile",
+    href: "/logiciel-chef-a-domicile",
+    description: "Gramme Chef : le menu chiffré par convive, le devis et les courses. Bêta ouverte, lancement en janvier.",
+  },
 ];
 
 /**

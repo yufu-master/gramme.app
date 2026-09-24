@@ -190,6 +190,24 @@ export default function TarifsPage() {
           </p>
         </section>
 
+        <section
+          className="mt-12 rounded-3xl border border-[#dcead2] bg-[#f6fbf2] p-6 md:mt-16 md:p-8"
+          aria-labelledby="chef-title"
+        >
+          <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[#6e9f55]">Nouveau · janvier 2027</p>
+          <h2 id="chef-title" className="mt-2 text-2xl font-bold text-[#27421f] md:text-3xl">
+            Gramme Chef, pour les chefs à domicile : 19 € HT par mois
+          </h2>
+          <p className="mt-4 max-w-3xl leading-relaxed text-[#4d6952]">
+            Le menu chiffré par convive, le devis et la liste de courses, sans installation à payer. Lancement en
+            janvier 2027 ; d&apos;ici là, une bêta gratuite est ouverte à quelques chefs.{" "}
+            <Link href="/gramme-chef" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
+              Candidater à la bêta
+            </Link>
+            .
+          </p>
+        </section>
+
         <RelatedLinks
           links={[
             { href: "/fonctionnalites", label: "Ce que contient chaque offre" },

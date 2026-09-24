@@ -7,7 +7,8 @@ import { pagesLogiciel } from "@/content/logiciels";
 import { breadcrumbSchema, imageSociale, webPageSchema } from "@/lib/seo";
 
 /**
- * La page pilier des quatre métiers.
+ * La page pilier des cinq métiers (le chef à domicile s'y ajoute le 24/09/2026,
+ * avant le lancement de Gramme Chef en janvier 2027).
  *
  * Elle ne cherche PAS à se référencer sur un mot d'achat : ce sont les quatre
  * pages plates (`/logiciel-boulangerie` et les autres) qui portent le mot que
@@ -49,17 +50,25 @@ const METIERS = [
       "Plus de sucre adoucit et ramollit, plus de matière grasse enrobe et masque. Le réglage se fait sur un tableur hérité d'un stage, dont plus personne ne sait d'où viennent les coefficients, et le résultat se juge trois heures plus tard.",
     cle: "La courbe de congélation, la température de service, et les dénominations du code des glaces.",
   },
+  {
+    chemin: "/logiciel-chef-a-domicile",
+    nom: "Chef à domicile",
+    accroche: "Nouveau : Gramme Chef, lancement en janvier 2027",
+    texte:
+      "Le prix par convive se fixe au devis, le coût réel se découvre au retour des courses, et le nombre d'invités change la veille. Gramme Chef reprend le calcul de coût de Gramme et l'organise autour de la prestation.",
+    cle: "Le menu chiffré par convive, le devis et la liste de courses. Bêta ouverte à quelques chefs.",
+  },
 ];
 
 export const metadata: Metadata = {
-  title: "Métiers : boulangerie, pâtisserie, chocolaterie, glacerie",
+  title: "Métiers : boulangerie, pâtisserie, chocolat, glace, chef",
   description:
-    "Ce que Gramme change dans chacun des quatre métiers : coût de revient, sous-recettes en cascade, activité de l'eau d'une ganache, équilibrage d'un mix à glace.",
+    "Ce que Gramme change dans chaque métier : coût de revient, sous-recettes en cascade, ganache, mix à glace, et le menu du chef à domicile chiffré par convive.",
   alternates: { canonical: "https://gramme.app/metiers" },
   openGraph: {
-    title: "Les quatre métiers que Gramme sert",
+    title: "Les cinq métiers que Gramme sert",
     description:
-      "Boulangerie, pâtisserie, chocolaterie, glacerie : le même outil, réglé sur ce que chaque atelier compte.",
+      "Boulangerie, pâtisserie, chocolaterie, glacerie, chef à domicile : le même outil, réglé sur ce que chaque métier compte.",
     url: "https://gramme.app/metiers",
     type: "website",
     locale: "fr_FR",
@@ -74,9 +83,9 @@ export default function MetiersPage() {
       <JsonLd
         data={[
           webPageSchema({
-            title: "Les quatre métiers que Gramme sert",
+            title: "Les cinq métiers que Gramme sert",
             description:
-              "Boulangerie, pâtisserie, chocolaterie et glacerie : ce que l'outil change dans chacun.",
+              "Boulangerie, pâtisserie, chocolaterie, glacerie et chef à domicile : ce que l'outil change dans chacun.",
             path: "/metiers",
           }),
           breadcrumbSchema([
@@ -95,7 +104,7 @@ export default function MetiersPage() {
 
         <div className="mt-6 max-w-3xl space-y-4 text-[#4d6952]">
           <p>
-            Les quatre métiers partagent presque tout : des fiches techniques, des sous-recettes qui
+            Les cinq métiers partagent presque tout : des fiches techniques, des sous-recettes qui
             s&apos;emboîtent, des prix d&apos;achat qui bougent, une marge qu&apos;on découvre trop
             tard. Un logiciel qui traite bien l&apos;un traite bien les autres, à une condition :
             qu&apos;il descende jusqu&apos;à l&apos;unité que vous vendez, et pas seulement jusqu&apos;à
@@ -105,7 +114,7 @@ export default function MetiersPage() {
             Ce qui les sépare tient en une phrase par métier, et c&apos;est ce qui décide de
             l&apos;outil. Un boulanger règle des quantités, un pâtissier des cascades de
             sous-recettes, un chocolatier une conservation, un glacier un équilibre entre cinq
-            chiffres qui se contredisent. Gramme s&apos;active sur ce dont vous avez besoin :
+            chiffres qui se contredisent, un chef à domicile un prix par convive. Gramme s&apos;active sur ce dont vous avez besoin :
             l&apos;onglet d&apos;équilibrage ne s&apos;affiche que si vous coulez des glaces ou des
             bonbons.
           </p>

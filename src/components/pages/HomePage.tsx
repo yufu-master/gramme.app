@@ -149,6 +149,22 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* Annonce de Gramme Chef (24/09/2026) : un bandeau, pas une section.
+            L'accueil a été raccourci le 19/09 ; une offre qui n'existe pas
+            encore n'a pas à y prendre plus d'une ligne. */}
+        <section className="mx-auto w-full max-w-6xl px-4 pt-8 sm:px-5" aria-label="Nouveau : Gramme Chef">
+          <Link
+            href="/gramme-chef"
+            className="flex flex-col gap-2 rounded-2xl border border-[#dcead2] bg-[#f6fbf2] px-5 py-4 transition hover:border-[#a8cf8c] sm:flex-row sm:items-center sm:justify-between"
+          >
+            <span className="text-sm text-[#355329]">
+              <strong className="font-bold text-[#27421f]">Nouveau : Gramme Chef</strong>, le logiciel des chefs à
+              domicile. Lancement en janvier 2027, bêta gratuite ouverte à quelques chefs.
+            </span>
+            <span className="text-sm font-semibold text-[#355329]">Devenir bêta-testeur →</span>
+          </Link>
+        </section>
+
         {/*
           La visite remplace deux blocs qu'elle montre mieux qu'eux : l'accordéon
           des fonctionnalités et « Sur ordinateur, tablette ou téléphone ».
@@ -290,12 +306,12 @@ export default function HomePage() {
             <p className="mt-4 text-[var(--muted-foreground)]">
               Un boulanger règle des quantités et surveille une farine qui bouge, un pâtissier des
               sous-recettes qui s&apos;emboîtent, un chocolatier la conservation d&apos;une ganache,
-              un glacier l&apos;équilibre d&apos;un mix. Les fiches techniques, la mercuriale et le
+              un glacier l&apos;équilibre d&apos;un mix, un chef à domicile le prix de son menu par convive. Les fiches techniques, la mercuriale et le
               coût de revient sont les mêmes ; ce qui change, ce sont les indicateurs que Gramme
               affiche, et il n&apos;affiche que les vôtres.
             </p>
           </div>
-          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {[
               {
                 href: "/logiciel-boulangerie",
@@ -317,6 +333,11 @@ export default function HomePage() {
                 nom: "Glacerie",
                 texte: "Le pouvoir sucrant et anticryoscopique d'un mix, la courbe de congélation, et la température à laquelle il redevient boulable.",
               },
+              {
+                href: "/logiciel-chef-a-domicile",
+                nom: "Chef à domicile · nouveau",
+                texte: "Gramme Chef chiffre le menu par convive, prépare le devis et la liste de courses. Lancement en janvier 2027, bêta ouverte à quelques chefs.",
+              },
             ].map((m) => (
               <li key={m.href}>
                 <Link
@@ -331,7 +352,7 @@ export default function HomePage() {
           </ul>
           <p className="mt-6 text-sm">
             <Link href="/metiers" className="font-semibold text-[#355329] hover:underline">
-              Ce que les quatre métiers ont en commun, et ce qui les sépare
+              Ce que les cinq métiers ont en commun, et ce qui les sépare
             </Link>
           </p>
         </section>

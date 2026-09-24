@@ -92,16 +92,16 @@ export function PageLogicielVue({ page }: { page: PageLogiciel }) {
           ))}
           <div className="mt-8 flex flex-wrap gap-3">
             <Link
-              href="/demo"
+              href={page.appel?.principal.href ?? "/demo"}
               className="rounded-xl bg-[#264021] px-5 py-3 font-semibold text-white transition hover:bg-[#355329]"
             >
-              Demander une démonstration
+              {page.appel?.principal.label ?? "Demander une démonstration"}
             </Link>
             <Link
-              href="/tarifs"
+              href={page.appel?.secondaire.href ?? "/tarifs"}
               className="rounded-xl border border-[#d8e6cf] bg-white px-5 py-3 font-semibold text-[#355329] transition hover:bg-[#f6fbf2]"
             >
-              Voir les tarifs
+              {page.appel?.secondaire.label ?? "Voir les tarifs"}
             </Link>
           </div>
         </section>
@@ -232,16 +232,16 @@ export function PageLogicielVue({ page }: { page: PageLogiciel }) {
         </section>
 
         <section className="mt-12 rounded-3xl border border-[#dcead2] bg-[#f6fbf2] p-6 sm:p-8 md:mt-16">
-          <h2 className="text-2xl font-bold text-[#27421f]">Le voir sur un vrai atelier</h2>
+          <h2 className="text-2xl font-bold text-[#27421f]">{page.appel?.encart.titre ?? "Le voir sur un vrai atelier"}</h2>
           <p className="mt-3 max-w-2xl text-[#4d6952]">
-            Une démonstration dure une heure, sur un atelier complet en fonctionnement : une facture scannée en
-            direct, et la marge d&apos;une recette qui se recalcule sous vos yeux.
+            {page.appel?.encart.texte ??
+              "Une démonstration dure une heure, sur un atelier complet en fonctionnement : une facture scannée en direct, et la marge d'une recette qui se recalcule sous vos yeux."}
           </p>
           <Link
-            href="/demo"
+            href={page.appel?.principal.href ?? "/demo"}
             className="mt-6 inline-block rounded-xl bg-[#264021] px-5 py-3 font-semibold text-white transition hover:bg-[#355329]"
           >
-            Demander une démonstration
+            {page.appel?.principal.label ?? "Demander une démonstration"}
           </Link>
         </section>
 

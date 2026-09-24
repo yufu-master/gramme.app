@@ -8,6 +8,8 @@ const footerLinks = [
   { href: "/logiciel-patisserie", label: "Logiciel pâtisserie" },
   { href: "/logiciel-chocolaterie", label: "Logiciel chocolaterie" },
   { href: "/logiciel-glacerie", label: "Logiciel glacerie" },
+  { href: "/logiciel-chef-a-domicile", label: "Logiciel chef à domicile" },
+  { href: "/gramme-chef", label: "Gramme Chef" },
   { href: "/logiciel-cout-de-revient", label: "Calcul du coût de revient" },
   { href: "/logiciel-fiches-techniques", label: "Fiches techniques" },
   { href: "/logiciel-releves-temperature", label: "Relevés de température" },

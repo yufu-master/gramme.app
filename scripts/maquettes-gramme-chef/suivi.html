@@ -1,0 +1,49 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8"><style>
+*{box-sizing:border-box;margin:0;padding:0}
+body{width:1920px;height:1200px;font-family:-apple-system,"SF Pro Text","Inter","Helvetica Neue",Arial,sans-serif;color:#2f4a2c;background:linear-gradient(180deg,#e4f1de 0%,#f7fbf4 38%,#ffffff 100%);overflow:hidden}
+.page{padding:70px 230px 0}
+.haut{display:flex;justify-content:space-between;align-items:flex-end}
+.sur{font-size:14px;font-weight:700;letter-spacing:.12em;color:#6e9f55}
+h1{margin-top:6px;font-size:46px;font-weight:800;color:#2f5a2a}
+.sous{margin-top:8px;font-size:19px;color:#6a8566}
+.btn{border:1.5px solid #d9e6d2;border-radius:14px;padding:13px 20px;font-size:18px;color:#355329;background:#fff;font-weight:600;margin-left:10px}
+.btn.plein{background:#2f5a2a;color:#fff;border-color:#2f5a2a}
+.tuiles{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-top:34px}
+.tuile{background:#fff;border:1.5px solid #e1ecdb;border-radius:22px;padding:22px 24px;box-shadow:0 10px 40px rgba(58,92,39,.06)}
+.tuile .l{font-size:13px;letter-spacing:.08em;color:#7a9376;font-weight:600}
+.tuile .v{margin-top:8px;font-size:34px;font-weight:700;color:#2f4a2c}
+.tuile .d{margin-top:6px;font-size:15px;color:#6e9f55}
+.tuile .d.r{color:#a0582a}
+.carte{margin-top:26px;background:#fff;border:1.5px solid #e1ecdb;border-radius:22px;padding:22px 26px;box-shadow:0 10px 40px rgba(58,92,39,.06)}
+h3{font-size:14px;letter-spacing:.12em;color:#8ab373;font-weight:700;margin-bottom:8px}
+table{width:100%;border-collapse:collapse;font-size:18px}
+th{text-align:left;font-size:13px;letter-spacing:.08em;color:#8aa086;font-weight:600;padding:10px 8px;border-bottom:1.5px solid #e6efe1}
+td{padding:15px 8px;border-bottom:1px solid #eef4ea;color:#3d5a3a}
+td.n{text-align:right;font-variant-numeric:tabular-nums}
+th.n{text-align:right}
+.e{display:inline-block;font-size:14px;font-weight:600;padding:5px 12px;border-radius:99px}
+.ok{background:#eef6e9;color:#3f7a33}.at{background:#fdf1e7;color:#a0582a}.bl{background:#eef2fb;color:#3d5b9a}.gr{background:#f3f4f2;color:#6b7667}
+.client b{display:block;font-weight:600;color:#2f4a2c}.client span{font-size:14px;color:#8aa086}
+.apercu{position:absolute;right:28px;bottom:22px;font-size:13px;color:#8aa086;letter-spacing:.04em}
+</style></head><body><div class="page">
+<div class="haut"><div><p class="sur">GRAMME CHEF · OCTOBRE</p><h1>Mes prestations</h1><p class="sous">Devis, acomptes, factures et clients, au même endroit</p></div>
+<div><span class="btn">Mes clients</span><span class="btn plein">Nouveau devis</span></div></div>
+<div class="tuiles">
+<div class="tuile"><p class="l">CHIFFRE D'AFFAIRES DU MOIS</p><p class="v">4 860 €</p><p class="d">9 prestations facturées</p></div>
+<div class="tuile"><p class="l">RESTE APRÈS COURSES</p><p class="v">4 012 €</p><p class="d">matières et trajets : 17,4 % du chiffre</p></div>
+<div class="tuile"><p class="l">DEVIS EN ATTENTE</p><p class="v">3</p><p class="d">1 720 € à signer</p></div>
+<div class="tuile"><p class="l">À ENCAISSER</p><p class="v">1 046 €</p><p class="d r">1 facture à relancer</p></div>
+</div>
+<div class="carte"><h3>PROCHAINES PRESTATIONS</h3><table>
+<tr><th>Date</th><th>Client</th><th>Menu</th><th class="n">Convives</th><th class="n">Montant</th><th>État</th></tr>
+<tr><td>Sam. 18 oct.</td><td class="client"><b>Famille Laurent</b><span>Neuilly-sur-Seine</span></td><td>Dîner d'automne en trois temps</td><td class="n">8</td><td class="n">520,00 €</td><td><span class="e ok">Acompte reçu</span></td></tr>
+<tr><td>Ven. 24 oct.</td><td class="client"><b>Studio Arpège</b><span>Paris 9e</span></td><td>Cocktail dînatoire, 12 pièces</td><td class="n">30</td><td class="n">1 350,00 €</td><td><span class="e bl">Devis signé</span></td></tr>
+<tr><td>Sam. 25 oct.</td><td class="client"><b>M. et Mme Benali</b><span>Versailles</span></td><td>Anniversaire, menu dégustation</td><td class="n">6</td><td class="n">570,00 €</td><td><span class="e at">Devis envoyé</span></td></tr>
+<tr><td>Sam. 8 nov.</td><td class="client"><b>Claire Martin</b><span>Boulogne-Billancourt</span></td><td>Brunch de famille</td><td class="n">12</td><td class="n">480,00 €</td><td><span class="e gr">Brouillon</span></td></tr>
+</table></div>
+<div class="carte"><h3>FACTURES</h3><table>
+<tr><th>N°</th><th>Client</th><th>Prestation</th><th class="n">Montant</th><th>Échéance</th><th>État</th></tr>
+<tr><td>2026-041</td><td>Maison Durand</td><td>Dîner du 4 octobre</td><td class="n">690,00 €</td><td>04/10</td><td><span class="e ok">Payée</span></td></tr>
+<tr><td>2026-042</td><td>Famille Roche</td><td>Déjeuner du 11 octobre</td><td class="n">682,00 €</td><td>11/10</td><td><span class="e at">Relance à envoyer</span></td></tr>
+</table></div>
+</div><p class="apercu">Aperçu de Gramme Chef · lancement en janvier 2027</p></body></html>
