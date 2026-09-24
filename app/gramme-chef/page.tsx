@@ -15,11 +15,15 @@ import { breadcrumbSchema, SITE_URL, webPageSchema, imageSociale, ogPage } from 
  * l'écran prévu (`scripts/maquettes-gramme-chef/`), pas des captures. Une page
  * qui décrirait comme livré ce qui ne l'est pas ferait perdre, au premier
  * essai, le crédit que le reste du site a construit.
+ *
+ * « ERP » reste dans les mots-clés et dans une question de la FAQ, pour les
+ * recherches qui l'emploient ; le texte visible parle comme un chef, qui ne
+ * cherche pas un ERP mais « de quoi gérer ses devis et ses factures ».
  */
 
 const TITRE = "Gramme Chef · le logiciel du chef à domicile";
 const DESCRIPTION =
-  "Menus chiffrés par convive, devis signés en ligne, acomptes, factures et suivi des clients : le mini-ERP du chef à domicile. Bêta gratuite avant janvier 2027.";
+  "Menus chiffrés par convive, devis signés en ligne, acomptes, factures et suivi des clients : toute la gestion du chef à domicile. Bêta gratuite avant janvier 2027.";
 
 export const metadata: Metadata = {
   title: TITRE,
@@ -79,7 +83,7 @@ const gains = [
   },
 ];
 
-const erp = [
+const gestion = [
   { titre: "Menus et fiches", texte: "Vos recettes chiffrées, vos menus composés, le coût par convive et la marge de chaque prestation." },
   { titre: "Convives et allergènes", texte: "Les restrictions de chaque invité, et les plats qui posent problème à qui, avant le service." },
   { titre: "Liste de courses", texte: "Tirée du menu et du nombre d'invités, quantités ajustées quand huit deviennent douze." },
@@ -94,6 +98,10 @@ const faq = [
   {
     q: "Qu'est-ce que Gramme Chef ?",
     a: "Le logiciel de gestion du chef à domicile et du chef privé : il chiffre chaque menu par convive à partir de vos vrais prix d'achat, prépare le devis, suit l'acompte et la facture, garde l'historique de vos clients et vous dit ce que chaque prestation vous a rapporté. Il fonctionne sur téléphone, sans installation.",
+  },
+  {
+    q: "Gramme Chef est-il un ERP pour chef à domicile ?",
+    a: "Oui, si l'on appelle ERP le logiciel qui réunit toute la gestion d'une activité. Pour un chef à domicile, cela veut dire concrètement : les menus et leur coût, les devis, les acomptes, les factures, les courses et le fichier clients, au même endroit et sans formation. Pas un progiciel d'entreprise à paramétrer pendant des semaines.",
   },
   {
     q: "Qu'est-ce que la bêta de Gramme Chef ?",
@@ -141,7 +149,7 @@ export default function GrammeChefPage() {
             image: `${SITE_URL}/images/app/gramme-chef-menu.png`,
             description: DESCRIPTION,
             audience: { "@type": "BusinessAudience", audienceType: "Chefs à domicile et chefs privés" },
-            featureList: erp.map((f) => f.titre),
+            featureList: gestion.map((f) => f.titre),
             offers: {
               "@type": "Offer",
               price: "19",
@@ -166,15 +174,24 @@ export default function GrammeChefPage() {
         <Breadcrumbs currentLabel="Gramme Chef" />
 
         {/* Haut de page : la promesse, et l'écran à côté. */}
-        <section className="mt-6 grid items-center gap-10 rounded-3xl border border-[#dcead2] bg-white/90 p-6 shadow-[0_20px_70px_rgba(58,92,39,0.08)] sm:p-8 md:p-12 lg:grid-cols-[1.15fr_0.85fr]">
+        <section className="mt-6 grid items-center gap-10 rounded-3xl bg-[#44624b] p-6 text-white sm:p-8 md:p-12 lg:grid-cols-[1.15fr_0.85fr]">
           <div>
-            <p className="inline-flex rounded-full bg-[#f3f9ee] px-3 py-1 text-xs font-semibold uppercase tracking-[0.1em] text-[#6e9f55]">
+            <Image
+              src="/logos/gramme-chef-logo-fond-fonce.png"
+              alt="Gramme Chef"
+              width={1600}
+              height={249}
+              sizes="240px"
+              priority
+              className="h-8 w-auto md:h-10"
+            />
+            <p className="mt-7 inline-flex rounded-full bg-white/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.1em] text-[#d3e8c4]">
               Nouveau · bêta gratuite avant janvier 2027
             </p>
-            <h1 className="mt-4 text-3xl font-black leading-tight text-[#27421f] md:text-5xl">
+            <h1 className="mt-4 text-3xl font-black leading-tight text-white md:text-5xl">
               Gramme Chef, le logiciel du chef à domicile qui vous fait gagner sur chaque dîner
             </h1>
-            <p className="mt-5 text-base text-[#4d6952] md:text-lg">
+            <p className="mt-5 text-base text-[#e3efdb] md:text-lg">
               Le menu chiffré par convive avant d&apos;annoncer un prix. La liste de courses, avec les prix de chaque magasin en mémoire. Le devis signé en ligne. L&apos;acompte, la
               facture et la relance au bon moment. Le fichier de vos clients et ce que chacun vous rapporte. Tout ce
               qu&apos;un chef privé gère aujourd&apos;hui entre un carnet, un tableur et trois applications, réuni
@@ -183,18 +200,18 @@ export default function GrammeChefPage() {
             <div className="mt-7 flex flex-wrap gap-3">
               <a
                 href="#inscription"
-                className="inline-flex rounded-xl bg-[#264021] px-5 py-3 font-semibold text-white transition-colors hover:bg-[#1e3319]"
+                className="inline-flex rounded-xl bg-white px-5 py-3 font-semibold text-[#2f4a2c] transition-colors hover:bg-[#eef6e9]"
               >
                 Devenir chef bêta-testeur
               </a>
               <a
-                href="#erp"
-                className="inline-flex rounded-xl border border-[#a8cf8c] px-5 py-3 font-semibold text-[#355329] transition-colors hover:bg-[#f3f9ee]"
+                href="#gestion"
+                className="inline-flex rounded-xl border border-white/40 px-5 py-3 font-semibold text-white transition-colors hover:bg-white/10"
               >
                 Tout ce qu&apos;il gère
               </a>
             </div>
-            <p className="mt-5 text-sm text-[#6e9f55]">
+            <p className="mt-5 text-sm text-[#d3e8c4]">
               Gratuit pendant la bêta, puis 19 € HT par mois. Sans installation, sans engagement.
             </p>
           </div>
@@ -205,9 +222,9 @@ export default function GrammeChefPage() {
               width={1290}
               height={2796}
               priority
-              className="h-auto w-full rounded-[2rem] border border-[#dcead2] shadow-[0_30px_80px_rgba(38,64,33,0.18)]"
+              className="h-auto w-full rounded-[2rem] border border-white/20 shadow-[0_30px_80px_rgba(20,35,22,0.35)]"
             />
-            <figcaption className="mt-3 text-center text-xs text-[#6e9f55]">Aperçu de l&apos;écran prévu au lancement</figcaption>
+            <figcaption className="mt-3 text-center text-xs text-[#d3e8c4]">Aperçu de l&apos;écran prévu au lancement</figcaption>
           </figure>
         </section>
 
@@ -261,17 +278,17 @@ export default function GrammeChefPage() {
           </p>
         </section>
 
-        {/* Le mini-ERP. */}
-        <section id="erp" className="mt-12 scroll-mt-24 md:mt-16" aria-labelledby="erp-titre">
-          <h2 id="erp-titre" className="text-2xl font-bold text-[#2f4f26] md:text-3xl">
-            Le mini-ERP du chef à domicile
+        {/* Toute la gestion : le « mini-ERP », dit avec les mots d'un chef. */}
+        <section id="gestion" className="mt-12 scroll-mt-24 md:mt-16" aria-labelledby="gestion-titre">
+          <h2 id="gestion-titre" className="text-2xl font-bold text-[#2f4f26] md:text-3xl">
+            Toute votre gestion, du premier appel à la facture payée
           </h2>
           <p className="mt-3 max-w-3xl leading-relaxed text-[#4d6952] md:text-lg">
             De la première demande du client jusqu&apos;à la facture payée, chaque prestation suit le même fil, et
             chaque chiffre vient de vos vraies recettes et de vos vrais prix.
           </p>
           <ul className="mt-6 grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
-            {erp.map((f) => (
+            {gestion.map((f) => (
               <li key={f.titre} className="rounded-2xl border border-[#dcead2] bg-white p-5 shadow-sm">
                 <h3 className="font-bold text-[#27421f]">{f.titre}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-[#4d6952]">{f.texte}</p>

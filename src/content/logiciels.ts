@@ -859,7 +859,7 @@ export const pagesLogiciel: PageLogiciel[] = [
     h1: "Le logiciel qui chiffre votre menu avant que vous fassiez les courses",
     intro: [
       "Un chef à domicile vend un menu à un prix par convive, fixé au moment du devis, et découvre son coût réel au retour des courses. Entre les deux, il y a un nombre d'invités qui change, un allergène annoncé la veille, un fournisseur qui a augmenté la crème, et une marge qu'on ne recalcule jamais parce qu'on est seul et qu'on cuisine déjà le lendemain.",
-      "Gramme Chef reprend ce que Gramme fait pour les pâtissiers depuis 2026, le coût exact de chaque recette à partir de vos vrais prix d'achat, et l'organise autour de la prestation : un menu, un nombre de convives, une liste de courses, un devis, un acompte, une facture, un client suivi. Le mini-ERP du chef à domicile, sur téléphone. Lancement en janvier 2027, bêta gratuite ouverte à quelques chefs dès cet automne.",
+      "Gramme Chef reprend ce que Gramme fait pour les pâtissiers depuis 2026, le coût exact de chaque recette à partir de vos vrais prix d'achat, et l'organise autour de la prestation : un menu, un nombre de convives, une liste de courses, un devis, un acompte, une facture, un client suivi. Toute la gestion du chef à domicile, sur téléphone. Lancement en janvier 2027, bêta gratuite ouverte à quelques chefs dès cet automne.",
     ],
     image: {
       src: "/images/app/gramme-chef-menu.png",

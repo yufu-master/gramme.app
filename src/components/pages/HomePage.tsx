@@ -157,9 +157,19 @@ export default function HomePage() {
             href="/gramme-chef"
             className="flex flex-col gap-2 rounded-2xl border border-[#dcead2] bg-[#f6fbf2] px-5 py-4 transition hover:border-[#a8cf8c] sm:flex-row sm:items-center sm:justify-between"
           >
-            <span className="text-sm text-[#355329]">
-              <strong className="font-bold text-[#27421f]">Nouveau : Gramme Chef</strong>, le logiciel des chefs à
+            <span className="flex flex-col gap-2 text-sm text-[#355329] sm:flex-row sm:items-center sm:gap-4">
+              <Image
+                src="/logos/gramme-chef-logo.png"
+                alt="Gramme Chef"
+                width={1600}
+                height={249}
+                sizes="140px"
+                className="h-5 w-auto shrink-0 self-start sm:self-center"
+              />
+              <span>
+              <strong className="font-bold text-[#27421f]">Nouveau :</strong> le logiciel des chefs à
               domicile. Lancement en janvier 2027, bêta gratuite ouverte à quelques chefs.
+              </span>
             </span>
             <span className="text-sm font-semibold text-[#355329]">Devenir bêta-testeur →</span>
           </Link>

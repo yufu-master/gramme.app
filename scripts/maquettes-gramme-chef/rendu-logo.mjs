@@ -1,0 +1,12 @@
+import { createRequire } from "node:module"; const require = createRequire("/Users/clermontfu/Documents/GRAMME APP/DEV/gramme/package.json"); const puppeteer = require("puppeteer-core");
+const CHROME = "/Applications/Google Chrome.app/Contents/MacOS/Google Chrome";
+const [,, g, c, out] = process.argv;
+const b = await puppeteer.launch({ executablePath: CHROME, headless: "new", args: ["--allow-file-access-from-files"] });
+const p = await b.newPage();
+await p.setViewport({ width: 3000, height: 500, deviceScaleFactor: 1 });
+await p.goto("file://" + new URL("./logo.html", import.meta.url).pathname + `?g=${g}&c=${c}`, { waitUntil: "networkidle0" });
+await p.waitForSelector("body[data-pret]");
+const el = await p.$("#logo");
+await el.screenshot({ path: out, omitBackground: true });
+await b.close();
+console.log(out);

@@ -1,0 +1,26 @@
+<!doctype html><html lang="fr"><head><meta charset="utf-8">
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@700;800&display=block" rel="stylesheet">
+<style>
+/* Logo Gramme Chef : le mot-mark « gramme » de la marque, et « chef » en petit
+   à côté, sur la même ligne de base, d'une couleur plus claire. Paramètres dans
+   l'adresse : ?g=<couleur gramme>&c=<couleur chef> (sans #). */
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{background:transparent}
+body{display:inline-block;padding:0}
+.logo{display:inline-flex;align-items:flex-start;height:371px}
+.gramme{width:2000px;height:371px;-webkit-mask:url(../../public/logos/gramme-logo-text.png) no-repeat 0 0/100% 100%;mask:url(../../public/logos/gramme-logo-text.png) no-repeat 0 0/100% 100%}
+.chef{font-family:Outfit,sans-serif;font-weight:700;font-size:170px;line-height:1;letter-spacing:-.01em;margin-left:46px}
+</style></head><body><div class="logo" id="logo"><span class="gramme" id="g"></span><span class="chef" id="c">chef</span></div>
+<script>
+const q=new URLSearchParams(location.search);
+document.getElementById('g').style.background='#'+(q.get('g')||'4a6f3c');
+document.getElementById('c').style.color='#'+(q.get('c')||'a8cf8c');
+document.fonts.ready.then(()=>{
+  // Aligne la ligne de base de « chef » sur celle de « gramme » (ligne 246 sur 371).
+  const c=document.getElementById('c');
+  const r=document.createElement('span');r.style.cssText='display:inline-block;width:0;height:0;vertical-align:baseline';c.appendChild(r);
+  const base=r.getBoundingClientRect().top-c.getBoundingClientRect().top;
+  c.style.marginTop=(246-base)+'px';
+  document.body.dataset.pret='1';
+});
+</script></body></html>
