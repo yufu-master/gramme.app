@@ -197,7 +197,7 @@ export default function TarifsPage() {
         >
           <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[#6e9f55]">Nouveau · janvier 2027</p>
           <h2 id="chef-title" className="mt-2 text-2xl font-bold text-[#27421f] md:text-3xl">
-            Gramme Chef, pour les chefs à domicile : gratuit, puis dès 19 € TTC par mois
+            Gramme Chef, pour les chefs à domicile : dès 9 € TTC par mois
           </h2>
           <ul className="mt-4 grid max-w-3xl gap-2 leading-relaxed text-[#4d6952]">
             {OFFRES_CHEF.map((o) => (

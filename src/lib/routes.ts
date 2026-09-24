@@ -75,6 +75,15 @@ export const siteRoutes: SiteRoute[] = [
     breadcrumb: true,
   },
   {
+    // Le calculateur gratuit, sans compte : le « gratuit » de Gramme Chef.
+    path: "/calculateur-prix-menu-chef-a-domicile",
+    title: "Calculateur de prix",
+    sitemap: true,
+    priority: 0.8,
+    changeFrequency: "monthly",
+    breadcrumb: true,
+  },
+  {
     path: "/tarifs",
     title: "Tarifs",
     sitemap: true,

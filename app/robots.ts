@@ -69,6 +69,7 @@ export default function robots(): MetadataRoute.Robots {
           "/logiciel-glacerie",
           "/logiciel-chef-a-domicile",
           "/gramme-chef",
+          "/calculateur-prix-menu-chef-a-domicile",
           "/logiciel-cout-de-revient",
           "/logiciel-fiches-techniques",
           "/logiciel-releves-temperature",

@@ -124,11 +124,11 @@ const faq = [
   },
   {
     q: "Combien coûtera Gramme Chef ?",
-    a: "Trois offres. Le Carnet est gratuit pour toujours : recettes, coût matière, menus, courses, allergènes, page de réservation, agenda et 3 devis par mois. L'offre Chef coûte 19 € TTC par mois et ajoute les réservations sur votre site, le questionnaire automatique, les menus proposés, le paiement en ligne sans commission, les factures, la lecture de vos tickets et le tableau de bord. Chef Pro, à 29 € HT par mois, ajoute l'API, votre nom de domaine, la TVA sur les factures, l'export comptable et le travail à plusieurs. Un seul menu sous-évalué de 5 € par convive pour huit invités fait perdre 40 €, plus de deux mois d'abonnement.",
+    a: "Trois offres, après deux mois d'essai gratuit. Solo, à 9 € TTC par mois : recettes, coût matière, menus, courses, allergènes, agenda, et devis, acompte en ligne et factures pour 3 prestations par mois. L'offre Chef coûte 19 € TTC par mois et ajoute les réservations sur votre site, le questionnaire automatique, les menus proposés, le paiement en ligne sans commission, les factures, la lecture de vos tickets et le tableau de bord. Chef Pro, à 29 € HT par mois, ajoute l'API, votre nom de domaine, la TVA sur les factures, l'export comptable et le travail à plusieurs. Un seul menu sous-évalué de 5 € par convive pour huit invités fait perdre 40 €, plus de deux mois d'abonnement.",
   },
   {
     q: "Comment fonctionne l'essai de deux mois ?",
-    a: ESSAI_CHEF + " Vous gardez vos recettes, vos clients et vos devis, et vous passez à l'offre Chef quand elle vous fait gagner du temps.",
+    a: ESSAI_CHEF + " Pendant l'essai, vous avez tout : le temps de faire plusieurs prestations et de voir ce que l'outil vous rapporte avant de payer quoi que ce soit.",
   },
   {
     q: "Qu'est-ce que le prix fondateur ?",
@@ -242,7 +242,7 @@ export default function GrammeChefPage() {
               </a>
             </div>
             <p className="mt-5 text-sm text-[#d3e8c4]">
-              Carnet gratuit pour toujours. Offre Chef à 19 € TTC par mois, essai de deux mois sans carte bancaire.
+              Dès 9 € TTC par mois, après un essai de deux mois sans carte bancaire. Sans engagement.
             </p>
           </div>
           <figure className="mx-auto w-full max-w-[320px]">
@@ -347,8 +347,9 @@ export default function GrammeChefPage() {
             Les tarifs de Gramme Chef
           </h2>
           <p className="mt-3 max-w-3xl leading-relaxed text-[#4d6952] md:text-lg">
-            Commencez gratuitement, et payez quand l&apos;outil vous fait gagner du temps et de l&apos;argent. Sans
-            engagement, sans installation. Au lancement, en janvier 2027.
+            Deux mois d&apos;essai complet et gratuit, puis l&apos;offre qui correspond à votre activité. Sans
+            engagement, sans installation. Au lancement, en janvier 2027. Un seul dîner bien chiffré rembourse
+            l&apos;année.
           </p>
           <ul className="mt-6 grid gap-4 lg:grid-cols-3">
             {OFFRES_CHEF.map((o) => (
@@ -453,6 +454,7 @@ export default function GrammeChefPage() {
           links={[
             { href: "/logiciel-chef-a-domicile", label: "Le logiciel du chef à domicile" },
             { href: "/guides/prix-menu-chef-a-domicile", label: "Calculer le prix d'un menu de chef à domicile" },
+            { href: "/calculateur-prix-menu-chef-a-domicile", label: "Calculateur gratuit du prix d'un menu" },
             { href: "/logiciel-cout-de-revient", label: "Le coût de revient, calculé une fois pour toutes" },
           ]}
         />

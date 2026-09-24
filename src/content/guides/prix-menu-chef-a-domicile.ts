@@ -52,6 +52,7 @@ export const guidePrixMenuChefADomicile: Guide = {
   liens: [
     { href: "/logiciel-chef-a-domicile", label: "Le logiciel du chef à domicile" },
     { href: "/gramme-chef", label: "Gramme Chef : liste d'attente et bêta" },
+    { href: "/calculateur-prix-menu-chef-a-domicile", label: "Le calculateur gratuit du prix d'un menu" },
   ],
   relatedSlug: "calcul-cout-de-revient-boulangerie",
   relatedLabel: "La méthode du coût de revient, appliquée à la boulangerie",
@@ -73,7 +74,7 @@ export const guidePrixMenuChefADomicile: Guide = {
     },
     {
       type: "p",
-      text: "La méthode ci-dessous part dans l'autre sens, celle du [coût de revient](/guides/calcul-cout-de-revient-boulangerie) des artisans : elle additionne ce que la prestation coûte, y compris votre rémunération, et en déduit le prix plancher en dessous duquel vous travaillez à perte. Le prix que vous affichez peut ensuite être plus haut, selon votre clientèle et votre notoriété, mais jamais plus bas sans le savoir.",
+      text: "La méthode ci-dessous part dans l'autre sens, celle du [coût de revient](/guides/calcul-cout-de-revient-boulangerie) des artisans : elle additionne ce que la prestation coûte, y compris votre rémunération, et en déduit le prix plancher en dessous duquel vous travaillez à perte. Le prix que vous affichez peut ensuite être plus haut, selon votre clientèle et votre notoriété, mais jamais plus bas sans le savoir. Pour le faire sans calculatrice, [le calculateur gratuit](/calculateur-prix-menu-chef-a-domicile) applique cette méthode à votre prestation.",
     },
     {
       type: "howto-steps",

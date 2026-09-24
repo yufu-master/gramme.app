@@ -3,6 +3,12 @@
  * 12 €, 29 €) et Planoya (69 € TTC) : une seule source pour la page Gramme
  * Chef, la page tarifs, les données structurées et `llms.txt`.
  *
+ * Pas d'offre gratuite à vie (décision du 24/09/2026) : 3 devis gratuits par
+ * mois couvraient toute l'activité d'un petit chef, qui n'aurait jamais payé,
+ * et chaque compte gratuit coûte du temps de support. L'entrée est Solo à
+ * 9 € TTC, le prix d'entrée du marché ; le « gratuit » vit sur le site, dans
+ * le calculateur sans compte.
+ *
  * L'offre Chef s'affiche TTC : la plupart des chefs à domicile sont en
  * franchise de TVA et ne la récupèrent pas, c'est donc le prix qu'ils paient
  * vraiment et celui qu'ils comparent. Chef Pro vise les chefs sortis de la
@@ -10,7 +16,7 @@
  */
 
 export type OffreChef = {
-  id: "carnet" | "chef" | "chef-pro";
+  id: "solo" | "chef" | "chef-pro";
   nom: string;
   pour: string;
   prix: string;
@@ -25,21 +31,21 @@ export type OffreChef = {
 
 export const OFFRES_CHEF: OffreChef[] = [
   {
-    id: "carnet",
-    nom: "Carnet",
-    pour: "Pour chiffrer vos menus et voir ce que ça change.",
-    prix: "0 €",
-    unite: "pour toujours",
-    detail: "Sans carte bancaire, sans limite de durée.",
-    montant: 0,
+    id: "solo",
+    nom: "Solo",
+    pour: "Pour le chef qui fait quelques prestations par mois.",
+    prix: "9 €",
+    unite: "TTC par mois",
+    detail: "Soit 7,50 € HT. Ou 90 € TTC par an, deux mois offerts.",
+    montant: 9,
     tvaComprise: true,
     contenu: [
-      "Recettes et coût matière illimités, prix saisis à la main",
+      "Recettes et coût matière illimités",
       "Menus et mise à l'échelle au nombre de convives",
       "Liste de courses tirée du menu",
       "Allergènes des convives sur chaque plat",
-      "Votre page de réservation et votre agenda",
-      "3 devis par mois",
+      "Agenda de vos prestations",
+      "Devis signé, acompte payé en ligne et factures pour 3 prestations par mois",
     ],
   },
   {
@@ -53,7 +59,7 @@ export const OFFRES_CHEF: OffreChef[] = [
     tvaComprise: true,
     recommandee: true,
     contenu: [
-      "Tout le Carnet, sans limite",
+      "Tout Solo, sans limite de prestations",
       "Réservations depuis votre site et votre Instagram : un module à coller en une ligne",
       "Agenda synchronisé avec Google Agenda et le calendrier de l'iPhone",
       "Questionnaire envoyé automatiquement aux convives : allergies, goûts, cuisine sur place",
@@ -87,7 +93,7 @@ export const OFFRES_CHEF: OffreChef[] = [
 ];
 
 export const ESSAI_CHEF =
-  "Deux mois de l'offre Chef complète à l'inscription, sans carte bancaire. Sans abonnement ensuite, le compte passe au Carnet gratuit : rien n'est supprimé.";
+  "Deux mois de l'offre Chef complète à l'inscription, sans carte bancaire. Sans abonnement ensuite, le compte passe en lecture seule : rien n'est supprimé, tout reste exportable, et vous reprenez quand vous voulez.";
 
 export const PRIX_FONDATEUR = {
   prix: "12 € TTC par mois",
