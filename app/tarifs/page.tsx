@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import { OFFRES_CHEF, PRIX_FONDATEUR } from "@/content/gramme-chef-offres";
 import { PricingPageContent } from "@/components/pricing/PricingPageContent";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
@@ -196,13 +197,24 @@ export default function TarifsPage() {
         >
           <p className="text-xs font-semibold uppercase tracking-[0.1em] text-[#6e9f55]">Nouveau · janvier 2027</p>
           <h2 id="chef-title" className="mt-2 text-2xl font-bold text-[#27421f] md:text-3xl">
-            Gramme Chef, pour les chefs à domicile : 19 € HT par mois
+            Gramme Chef, pour les chefs à domicile : gratuit, puis dès 19 € TTC par mois
           </h2>
+          <ul className="mt-4 grid max-w-3xl gap-2 leading-relaxed text-[#4d6952]">
+            {OFFRES_CHEF.map((o) => (
+              <li key={o.id}>
+                <strong className="text-[#27421f]">
+                  {o.nom} : {o.prix} {o.unite}
+                </strong>
+                . {o.pour}
+              </li>
+            ))}
+          </ul>
           <p className="mt-4 max-w-3xl leading-relaxed text-[#4d6952]">
-            Le menu chiffré par convive, le devis et la liste de courses, sans installation à payer. Lancement en
-            janvier 2027 ; d&apos;ici là, une bêta gratuite est ouverte à quelques chefs.{" "}
-            <Link href="/gramme-chef" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
-              Candidater à la bêta
+            L&apos;offre Chef s&apos;affiche TTC, parce que la plupart des chefs à domicile ne récupèrent pas la TVA.
+            Essai de deux mois sans carte bancaire. Lancement en janvier 2027 ; d&apos;ici là, une bêta gratuite est
+            ouverte à quelques chefs, avec le prix fondateur de {PRIX_FONDATEUR.prix} à la clé.{" "}
+            <Link href="/gramme-chef#tarifs-chef" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
+              Le détail des offres
             </Link>
             .
           </p>

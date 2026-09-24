@@ -5,6 +5,7 @@ import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { FormulaireGrammeChef } from "@/components/chef/FormulaireGrammeChef";
+import { ESSAI_CHEF, OFFRES_CHEF, PRIX_FONDATEUR, offresChefSchema } from "@/content/gramme-chef-offres";
 import { breadcrumbSchema, SITE_URL, webPageSchema, imageSociale, ogPage } from "@/lib/seo";
 
 /**
@@ -108,8 +109,20 @@ const faq = [
     a: "Un petit groupe de chefs à domicile utilise Gramme Chef avant son lancement de janvier 2027, gratuitement pendant plusieurs mois. En échange, ils nous disent ce qui marche, ce qui manque et ce qui gêne, et l'outil se construit avec eux. Nous choisissons les chefs au fil des candidatures, pour avoir des profils variés.",
   },
   {
-    q: "Combien coûtera Gramme Chef après la bêta ?",
-    a: "19 € hors taxes par mois, sans frais d'installation. Un seul menu sous-évalué de 5 € par convive pour huit invités fait perdre 40 €, soit plus de deux mois d'abonnement. Les chefs de la bêta ne paient rien pendant la période de test et choisissent ensuite librement de s'abonner.",
+    q: "Combien coûtera Gramme Chef ?",
+    a: "Trois offres. Le Carnet est gratuit pour toujours : recettes, coût matière, menus, courses, allergènes et 2 devis par mois. L'offre Chef coûte 19 € TTC par mois et ajoute la lecture de vos tickets et factures, les devis illimités signés en ligne, les acomptes, les factures et le tableau de bord. Chef Pro, à 39 € HT par mois, ajoute la TVA sur les factures, l'export comptable et le travail à plusieurs. Un seul menu sous-évalué de 5 € par convive pour huit invités fait perdre 40 €, plus de deux mois d'abonnement.",
+  },
+  {
+    q: "Comment fonctionne l'essai de deux mois ?",
+    a: ESSAI_CHEF + " Vous gardez vos recettes, vos clients et vos devis, et vous passez à l'offre Chef quand elle vous fait gagner du temps.",
+  },
+  {
+    q: "Qu'est-ce que le prix fondateur ?",
+    a: PRIX_FONDATEUR.texte + " C'est notre façon de remercier ceux qui construisent l'outil avec nous, et ceux qui nous font confiance les premiers.",
+  },
+  {
+    q: "Pourquoi l'offre Chef est-elle affichée TTC ?",
+    a: "Parce que la plupart des chefs à domicile sont en franchise de TVA et ne la récupèrent pas : 19 € TTC, c'est ce que vous payez vraiment, sans surprise. Chef Pro, pensée pour les chefs qui facturent la TVA, s'affiche hors taxes.",
   },
   {
     q: "Mes clients pourront-ils payer l'acompte en ligne ?",
@@ -150,13 +163,7 @@ export default function GrammeChefPage() {
             description: DESCRIPTION,
             audience: { "@type": "BusinessAudience", audienceType: "Chefs à domicile et chefs privés" },
             featureList: gestion.map((f) => f.titre),
-            offers: {
-              "@type": "Offer",
-              price: "19",
-              priceCurrency: "EUR",
-              availability: "https://schema.org/PreOrder",
-              availabilityStarts: "2027-01-01",
-            },
+            offers: offresChefSchema(),
             publisher: { "@type": "Organization", name: "Gramme", url: SITE_URL },
           },
           {
@@ -212,7 +219,7 @@ export default function GrammeChefPage() {
               </a>
             </div>
             <p className="mt-5 text-sm text-[#d3e8c4]">
-              Gratuit pendant la bêta, puis 19 € HT par mois. Sans installation, sans engagement.
+              Carnet gratuit pour toujours. Offre Chef à 19 € TTC par mois, essai de deux mois sans carte bancaire.
             </p>
           </div>
           <figure className="mx-auto w-full max-w-[320px]">
@@ -311,6 +318,62 @@ export default function GrammeChefPage() {
           </p>
         </section>
 
+        {/* Les offres (décidées le 24/09/2026, voir `src/content/gramme-chef-offres.ts`). */}
+        <section id="tarifs-chef" className="mt-12 scroll-mt-24 md:mt-16" aria-labelledby="tarifs-chef-titre">
+          <h2 id="tarifs-chef-titre" className="text-2xl font-bold text-[#2f4f26] md:text-3xl">
+            Les tarifs de Gramme Chef
+          </h2>
+          <p className="mt-3 max-w-3xl leading-relaxed text-[#4d6952] md:text-lg">
+            Commencez gratuitement, et payez quand l&apos;outil vous fait gagner du temps et de l&apos;argent. Sans
+            engagement, sans installation. Au lancement, en janvier 2027.
+          </p>
+          <ul className="mt-6 grid gap-4 lg:grid-cols-3">
+            {OFFRES_CHEF.map((o) => (
+              <li
+                key={o.id}
+                className={`flex flex-col rounded-3xl p-6 sm:p-7 ${
+                  o.recommandee ? "bg-[#44624b] text-white" : "border border-[#dcead2] bg-white shadow-sm"
+                }`}
+              >
+                <div className="flex items-center justify-between gap-3">
+                  <h3 className={`text-xl font-bold ${o.recommandee ? "text-white" : "text-[#27421f]"}`}>{o.nom}</h3>
+                  {o.recommandee && (
+                    <span className="rounded-full bg-white/15 px-3 py-1 text-xs font-semibold text-[#d3e8c4]">
+                      Recommandée
+                    </span>
+                  )}
+                </div>
+                <p className={`mt-1 text-sm ${o.recommandee ? "text-[#e3efdb]" : "text-[#4d6952]"}`}>{o.pour}</p>
+                <p className="mt-5">
+                  <span className={`text-4xl font-black ${o.recommandee ? "text-white" : "text-[#27421f]"}`}>{o.prix}</span>{" "}
+                  <span className={`text-sm font-semibold ${o.recommandee ? "text-[#d3e8c4]" : "text-[#6e9f55]"}`}>{o.unite}</span>
+                </p>
+                <p className={`mt-1 text-xs ${o.recommandee ? "text-[#d3e8c4]" : "text-[#6e9f55]"}`}>{o.detail}</p>
+                <ul className={`mt-5 grid gap-2 text-sm leading-relaxed ${o.recommandee ? "text-[#f1f7ec]" : "text-[#4d6952]"}`}>
+                  {o.contenu.map((ligne) => (
+                    <li key={ligne} className="flex gap-2">
+                      <span aria-hidden="true" className={o.recommandee ? "text-[#a8cf8c]" : "text-[#6e9f55]"}>
+                        ✓
+                      </span>
+                      <span>{ligne}</span>
+                    </li>
+                  ))}
+                </ul>
+              </li>
+            ))}
+          </ul>
+          <p className="mt-5 max-w-3xl text-sm leading-relaxed text-[#4d6952]">{ESSAI_CHEF}</p>
+          <div className="mt-6 rounded-2xl border border-[#a8cf8c] bg-[#f6fbf2] p-5 sm:p-6">
+            <p className="font-bold text-[#27421f]">Prix fondateur : {PRIX_FONDATEUR.prix}, garanti à vie</p>
+            <p className="mt-1 leading-relaxed text-[#4d6952]">
+              Pour {PRIX_FONDATEUR.pour}, tant que l&apos;abonnement n&apos;est pas interrompu.{" "}
+              <a href="#inscription" className="font-semibold text-[#355329] underline-offset-2 hover:underline">
+                Réserver ma place
+              </a>
+            </p>
+          </div>
+        </section>
+
         {/* La bêta. */}
         <section
           className="mt-12 rounded-3xl border border-[#dcead2] bg-[#f6fbf2] p-6 sm:p-8 md:mt-16 md:p-10"
@@ -329,6 +392,10 @@ export default function GrammeChefPage() {
             <li>
               <strong className="text-[#27421f]">Un échange direct avec l&apos;équipe</strong> : un chef pâtissier en
               exercice et le développeur de l&apos;outil, qui construisent avec vos retours.
+            </li>
+            <li>
+              <strong className="text-[#27421f]">Le prix fondateur ensuite</strong> : l&apos;offre Chef à 12 € TTC par
+              mois, garantie à vie.
             </li>
             <li>
               <strong className="text-[#27421f]">Places limitées</strong>, pour pouvoir accompagner chaque chef.

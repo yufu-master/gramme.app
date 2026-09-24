@@ -1,3 +1,6 @@
+import { offresChefSchema } from "@/content/gramme-chef-offres";
+
+
 export const SITE_URL = "https://gramme.app";
 export const SITE_NAME = "Gramme";
 export const SITE_EMAIL = "bonjour@gramme.app";
@@ -336,16 +339,8 @@ export const siteGraph = {
           availability: "https://schema.org/InStock",
           description: "890 € HT / an, soit 74,17 € HT / mois",
         },
-        {
-          // Gramme Chef n'est pas encore en vente : PreOrder, jamais InStock.
-          "@type": "Offer",
-          name: "Gramme Chef mensuel",
-          price: "19",
-          priceCurrency: "EUR",
-          availability: "https://schema.org/PreOrder",
-          availabilityStarts: "2027-01-01",
-          description: "Pour chefs à domicile et chefs privés, 19 € HT / mois, lancement en janvier 2027",
-        },
+        // Gramme Chef n'est pas encore en vente : PreOrder, jamais InStock.
+        ...offresChefSchema(),
         {
           "@type": "Offer",
           name: "Installation accompagnée Starter",

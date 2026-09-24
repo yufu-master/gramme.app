@@ -124,7 +124,7 @@ export function FormulaireGrammeChef() {
         <div className="mt-2 grid gap-3 sm:grid-cols-2">
           {(
             [
-              { value: "beta", titre: "Devenir chef bêta-testeur", texte: "Accès avant janvier, gratuit pendant la période de test, en échange de vos retours." },
+              { value: "beta", titre: "Devenir chef bêta-testeur", texte: "Accès avant janvier, gratuit pendant la bêta, puis le prix fondateur : 12 € TTC par mois à vie." },
               { value: "attente", titre: "Être prévenu du lancement", texte: "Un e-mail en janvier 2027, quand Gramme Chef ouvre à tous." },
             ] as { value: Choix; titre: string; texte: string }[]
           ).map((option) => (

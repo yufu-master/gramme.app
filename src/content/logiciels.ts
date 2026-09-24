@@ -940,7 +940,7 @@ export const pagesLogiciel: PageLogiciel[] = [
       },
       {
         q: "Combien coûtera Gramme Chef ?",
-        a: "19 € hors taxes par mois, sans installation à payer : l'outil se prend en main seul, depuis un téléphone. Les chefs bêta-testeurs l'utilisent gratuitement pendant la période de test, et c'est seulement ensuite qu'ils choisissent de s'abonner.",
+        a: "Le Carnet est gratuit pour toujours : recettes, coût matière, menus, courses, allergènes et 2 devis par mois. L'offre Chef, à 19 € TTC par mois, ajoute la lecture des tickets et factures, les devis illimités, les acomptes et les factures. Chef Pro, à 39 € HT, s'adresse aux chefs qui facturent la TVA. Essai de deux mois sans carte bancaire, et prix fondateur de 12 € TTC par mois pour les chefs de la bêta.",
       },
       {
         q: "Faut-il un ordinateur pour l'utiliser ?",
