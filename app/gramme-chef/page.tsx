@@ -124,7 +124,7 @@ const faq = [
   },
   {
     q: "Combien coûtera Gramme Chef ?",
-    a: "Trois offres. Le Carnet est gratuit pour toujours : recettes, coût matière, menus, courses, allergènes, page de réservation, agenda et 3 devis par mois. L'offre Chef coûte 19 € TTC par mois et ajoute les réservations sur votre site, le questionnaire automatique, les menus proposés, le paiement en ligne sans commission, les factures, la lecture de vos tickets et le tableau de bord. Chef Pro, à 39 € HT par mois, ajoute l'API, votre nom de domaine, la TVA sur les factures, l'export comptable et le travail à plusieurs. Un seul menu sous-évalué de 5 € par convive pour huit invités fait perdre 40 €, plus de deux mois d'abonnement.",
+    a: "Trois offres. Le Carnet est gratuit pour toujours : recettes, coût matière, menus, courses, allergènes, page de réservation, agenda et 3 devis par mois. L'offre Chef coûte 19 € TTC par mois et ajoute les réservations sur votre site, le questionnaire automatique, les menus proposés, le paiement en ligne sans commission, les factures, la lecture de vos tickets et le tableau de bord. Chef Pro, à 29 € HT par mois, ajoute l'API, votre nom de domaine, la TVA sur les factures, l'export comptable et le travail à plusieurs. Un seul menu sous-évalué de 5 € par convive pour huit invités fait perdre 40 €, plus de deux mois d'abonnement.",
   },
   {
     q: "Comment fonctionne l'essai de deux mois ?",

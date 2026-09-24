@@ -940,7 +940,7 @@ export const pagesLogiciel: PageLogiciel[] = [
       },
       {
         q: "Combien coûtera Gramme Chef ?",
-        a: "Le Carnet est gratuit pour toujours : recettes, coût matière, menus, courses, allergènes, page de réservation et 3 devis par mois. L'offre Chef, à 19 € TTC par mois, ajoute les réservations sur votre site, le questionnaire automatique des convives, les menus proposés au client, le paiement en ligne sans commission, les factures et la lecture des tickets. Chef Pro, à 39 € HT, s'adresse aux chefs qui facturent la TVA. Essai de deux mois sans carte bancaire, et prix fondateur de 12 € TTC par mois pour les chefs de la bêta.",
+        a: "Le Carnet est gratuit pour toujours : recettes, coût matière, menus, courses, allergènes, page de réservation et 3 devis par mois. L'offre Chef, à 19 € TTC par mois, ajoute les réservations sur votre site, le questionnaire automatique des convives, les menus proposés au client, le paiement en ligne sans commission, les factures et la lecture des tickets. Chef Pro, à 29 € HT, s'adresse aux chefs qui facturent la TVA. Essai de deux mois sans carte bancaire, et prix fondateur de 12 € TTC par mois pour les chefs de la bêta.",
       },
       {
         q: "Faut-il un ordinateur pour l'utiliser ?",

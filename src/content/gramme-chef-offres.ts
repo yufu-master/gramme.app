@@ -69,10 +69,10 @@ export const OFFRES_CHEF: OffreChef[] = [
     id: "chef-pro",
     nom: "Chef Pro",
     pour: "Pour le chef sorti de la franchise de TVA, et le traiteur.",
-    prix: "39 €",
+    prix: "29 €",
     unite: "HT par mois",
-    detail: "Soit 46,80 € TTC. Ou 390 € HT par an, deux mois offerts.",
-    montant: 39,
+    detail: "Soit 34,80 € TTC. Ou 290 € HT par an, deux mois offerts.",
+    montant: 29,
     tvaComprise: false,
     contenu: [
       "Tout Chef, avec 150 photos de tickets et factures par mois",
