@@ -3,6 +3,8 @@
 import Image from "next/image";
 import { NeDuTerrain } from "@/components/landing/NeDuTerrain";
 import { VisiteInteractive } from "@/components/landing/VisiteInteractive";
+import { FilmGramme } from "@/components/landing/FilmGramme";
+import { SurInstagram } from "@/components/landing/SurInstagram";
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { FaqAccordion } from "@/components/landing/FaqAccordion";
@@ -65,55 +67,46 @@ export default function HomePage() {
   return (
     <>
       <main>
+        {/* Le héros reprend la DA des posts Instagram (27/09/2026) : le plâtre
+            sauge, la balance en laiton, le beurre face au poids « gr ». Le titre
+            se pose sur le plâtre nu, en haut, comme sur les posts ; la balance
+            est dessous et se fond dans le fond par un masque, sans raccord
+            visible. Texte foncé : le blanc des posts ne se lit pas assez en
+            petit sur le plâtre clair. */}
         <section
-          className="relative isolate flex min-h-[34rem] w-full items-end overflow-hidden bg-[#1a2e14] sm:max-h-[44rem] sm:min-h-[78svh] sm:items-center"
+          className="relative isolate flex w-full flex-col items-center overflow-hidden bg-gradient-to-b from-[#bfc9ac] via-[#c3ccaf] to-[#d6d8c9]"
           aria-label="Présentation Gramme"
         >
-          {/* Le cadrage suit le TÉLÉPHONE, qui est le sujet : le voile part de
-              la gauche et couvre près de six dixièmes de la largeur sur grand
-              écran, donc la main doit rester dans la moitié droite visible.
-              Sur téléphone le texte descend en bas, et le cadrage remonte pour
-              garder l'écran de l'application lisible. */}
-          <Image
-            src="/images/hero_gramme_atelier_phone.png"
-            alt="Le logiciel Gramme ouvert sur un téléphone, tenu au-dessus d'un plan de travail avec des baguettes, de la farine et une balance"
-            fill
-            priority
-            sizes="100vw"
-            className="object-cover object-[58%_38%] sm:object-[62%_center] lg:object-[66%_center] xl:object-[68%_center]"
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-gradient-to-r from-[#1a2e14] via-[#1a2e14]/88 to-transparent sm:via-[#1a2e14]/75 lg:w-[58%] lg:via-[#1a2e14]/80"
-          />
-          <div
-            aria-hidden
-            className="absolute inset-0 bg-gradient-to-t from-[#1a2e14]/75 via-transparent to-[#1a2e14]/25 sm:from-transparent sm:to-[#1a2e14]/20"
-          />
-          <div className="relative z-10 w-full max-w-[34rem] self-end px-4 pb-12 pt-24 sm:self-center sm:px-6 sm:pb-14 sm:pt-24 md:max-w-[36rem] md:px-8 lg:max-w-[38rem] lg:px-10 xl:px-14">
-            <p className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#cfe8bf]">
+          <div className="relative z-10 flex w-full max-w-3xl flex-col items-center px-4 pt-12 text-center sm:px-6 sm:pt-16 lg:pt-20">
+            <p className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#27421f]/80">
               <SparkIcon className="size-4" />
               Gramme : logiciel boulangerie &amp; pâtisserie
             </p>
-            <h1 className="text-[2.35rem] font-black leading-[1.08] text-white sm:text-5xl md:text-6xl">
+            <h1 className="text-[2.5rem] font-black leading-[1.04] tracking-[-0.03em] text-[#1a2e14] sm:text-6xl lg:text-7xl">
               Pilotez votre marge
               <br />
               au{" "}
-              <span className="relative inline-block px-1 text-[#a8cf8c]">
-                Gramme
-                <span aria-hidden className="absolute -bottom-2 left-0 w-full sm:-bottom-3">
-                  <svg viewBox="0 0 520 34" className="h-3 w-full sm:h-4" preserveAspectRatio="none">
-                    <path d="M8 18C90 27 173 30 260 30C347 30 430 27 512 18" fill="none" stroke="#a8cf8c" strokeWidth="14" strokeLinecap="round" />
-                  </svg>
-                </span>
+              <span className="relative inline-block px-2 text-white">
+                <svg
+                  aria-hidden
+                  viewBox="0 0 400 100"
+                  preserveAspectRatio="none"
+                  className="absolute inset-x-[-0.12em] inset-y-[0.06em] -z-10 h-[92%] w-[calc(100%+0.24em)] -rotate-1 text-[#7e8f50]"
+                >
+                  <path
+                    fill="currentColor"
+                    d="M6 22C60 10 150 6 240 8c60 1 110 4 150 10 6 1 8 8 6 16-3 14 3 26 2 40-1 9-6 14-14 15-70 6-150 7-230 5-50-1-100-3-140-9-8-1-12-8-11-16 2-12-4-24-2-36 0-5 3-10 9-11Z"
+                  />
+                </svg>
+                gramme
               </span>{" "}
               près.
             </h1>
-            <p className="mt-5 max-w-md text-base text-white/85 sm:text-lg">
+            <p className="mt-5 max-w-xl text-base text-[#27421f] sm:text-lg">
               Le logiciel de gestion et de production pour boulangers-pâtissiers : recettes digitalisées, fiches
               techniques, alertes de prix, gestion de stocks, planning de production et marges en temps réel.
             </p>
-            <div className="mt-8 flex flex-wrap gap-3">
+            <div className="mt-7 flex flex-wrap justify-center gap-3">
               {/* Le geste le plus visible de la page était un défilement vers
                   les tarifs, et la conversion reposait sur le bouton
                   secondaire (relevé du 17/09/2026). Le bouton plein mène
@@ -121,18 +114,38 @@ export default function HomePage() {
               <Link
                 href="/demo"
                 onClick={() => trackEvent("cta_demo_click", { source: "hero" })}
-                className="rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021] transition hover:bg-[#b8d99c]"
+                className="rounded-xl bg-[#1a2e14] px-5 py-3 font-semibold text-white shadow-[0_10px_30px_rgba(26,46,20,0.25)] transition hover:bg-[#264021]"
               >
                 Voir une marge se calculer en direct
               </Link>
               <button
                 type="button"
-                onClick={() => scrollToSection("tarifs")}
-                className="rounded-xl border border-white/35 bg-white/10 px-5 py-3 font-semibold text-white backdrop-blur-sm transition hover:bg-white/20"
+                onClick={() => scrollToSection("film")}
+                className="inline-flex items-center gap-2 rounded-xl border border-[#1a2e14]/25 bg-white/35 px-5 py-3 font-semibold text-[#1a2e14] backdrop-blur-sm transition hover:bg-white/55"
               >
-                Voir les offres
+                <svg viewBox="0 0 24 24" aria-hidden className="size-4" fill="currentColor">
+                  <path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z" />
+                </svg>
+                Le film, 48&nbsp;s
               </button>
             </div>
+          </div>
+          <div
+            className="relative -mt-10 w-[150%] max-w-none sm:-mt-16 sm:w-full sm:max-w-[72rem] lg:-mt-24"
+            style={{
+              WebkitMaskImage: "radial-gradient(ellipse 50% 50% at 50% 52%, #000 58%, transparent 100%)",
+              maskImage: "radial-gradient(ellipse 50% 50% at 50% 52%, #000 58%, transparent 100%)",
+            }}
+          >
+            <Image
+              src="/images/hero-balance-beurre.jpg"
+              alt="Balance en laiton en équilibre sur une sphère : trois morceaux de beurre d'un côté, le poids « gr » de Gramme de l'autre, sur un plâtre vert sauge fariné"
+              width={2400}
+              height={1339}
+              priority
+              sizes="(min-width: 1152px) 1152px, 100vw"
+              className="h-auto w-full"
+            />
           </div>
         </section>
 
@@ -148,6 +161,10 @@ export default function HomePage() {
             ))}
           </div>
         </section>
+
+        {/* Le film de 48 s (27/09/2026), juste sous le héros : il dit en une
+            minute ce que la page détaille ensuite. */}
+        <FilmGramme />
 
         {/* Annonce de Gramme Chef (24/09/2026) : un bandeau, pas une section.
             L'accueil a été raccourci le 19/09 ; une offre qui n'existe pas
@@ -536,6 +553,8 @@ export default function HomePage() {
             </Link>
           </p>
         </section>
+
+        <SurInstagram />
 
         <section id="faq" className="mx-auto w-full max-w-6xl px-4 pb-16 sm:px-5" aria-labelledby="faq-title">
           <h2 id="faq-title" className="text-3xl font-bold md:text-4xl">Questions fréquentes</h2>
