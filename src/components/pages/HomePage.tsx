@@ -77,7 +77,7 @@ export default function HomePage() {
           className="relative isolate flex w-full flex-col items-center overflow-hidden bg-gradient-to-b from-[#bfc9ac] via-[#c3ccaf] to-[#d6d8c9]"
           aria-label="Présentation Gramme"
         >
-          <div className="relative z-10 flex w-full max-w-3xl flex-col items-center px-4 pt-12 text-center sm:px-6 sm:pt-16 lg:pt-20">
+          <div className="relative z-10 flex w-full max-w-3xl flex-col items-center px-4 pt-28 text-center sm:px-6 sm:pt-32 lg:pt-36">
             <p className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#27421f]/80">
               <SparkIcon className="size-4" />
               Gramme : logiciel boulangerie &amp; pâtisserie
