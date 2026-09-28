@@ -21,6 +21,7 @@ const footerLinks = [
   { href: "/comparatif", label: "Comparatif" },
   { href: "/faq", label: "FAQ" },
   { href: "/integrations", label: "Intégrations" },
+  { href: "/developpeurs", label: "API et MCP" },
   { href: "/a-propos-de-gramme", label: "À propos" },
   { href: "/demo", label: "Démonstration" },
   { href: "/contact", label: "Contact" },

@@ -8,9 +8,9 @@ import { INTEGRATIONS, INTEGRATION_CATEGORIES } from "@/lib/integrations";
 import { webPageSchema, imageSociale, ogPage } from "@/lib/seo";
 
 export const metadata: Metadata = {
-  title: "Intégrations à venir · caisse & compta",
+  title: "Intégrations à venir · caisse, compta, API",
   description:
-    "Gramme prépare des connexions avec les caisses et outils comptables des boulangers-pâtissiers. Votez pour prioriser Popina, Pennylane, Zettle et d'autres.",
+    "Gramme prépare ses connexions : caisses, outils comptables, et une API avec webhooks et connecteur MCP, incluse dans l'offre Pro. Votez pour prioriser Popina, Pennylane, Zettle et d'autres.",
   alternates: { canonical: "https://gramme.app/integrations" },
   openGraph: ogPage({
     images: imageSociale("/images/app/factures.png", "Les factures fournisseurs reprises dans Gramme"),
@@ -54,6 +54,22 @@ export default function IntegrationsPage() {
           </div>
         </section>
 
+        <section className="mt-8 grid gap-4 rounded-3xl border border-[#dcead2] bg-[#f6fbf2] p-6 sm:grid-cols-[1fr_auto] sm:items-center sm:p-8">
+          <div>
+            <p className="inline-flex rounded-full bg-[#f3ead0] px-3 py-1 text-sm font-semibold text-[#6b4f12]">
+              En développement · accès pilote à l&apos;automne 2026
+            </p>
+            <h2 className="mt-3 text-2xl font-bold text-[#27421f]">API, webhooks et connecteur IA (MCP)</h2>
+            <p className="mt-2 max-w-3xl text-[#4d6952]">
+              Pour relier Gramme à votre boutique en ligne, à n8n, Make ou Zapier, et à votre assistant IA : recettes,
+              coûts, allergènes, stock, ventes et pertes. Incluse dans l&apos;offre Pro, sans supplément.
+            </p>
+          </div>
+          <Link href="/developpeurs" className="rounded-xl bg-[#264021] px-5 py-3 text-center font-semibold text-white">
+            Découvrir l&apos;API
+          </Link>
+        </section>
+
         <div className="mt-10 grid gap-4 md:grid-cols-3">
           {INTEGRATION_CATEGORIES.map((cat) => (
             <article key={cat.id} className="rounded-2xl border border-[#dcead2] bg-[#f6fbf2] p-5">
@@ -95,6 +111,7 @@ export default function IntegrationsPage() {
 
         <RelatedLinks
           links={[
+            { href: "/developpeurs", label: "API, webhooks et MCP" },
             { href: "/comment-ca-marche", label: "Comment marche Gramme" },
             { href: "/tarifs", label: "Tarifs" },
             { href: "/contact", label: "Demander une démonstration" },

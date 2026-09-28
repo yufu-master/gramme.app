@@ -164,6 +164,14 @@ export const siteRoutes: SiteRoute[] = [
     breadcrumb: true,
   },
   {
+    path: "/developpeurs",
+    title: "API et développeurs",
+    sitemap: true,
+    priority: 0.6,
+    changeFrequency: "monthly",
+    breadcrumb: true,
+  },
+  {
     path: "/securite",
     title: "Sécurité",
     sitemap: true,

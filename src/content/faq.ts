@@ -342,7 +342,11 @@ export const faqSections: FaqSection[] = [
       },
       {
         q: "Le logiciel évolue-t-il ?",
-        a: "En permanence, et c'est assumé. Les retours d'atelier passent directement dans la version suivante, et il en sort une régulièrement. Les nouveautés arrivent sans surcoût : pas de version 2 à racheter, pas de module à débloquer. L'étiquetage allergènes, les valeurs nutritionnelles et les registres d'hygiène (températures, nettoyage, lots, réceptions) font partie de l'offre Pro. Le chantier encore en cours, la connexion aux caisses et à la comptabilité, est annoncé d'ici fin 2026.",
+        a: "En permanence, et c'est assumé. Les retours d'atelier passent directement dans la version suivante, et il en sort une régulièrement. Les nouveautés arrivent sans surcoût : pas de version 2 à racheter, pas de module à débloquer. L'étiquetage allergènes, les valeurs nutritionnelles et les registres d'hygiène (températures, nettoyage, lots, réceptions) font partie de l'offre Pro. Les chantiers encore en cours, la connexion aux caisses et à la comptabilité, et l'API avec ses webhooks et son connecteur MCP, sont annoncés d'ici fin 2026.",
+      },
+      {
+        q: "Gramme a-t-il une API ?",
+        a: "Elle est en cours de développement, avec des ateliers pilotes à l'automne 2026 et une ouverture à tous les ateliers Pro d'ici fin 2026, incluse dans l'offre Pro sans supplément. Elle permettra de lire la mercuriale, les recettes (coût, coût pour un nombre de pièces, allergènes) et le stock, d'envoyer les ventes du jour et les pertes, et de recevoir des webhooks signés (hausse de prix, stock bas, production planifiée). Un connecteur MCP permettra d'interroger vos chiffres depuis un assistant IA, et n8n, Make ou Zapier s'y brancheront directement. En attendant, l'export complet de vos données (CSV, Excel, JSON) est disponible à tout moment. Le détail est sur la page API et développeurs.",
       },
       {
         q: "Puis-je demander une fonctionnalité ?",

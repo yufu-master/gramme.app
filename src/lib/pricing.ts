@@ -73,6 +73,8 @@ export const pricingPlans: Plan[] = [
       { label: "Scan de 150 factures/mois" },
       { label: "2 Go de photos recettes" },
       { label: "Support prioritaire" },
+      // Annoncé, pas livré (28/09/2026) : le libellé le dit, comme le comparatif.
+      { label: "API, webhooks et connecteur IA (MCP), en développement : inclus dès leur ouverture" },
     ],
     monthlyPrice: 89,
     yearlyPrice: 890,

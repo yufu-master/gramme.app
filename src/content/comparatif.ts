@@ -76,7 +76,7 @@ export const concurrents: Concurrent[] = [
     force:
       "Le pourcentage de perte et les rendements traités comme des données de premier plan, les sous-recettes en cascade sur plusieurs niveaux, le volume de factures inclus sans surcoût, la reprise complète des données faite par l'éditeur avant le premier jour. L'offre Pro comprend, sans option ni supplément, le planning de production, l'étiquetage allergènes et nutritionnel, et l'hygiène : relevés de températures, plan de nettoyage, étiquettes de lot et registres imprimables.",
     reserve:
-      "La connexion aux caisses et à la comptabilité reste en cours de développement, annoncée d'ici fin 2026 : nous ne la comptons pas comme acquise dans les tableaux ci-dessous. L'offre Pro est plafonnée à cinq utilisateurs, là où Otami et ChefsTouch en autorisent davantage. Et nous ne proposons pas d'essai gratuit en libre-service : nous faisons une démonstration sur vos propres fiches.",
+      "La connexion aux caisses et à la comptabilité reste en cours de développement, comme l'API, ses webhooks et son connecteur MCP, annoncés d'ici fin 2026 : nous ne les comptons pas comme acquis dans les tableaux ci-dessous. L'offre Pro est plafonnée à cinq utilisateurs, là où Otami et ChefsTouch en autorisent davantage. Et nous ne proposons pas d'essai gratuit en libre-service : nous faisons une démonstration sur vos propres fiches.",
   },
   {
     id: "otami",
@@ -404,7 +404,7 @@ export const blocsComparatif: BlocComparatif[] = [
         valeurs: {
           gramme: {
             v: "prevu",
-            note: "En développement, annoncé d'ici fin 2026, tant que ce n'est pas livré, nous ne le comptons pas comme acquis",
+            note: "En développement, annoncé d'ici fin 2026, avec l'API, les webhooks et un connecteur MCP inclus dans l'offre Pro. Tant que ce n'est pas livré, nous ne le comptons pas comme acquis",
           },
           otami: {
             v: "oui",
@@ -870,7 +870,7 @@ export const pagesConcurrent: PageConcurrent[] = [
       {
         titre: "Les connexions à la caisse et à la comptabilité",
         texte:
-          "Melba annonce ses intégrations et une API ouverte, facturée 49 € ou 99 € HT/mois selon le volume d'appels. Chez nous, les connexions sont en développement et annoncées d'ici fin 2026 : tant qu'elles ne sont pas livrées, nous ne les comptons pas. Sur ce point précis, ils sont devant.",
+          "Melba annonce ses intégrations et une API ouverte, facturée 49 € ou 99 € HT/mois selon le volume d'appels. Chez nous, les connexions et l'API sont en développement et annoncées d'ici fin 2026, l'API étant prévue dans l'offre Pro sans supplément : tant qu'elles ne sont pas livrées, nous ne les comptons pas. Sur ce point précis, ils sont devant.",
       },
       {
         titre: "L'essai gratuit, que nous n'offrons pas du tout",
