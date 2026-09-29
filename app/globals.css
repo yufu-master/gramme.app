@@ -48,9 +48,8 @@ a {
   scroll-margin-top: calc(var(--header-height) + 0.75rem);
 }
 
-@theme inline {
-  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
-}
+/* Police du système, gardée à la demande de Clermont (29/09/2026) : Inter,
+   essayée ce jour-là, lui plaisait moins sur l'accueil. */
 
 /* L'entrée du héros de l'accueil, en CSS et pas en JavaScript : elle joue dès
    le premier affichage, sans attendre que la page soit hydratée, et le titre
