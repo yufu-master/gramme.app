@@ -22,7 +22,7 @@ export function SurInstagram() {
     <section className="mx-auto w-full max-w-6xl px-4 pb-14 sm:px-5 sm:pb-16" aria-labelledby="instagram-title">
       <div className="flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h2 id="instagram-title" className="text-3xl font-bold md:text-4xl">
+          <h2 id="instagram-title" className="gr-titre text-3xl md:text-4xl">
             Au gramme près, aussi sur Instagram
           </h2>
           <p className="mt-2 text-[var(--muted-foreground)]">Un calcul, une fonction, une phrase d&apos;atelier : chaque semaine.</p>

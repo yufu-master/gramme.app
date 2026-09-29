@@ -8,7 +8,9 @@
   --primary-foreground: hsl(100 30% 25%);
   --secondary: hsl(100 20% 96%);
   --muted: hsl(100 15% 95%);
-  --muted-foreground: hsl(100 20% 50%);
+  /* 29/09/2026 : foncé de 50 % à 34 % de luminosité. L'ancien gris-vert
+     faisait 3,3:1 sur blanc, sous le seuil de lecture (4,5:1). */
+  --muted-foreground: hsl(100 22% 34%);
   --accent: hsl(100 35% 90%);
   --destructive: hsl(350 89% 60%);
   --border: hsl(100 15% 90%);
@@ -105,4 +107,22 @@ a {
   .gr-balance {
     animation: none;
   }
+}
+
+/* Un seul style de titre de section sur le site (29/09/2026) : il variait
+   entre font-bold et font-black, avec des approches de lettres différentes. */
+.gr-titre {
+  font-weight: 900;
+  letter-spacing: -0.025em;
+  line-height: 1.08;
+  color: #1a2e14;
+}
+
+/* Le plâtre sauge du héros et des posts, repris sur les sections qui portent
+   la marque : fini le blanc plat sous le héros. */
+.gr-platre {
+  background:
+    radial-gradient(ellipse 60% 55% at 20% 0%, rgba(255, 255, 255, 0.35), transparent 70%),
+    radial-gradient(ellipse 50% 60% at 90% 100%, rgba(126, 143, 80, 0.18), transparent 70%),
+    linear-gradient(180deg, #c6cfb3 0%, #cdd4bc 55%, #d8dbcb 100%);
 }

@@ -85,7 +85,7 @@ export function NeDuTerrain() {
       <div className="max-w-3xl">
         <h2
           id="ne-du-terrain-title"
-          className="text-3xl font-black leading-tight text-[#27421f] md:text-4xl"
+          className="gr-titre text-3xl md:text-4xl"
         >
           Gramme vient du laboratoire, pas d&apos;un cahier des charges
         </h2>

@@ -238,7 +238,7 @@ export default function HomePage() {
           les liens utiles, qui doublaient le pied de page.
         */}
         <section id="visite" className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-5 sm:py-16" aria-labelledby="visite-title">
-          <h2 id="visite-title" className="text-3xl font-bold md:text-4xl">
+          <h2 id="visite-title" className="gr-titre text-3xl md:text-4xl">
             D&apos;une facture photographiée à la marge de chaque recette
           </h2>
           <div className="mt-6">
@@ -261,15 +261,13 @@ export default function HomePage() {
 
         <section
           id="import-recettes"
-          className="relative isolate overflow-hidden border-y border-[#dcead2] bg-gradient-to-b from-[#f7fbf3] via-white to-[#f7fbf3] py-16 sm:py-20 lg:py-24"
+          className="gr-platre relative isolate overflow-hidden py-16 sm:py-20 lg:py-24"
           aria-labelledby="import-recettes-title"
         >
-          <div aria-hidden className="pointer-events-none absolute -left-24 top-10 size-72 rounded-full bg-[#a8cf8c]/25 blur-3xl" />
-          <div aria-hidden className="pointer-events-none absolute -right-24 bottom-0 size-80 rounded-full bg-[#a8cf8c]/20 blur-3xl" />
 
           <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-5">
             <InView className="max-w-3xl">
-              <p className="inline-flex items-center gap-2 rounded-full border border-[#cfe3bf] bg-white px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#355329]">
+              <p className="inline-flex items-center gap-2 rounded-full border border-white/60 bg-white/60 px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#355329]">
                 <CameraIcon className="size-4" />
                 Import intelligent
               </p>
@@ -322,7 +320,7 @@ export default function HomePage() {
                 {importSteps.map((step, index) => {
                   const Icon = step.icon;
                   return (
-                    <AnimatedItem key={step.title} className="flex gap-4 rounded-2xl border border-[#dcead2] bg-white p-5 shadow-sm">
+                    <AnimatedItem key={step.title} className="flex gap-4 rounded-2xl border border-white/60 bg-white/70 p-5 shadow-sm backdrop-blur-sm">
                       <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#a8cf8c]/25 text-[#355329]">
                         <Icon className="size-5" />
                       </span>
@@ -366,7 +364,7 @@ export default function HomePage() {
           aria-labelledby="metiers-title"
         >
           <div className="max-w-3xl">
-            <h2 id="metiers-title" className="text-3xl font-bold md:text-4xl">
+            <h2 id="metiers-title" className="gr-titre text-3xl md:text-4xl">
               Le même outil, réglé sur ce que votre atelier compte.
             </h2>
             <p className="mt-4 text-[var(--muted-foreground)]">
@@ -426,7 +424,7 @@ export default function HomePage() {
         <section id="tarifs" className="mx-auto w-full max-w-6xl px-4 py-14 sm:px-5 sm:py-16">
           <div className="flex flex-wrap items-end justify-between gap-4">
             <div>
-              <h2 className="text-3xl font-bold md:text-4xl">Les tarifs</h2>
+              <h2 className="gr-titre text-3xl md:text-4xl">Les tarifs</h2>
               <p className="mt-3 max-w-xl text-[var(--muted-foreground)]">
                 Sans engagement en mensuel. Annuel avec 2 mois offerts. Installation accompagnée une seule fois, à partir de 300 € HT : forfait ferme de 300 € HT pour une entreprise en cours de création.
               </p>
@@ -521,17 +519,52 @@ export default function HomePage() {
           </div>
         </section>
 
+        {/* L'appel final (29/09/2026) : sur le plâtre et avec le poids « gr »,
+            comme les posts, au lieu d'un aplat vert. L'ancien titre opposait
+            « méthode artisanale » et « gestion performante » : on ne dit pas à
+            un artisan que sa méthode est le problème. */}
         <section id="demo" className="mx-auto w-full max-w-6xl px-4 pb-14 sm:px-5 sm:pb-16">
-          <div className="rounded-3xl bg-[#264021] p-6 text-white sm:p-8">
-            <h2 className="text-3xl font-bold">Passez d’une méthode  artisanale à une gestion performante et maîtrisée.</h2>
-            <p className="mt-3 max-w-3xl text-white/85">Découvrez comment Gramme transforme vos données en décisions rentables.</p>
-            <Link
-              href="/demo"
-              onClick={() => trackEvent("cta_demo_click", { source: "home_cta" })}
-              className="mt-6 inline-flex rounded-xl bg-[#a8cf8c] px-5 py-3 font-semibold text-[#264021]"
-            >
-              Demander une démonstration
-            </Link>
+          <div className="gr-platre relative isolate grid overflow-hidden rounded-3xl sm:grid-cols-[1.25fr_1fr]">
+            <div className="relative z-10 p-6 sm:p-10">
+              <h2 className="gr-titre text-3xl md:text-[2.6rem]">
+                Votre prochaine fiche technique, chiffrée au{" "}
+                <span className="relative inline-block px-1.5 text-white">
+                  <svg
+                    aria-hidden
+                    viewBox="0 0 400 100"
+                    preserveAspectRatio="none"
+                    className="absolute inset-x-[-0.1em] inset-y-[0.08em] -z-10 h-[90%] w-[calc(100%+0.2em)] -rotate-1 text-[#7e8f50]"
+                  >
+                    <path
+                      fill="currentColor"
+                      d="M6 22C60 10 150 6 240 8c60 1 110 4 150 10 6 1 8 8 6 16-3 14 3 26 2 40-1 9-6 14-14 15-70 6-150 7-230 5-50-1-100-3-140-9-8-1-12-8-11-16 2-12-4-24-2-36 0-5 3-10 9-11Z"
+                    />
+                  </svg>
+                  gramme
+                </span>{" "}
+                près.
+              </h2>
+              <p className="mt-4 max-w-xl text-[#27421f]">
+                Une heure en visio, sur un atelier complet : une facture scannée devant vous, et la marge
+                d&apos;une recette qui se recalcule sans que personne ne saisisse rien.
+              </p>
+              <Link
+                href="/demo"
+                onClick={() => trackEvent("cta_demo_click", { source: "home_cta" })}
+                className="mt-7 inline-flex rounded-xl bg-[#1a2e14] px-5 py-3 font-semibold text-white shadow-[0_10px_30px_rgba(26,46,20,0.25)] transition hover:-translate-y-0.5 hover:bg-[#264021]"
+              >
+                Réserver ma démonstration
+              </Link>
+            </div>
+            <div className="relative min-h-56 sm:min-h-full">
+              <Image
+                src="/images/instagram/poids-main.jpg"
+                alt="Une main farinée pose le poids « gr » de Gramme sur le plâtre vert sauge"
+                fill
+                sizes="(min-width: 640px) 45vw, 100vw"
+                className="object-cover"
+              />
+            </div>
           </div>
         </section>
 
@@ -540,7 +573,7 @@ export default function HomePage() {
           aria-labelledby="lectures-title"
         >
           <div className="max-w-3xl">
-            <h2 id="lectures-title" className="text-3xl font-bold md:text-4xl">
+            <h2 id="lectures-title" className="gr-titre text-3xl md:text-4xl">
               Ce qu&apos;on écrit sur le métier.
             </h2>
             <p className="mt-4 text-[var(--muted-foreground)]">
@@ -605,7 +638,7 @@ export default function HomePage() {
         <SurInstagram />
 
         <section id="faq" className="mx-auto w-full max-w-6xl px-4 pb-16 sm:px-5" aria-labelledby="faq-title">
-          <h2 id="faq-title" className="text-3xl font-bold md:text-4xl">Questions fréquentes</h2>
+          <h2 id="faq-title" className="gr-titre text-3xl md:text-4xl">Questions fréquentes</h2>
           <p className="mt-3 max-w-3xl text-[var(--muted-foreground)]">
             Tout savoir sur le logiciel de gestion Gramme pour les boulangeries, les pâtisseries,
             les chocolateries et les glaceries artisanales. Vos recettes, vos factures et vos marges

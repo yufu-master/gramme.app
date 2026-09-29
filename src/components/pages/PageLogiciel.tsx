@@ -84,10 +84,11 @@ export function PageLogicielVue({ page }: { page: PageLogiciel }) {
           ]}
         />
 
-        <section className="mt-6 rounded-3xl border border-[#dcead2] bg-white/90 p-6 shadow-[0_20px_70px_rgba(58,92,39,0.08)] sm:p-8 md:p-12">
-          <h1 className="text-3xl font-black leading-tight text-[#27421f] md:text-5xl">{page.h1}</h1>
+        {/* Le haut de page sur le plâtre sauge de la marque (29/09/2026). */}
+        <section className="gr-platre mt-6 rounded-3xl p-6 shadow-[0_20px_70px_rgba(58,92,39,0.12)] sm:p-8 md:p-12">
+          <h1 className="gr-titre text-3xl md:text-5xl">{page.h1}</h1>
           {page.intro.map((paragraphe) => (
-            <p key={paragraphe.slice(0, 40)} className="mt-5 max-w-2xl text-base text-[#4d6952] md:text-lg">
+            <p key={paragraphe.slice(0, 40)} className="mt-5 max-w-2xl text-base text-[#27421f] md:text-lg">
               {paragraphe}
             </p>
           ))}
@@ -100,7 +101,7 @@ export function PageLogicielVue({ page }: { page: PageLogiciel }) {
             </Link>
             <Link
               href={page.appel?.secondaire.href ?? "/tarifs"}
-              className="rounded-xl border border-[#d8e6cf] bg-white px-5 py-3 font-semibold text-[#355329] transition hover:bg-[#f6fbf2]"
+              className="rounded-xl border border-[#1a2e14]/20 bg-white/50 px-5 py-3 font-semibold text-[#1a2e14] backdrop-blur-sm transition hover:bg-white/70"
             >
               {page.appel?.secondaire.label ?? "Voir les tarifs"}
             </Link>
@@ -119,7 +120,7 @@ export function PageLogicielVue({ page }: { page: PageLogiciel }) {
         </figure>
 
         <section className="mt-12 md:mt-16" aria-labelledby="problemes-title">
-          <h2 id="problemes-title" className="text-2xl font-bold text-[#27421f] md:text-3xl">
+          <h2 id="problemes-title" className="gr-titre text-2xl md:text-3xl">
             Ce qui coince, avant même de chercher un outil
           </h2>
           <AnimatedGrid className="mt-6 grid gap-4 md:grid-cols-2">
@@ -133,7 +134,7 @@ export function PageLogicielVue({ page }: { page: PageLogiciel }) {
         </section>
 
         <section className="mt-12 md:mt-16" aria-labelledby="reponses-title">
-          <h2 id="reponses-title" className="text-2xl font-bold text-[#27421f] md:text-3xl">
+          <h2 id="reponses-title" className="gr-titre text-2xl md:text-3xl">
             Ce que Gramme fait, précisément
           </h2>
           <AnimatedGroup as="ol" className="mt-6 space-y-4">
@@ -156,7 +157,7 @@ export function PageLogicielVue({ page }: { page: PageLogiciel }) {
 
         {page.exemple ? (
           <section className="mt-12 md:mt-16" aria-labelledby="exemple-title">
-            <h2 id="exemple-title" className="text-2xl font-bold text-[#27421f] md:text-3xl">
+            <h2 id="exemple-title" className="gr-titre text-2xl md:text-3xl">
               {page.exemple.titre}
             </h2>
             <p className="mt-3 max-w-3xl text-[#4d6952]">{page.exemple.intro}</p>
@@ -195,7 +196,7 @@ export function PageLogicielVue({ page }: { page: PageLogiciel }) {
 
         {modules.length ? (
           <section className="mt-12 md:mt-16" aria-labelledby="modules-title">
-            <h2 id="modules-title" className="text-2xl font-bold text-[#27421f] md:text-3xl">
+            <h2 id="modules-title" className="gr-titre text-2xl md:text-3xl">
               Les modules concernés
             </h2>
             <AnimatedGrid className="mt-6 grid gap-4 sm:grid-cols-2">
@@ -219,7 +220,7 @@ export function PageLogicielVue({ page }: { page: PageLogiciel }) {
         ) : null}
 
         <section className="mt-12 md:mt-16" aria-labelledby="faq-title">
-          <h2 id="faq-title" className="text-2xl font-bold text-[#27421f] md:text-3xl">
+          <h2 id="faq-title" className="gr-titre text-2xl md:text-3xl">
             Questions fréquentes
           </h2>
           <dl className="mt-6 space-y-4">
