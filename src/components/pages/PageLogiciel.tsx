@@ -8,6 +8,7 @@ import { FeatureIcon } from "@/components/features/FeatureIcon";
 import { getFeature, featurePath } from "@/content/features";
 import type { PageLogiciel } from "@/content/logiciels";
 import { SITE_URL, imageSociale, webPageSchema } from "@/lib/seo";
+import { AnimatedGrid, AnimatedGroup, AnimatedItem } from "@/components/motion-primitives/animated-group";
 
 /**
  * Le rendu commun des pages « quel logiciel pour… ».
@@ -121,23 +122,23 @@ export function PageLogicielVue({ page }: { page: PageLogiciel }) {
           <h2 id="problemes-title" className="text-2xl font-bold text-[#27421f] md:text-3xl">
             Ce qui coince, avant même de chercher un outil
           </h2>
-          <div className="mt-6 grid gap-4 md:grid-cols-2">
+          <AnimatedGrid className="mt-6 grid gap-4 md:grid-cols-2">
             {page.problemes.map((item) => (
-              <article key={item.titre} className="rounded-2xl border border-[#dcead2] bg-white p-5 shadow-sm sm:p-6">
+              <article key={item.titre} className="h-full rounded-2xl border border-[#dcead2] bg-white p-5 shadow-sm sm:p-6">
                 <h3 className="text-lg font-bold text-[#355329]">{item.titre}</h3>
                 <p className="mt-3 text-sm leading-relaxed text-[#4d6952]">{item.texte}</p>
               </article>
             ))}
-          </div>
+          </AnimatedGrid>
         </section>
 
         <section className="mt-12 md:mt-16" aria-labelledby="reponses-title">
           <h2 id="reponses-title" className="text-2xl font-bold text-[#27421f] md:text-3xl">
             Ce que Gramme fait, précisément
           </h2>
-          <ol className="mt-6 space-y-4">
+          <AnimatedGroup as="ol" className="mt-6 space-y-4">
             {page.reponses.map((item, index) => (
-              <li
+              <AnimatedItem
                 key={item.titre}
                 className="rounded-2xl border border-[#dcead2] bg-white p-5 shadow-sm sm:p-6"
               >
@@ -148,9 +149,9 @@ export function PageLogicielVue({ page }: { page: PageLogiciel }) {
                   <h3 className="text-lg font-bold text-[#355329]">{item.titre}</h3>
                 </div>
                 <p className="mt-3 text-sm leading-relaxed text-[#4d6952]">{item.texte}</p>
-              </li>
+              </AnimatedItem>
             ))}
-          </ol>
+          </AnimatedGroup>
         </section>
 
         {page.exemple ? (
@@ -197,12 +198,12 @@ export function PageLogicielVue({ page }: { page: PageLogiciel }) {
             <h2 id="modules-title" className="text-2xl font-bold text-[#27421f] md:text-3xl">
               Les modules concernés
             </h2>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
+            <AnimatedGrid className="mt-6 grid gap-4 sm:grid-cols-2">
               {modules.map((feature) => (
                 <Link
                   key={feature.slug}
                   href={featurePath(feature.slug)}
-                  className="group flex gap-3.5 rounded-2xl border border-[#dcead2] bg-white p-5 shadow-sm transition hover:bg-[#f6fbf2] sm:gap-4 sm:p-6"
+                  className="group flex h-full gap-3.5 rounded-2xl border border-[#dcead2] bg-white p-5 shadow-sm transition hover:bg-[#f6fbf2] sm:gap-4 sm:p-6"
                 >
                   <span className="mt-0.5 inline-flex size-9 shrink-0 items-center justify-center rounded-lg bg-[#a8cf8c]/25 text-[#355329]">
                     <FeatureIcon name={feature.icon} className="size-[18px]" />
@@ -213,7 +214,7 @@ export function PageLogicielVue({ page }: { page: PageLogiciel }) {
                   </span>
                 </Link>
               ))}
-            </div>
+            </AnimatedGrid>
           </section>
         ) : null}
 

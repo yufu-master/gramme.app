@@ -18,7 +18,10 @@
   display: inline-flex; align-items: center; gap: 7px;
 }
 .appareils button svg { width: 16px; height: 16px; }
-.appareils button[aria-pressed="true"] { background: #264021; color: #fff; }
+.appareils button { position: relative; isolation: isolate; }
+.appareils button[aria-pressed="true"] { color: #fff; }
+/* La pastille glissante (motion) remplace le fond de l'appareil choisi. */
+.pastille { position: absolute; inset: 0; z-index: -1; border-radius: 9px; background: #264021; }
 .appareils button:focus-visible { outline: 3px solid #a8cf8c; outline-offset: 2px; }
 
 .scene { position: relative; display: grid; gap: 16px; justify-items: center; }
@@ -145,7 +148,12 @@
   width: 20px; height: 20px; border-radius: 50%; display: grid; place-items: center;
   font-size: 11px; background: #e6f1dd; color: #355329; font-variant-numeric: tabular-nums;
 }
-.fil button[aria-current="step"] { border-color: #355329; color: #264021; background: #e6f1dd; }
+.fil button { position: relative; isolation: isolate; }
+.fil button[aria-current="step"] { border-color: transparent; color: #264021; }
+.pastilleEtape {
+  position: absolute; inset: -1px; z-index: -1; border-radius: 999px;
+  border: 1px solid #355329; background: #e6f1dd;
+}
 .fil button[aria-current="step"] b { background: #264021; color: #fff; }
 .fil .vu b { background: #a8cf8c; color: #264021; }
 .fil button:focus-visible { outline: 3px solid #355329; outline-offset: 2px; }

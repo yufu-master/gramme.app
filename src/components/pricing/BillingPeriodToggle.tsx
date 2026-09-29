@@ -22,18 +22,19 @@ export function BillingPeriodToggle({
       aria-label="Périodicité de facturation"
       className={`relative isolate inline-flex rounded-2xl border border-[#dcead2] bg-white p-1 shadow-sm ${className ?? ""}`}
     >
+      {/* Les boutons n'ont plus d'id (29/09/2026) : rien ne les visait, et
+          l'id tiré de useId différait entre le serveur et le navigateur
+          (avertissement d'hydratation). */}
       {/* Un groupe par sélecteur : deux sélecteurs sur une page ne se
           disputent pas la même pastille. */}
       <LayoutGroup id={groupId}>
       <PeriodButton
-        id={`${groupId}-monthly`}
         active={period === "monthly"}
         onClick={() => onChange("monthly")}
       >
         Mensuel
       </PeriodButton>
       <PeriodButton
-        id={`${groupId}-yearly`}
         active={period === "yearly"}
         onClick={() => onChange("yearly")}
         badge="2 mois offerts"
@@ -46,13 +47,11 @@ export function BillingPeriodToggle({
 }
 
 function PeriodButton({
-  id,
   active,
   onClick,
   children,
   badge,
 }: {
-  id: string;
   active: boolean;
   onClick: () => void;
   children: React.ReactNode;
@@ -60,7 +59,6 @@ function PeriodButton({
 }) {
   return (
     <button
-      id={id}
       type="button"
       aria-pressed={active}
       onClick={onClick}

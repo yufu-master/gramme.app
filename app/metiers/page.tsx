@@ -5,6 +5,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { pagesLogiciel } from "@/content/logiciels";
 import { breadcrumbSchema, imageSociale, webPageSchema } from "@/lib/seo";
+import { AnimatedGrid } from "@/components/motion-primitives/animated-group";
 
 /**
  * La page pilier des cinq métiers (le chef à domicile s'y ajoute le 24/09/2026,
@@ -120,12 +121,12 @@ export default function MetiersPage() {
           </p>
         </div>
 
-        <section className="mt-12 grid gap-4 md:mt-16 md:grid-cols-2">
+        <AnimatedGrid className="mt-12 grid gap-4 md:mt-16 md:grid-cols-2">
           {METIERS.map((m) => (
             <Link
               key={m.chemin}
               href={m.chemin}
-              className="group rounded-2xl border border-[#dcead2] bg-white p-5 transition hover:border-[#a8cf8c] hover:shadow-[0_18px_50px_rgba(38,64,33,0.10)]"
+              className="group block h-full rounded-2xl border border-[#dcead2] bg-white p-5 transition hover:border-[#a8cf8c] hover:shadow-[0_18px_50px_rgba(38,64,33,0.10)]"
             >
               <p className="text-xs font-semibold uppercase tracking-wide text-[#6e9f55]">
                 {m.accroche}
@@ -139,7 +140,7 @@ export default function MetiersPage() {
               </p>
             </Link>
           ))}
-        </section>
+        </AnimatedGrid>
 
         <section className="mt-12 rounded-2xl bg-[#f6fbf2] p-6 md:mt-16">
           <h2 className="text-2xl font-bold text-[#27421f]">Et si vous en faites plusieurs</h2>

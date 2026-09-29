@@ -7,6 +7,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
 import { features, featurePath, nombreModules } from "@/content/features";
 import { SITE_URL, webPageSchema, imageSociale, ogPage } from "@/lib/seo";
+import { AnimatedGroup, AnimatedItem } from "@/components/motion-primitives/animated-group";
 
 export const metadata: Metadata = {
   title: "Fonctionnalités du logiciel de gestion boulangerie",
@@ -81,9 +82,9 @@ export default function FonctionnalitesPage() {
           </p>
         </section>
 
-        <ul className="mt-10 grid gap-5 md:mt-12 md:grid-cols-2">
+        <AnimatedGroup className="mt-10 grid gap-5 md:mt-12 md:grid-cols-2">
           {features.map((feature) => (
-            <li key={feature.slug}>
+            <AnimatedItem key={feature.slug}>
               <article className="flex h-full flex-col overflow-hidden rounded-3xl border border-[#dcead2] bg-white shadow-sm transition hover:-translate-y-0.5 hover:shadow-md">
                 <div className="relative aspect-[16/10] w-full bg-[#f6fbf2]">
                   <Image
@@ -111,9 +112,9 @@ export default function FonctionnalitesPage() {
                   </Link>
                 </div>
               </article>
-            </li>
+            </AnimatedItem>
           ))}
-        </ul>
+        </AnimatedGroup>
 
         <section className="mt-12 rounded-3xl bg-[#264021] p-6 text-white sm:p-8 md:mt-16 md:p-10">
           <h2 className="text-2xl font-bold md:text-3xl">On installe tout avec vous</h2>

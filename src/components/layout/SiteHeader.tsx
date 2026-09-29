@@ -4,6 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { RefObject } from "react";
+import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { FeatureIcon } from "@/components/features/FeatureIcon";
 import { features, featurePath } from "@/content/features";
@@ -132,6 +133,8 @@ export function SiteHeader() {
   const [isMetiersOpen, setIsMetiersOpen] = useState(false);
   const [isMobileMetiersOpen, setIsMobileMetiersOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  // L'entrée survolée du menu : un trait olive glisse de l'une à l'autre.
+  const [survol, setSurvol] = useState<string | null>(null);
   const featuresRef = useRef<HTMLDivElement>(null);
   const ressourcesRef = useRef<HTMLDivElement>(null);
   const metiersRef = useRef<HTMLDivElement>(null);
@@ -205,11 +208,17 @@ export function SiteHeader() {
           />
         </Link>
 
-        <div className="hidden items-center gap-5 text-sm text-[var(--muted-foreground)] lg:flex xl:gap-6">
+        <div
+          className="hidden items-center gap-5 text-sm text-[var(--muted-foreground)] lg:flex xl:gap-6"
+          onMouseLeave={() => setSurvol(null)}
+        >
           <div
             ref={featuresRef}
             className="relative"
-            onMouseEnter={() => setIsFeaturesOpen(true)}
+            onMouseEnter={() => {
+              setIsFeaturesOpen(true);
+              setSurvol("fonctionnalites");
+            }}
             onMouseLeave={() => setIsFeaturesOpen(false)}
           >
             <button
@@ -218,12 +227,13 @@ export function SiteHeader() {
               aria-haspopup="true"
               aria-controls="features-menu"
               onClick={() => setIsFeaturesOpen((value) => !value)}
-              className={`inline-flex items-center gap-1.5 py-2 transition hover:text-[#355329] ${
+              className={`relative inline-flex items-center gap-1.5 py-2 transition hover:text-[#355329] ${
                 isFeaturesActive ? "font-semibold text-[#355329]" : ""
               }`}
             >
               Fonctionnalités
               <ChevronIcon className={`size-3 transition ${isFeaturesOpen ? "rotate-180" : ""}`} />
+              <TraitSurvol visible={survol === "fonctionnalites"} />
             </button>
 
             <div
@@ -270,7 +280,10 @@ export function SiteHeader() {
           <div
             ref={metiersRef}
             className="relative"
-            onMouseEnter={() => setIsMetiersOpen(true)}
+            onMouseEnter={() => {
+              setIsMetiersOpen(true);
+              setSurvol("metiers");
+            }}
             onMouseLeave={() => setIsMetiersOpen(false)}
           >
             <button
@@ -279,12 +292,13 @@ export function SiteHeader() {
               aria-haspopup="true"
               aria-controls="metiers-menu"
               onClick={() => setIsMetiersOpen((value) => !value)}
-              className={`inline-flex items-center gap-1.5 py-2 transition hover:text-[#355329] ${
+              className={`relative inline-flex items-center gap-1.5 py-2 transition hover:text-[#355329] ${
                 isMetiersActive ? "font-semibold text-[#355329]" : ""
               }`}
             >
               Métiers
               <ChevronIcon className={`size-3 transition ${isMetiersOpen ? "rotate-180" : ""}`} />
+              <TraitSurvol visible={survol === "metiers"} />
             </button>
 
             <div
@@ -325,7 +339,10 @@ export function SiteHeader() {
           <div
             ref={ressourcesRef}
             className="relative"
-            onMouseEnter={() => setIsRessourcesOpen(true)}
+            onMouseEnter={() => {
+              setIsRessourcesOpen(true);
+              setSurvol("ressources");
+            }}
             onMouseLeave={() => setIsRessourcesOpen(false)}
           >
             <button
@@ -334,12 +351,13 @@ export function SiteHeader() {
               aria-haspopup="true"
               aria-controls="ressources-menu"
               onClick={() => setIsRessourcesOpen((value) => !value)}
-              className={`inline-flex items-center gap-1.5 py-2 transition hover:text-[#355329] ${
+              className={`relative inline-flex items-center gap-1.5 py-2 transition hover:text-[#355329] ${
                 isRessourcesActive ? "font-semibold text-[#355329]" : ""
               }`}
             >
               Ressources
               <ChevronIcon className={`size-3 transition ${isRessourcesOpen ? "rotate-180" : ""}`} />
+              <TraitSurvol visible={survol === "ressources"} />
             </button>
 
             <div
@@ -377,11 +395,13 @@ export function SiteHeader() {
             <Link
               key={item.label}
               href={item.href}
-              className={`whitespace-nowrap transition hover:text-[#355329] ${
+              onMouseEnter={() => setSurvol(item.href)}
+              className={`relative whitespace-nowrap py-2 transition hover:text-[#355329] ${
                 isActive(item.href) ? "font-semibold text-[#355329]" : ""
               }`}
             >
               {item.label}
+              <TraitSurvol visible={survol === item.href} />
             </Link>
           ))}
         </div>
@@ -635,5 +655,18 @@ function InstagramIcon({ className }: { className?: string }) {
       <circle cx="12" cy="12" r="4" stroke="currentColor" strokeWidth="1.8" />
       <circle cx="17.5" cy="6.5" r="1" fill="currentColor" />
     </svg>
+  );
+}
+
+/** Le trait olive sous l'entrée survolée du menu ; il glisse d'une entrée à l'autre. */
+function TraitSurvol({ visible }: { visible: boolean }) {
+  if (!visible) return null;
+  return (
+    <motion.span
+      layoutId="menu-survol"
+      aria-hidden
+      className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 rounded-full bg-[#7e8f50]"
+      transition={{ type: "spring", stiffness: 500, damping: 38 }}
+    />
   );
 }

@@ -1,7 +1,7 @@
 "use client";
 
 import { motion, type Variants } from "motion/react";
-import type { ReactNode } from "react";
+import { Children, type ReactNode } from "react";
 
 /**
  * Une liste dont les éléments arrivent l'un après l'autre, à l'entrée dans
@@ -52,5 +52,27 @@ export function AnimatedItem({ children, className }: { children: ReactNode; cla
     <motion.li className={className} variants={ELEMENT}>
       {children}
     </motion.li>
+  );
+}
+
+/**
+ * La même cascade pour une grille de `div` ou de liens (pas une liste) :
+ * chaque enfant est enveloppé d'un bloc qui prend toute la hauteur de sa case.
+ */
+export function AnimatedGrid({ children, className }: { children: ReactNode; className?: string }) {
+  return (
+    <motion.div
+      className={className}
+      initial="hidden"
+      whileInView="visible"
+      viewport={{ once: true, margin: "0px 0px -10% 0px" }}
+      variants={CONTENEUR}
+    >
+      {Children.map(children, (enfant) => (
+        <motion.div className="h-full" variants={ELEMENT}>
+          {enfant}
+        </motion.div>
+      ))}
+    </motion.div>
   );
 }

@@ -3,6 +3,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useCallback, useEffect, useLayoutEffect, useRef, useState, useSyncExternalStore } from "react";
+import { LayoutGroup, motion } from "motion/react";
 import { trackEvent } from "@/lib/analytics";
 import s from "./VisiteInteractive.module.css";
 
@@ -225,6 +226,15 @@ export function VisiteInteractive() {
                 trackEvent("visite_appareil", { appareil: a.id });
               }}
             >
+              {/* La pastille foncée glisse d'un appareil à l'autre (29/09/2026). */}
+              {appareil === a.id ? (
+                <motion.span
+                  layoutId="visite-appareil"
+                  aria-hidden
+                  className={s.pastille}
+                  transition={{ type: "spring", stiffness: 420, damping: 34 }}
+                />
+              ) : null}
               {a.icone}
               {a.libelle}
             </button>
@@ -332,6 +342,7 @@ export function VisiteInteractive() {
         ) : null}
       </div>
 
+      <LayoutGroup id="visite-etapes">
       <nav aria-label="Étapes de la visite">
         <ol className={s.fil}>
           {ETAPES.map((e, k) => (
@@ -342,6 +353,14 @@ export function VisiteInteractive() {
                 className={k < n ? s.vu : undefined}
                 onClick={() => aller(k)}
               >
+                {k === n ? (
+                  <motion.span
+                    layoutId="visite-etape"
+                    aria-hidden
+                    className={s.pastilleEtape}
+                    transition={{ type: "spring", stiffness: 380, damping: 32 }}
+                  />
+                ) : null}
                 <b>{k + 1}</b>
                 {e.court}
               </button>
@@ -349,6 +368,7 @@ export function VisiteInteractive() {
           ))}
         </ol>
       </nav>
+      </LayoutGroup>
 
       <p className="text-center text-xs text-[var(--muted-foreground)]">
         Captures réelles de l&apos;atelier de démonstration Maison Duprat, prises dans l&apos;application le 18
