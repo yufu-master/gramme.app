@@ -22,8 +22,7 @@
       "@/*": ["./src/*"],
       "clsx": ["./src/vendor/clsx"],
       "tailwind-merge": ["./src/vendor/tailwind-merge"],
-      "lucide-react": ["./src/vendor/lucide-react"],
-      "framer-motion": ["./src/vendor/framer-motion"]
+      "lucide-react": ["./src/vendor/lucide-react"]
     }
   },
   "include": [

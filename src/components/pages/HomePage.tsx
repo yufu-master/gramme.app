@@ -15,6 +15,19 @@ import { trackEvent } from "@/lib/analytics";
 import { publishedArticles } from "@/content/articles";
 import { publishedGuides } from "@/content/guides";
 import { formatGuideDate } from "@/lib/guides";
+import { AnimatedGroup, AnimatedItem } from "@/components/motion-primitives/animated-group";
+import { AnimatedNumber } from "@/components/motion-primitives/animated-number";
+import { BorderTrail } from "@/components/motion-primitives/border-trail";
+import { InView } from "@/components/motion-primitives/in-view";
+import { InfiniteSlider } from "@/components/motion-primitives/infinite-slider";
+import { ProgressiveBlur } from "@/components/motion-primitives/progressive-blur";
+
+/** Écrit un prix pendant qu'il glisse, avec le nombre de décimales de sa valeur d'arrivée. */
+function formatPrixAnime(cible: number, chiffres?: number) {
+  const d = chiffres ?? (Number.isInteger(cible) ? 0 : 2);
+  const p = 10 ** d;
+  return (n: number) => formatEuro(Math.round(n * p) / p, d);
+}
 
 const trustItems = [
   { label: "Digitalisation des recettes & fiches techniques", icon: BookIcon },
@@ -78,15 +91,21 @@ export default function HomePage() {
           aria-label="Présentation Gramme"
         >
           <div className="relative z-10 flex w-full max-w-3xl flex-col items-center px-4 pt-28 text-center sm:px-6 sm:pt-32 lg:pt-36">
-            <p className="mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#27421f]/80">
+            <p className="gr-entree mb-4 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[#27421f]/80">
               <SparkIcon className="size-4" />
               Gramme : logiciel boulangerie &amp; pâtisserie
             </p>
-            <h1 className="text-[2.5rem] font-black leading-[1.04] tracking-[-0.03em] text-[#1a2e14] sm:text-6xl lg:text-7xl">
+            <h1
+              style={{ "--gr-delai": "90ms" } as React.CSSProperties}
+              className="gr-entree text-[2.5rem] font-black leading-[1.04] tracking-[-0.03em] text-[#1a2e14] sm:text-6xl lg:text-7xl">
               Pilotez votre marge
               <br />
               au{" "}
-              <span className="relative inline-block px-2 text-white">
+              {/* Le pinceau se trace et découvre le mot, comme sur les posts. */}
+              <span
+                style={{ "--gr-delai": "620ms" } as React.CSSProperties}
+                className="gr-pinceau relative inline-block px-2 text-white"
+              >
                 <svg
                   aria-hidden
                   viewBox="0 0 400 100"
@@ -102,11 +121,17 @@ export default function HomePage() {
               </span>{" "}
               près.
             </h1>
-            <p className="mt-5 max-w-xl text-base text-[#27421f] sm:text-lg">
+            <p
+              style={{ "--gr-delai": "220ms" } as React.CSSProperties}
+              className="gr-entree mt-5 max-w-xl text-base text-[#27421f] sm:text-lg"
+            >
               Le logiciel de gestion et de production pour boulangers-pâtissiers : recettes digitalisées, fiches
               techniques, alertes de prix, gestion de stocks, planning de production et marges en temps réel.
             </p>
-            <div className="mt-7 flex flex-wrap justify-center gap-3">
+            <div
+              style={{ "--gr-delai": "320ms" } as React.CSSProperties}
+              className="gr-entree mt-7 flex flex-wrap justify-center gap-3"
+            >
               {/* Le geste le plus visible de la page était un défilement vers
                   les tarifs, et la conversion reposait sur le bouton
                   secondaire (relevé du 17/09/2026). Le bouton plein mène
@@ -114,7 +139,7 @@ export default function HomePage() {
               <Link
                 href="/demo"
                 onClick={() => trackEvent("cta_demo_click", { source: "hero" })}
-                className="rounded-xl bg-[#1a2e14] px-5 py-3 font-semibold text-white shadow-[0_10px_30px_rgba(26,46,20,0.25)] transition hover:bg-[#264021]"
+                className="rounded-xl bg-[#1a2e14] px-5 py-3 font-semibold text-white shadow-[0_10px_30px_rgba(26,46,20,0.25)] transition hover:-translate-y-0.5 hover:bg-[#264021] hover:shadow-[0_14px_36px_rgba(26,46,20,0.32)]"
               >
                 Voir une marge se calculer en direct
               </Link>
@@ -131,11 +156,12 @@ export default function HomePage() {
             </div>
           </div>
           <div
-            className="relative -mt-10 w-[150%] max-w-none sm:-mt-16 sm:w-full sm:max-w-[72rem] lg:-mt-24"
+            className="gr-entree relative -mt-10 w-[150%] max-w-none sm:-mt-16 sm:w-full sm:max-w-[72rem] lg:-mt-24"
             style={{
+              "--gr-delai": "380ms",
               WebkitMaskImage: "radial-gradient(ellipse 50% 50% at 50% 52%, #000 58%, transparent 100%)",
               maskImage: "radial-gradient(ellipse 50% 50% at 50% 52%, #000 58%, transparent 100%)",
-            }}
+            } as React.CSSProperties}
           >
             <Image
               src="/images/hero-balance-beurre.jpg"
@@ -144,21 +170,32 @@ export default function HomePage() {
               height={1339}
               priority
               sizes="(min-width: 1152px) 1152px, 100vw"
-              className="h-auto w-full"
+              className="gr-balance h-auto w-full"
             />
           </div>
         </section>
 
-        <section className="border-y border-[var(--border)] bg-white/70">
-          <div className="mx-auto grid w-full max-w-6xl gap-3 px-4 py-5 sm:grid-cols-2 sm:px-5 lg:grid-cols-4">
-            {trustItems.map(({ label, icon: Icon }) => (
-              <p key={label} className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--muted-foreground)]">
-                <span className="inline-flex size-7 items-center justify-center rounded-full bg-[#a8cf8c]/20 text-[#355329]">
-                  <Icon className="size-4" />
-                </span>
-                {label}
-              </p>
-            ))}
+        {/* Les huit modules défilent sur une ligne (29/09/2026). En grille, ils
+            prenaient deux lignes sur ordinateur et huit sur téléphone, juste
+            sous le héros. Le défilement ralentit au survol ; sans mouvement
+            (réglage du système), la liste s'affiche à plat. */}
+        <section className="border-y border-[var(--border)] bg-white/70" aria-label="Ce que fait Gramme">
+          <div className="relative mx-auto w-full max-w-6xl py-4">
+            <InfiniteSlider gap={40} speed={36} speedOnHover={10}>
+              {trustItems.map(({ label, icon: Icon }) => (
+                <p
+                  key={label}
+                  className="inline-flex shrink-0 items-center gap-2 whitespace-nowrap text-sm font-semibold text-[var(--muted-foreground)]"
+                >
+                  <span className="inline-flex size-7 items-center justify-center rounded-full bg-[#a8cf8c]/20 text-[#355329]">
+                    <Icon className="size-4" />
+                  </span>
+                  {label}
+                </p>
+              ))}
+            </InfiniteSlider>
+            <ProgressiveBlur direction="left" className="absolute inset-y-0 left-0 w-16 sm:w-28" />
+            <ProgressiveBlur direction="right" className="absolute inset-y-0 right-0 w-16 sm:w-28" />
           </div>
         </section>
 
@@ -231,7 +268,7 @@ export default function HomePage() {
           <div aria-hidden className="pointer-events-none absolute -right-24 bottom-0 size-80 rounded-full bg-[#a8cf8c]/20 blur-3xl" />
 
           <div className="relative mx-auto w-full max-w-6xl px-4 sm:px-5">
-            <div className="max-w-3xl">
+            <InView className="max-w-3xl">
               <p className="inline-flex items-center gap-2 rounded-full border border-[#cfe3bf] bg-white px-3 py-1.5 text-xs font-bold uppercase tracking-[0.14em] text-[#355329]">
                 <CameraIcon className="size-4" />
                 Import intelligent
@@ -254,10 +291,11 @@ export default function HomePage() {
                 bricolé depuis dix ans : vous photographiez, c&apos;est importé. Gramme reconstruit la fiche technique,
                 sépare les sous-recettes et calcule coût matière, pourcentage de perte et marge.
               </p>
-            </div>
+            </InView>
 
             <div className="mt-12 grid items-center gap-8 lg:mt-14 lg:grid-cols-12 lg:gap-12">
-              <figure className="relative order-1 lg:col-span-7">
+              <InView className="order-1 lg:col-span-7">
+              <figure className="relative">
                 <div className="relative aspect-[4/3] w-full overflow-hidden rounded-3xl border border-[#dcead2] shadow-[0_24px_70px_rgba(34,60,23,0.22)]">
                   <Image
                     src="/images/import-recettes-photo.jpg"
@@ -278,12 +316,13 @@ export default function HomePage() {
                   Manuscrit, abîmé, raturé : la photo suffit. Le classeur reste au labo, la fiche technique part dans Gramme.
                 </figcaption>
               </figure>
+              </InView>
 
-              <ol className="order-2 space-y-4 lg:col-span-5">
+              <AnimatedGroup as="ol" className="order-2 space-y-4 lg:col-span-5">
                 {importSteps.map((step, index) => {
                   const Icon = step.icon;
                   return (
-                    <li key={step.title} className="flex gap-4 rounded-2xl border border-[#dcead2] bg-white p-5 shadow-sm">
+                    <AnimatedItem key={step.title} className="flex gap-4 rounded-2xl border border-[#dcead2] bg-white p-5 shadow-sm">
                       <span className="inline-flex size-11 shrink-0 items-center justify-center rounded-xl bg-[#a8cf8c]/25 text-[#355329]">
                         <Icon className="size-5" />
                       </span>
@@ -292,10 +331,10 @@ export default function HomePage() {
                         <h3 className="mt-1 text-lg font-bold text-[#1a2e14]">{step.title}</h3>
                         <p className="mt-1.5 text-sm leading-relaxed text-[var(--muted-foreground)]">{step.text}</p>
                       </div>
-                    </li>
+                    </AnimatedItem>
                   );
                 })}
-              </ol>
+              </AnimatedGroup>
             </div>
 
             <div className="mt-10 flex flex-wrap items-center gap-3">
@@ -338,7 +377,7 @@ export default function HomePage() {
               affiche, et il n&apos;affiche que les vôtres.
             </p>
           </div>
-          <ul className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+          <AnimatedGroup className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
             {[
               {
                 href: "/logiciel-boulangerie",
@@ -366,17 +405,17 @@ export default function HomePage() {
                 texte: "Gramme Chef chiffre le menu par convive, prépare le devis et la liste de courses. Lancement en janvier 2027, bêta ouverte à quelques chefs.",
               },
             ].map((m) => (
-              <li key={m.href}>
+              <AnimatedItem key={m.href}>
                 <Link
                   href={m.href}
-                  className="flex h-full flex-col rounded-2xl border border-[#dcead2] bg-white p-5 transition hover:border-[#a8cf8c] hover:bg-[#f6fbf2]"
+                  className="flex h-full flex-col rounded-2xl border border-[#dcead2] bg-white p-5 transition duration-300 hover:-translate-y-1 hover:border-[#a8cf8c] hover:bg-[#f6fbf2] hover:shadow-[0_16px_40px_rgba(34,60,23,0.10)]"
                 >
                   <span className="text-lg font-bold text-[#27421f]">{m.nom}</span>
                   <span className="mt-2 text-sm leading-relaxed text-[var(--muted-foreground)]">{m.texte}</span>
                 </Link>
-              </li>
+              </AnimatedItem>
             ))}
-          </ul>
+          </AnimatedGroup>
           <p className="mt-6 text-sm">
             <Link href="/metiers" className="font-semibold text-[#355329] hover:underline">
               Ce que les cinq métiers ont en commun, et ce qui les sépare
@@ -410,6 +449,9 @@ export default function HomePage() {
                 }`}
               >
                 {plan.highlight && (
+                  <BorderTrail size={110} duration={9} className="bg-gradient-to-r from-transparent via-[#d7efca] to-transparent opacity-80" />
+                )}
+                {plan.highlight && (
                   <p className="absolute -top-3 left-6 rounded-full bg-[#a8cf8c] px-3 py-1 text-xs font-bold uppercase tracking-wide text-[#264021]">
                     Tout compris, hygiène et étiquetage inclus
                   </p>
@@ -418,7 +460,11 @@ export default function HomePage() {
                   {plan.name}
                 </p>
                 <p className="mt-4 tabular-nums text-4xl font-black">
-                  {formatEuro(isYearly ? plan.yearlyPrice : plan.monthlyPrice)}
+                  {/* Le prix glisse d'une période à l'autre au lieu de sauter. */}
+                  <AnimatedNumber
+                    value={isYearly ? plan.yearlyPrice : plan.monthlyPrice}
+                    format={formatPrixAnime(isYearly ? plan.yearlyPrice : plan.monthlyPrice)}
+                  />
                   <span className={`ml-1 text-base font-semibold ${plan.highlight ? "text-white/80" : "text-[var(--muted-foreground)]"}`}>
                     {isYearly ? "HT / an" : "HT / mois"}
                   </span>
@@ -426,7 +472,9 @@ export default function HomePage() {
                 <p className={`mt-2 text-sm tabular-nums ${plan.highlight ? "text-white/85" : "text-[var(--muted-foreground)]"}`}>
                   {isYearly ? (
                     <>
-                      soit {formatEuro(plan.yearlyMonthlyEquivalent, 2)} HT / mois ·{" "}
+                      soit{" "}
+                      <AnimatedNumber value={plan.yearlyMonthlyEquivalent} format={formatPrixAnime(plan.yearlyMonthlyEquivalent, 2)} />{" "}
+                      HT / mois ·{" "}
                       <span className={`font-semibold ${plan.highlight ? "text-[#a8cf8c]" : "text-[#355329]"}`}>
                         économisez {formatEuro(plan.yearlySavings)}
                       </span>
@@ -503,9 +551,9 @@ export default function HomePage() {
             </p>
           </div>
 
-          <ul className="mt-8 grid gap-4 md:grid-cols-3">
+          <AnimatedGroup className="mt-8 grid gap-4 md:grid-cols-3">
             {publishedGuides.slice(0, 3).map((g) => (
-              <li key={g.slug}>
+              <AnimatedItem key={g.slug}>
                 <Link
                   href={`/guides/${g.slug}`}
                   className="flex h-full flex-col rounded-2xl border border-[#dcead2] bg-white p-5 transition hover:border-[#a8cf8c] hover:bg-[#f6fbf2]"
@@ -518,13 +566,13 @@ export default function HomePage() {
                     {g.description}
                   </span>
                 </Link>
-              </li>
+              </AnimatedItem>
             ))}
-          </ul>
+          </AnimatedGroup>
 
-          <ul className="mt-4 grid gap-4 md:grid-cols-2">
+          <AnimatedGroup className="mt-4 grid gap-4 md:grid-cols-2">
             {publishedArticles.slice(0, 2).map((a) => (
-              <li key={a.slug}>
+              <AnimatedItem key={a.slug}>
                 <Link
                   href={`/articles/${a.slug}`}
                   className="flex h-full flex-col rounded-2xl border border-[#dcead2] bg-white p-5 transition hover:border-[#a8cf8c] hover:bg-[#f6fbf2]"
@@ -537,9 +585,9 @@ export default function HomePage() {
                     {a.description}
                   </span>
                 </Link>
-              </li>
+              </AnimatedItem>
             ))}
-          </ul>
+          </AnimatedGroup>
 
           <p className="mt-6 flex flex-wrap gap-x-6 gap-y-2 text-sm">
             <Link href="/guides" className="font-semibold text-[#355329] hover:underline">

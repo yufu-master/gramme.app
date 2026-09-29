@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { AnimatedGroup, AnimatedItem } from "@/components/motion-primitives/animated-group";
 
 /**
  * La grille Instagram de gramme.app (posts publiés, RS/POSTS) : plâtre sauge,
@@ -35,9 +36,9 @@ export function SurInstagram() {
           Suivre @gramme.app
         </a>
       </div>
-      <ul className="mt-6 grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3">
+      <AnimatedGroup className="mt-6 grid grid-cols-2 gap-2 sm:grid-cols-3 sm:gap-3">
         {VISUELS.map((v) => (
-          <li key={v.src}>
+          <AnimatedItem key={v.src}>
             <a
               href={INSTAGRAM}
               target="_blank"
@@ -51,12 +52,12 @@ export function SurInstagram() {
                 width={1080}
                 height={1080}
                 sizes="(min-width: 640px) 33vw, 50vw"
-                className="aspect-square h-auto w-full object-cover transition duration-500 group-hover:scale-[1.03]"
+                className="aspect-square h-auto w-full object-cover transition duration-500 group-hover:scale-[1.04]"
               />
             </a>
-          </li>
+          </AnimatedItem>
         ))}
-      </ul>
+      </AnimatedGroup>
     </section>
   );
 }

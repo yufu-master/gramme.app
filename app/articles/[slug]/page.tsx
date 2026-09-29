@@ -6,6 +6,7 @@ import { JsonLd } from "@/components/seo/JsonLd";
 import { getAllArticleSlugs, getArticleBySlug } from "@/content/articles";
 import { articleSchema, guideFaqSchema, howToSchema } from "@/lib/guides";
 import { imageSociale, SITE_URL, ogPage } from "@/lib/seo";
+import { ScrollProgress } from "@/components/motion-primitives/scroll-progress";
 
 type Props = { params: Promise<{ slug: string }> };
 
@@ -65,6 +66,8 @@ export default async function ArticlePage({ params }: Props) {
   return (
     <>
       {schemas.length > 0 ? <JsonLd data={schemas} /> : null}
+      {/* Le trait de lecture sous le menu (29/09/2026). */}
+      <ScrollProgress />
       <main className="mx-auto w-full max-w-5xl flex-1 px-4 pb-20 pt-6 sm:px-5 sm:pt-8">
         <Breadcrumbs
           currentLabel={article.title}

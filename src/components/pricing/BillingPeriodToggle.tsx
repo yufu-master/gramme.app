@@ -1,5 +1,6 @@
 "use client";
 
+import { LayoutGroup, motion } from "motion/react";
 import { useId } from "react";
 import type { BillingPeriod } from "@/lib/pricing";
 
@@ -19,8 +20,11 @@ export function BillingPeriodToggle({
     <div
       role="group"
       aria-label="Périodicité de facturation"
-      className={`inline-flex rounded-2xl border border-[#dcead2] bg-white p-1 shadow-sm ${className ?? ""}`}
+      className={`relative isolate inline-flex rounded-2xl border border-[#dcead2] bg-white p-1 shadow-sm ${className ?? ""}`}
     >
+      {/* Un groupe par sélecteur : deux sélecteurs sur une page ne se
+          disputent pas la même pastille. */}
+      <LayoutGroup id={groupId}>
       <PeriodButton
         id={`${groupId}-monthly`}
         active={period === "monthly"}
@@ -36,6 +40,7 @@ export function BillingPeriodToggle({
       >
         Annuel
       </PeriodButton>
+      </LayoutGroup>
     </div>
   );
 }
@@ -59,10 +64,19 @@ function PeriodButton({
       type="button"
       aria-pressed={active}
       onClick={onClick}
-      className={`relative rounded-xl px-5 py-2.5 text-sm font-semibold transition ${
-        active ? "bg-[#264021] text-white" : "text-[#355329] hover:bg-[#f6fbf2]"
+      className={`relative rounded-xl px-5 py-2.5 text-sm font-semibold transition-colors ${
+        active ? "text-white" : "text-[#355329] hover:bg-[#f6fbf2]"
       }`}
     >
+      {/* La pastille foncée glisse d'un bouton à l'autre (29/09/2026). */}
+      {active ? (
+        <motion.span
+          layoutId="periode-active"
+          aria-hidden
+          className="absolute inset-0 -z-10 rounded-xl bg-[#264021]"
+          transition={{ type: "spring", stiffness: 420, damping: 34 }}
+        />
+      ) : null}
       {children}
       {badge ? (
         <span

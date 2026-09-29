@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AnimatedGroup, AnimatedItem } from "@/components/motion-primitives/animated-group";
 import {
   Calculator,
   ChefHat,
@@ -94,13 +95,13 @@ export function NeDuTerrain() {
         </p>
       </div>
 
-      <ul
+      <AnimatedGroup
         className="mt-7 divide-y divide-[#dcead2] overflow-hidden rounded-2xl border border-[#dcead2] bg-white sm:mt-9 sm:grid sm:grid-cols-2 sm:gap-4 sm:divide-y-0 sm:overflow-visible sm:rounded-none sm:border-0 sm:bg-transparent lg:grid-cols-4"
       >
         {piliers.map(({ icone: Icone, titre, texte }) => (
-          <li
+          <AnimatedItem
             key={titre}
-            className="flex items-start gap-3 px-4 py-3.5 sm:block sm:rounded-2xl sm:border sm:border-[#dcead2] sm:bg-white sm:p-5 sm:shadow-sm sm:transition-colors sm:hover:border-[#a8cf8c]"
+            className="flex items-start gap-3 px-4 py-3.5 sm:block sm:rounded-2xl sm:border sm:border-[#dcead2] sm:bg-white sm:p-5 sm:shadow-sm sm:transition-[border-color,box-shadow] sm:duration-300 sm:hover:border-[#a8cf8c] sm:hover:shadow-[0_16px_40px_rgba(34,60,23,0.10)]"
           >
             <span className="inline-flex size-9 shrink-0 items-center justify-center rounded-xl bg-[#a8cf8c]/20 text-[#3e6134] sm:size-10">
               <Icone className="size-4.5 sm:size-5" />
@@ -109,9 +110,9 @@ export function NeDuTerrain() {
               <h3 className="text-[0.9375rem] font-bold leading-snug text-[#27421f] sm:text-base">{titre}</h3>
               <p className="mt-1 text-sm leading-snug text-[#4d6952] sm:mt-1.5 sm:leading-relaxed">{texte}</p>
             </div>
-          </li>
+          </AnimatedItem>
         ))}
-      </ul>
+      </AnimatedGroup>
 
       <div className="mt-6 flex flex-col gap-4 rounded-2xl border border-[#a8cf8c]/50 bg-[#f6fbf2] p-5 sm:mt-7 sm:flex-row sm:flex-wrap sm:items-center sm:gap-3 sm:p-6">
         <p className="flex-1 text-sm leading-relaxed text-[#4d6952] sm:min-w-[16rem] sm:text-base">

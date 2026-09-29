@@ -1,9 +1,15 @@
 import type { Metadata, Viewport } from "next";
+import { Inter } from "next/font/google";
 import { SiteChrome } from "@/components/layout/SiteChrome";
 import { MesureAudience } from "@/components/analytics/MesureAudience";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { primaryKeywords, siteGraph } from "@/lib/seo";
 import "./globals.css";
+
+// Inter, la police des posts et des films (DEV/gramme-video) : le site
+// s'affichait jusqu'ici dans la police du système, différente sur chaque appareil.
+// Servie depuis gramme.app par next/font, aucun appel à Google à l'affichage.
+const inter = Inter({ subsets: ["latin"], display: "swap", variable: "--font-inter" });
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gramme.app"),
@@ -100,7 +106,7 @@ export const viewport: Viewport = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="fr">
+    <html lang="fr" className={inter.variable}>
       <head>
         <link rel="alternate" type="text/plain" href="/llms.txt" title="LLM context for Gramme" />
       </head>

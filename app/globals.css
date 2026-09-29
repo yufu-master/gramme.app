@@ -45,3 +45,64 @@ a {
 [id="faq"] {
   scroll-margin-top: calc(var(--header-height) + 0.75rem);
 }
+
+@theme inline {
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+}
+
+/* L'entrée du héros de l'accueil, en CSS et pas en JavaScript : elle joue dès
+   le premier affichage, sans attendre que la page soit hydratée, et le titre
+   n'est jamais servi invisible. */
+@keyframes gr-montee {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+    filter: none;
+  }
+}
+
+@keyframes gr-pinceau {
+  from {
+    clip-path: inset(-15% 100% -15% -6%);
+  }
+  to {
+    clip-path: inset(-15% -6% -15% -6%);
+  }
+}
+
+@keyframes gr-balance {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
+}
+
+.gr-entree {
+  animation: gr-montee 0.7s cubic-bezier(0.22, 1, 0.36, 1) both;
+  animation-delay: var(--gr-delai, 0ms);
+}
+
+.gr-pinceau {
+  animation: gr-pinceau 0.65s cubic-bezier(0.65, 0, 0.35, 1) both;
+  animation-delay: var(--gr-delai, 0ms);
+}
+
+.gr-balance {
+  animation: gr-balance 7s ease-in-out 1.2s infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gr-entree,
+  .gr-pinceau,
+  .gr-balance {
+    animation: none;
+  }
+}
