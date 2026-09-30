@@ -4,7 +4,6 @@ import Image from "next/image";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import type { RefObject } from "react";
-import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { FeatureIcon } from "@/components/features/FeatureIcon";
 import { features, featurePath } from "@/content/features";
@@ -133,14 +132,17 @@ export function SiteHeader() {
   const [isMetiersOpen, setIsMetiersOpen] = useState(false);
   const [isMobileMetiersOpen, setIsMobileMetiersOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  // L'entrée survolée du menu : un trait olive glisse de l'une à l'autre.
+  // L'entrée survolée du menu : un trait olive se dessine dessous (CSS pur).
   const [survol, setSurvol] = useState<string | null>(null);
   const featuresRef = useRef<HTMLDivElement>(null);
   const ressourcesRef = useRef<HTMLDivElement>(null);
   const metiersRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    // Hystérésis : passe à vrai au-delà de 12 px, à faux sous 4 px. Un seuil
+    // unique faisait clignoter l'ombre quand le défilement s'arrêtait dessus.
+    const onScroll = () =>
+      setScrolled((avant) => (window.scrollY > 12 ? true : window.scrollY < 4 ? false : avant));
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -177,10 +179,10 @@ export function SiteHeader() {
 
   return (
     <header
-      className={`fixed inset-x-0 top-0 z-50 border-b transition-[background-color,box-shadow,border-color] duration-300 ${
+      className={`fixed inset-x-0 top-0 z-50 transform-gpu border-b bg-white/95 transition-[box-shadow,border-color] duration-300 ${
         scrolled
-          ? "border-[var(--border)] bg-white/95 shadow-[0_8px_30px_rgba(38,64,33,0.08)] backdrop-blur-xl"
-          : "border-transparent bg-white/85 backdrop-blur-xl"
+          ? "border-[var(--border)] shadow-[0_8px_30px_rgba(38,64,33,0.08)]"
+          : "border-transparent"
       }`}
     >
       <nav
@@ -658,15 +660,14 @@ function InstagramIcon({ className }: { className?: string }) {
   );
 }
 
-/** Le trait olive sous l'entrée survolée du menu ; il glisse d'une entrée à l'autre. */
+/** Le trait olive sous l'entrée survolée du menu : CSS pur, il se dessine de gauche à droite. */
 function TraitSurvol({ visible }: { visible: boolean }) {
-  if (!visible) return null;
   return (
-    <motion.span
-      layoutId="menu-survol"
+    <span
       aria-hidden
-      className="pointer-events-none absolute inset-x-0 bottom-0 h-0.5 rounded-full bg-[#7e8f50]"
-      transition={{ type: "spring", stiffness: 500, damping: 38 }}
+      className={`pointer-events-none absolute inset-x-0 bottom-0 h-0.5 origin-left rounded-full bg-[#7e8f50] transition-transform duration-200 ease-out ${
+        visible ? "scale-x-100" : "scale-x-0"
+      }`}
     />
   );
 }

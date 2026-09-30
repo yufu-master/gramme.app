@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { NeDuTerrain } from "@/components/landing/NeDuTerrain";
 import { VisiteInteractive } from "@/components/landing/VisiteInteractive";
+import { VitrineModules } from "@/components/landing/VitrineModules";
 import { FilmGramme } from "@/components/landing/FilmGramme";
 import { SurInstagram } from "@/components/landing/SurInstagram";
 import Link from "next/link";
@@ -20,7 +21,6 @@ import { AnimatedNumber } from "@/components/motion-primitives/animated-number";
 import { BorderTrail } from "@/components/motion-primitives/border-trail";
 import { InView } from "@/components/motion-primitives/in-view";
 import { InfiniteSlider } from "@/components/motion-primitives/infinite-slider";
-import { ProgressiveBlur } from "@/components/motion-primitives/progressive-blur";
 
 /** Écrit un prix pendant qu'il glisse, avec le nombre de décimales de sa valeur d'arrivée. */
 function formatPrixAnime(cible: number, chiffres?: number) {
@@ -146,7 +146,7 @@ export default function HomePage() {
               <button
                 type="button"
                 onClick={() => scrollToSection("film")}
-                className="inline-flex items-center gap-2 rounded-xl border border-[#1a2e14]/25 bg-white/35 px-5 py-3 font-semibold text-[#1a2e14] backdrop-blur-sm transition hover:bg-white/55"
+                className="inline-flex items-center gap-2 rounded-xl border border-[#1a2e14]/25 bg-white/35 px-5 py-3 font-semibold text-[#1a2e14] transition hover:bg-white/55"
               >
                 <svg viewBox="0 0 24 24" aria-hidden className="size-4" fill="currentColor">
                   <path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.4-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z" />
@@ -170,7 +170,7 @@ export default function HomePage() {
               height={1339}
               priority
               sizes="(min-width: 1152px) 1152px, 100vw"
-              className="gr-balance h-auto w-full"
+              className="h-auto w-full"
             />
           </div>
         </section>
@@ -180,8 +180,14 @@ export default function HomePage() {
             sous le héros. Le défilement ralentit au survol ; sans mouvement
             (réglage du système), la liste s'affiche à plat. */}
         <section className="border-y border-[var(--border)] bg-white/70" aria-label="Ce que fait Gramme">
-          <div className="relative mx-auto w-full max-w-6xl py-4">
-            <InfiniteSlider gap={40} speed={36} speedOnHover={10}>
+          <div
+            className="relative mx-auto w-full max-w-6xl py-4"
+            style={{
+              WebkitMaskImage: "linear-gradient(to right, transparent, #000 10%, #000 90%, transparent)",
+              maskImage: "linear-gradient(to right, transparent, #000 10%, #000 90%, transparent)",
+            }}
+          >
+            <InfiniteSlider gap={40} duree={55} vitesseSurvol={0.3}>
               {trustItems.map(({ label, icon: Icon }) => (
                 <p
                   key={label}
@@ -194,8 +200,6 @@ export default function HomePage() {
                 </p>
               ))}
             </InfiniteSlider>
-            <ProgressiveBlur direction="left" className="absolute inset-y-0 left-0 w-16 sm:w-28" />
-            <ProgressiveBlur direction="right" className="absolute inset-y-0 right-0 w-16 sm:w-28" />
           </div>
         </section>
 
@@ -256,6 +260,10 @@ export default function HomePage() {
             </Link>
           </p>
         </section>
+
+        {/* Les modules en mouvement (30/09/2026) : la visite montre le chemin,
+            cette section montre chaque écran en train de servir. */}
+        <VitrineModules />
 
         <NeDuTerrain />
 

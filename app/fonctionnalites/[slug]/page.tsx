@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { preload } from "react-dom";
+import { BoucleVideo } from "@/components/BoucleVideo";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
@@ -52,6 +54,10 @@ export default async function FeaturePage({ params }: { params: Promise<Params> 
   const feature = getFeature(slug);
   if (!feature) notFound();
 
+  // L'affiche de la boucle est l'élément le plus grand du haut de page : on la
+  // demande dès l'en-tête HTML, comme le faisait `priority` pour l'ancienne image.
+  if (feature.video) preload(feature.video.poster, { as: "image", fetchPriority: "high" });
+
   const siblings = features.filter((item) => item.slug !== feature.slug).slice(0, 3);
 
   return (
@@ -88,6 +94,27 @@ export default async function FeaturePage({ params }: { params: Promise<Params> 
         <section className="mt-6 rounded-3xl border border-[#dcead2] bg-white/90 p-6 shadow-[0_20px_70px_rgba(58,92,39,0.08)] sm:p-8 md:p-12">
           <h1 className="text-3xl font-black leading-tight text-[#27421f] md:text-5xl">{feature.h1}</h1>
           <p className="mt-5 max-w-2xl text-base text-[#4d6952] md:text-lg">{feature.intro}</p>
+          {/* La boucle sous l'introduction, dans la même carte : elle se voit
+              sans défiler, et le texte (h1, intro, puces) reste dans le HTML. */}
+          {feature.video ? (
+            <BoucleVideo
+              video={feature.video}
+              label={`Aperçu animé du module : ${feature.name}`}
+              priority
+              className="mt-7 rounded-2xl"
+            />
+          ) : (
+            <figure className="relative mt-7 aspect-[16/10] w-full overflow-hidden rounded-2xl border border-[#dcead2] bg-[#f6fbf2] shadow-[0_20px_60px_rgba(34,60,23,0.16)]">
+              <Image
+                src={feature.image.src}
+                alt={feature.image.alt}
+                fill
+                priority
+                sizes="(max-width: 1024px) 94vw, 960px"
+                className="object-cover object-top"
+              />
+            </figure>
+          )}
           <ul className="mt-7 grid gap-2 sm:grid-cols-2">
             {feature.bullets.map((bullet) => (
               <li key={bullet} className="flex items-start gap-2 text-sm text-[#4d6952]">
@@ -97,17 +124,6 @@ export default async function FeaturePage({ params }: { params: Promise<Params> 
             ))}
           </ul>
         </section>
-
-        <figure className="relative mt-8 aspect-[16/10] w-full overflow-hidden rounded-3xl border border-[#dcead2] bg-[#f6fbf2] shadow-[0_20px_60px_rgba(34,60,23,0.16)] sm:aspect-[16/9]">
-          <Image
-            src={feature.image.src}
-            alt={feature.image.alt}
-            fill
-            priority
-            sizes="(max-width: 1024px) 94vw, 960px"
-            className="object-cover object-top"
-          />
-        </figure>
 
         <div className="mt-10 space-y-5 md:mt-14">
           {feature.sections.map((section) => (

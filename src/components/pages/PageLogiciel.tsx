@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
+import { preload } from "react-dom";
+import { BoucleVideo } from "@/components/BoucleVideo";
 import { Breadcrumbs } from "@/components/seo/Breadcrumbs";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { RelatedLinks } from "@/components/seo/RelatedLinks";
@@ -49,6 +51,9 @@ export function metadonneesLogiciel(p: PageLogiciel): Metadata {
 
 export function PageLogicielVue({ page }: { page: PageLogiciel }) {
   const modules = page.modules.map(getFeature).filter((f): f is NonNullable<typeof f> => Boolean(f));
+  const boucle = page.video ? getFeature(page.video) : undefined;
+  // L'affiche de la boucle remplace l'image `priority` : on la demande dès l'en-tête.
+  if (boucle?.video) preload(boucle.video.poster, { as: "image", fetchPriority: "high" });
 
   return (
     <>
@@ -108,16 +113,25 @@ export function PageLogicielVue({ page }: { page: PageLogiciel }) {
           </div>
         </section>
 
-        <figure className="relative mt-8 aspect-[16/10] w-full overflow-hidden rounded-3xl border border-[#dcead2] bg-[#f6fbf2] shadow-[0_20px_60px_rgba(34,60,23,0.16)] sm:aspect-[16/9]">
-          <Image
-            src={page.image.src}
-            alt={page.image.alt}
-            fill
+        {boucle?.video ? (
+          <BoucleVideo
+            video={boucle.video}
+            label={`Aperçu animé du module : ${boucle.name}`}
             priority
-            sizes="(max-width: 1024px) 94vw, 960px"
-            className="object-cover object-top"
+            className="mt-8 rounded-3xl"
           />
-        </figure>
+        ) : (
+          <figure className="relative mt-8 aspect-[16/10] w-full overflow-hidden rounded-3xl border border-[#dcead2] bg-[#f6fbf2] shadow-[0_20px_60px_rgba(34,60,23,0.16)] sm:aspect-[16/9]">
+            <Image
+              src={page.image.src}
+              alt={page.image.alt}
+              fill
+              priority
+              sizes="(max-width: 1024px) 94vw, 960px"
+              className="object-cover object-top"
+            />
+          </figure>
+        )}
 
         <section className="mt-12 md:mt-16" aria-labelledby="problemes-title">
           <h2 id="problemes-title" className="gr-titre text-2xl md:text-3xl">

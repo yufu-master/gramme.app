@@ -19,6 +19,13 @@ export type FeatureIcon =
   | "store"
   | "euro";
 
+export type BoucleVideoSource = { src: string; poster: string };
+
+/** Les trois fichiers d'une boucle vivent sous `public/videos/boucles/<slug>.*`. */
+function boucle(slug: string): BoucleVideoSource {
+  return { src: `/videos/boucles/${slug}`, poster: `/videos/boucles/${slug}.jpg` };
+}
+
 export type Feature = {
   slug: string;
   /** Libellé court : accordéon, hub, navigation */
@@ -29,6 +36,12 @@ export type Feature = {
   /** 3 à 5 points, dépliés dans l'accordéon */
   bullets: string[];
   image: { src: string; alt: string };
+  /**
+   * La boucle vidéo du module (7 s, muette, sans raccord) : `src` est le chemin
+   * SANS extension (`.webm` et `.mp4` existent côte à côte), `poster` la
+   * première image. Facultative : sans elle, on retombe sur `image`.
+   */
+  video?: BoucleVideoSource;
   /** Page dédiée */
   h1: string;
   metaTitle: string;
@@ -61,6 +74,7 @@ export function nombreEnLettres(n: number): string {
 export const features: Feature[] = [
   {
     slug: "import-recettes-photo",
+    video: boucle("import-recettes-photo"),
     name: "Import de recettes en photo",
     icon: "camera",
     summary:
@@ -123,6 +137,7 @@ export const features: Feature[] = [
   },
   {
     slug: "fiches-techniques",
+    video: boucle("fiches-techniques"),
     name: "Fiches techniques & coût de revient",
     icon: "book",
     summary:
@@ -177,6 +192,7 @@ export const features: Feature[] = [
   },
   {
     slug: "allergenes-etiquetage",
+    video: boucle("allergenes-etiquetage"),
     name: "Allergènes & étiquetage",
     icon: "tag",
     summary:
@@ -245,6 +261,7 @@ export const features: Feature[] = [
   },
   {
     slug: "hygiene-haccp",
+    video: boucle("hygiene-haccp"),
     name: "Hygiène & HACCP",
     icon: "thermo",
     summary:
@@ -323,6 +340,7 @@ export const features: Feature[] = [
   },
   {
     slug: "scan-factures-mercuriale",
+    video: boucle("scan-factures-mercuriale"),
     name: "Scan de factures & mercuriale",
     icon: "scan",
     summary:
@@ -377,6 +395,7 @@ export const features: Feature[] = [
   },
   {
     slug: "planning-production",
+    video: boucle("planning-production"),
     name: "Planning de production",
     icon: "layers",
     summary:
@@ -430,6 +449,7 @@ export const features: Feature[] = [
   },
   {
     slug: "equilibrage-recette",
+    video: boucle("equilibrage-recette"),
     name: "Équilibrage de recette",
     icon: "flask",
     summary:
@@ -493,6 +513,7 @@ export const features: Feature[] = [
   },
   {
     slug: "previsionnel-production",
+    video: boucle("previsionnel-production"),
     name: "Prévisionnel de production",
     icon: "calendar",
     summary:
@@ -556,6 +577,7 @@ export const features: Feature[] = [
   },
   {
     slug: "vitrine-ventes-produits",
+    video: boucle("vitrine-ventes-produits"),
     name: "Vitrine & résultat par produit",
     icon: "store",
     summary:
@@ -615,6 +637,7 @@ export const features: Feature[] = [
   },
   {
     slug: "comptabilite-charges",
+    video: boucle("comptabilite-charges"),
     name: "Comptabilité & charges",
     icon: "euro",
     summary:
@@ -670,6 +693,7 @@ export const features: Feature[] = [
   },
   {
     slug: "gestion-stock",
+    video: boucle("gestion-stock"),
     name: "Stock & inventaire",
     icon: "box",
     summary:
@@ -723,6 +747,7 @@ export const features: Feature[] = [
   },
   {
     slug: "fournisseurs",
+    video: boucle("fournisseurs"),
     name: "Fournisseurs",
     icon: "users",
     summary:
@@ -780,6 +805,7 @@ export const features: Feature[] = [
   },
   {
     slug: "marges-et-decisions",
+    video: boucle("marges-et-decisions"),
     name: "Marges & décisions",
     icon: "spark",
     summary:

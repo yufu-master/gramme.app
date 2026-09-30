@@ -12,7 +12,7 @@ export function ScrollProgress({ className }: { className?: string }) {
   return (
     <motion.div
       aria-hidden
-      className={`fixed inset-x-0 top-0 z-[60] h-[3px] origin-left bg-[#7e8f50] ${className ?? ""}`}
+      className={`fixed inset-x-0 top-0 z-[60] h-[3px] transform-gpu origin-left bg-[#7e8f50] ${className ?? ""}`}
       style={{ scaleX }}
     />
   );
