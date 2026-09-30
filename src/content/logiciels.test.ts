@@ -1,5 +1,4 @@
 import { describe, expect, it } from "vitest";
-import { getFeature } from "./features";
 import { pagesLogiciel } from "./logiciels";
 import { siteRoutes } from "@/lib/routes";
 
@@ -86,13 +85,6 @@ describe("pages « quel logiciel pour… »", () => {
     for (const p of pagesLogiciel) {
       expect(p.image.src, p.path).toMatch(/^\/images\/app\//);
       expect(p.image.alt.length, p.path).toBeGreaterThan(20);
-    }
-  });
-
-  it("ne désigne une boucle vidéo que si le module existe et en a une", () => {
-    for (const p of pagesLogiciel) {
-      if (!p.video) continue;
-      expect(getFeature(p.video)?.video, `${p.path} : ${p.video}`).toBeDefined();
     }
   });
 

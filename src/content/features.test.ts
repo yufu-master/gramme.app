@@ -1,5 +1,3 @@
-import { existsSync } from "node:fs";
-import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { features, nombreEnLettres, nombreModules } from "./features";
 
@@ -29,16 +27,6 @@ describe("les modules", () => {
     for (const f of features) {
       expect(f.image.src, f.slug).toMatch(/^\/images\//);
       expect(f.image.alt.length, f.slug).toBeGreaterThan(20);
-    }
-  });
-
-  it("a une boucle vidéo complète (webm, mp4, affiche) pour chaque module", () => {
-    for (const f of features) {
-      expect(f.video, f.slug).toBeDefined();
-      for (const fichier of [`${f.video?.src}.webm`, `${f.video?.src}.mp4`, f.video?.poster ?? ""]) {
-        expect(fichier, f.slug).toMatch(/^\/videos\/boucles\//);
-        expect(existsSync(join(process.cwd(), "public", fichier)), fichier).toBe(true);
-      }
     }
   });
 

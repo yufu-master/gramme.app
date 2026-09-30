@@ -3,7 +3,6 @@
 import Image from "next/image";
 import { NeDuTerrain } from "@/components/landing/NeDuTerrain";
 import { VisiteInteractive } from "@/components/landing/VisiteInteractive";
-import { VitrineModules } from "@/components/landing/VitrineModules";
 import { FilmGramme } from "@/components/landing/FilmGramme";
 import { SurInstagram } from "@/components/landing/SurInstagram";
 import Link from "next/link";
@@ -260,10 +259,6 @@ export default function HomePage() {
             </Link>
           </p>
         </section>
-
-        {/* Les modules en mouvement (30/09/2026) : la visite montre le chemin,
-            cette section montre chaque écran en train de servir. */}
-        <VitrineModules />
 
         <NeDuTerrain />
 

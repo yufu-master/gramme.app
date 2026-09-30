@@ -63,13 +63,6 @@ export type PageLogiciel = {
    * un partage.
    */
   image: { src: string; alt: string };
-  /**
-   * Slug d'un module de `features` dont la boucle vidéo remplace la capture en
-   * tête de page. À ne renseigner que si la boucle montre LE MÊME écran que
-   * `image` (même module, même recette) : sinon la page dirait une chose et
-   * montrerait l'autre. `image` reste, elle sert à l'image sociale.
-   */
-  video?: string;
   /** Ce qui casse chez le lecteur avant qu'il ne cherche un outil. */
   problemes: { titre: string; texte: string }[];
   /** Ce que l'outil fait, précisément, pour chacun de ces problèmes. */
@@ -136,7 +129,6 @@ export const pagesLogiciel: PageLogiciel[] = [
       "Une chocolaterie fabrique peu de masse et beaucoup de références. Une plaque de soixante-dix bonbons part en trois recettes de ganache, deux couvertures et un praliné maison, et le prix de la boîte de seize se décide au ressenti. Le beurre de cacao a doublé en deux ans, la boîte et le ruban coûtent parfois plus que ce qu'ils contiennent, et personne n'a le temps de refaire le calcul par pièce.",
       "Gramme descend jusqu'à la pièce. Chaque sous-recette garde son rendement réel, chaque emballage entre dans le coût, et l'étiquette de la boîte sort avec la composition et les allergènes tels qu'ils remontent des matières.",
     ],
-    video: "equilibrage-recette",
     image: {
       src: "/images/app/equilibrage-ganache.png",
       alt: "Équilibrage d'une ganache dans le logiciel de chocolaterie Gramme : eau, sucres, matières grasses, activité de l'eau et conservation estimée",
@@ -567,7 +559,6 @@ export const pagesLogiciel: PageLogiciel[] = [
       "Une fiche technique sert trois usages qui ne se parlent jamais : produire, chiffrer, et déclarer. Sur le papier, elle sert au premier. Dans un tableur, elle sert au deuxième. Et le troisième, les allergènes et les valeurs nutritionnelles, se refait à la main chaque fois qu'on en a besoin.",
       "Ici la fiche est unique et porte les trois. Elle se remplit en photographiant ce que vous avez déjà.",
     ],
-    video: "fiches-techniques",
     image: {
       src: "/images/app/recette-fiche.png",
       alt: "Fiche technique de pâtisserie avec ses étapes et son coût dans le logiciel Gramme",
@@ -666,7 +657,6 @@ export const pagesLogiciel: PageLogiciel[] = [
       "Le cahier de températures a deux défauts. Il se remplit rarement à l'heure dite, et il se remplit parfois de mémoire, en fin de service, pour la semaine entière. Le jour d'un contrôle, ce qu'il montre n'est pas ce qui s'est passé.",
       "Un registre qui vaut quelque chose est un registre qu'on ne peut pas réécrire. C'est le point de départ de celui-ci.",
     ],
-    video: "hygiene-haccp",
     image: {
       src: "/images/app/haccp-temperatures.png",
       alt: "Relevés de température et courbes par enceinte dans l'application Gramme",
@@ -765,7 +755,6 @@ export const pagesLogiciel: PageLogiciel[] = [
       "La hausse d'un prix ne se remarque pas sur une facture. Elle se remarque trois mois plus tard, quand la marge a fondu et qu'on ne sait plus quelle ligne l'a mangée. Entre les deux, il aurait fallu ressaisir chaque tarif, à chaque livraison, dans un tableur.",
       "Photographier la facture suffit. Le reste se propage tout seul jusqu'aux recettes.",
     ],
-    video: "scan-factures-mercuriale",
     image: {
       src: "/images/app/factures.png",
       alt: "Factures fournisseurs scannées et prix mis à jour dans le logiciel Gramme",
