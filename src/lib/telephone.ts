@@ -1,5 +1,6 @@
 /**
- * Le numéro de téléphone d'un prospect, obligatoire depuis le 23/10/2026.
+ * Le numéro de téléphone d'un prospect, obligatoire depuis le 23/10/2026 pour
+ * les demandes qu'on veut rappeler vite (voir `telephoneObligatoire`).
  *
  * Un artisan qui remplit le formulaire ne relit pas toujours ses courriels, et
  * nos réponses tombent parfois dans les indésirables : sans numéro, la demande
@@ -32,4 +33,17 @@ export function normaliserTelephone(brut: string): string | null {
 
   if (!/^0[1-9]\d{8}$/.test(chiffres)) return null;
   return chiffres.replace(/(\d{2})(?=\d)/g, "$1 ");
+}
+
+/**
+ * Les sujets où le numéro reste FACULTATIF : une question de support ou une
+ * remarque se traite par courriel, et un numéro forcé y fait fuir. Tout le
+ * reste (démo, tarifs, candidatures Gramme Chef, un sujet ajouté demain) le
+ * rend obligatoire : c'est là qu'un prospect qui ne lit pas ses courriels se
+ * perd. Décision de Clermont du 23/10/2026, à mesurer sur deux semaines.
+ */
+export const SUJETS_TELEPHONE_FACULTATIF = ["Support technique", "Autre"] as const;
+
+export function telephoneObligatoire(sujet: string): boolean {
+  return !(SUJETS_TELEPHONE_FACULTATIF as readonly string[]).includes(String(sujet ?? "").trim());
 }

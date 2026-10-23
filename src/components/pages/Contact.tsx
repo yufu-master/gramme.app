@@ -5,7 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { FormEvent, useEffect, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 import { vueCourante } from "@/lib/mesure/collecteur";
-import { normaliserTelephone } from "@/lib/telephone";
+import { normaliserTelephone, telephoneObligatoire } from "@/lib/telephone";
 
 type SubjectOption = "Demande de démo" | "Question sur les tarifs" | "Support technique" | "Autre";
 type StructureStatus = "en_cours_de_creation" | "cree" | "plusieurs_structures";
@@ -60,7 +60,8 @@ export default function ContactPageContent() {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
-    if (!normaliserTelephone(telephone)) {
+    const numeroRequis = telephoneObligatoire(subject);
+    if ((numeroRequis || telephone.trim()) && !normaliserTelephone(telephone)) {
       setToast({
         type: "error",
         message: "Merci d’indiquer un numéro de téléphone complet, par exemple 06 12 34 56 78.",
@@ -106,7 +107,7 @@ export default function ContactPageContent() {
         return;
       }
 
-      trackEvent("contact_submit", { subject });
+      trackEvent("contact_submit", { subject, telephone: telephone.trim() ? "oui" : "non" });
       router.push("/merci");
     } catch {
       setToast({ type: "error", message: "Une erreur est survenue. Merci de réessayer." });
@@ -177,9 +178,17 @@ export default function ContactPageContent() {
             </label>
 
             <label className="block">
-              <span className="mb-2 block text-sm font-semibold text-[#355329]">Téléphone *</span>
+              <span className="mb-2 block text-sm font-semibold text-[#355329]">
+                {telephoneObligatoire(subject) ? (
+                  "Téléphone *"
+                ) : (
+                  <>
+                    Téléphone <span className="font-normal text-[var(--muted-foreground)]">(facultatif)</span>
+                  </>
+                )}
+              </span>
               <input
-                required
+                required={telephoneObligatoire(subject)}
                 type="tel"
                 inputMode="tel"
                 value={telephone}

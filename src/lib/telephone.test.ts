@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { normaliserTelephone } from "./telephone";
+import { normaliserTelephone, telephoneObligatoire } from "./telephone";
 
 describe("numéro de téléphone du formulaire de contact", () => {
   it("accepte les écritures françaises courantes et les remet en forme", () => {
@@ -24,5 +24,21 @@ describe("numéro de téléphone du formulaire de contact", () => {
     for (const faux of ["", "   ", "06 12 34", "6123456789", "0012", "+33 6 12", "06 12 34 56 78 99", "appelez-moi", "0612a45678", "+1234567890123456"]) {
       expect(normaliserTelephone(faux), faux).toBeNull();
     }
+  });
+});
+
+describe("quand le numéro est obligatoire", () => {
+  it("obligatoire pour la démo, les tarifs et Gramme Chef", () => {
+    expect(telephoneObligatoire("Demande de démo")).toBe(true);
+    expect(telephoneObligatoire("Question sur les tarifs")).toBe(true);
+    expect(telephoneObligatoire("Gramme Chef : candidature bêta-testeur")).toBe(true);
+    expect(telephoneObligatoire("Gramme Chef : liste d'attente")).toBe(true);
+  });
+  it("facultatif pour le support et « Autre »", () => {
+    expect(telephoneObligatoire("Support technique")).toBe(false);
+    expect(telephoneObligatoire("Autre")).toBe(false);
+  });
+  it("obligatoire pour un sujet inconnu (un sujet ajouté demain ne doit pas l'oublier)", () => {
+    expect(telephoneObligatoire("Partenariat")).toBe(true);
   });
 });
