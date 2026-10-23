@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { normaliserTelephone } from "@/lib/telephone";
 
 const STRUCTURE_STATUSES = ["en_cours_de_creation", "cree", "plusieurs_structures"] as const;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -16,6 +17,7 @@ const SUPABASE_ANON_KEY =
 type Payload = {
   fullName?: string;
   email?: string;
+  telephone?: string;
   subject?: string;
   structureName?: string;
   structureStatus?: string;
@@ -35,6 +37,7 @@ export async function POST(request: Request) {
 
     const fullName = String(body.fullName || "").trim();
     const email = String(body.email || "").trim().toLowerCase();
+    const telephone = normaliserTelephone(String(body.telephone || ""));
     const subject = String(body.subject || "").trim();
     const structureName = String(body.structureName || "").trim();
     const structureStatus = String(body.structureStatus || "").trim();
@@ -49,6 +52,10 @@ export async function POST(request: Request) {
     }
     if (!email || !EMAIL_RE.test(email)) {
       return NextResponse.json({ error: "Email invalide" }, { status: 400 });
+    }
+    // Obligatoire : sans numéro, un prospect qui ne lit pas ses courriels est perdu.
+    if (!telephone) {
+      return NextResponse.json({ error: "Numéro de téléphone requis (par exemple 06 12 34 56 78)" }, { status: 400 });
     }
     if (!subject) {
       return NextResponse.json({ error: "Sujet requis" }, { status: 400 });
@@ -78,10 +85,13 @@ export async function POST(request: Request) {
       body: JSON.stringify({
         fullName,
         email,
+        telephone,
         subject,
         structureName,
         structureStatus,
-        message,
+        // Aussi dans le message : la fiche CRM le montre ainsi même tant que la
+        // fonction website-lead en production ne lit pas encore le champ.
+        message: [`Téléphone : ${telephone}`, message].filter(Boolean).join("\n"),
         vueId,
       }),
     });
@@ -112,6 +122,7 @@ export async function POST(request: Request) {
           email,
           subject: `[Prospect Gramme] ${subject}`,
           message: [
+            `Téléphone : ${telephone}`,
             `Structure : ${structureName}`,
             `État : ${structureStatus}`,
             message ? `Message : ${message}` : null,
