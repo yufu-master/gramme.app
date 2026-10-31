@@ -60,8 +60,8 @@ export function PageArrivee({ chemin }: { chemin: string }) {
           suit. Vous voyez ce qu&apos;elle vous rapporte, au gramme près.
         </p>
         <Image
-          src="/images/app/recette-fiche-telephone.png"
-          alt="La fiche d'une baguette dans Gramme : prix de vente, coût matière et marge"
+          src="/images/app/croissant-couts-telephone.png"
+          alt="Le détail d'un croissant dans Gramme : matières, main d'œuvre, emballage, prix de vente et marge"
           width={1170}
           height={2532}
           sizes="(max-width: 448px) 70vw, 320px"
