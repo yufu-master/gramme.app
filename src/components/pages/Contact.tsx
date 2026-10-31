@@ -5,6 +5,7 @@ import { useRouter, useSearchParams } from "next/navigation";
 import { FormEvent, useEffect, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 import { vueCourante } from "@/lib/mesure/collecteur";
+import { normaliserTelephone, telephoneObligatoire } from "@/lib/telephone";
 
 type SubjectOption = "Demande de démo" | "Question sur les tarifs" | "Support technique" | "Autre";
 type StructureStatus = "en_cours_de_creation" | "cree" | "plusieurs_structures";
@@ -31,6 +32,7 @@ export default function ContactPageContent() {
   const searchParams = useSearchParams();
   const [fullName, setFullName] = useState("");
   const [email, setEmail] = useState("");
+  const [telephone, setTelephone] = useState("");
   const [subject, setSubject] = useState<SubjectOption>("Demande de démo");
   const [structureName, setStructureName] = useState("");
   const [structureStatus, setStructureStatus] = useState<StructureStatus | "">("");
@@ -58,6 +60,15 @@ export default function ContactPageContent() {
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
+    const numeroRequis = telephoneObligatoire(subject);
+    if ((numeroRequis || telephone.trim()) && !normaliserTelephone(telephone)) {
+      setToast({
+        type: "error",
+        message: "Merci d’indiquer un numéro de téléphone complet, par exemple 06 12 34 56 78.",
+      });
+      return;
+    }
+
     if (!structureStatus) {
       setToast({ type: "error", message: "Merci d’indiquer où en est votre structure." });
       return;
@@ -73,6 +84,7 @@ export default function ContactPageContent() {
         body: JSON.stringify({
           fullName: fullName.trim(),
           email: email.trim(),
+          telephone: telephone.trim(),
           subject,
           structureName: structureName.trim(),
           structureStatus,
@@ -95,7 +107,7 @@ export default function ContactPageContent() {
         return;
       }
 
-      trackEvent("contact_submit", { subject });
+      trackEvent("contact_submit", { subject, telephone: telephone.trim() ? "oui" : "non" });
       router.push("/merci");
     } catch {
       setToast({ type: "error", message: "Une erreur est survenue. Merci de réessayer." });
@@ -163,6 +175,31 @@ export default function ContactPageContent() {
                 placeholder="vous@boulangerie.fr"
                 autoComplete="email"
               />
+            </label>
+
+            <label className="block">
+              <span className="mb-2 block text-sm font-semibold text-[#355329]">
+                {telephoneObligatoire(subject) ? (
+                  "Téléphone *"
+                ) : (
+                  <>
+                    Téléphone <span className="font-normal text-[var(--muted-foreground)]">(facultatif)</span>
+                  </>
+                )}
+              </span>
+              <input
+                required={telephoneObligatoire(subject)}
+                type="tel"
+                inputMode="tel"
+                value={telephone}
+                onChange={(event) => setTelephone(event.target.value)}
+                className="w-full rounded-xl border border-[#d8e6cf] bg-white px-4 py-3 text-sm outline-none ring-[#a8cf8c] transition focus:ring-2"
+                placeholder="06 12 34 56 78"
+                autoComplete="tel"
+              />
+              <span className="mt-1 block text-xs text-[var(--muted-foreground)]">
+                Pour vous rappeler rapidement si notre réponse se perd dans votre boîte mail.
+              </span>
             </label>
 
             <label className="block">

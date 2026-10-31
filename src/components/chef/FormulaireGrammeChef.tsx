@@ -3,6 +3,7 @@
 import { FormEvent, useState } from "react";
 import { trackEvent } from "@/lib/analytics";
 import { vueCourante } from "@/lib/mesure/collecteur";
+import { normaliserTelephone } from "@/lib/telephone";
 
 /**
  * Liste d'attente et candidature bêta de Gramme Chef.
@@ -48,6 +49,10 @@ export function FormulaireGrammeChef() {
       setErreur("Merci d'indiquer votre nom, votre e-mail et votre ville.");
       return;
     }
+    if (!normaliserTelephone(telephone)) {
+      setErreur("Merci d'indiquer un numéro de téléphone complet, par exemple 06 12 34 56 78.");
+      return;
+    }
     if (!statut) {
       setErreur("Merci d'indiquer votre statut.");
       return;
@@ -65,13 +70,13 @@ export function FormulaireGrammeChef() {
         body: JSON.stringify({
           fullName: fullName.trim(),
           email: email.trim(),
+          telephone: telephone.trim(),
           subject: choix === "beta" ? "Gramme Chef : candidature bêta-testeur" : "Gramme Chef : liste d'attente",
           structureName: `Chef à domicile · ${fullName.trim()} · ${ville.trim()}`,
           structureStatus: statut === "creation" ? "en_cours_de_creation" : "cree",
           message: [
             `Demande : ${choix === "beta" ? "bêta-testeur (accès avant janvier, gratuit pendant la période de test)" : "liste d'attente (lancement de janvier 2027)"}`,
             `Ville : ${ville.trim()}`,
-            telephone.trim() ? `Téléphone : ${telephone.trim()}` : null,
             `Statut : ${libelleStatut}`,
             siren.trim() ? `SIREN : ${siren.trim()}` : null,
             volume ? `Volume : ${volume}` : null,
@@ -159,8 +164,8 @@ export function FormulaireGrammeChef() {
           <input className={champ} type="email" value={email} onChange={(e) => setEmail(e.target.value)} autoComplete="email" required />
         </label>
         <label className={etiquette}>
-          Téléphone (facultatif)
-          <input className={champ} type="tel" value={telephone} onChange={(e) => setTelephone(e.target.value)} autoComplete="tel" />
+          Téléphone
+          <input className={champ} type="tel" inputMode="tel" value={telephone} onChange={(e) => setTelephone(e.target.value)} autoComplete="tel" placeholder="06 12 34 56 78" required />
         </label>
         <label className={etiquette}>
           Ville

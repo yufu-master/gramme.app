@@ -1,4 +1,5 @@
 import { NextResponse } from "next/server";
+import { normaliserTelephone, telephoneObligatoire } from "@/lib/telephone";
 
 const STRUCTURE_STATUSES = ["en_cours_de_creation", "cree", "plusieurs_structures"] as const;
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -16,6 +17,7 @@ const SUPABASE_ANON_KEY =
 type Payload = {
   fullName?: string;
   email?: string;
+  telephone?: string;
   subject?: string;
   structureName?: string;
   structureStatus?: string;
@@ -24,7 +26,6 @@ type Payload = {
   vueId?: string;
   /** Demande de rappel des pages d'arrivée du papier : nom et téléphone seuls. */
   rappel?: boolean;
-  telephone?: string;
 };
 
 export async function POST(request: Request) {
@@ -38,6 +39,8 @@ export async function POST(request: Request) {
 
     const fullName = String(body.fullName || "").trim();
     const email = String(body.email || "").trim().toLowerCase();
+    const telephoneSaisi = String(body.telephone || "").trim();
+    const telephone = normaliserTelephone(telephoneSaisi);
     const subject = String(body.subject || "").trim();
     const structureName = String(body.structureName || "").trim();
     const structureStatus = String(body.structureStatus || "").trim();
@@ -50,14 +53,21 @@ export async function POST(request: Request) {
     if (!fullName) {
       return NextResponse.json({ error: "Nom complet requis" }, { status: 400 });
     }
-    const telephoneBrut = String(body.telephone || "").trim();
-    const telephone = /^\+?[\d\s.\-()]{6,25}$/.test(telephoneBrut) ? telephoneBrut : "";
     const rappel = body.rappel === true;
-    if (rappel && !telephone) {
-      return NextResponse.json({ error: "Téléphone invalide" }, { status: 400 });
-    }
     if (!rappel && (!email || !EMAIL_RE.test(email))) {
       return NextResponse.json({ error: "Email invalide" }, { status: 400 });
+    }
+    // Obligatoire selon le sujet : sans numéro, un prospect qui ne lit pas ses
+    // courriels est perdu. Facultatif ailleurs, mais un numéro donné doit servir.
+    if (!telephone && (telephoneSaisi || telephoneObligatoire(String(body.subject || "")))) {
+      return NextResponse.json(
+        {
+          error: telephoneSaisi
+            ? "Numéro de téléphone incomplet (par exemple 06 12 34 56 78)"
+            : "Numéro de téléphone requis (par exemple 06 12 34 56 78)",
+        },
+        { status: 400 },
+      );
     }
     if (!subject) {
       return NextResponse.json({ error: "Sujet requis" }, { status: 400 });
@@ -87,12 +97,14 @@ export async function POST(request: Request) {
       body: JSON.stringify({
         fullName,
         email,
+        telephone,
         subject,
         structureName,
         structureStatus,
-        message,
+        // Aussi dans le message : la fiche CRM le montre ainsi même tant que la
+        // fonction website-lead en production ne lit pas encore le champ.
+        message: [telephone ? `Téléphone : ${telephone}` : null, message].filter(Boolean).join("\n"),
         vueId,
-        telephone,
         rappel,
       }),
     });
