@@ -148,6 +148,8 @@ const DIMENSIONS_IMAGES: Record<string, { width: number; height: number }> = {
   // WhatsApp renonce à la vignette bien avant ce poids.
   "/images/og-gramme.jpg": { width: 1200, height: 630 },
   "/images/import-recettes-photo.jpg": { width: 2000, height: 1493 },
+  // La balance des pages d'arrivée du papier (flyer, cartes).
+  "/images/hero-balance-beurre.jpg": { width: 2400, height: 1339 },
 };
 
 export const faqItems = [

@@ -22,6 +22,9 @@ type Payload = {
   message?: string;
   website?: string;
   vueId?: string;
+  /** Demande de rappel des pages d'arrivée du papier : nom et téléphone seuls. */
+  rappel?: boolean;
+  telephone?: string;
 };
 
 export async function POST(request: Request) {
@@ -47,16 +50,22 @@ export async function POST(request: Request) {
     if (!fullName) {
       return NextResponse.json({ error: "Nom complet requis" }, { status: 400 });
     }
-    if (!email || !EMAIL_RE.test(email)) {
+    const telephoneBrut = String(body.telephone || "").trim();
+    const telephone = /^\+?[\d\s.\-()]{6,25}$/.test(telephoneBrut) ? telephoneBrut : "";
+    const rappel = body.rappel === true;
+    if (rappel && !telephone) {
+      return NextResponse.json({ error: "Téléphone invalide" }, { status: 400 });
+    }
+    if (!rappel && (!email || !EMAIL_RE.test(email))) {
       return NextResponse.json({ error: "Email invalide" }, { status: 400 });
     }
     if (!subject) {
       return NextResponse.json({ error: "Sujet requis" }, { status: 400 });
     }
-    if (!structureName) {
+    if (!rappel && !structureName) {
       return NextResponse.json({ error: "Nom de la structure requis" }, { status: 400 });
     }
-    if (!STRUCTURE_STATUSES.includes(structureStatus as (typeof STRUCTURE_STATUSES)[number])) {
+    if (!rappel && !STRUCTURE_STATUSES.includes(structureStatus as (typeof STRUCTURE_STATUSES)[number])) {
       return NextResponse.json({ error: "État de la structure requis" }, { status: 400 });
     }
 
@@ -83,6 +92,8 @@ export async function POST(request: Request) {
         structureStatus,
         message,
         vueId,
+        telephone,
+        rappel,
       }),
     });
 
@@ -112,7 +123,8 @@ export async function POST(request: Request) {
           email,
           subject: `[Prospect Gramme] ${subject}`,
           message: [
-            `Structure : ${structureName}`,
+            telephone ? `Téléphone : ${telephone}` : null,
+            `Structure : ${structureName || "non précisée"}`,
             `État : ${structureStatus}`,
             message ? `Message : ${message}` : null,
             leadJson.prospectId ? `Prospect ID : ${leadJson.prospectId}` : null,

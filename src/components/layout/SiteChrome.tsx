@@ -5,10 +5,22 @@ import { usePathname } from "next/navigation";
 import { MobileCtaBar } from "@/components/layout/MobileCtaBar";
 import { SiteFooter } from "@/components/layout/SiteFooter";
 import { SiteHeader } from "@/components/layout/SiteHeader";
+import { estPageArrivee } from "@/content/arrivee";
 
 export function SiteChrome({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
   const isHome = pathname === "/";
+  // Les pages d'arrivée du papier n'offrent qu'un chemin : ni menu, ni pied de
+  // page, ni barre d'actions. Liste dans content/arrivee.ts.
+  if (estPageArrivee(pathname)) {
+    return (
+      <MotionConfig reducedMotion="user">
+        <div className="flex min-h-screen flex-col bg-[radial-gradient(circle_at_top,_#f6fbf2,_#ffffff_45%)] text-[var(--foreground)]">
+          {children}
+        </div>
+      </MotionConfig>
+    );
+  }
 
   // Les animations du site suivent le réglage « réduire les animations » du
   // système : sans mouvement, seuls les fondus restent.
