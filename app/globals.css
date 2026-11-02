@@ -134,3 +134,21 @@ a {
     radial-gradient(ellipse 50% 60% at 90% 100%, rgba(126, 143, 80, 0.18), transparent 70%),
     linear-gradient(180deg, #c6cfb3 0%, #cdd4bc 55%, #d8dbcb 100%);
 }
+
+/* Pages des cartes de visite. L'apparition passe par le défilement, sans script :
+   sur un navigateur qui ne connaît pas view(), le contenu est simplement là. */
+.carte-curseur { accent-color: #264021; height: 2.5rem; cursor: grab; }
+.carte-action { transition: transform 120ms ease-out; }
+.carte-action:active { transform: scale(0.98); }
+@media (prefers-reduced-motion: no-preference) {
+  .carte-derive { animation: carte-derive 12s ease-out both; }
+  @keyframes carte-derive { from { transform: scale(1.08); } to { transform: scale(1); } }
+  @supports (animation-timeline: view()) {
+    .carte-apparait {
+      animation: carte-monte linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+    @keyframes carte-monte { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: none; } }
+  }
+}

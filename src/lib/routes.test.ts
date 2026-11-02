@@ -40,6 +40,8 @@ const RACINE_APP = path.resolve(__dirname, "..", "..", "app");
 const HORS_SITEMAP: Record<string, string> = {
   "/beurre": "page d'arrivée du flyer et des cartes : noindex, on n'y arrive que par un QR code",
   "/croissant": "seconde accroche du même test, même raison que /beurre",
+  "/jeremy": "où mène le QR de sa carte de visite : noindex, on n'y arrive qu'avec la carte en main",
+  "/mathieu": "même raison que /jeremy",
   "/merci": "page de remerciement après un formulaire : elle n'a de sens qu'au retour d'un envoi",
   "/mise-en-service/[token]": "lien privé et daté, propre à un atelier : l'indexer serait une fuite",
 };

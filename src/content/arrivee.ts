@@ -1,3 +1,5 @@
+import { cartesContact } from "./cartes-contact";
+
 /**
  * Les pages d'arrivée du papier (flyer, cartes de visite).
  *
@@ -41,7 +43,8 @@ export const pagesArrivee: PageArrivee[] = [
   },
 ];
 
-export const CHEMINS_ARRIVEE = pagesArrivee.map((p) => p.chemin);
+// Les pages des cartes de visite ont leur propre gabarit, mais le même dépouillement.
+export const CHEMINS_ARRIVEE = [...pagesArrivee, ...cartesContact].map((p) => p.chemin);
 
 export function estPageArrivee(chemin: string | null | undefined): boolean {
   return !!chemin && CHEMINS_ARRIVEE.includes(chemin.replace(/\/$/, "") || "/");
