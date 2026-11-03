@@ -8,9 +8,13 @@ export const metadata: Metadata = {
     absolute: "Logiciel gestion boulangerie & pâtisserie | Gramme",
   },
   description:
-    "Recettes, coût de revient, factures, mercuriale, production, stock, hygiène et étiquetage dans une seule application. Un prix qui bouge remonte à la marge.",
+    "Recettes, coût de revient, factures, stock, production, hygiène, étiquetage et équilibrage des ganaches et des glaces (Aw, extrait sec) dans une seule application.",
   keywords: [
     "logiciel gestion boulangerie",
+    "équilibrage de recette",
+    "équilibrage ganache",
+    "activité de l'eau ganache",
+    "logiciel chocolaterie",
     "logiciel pâtisserie",
     "logiciel gestion de production",
     "ERP boulangerie",

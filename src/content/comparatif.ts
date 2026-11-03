@@ -399,6 +399,20 @@ export const blocsComparatif: BlocComparatif[] = [
         },
       },
       {
+        critere: "Équilibrage technique (activité de l'eau, extrait sec, matière grasse, POD, PAC)",
+        pourquoi:
+          "Une ganache qui tranche, une glace qui sort dure : ces défauts se lisent dans les rapports entre l'eau, le sucre et la matière grasse, pas sur la fiche de coût.",
+        valeurs: {
+          gramme: {
+            v: "oui",
+            note: "Offre Pro, à activer dans les réglages. Calculé depuis la composition des matières, sur la même fiche que le coût : activité de l'eau par la formule de Grover, extrait sec, matières grasses dont le beurre de cacao, POD, PAC, courbe de congélation et dénominations des glaces",
+          },
+          otami: { v: "non", note: "Absent des pages publiques au relevé du 4 novembre 2026" },
+          chefstouch: { v: "oui", note: "Activité de l'eau et pouvoir anticryoscopique annoncés" },
+          melba: { v: "non", note: "Absent des pages publiques au relevé du 4 novembre 2026" },
+        },
+      },
+      {
         critere: "Connexion aux caisses et à la comptabilité",
         pourquoi: "Évite la double saisie entre le point de vente, la gestion et l'expert-comptable.",
         valeurs: {

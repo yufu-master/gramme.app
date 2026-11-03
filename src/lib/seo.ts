@@ -292,7 +292,7 @@ export const siteGraph = {
       operatingSystem: "Web, iOS, Android",
       inLanguage: "fr-FR",
       description:
-        "Logiciel de gestion et de production pour boulangeries, pâtisseries, chocolateries et glaceries : digitalisation des recettes, fiches techniques, calculatrice de coût de revient, scan de factures IA, mercuriale et alertes de prix, gestion de stocks, planning de production et pilotage des marges en temps réel.",
+        "Logiciel de gestion et de production pour boulangeries, pâtisseries, chocolateries et glaceries : digitalisation des recettes, fiches techniques, calculatrice de coût de revient, scan de factures IA, mercuriale et alertes de prix, gestion de stocks, planning de production, pilotage des marges en temps réel, et équilibrage technique des ganaches, glaces et sorbets (activité de l'eau, extrait sec, matières grasses, POD, PAC).",
       url: SITE_URL,
       // Une vraie capture, pas le rendu multi-appareils : son interface était
       // du faux texte, et c'était l'image que les moteurs associaient au produit.
@@ -307,6 +307,7 @@ export const siteGraph = {
         "Pilotage de la rentabilité et des marges en temps réel",
         "Registres d'hygiène : relevés de températures, plan de nettoyage, traçabilité des lots",
         "Étiquetage des allergènes et valeurs nutritionnelles",
+        "Équilibrage de recette : activité de l'eau (Aw), extrait sec, matières grasses, sucres, POD et PAC pour ganaches, bonbons, glaces et sorbets",
       ],
       offers: [
         {
